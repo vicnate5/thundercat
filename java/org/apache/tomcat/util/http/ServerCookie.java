@@ -27,7 +27,7 @@ import org.apache.thundercat.util.buf.MessageBytes;
  *  representation ( and thus the byte -&gt; char conversion can be delayed
  *  until we know the charset ).
  *
- *  Tomcat.core uses this recyclable object to represent cookies,
+ *  Thundercat.core uses this recyclable object to represent cookies,
  *  and the facade will convert it to the external representation.
  */
 public class ServerCookie implements Serializable {

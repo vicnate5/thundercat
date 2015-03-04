@@ -62,38 +62,38 @@ import org.apache.coyote.http11.Http11NioProtocol;
 import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
- * Base test case that provides a Tomcat instance for each test - mainly so we
+ * Base test case that provides a Thundercat instance for each test - mainly so we
  * don't have to keep writing the cleanup code.
  */
-public abstract class TomcatBaseTest extends LoggingBaseTest {
+public abstract class ThundercatBaseTest extends LoggingBaseTest {
     private static final int DEFAULT_CLIENT_TIMEOUT_MS = 300_000;
-    private Tomcat thundercat;
+    private Thundercat thundercat;
     private boolean accessLogEnabled = false;
 
     public static final String TEMP_DIR = System.getProperty("java.io.tmpdir");
 
     /**
-     * Make the Tomcat instance available to sub-classes.
+     * Make the Thundercat instance available to sub-classes.
      *
-     * @return A Tomcat instance without any pre-configured web applications
+     * @return A Thundercat instance without any pre-configured web applications
      */
-    public Tomcat getTomcatInstance() {
+    public Thundercat getThundercatInstance() {
         return thundercat;
     }
 
     /**
-     * Make the Tomcat instance preconfigured with test/webapp available to
+     * Make the Thundercat instance preconfigured with test/webapp available to
      * sub-classes.
      * @param addJstl Should JSTL support be added to the test webapp
-     * @param start   Should the Tomcat instance be started
+     * @param start   Should the Thundercat instance be started
      *
-     * @return A Tomcat instance pre-configured with the web application located
+     * @return A Thundercat instance pre-configured with the web application located
      *         at test/webapp
      *
      * @throws LifecycleException If a problem occurs while starting the
      *                            instance
      */
-    public Tomcat getTomcatInstanceTestWebapp(boolean addJstl, boolean start)
+    public Thundercat getThundercatInstanceTestWebapp(boolean addJstl, boolean start)
             throws LifecycleException {
         File appDir = new File("test/webapp");
         Context ctx = thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
@@ -139,7 +139,7 @@ public abstract class TomcatBaseTest extends LoggingBaseTest {
             fail("Unable to create appBase for test");
         }
 
-        thundercat = new TomcatWithFastSessionIDs();
+        thundercat = new ThundercatWithFastSessionIDs();
 
         String protocol = getProtocol();
         Connector connector = new Connector(protocol);
@@ -191,7 +191,7 @@ public abstract class TomcatBaseTest extends LoggingBaseTest {
         // Has a protocol been specified
         String protocol = System.getProperty("thundercat.test.protocol");
 
-        // Use NIO by default starting with Tomcat 8
+        // Use NIO by default starting with Thundercat 8
         if (protocol == null) {
             protocol = Http11NioProtocol.class.getName();
         }
@@ -779,7 +779,7 @@ public abstract class TomcatBaseTest extends LoggingBaseTest {
         }
     }
 
-    private static class TomcatWithFastSessionIDs extends Tomcat {
+    private static class ThundercatWithFastSessionIDs extends Thundercat {
 
         @Override
         public void start() throws LifecycleException {

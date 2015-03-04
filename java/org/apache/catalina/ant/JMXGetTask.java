@@ -27,7 +27,7 @@ import org.apache.tools.ant.BuildException;
 
 /**
  * Ant task that implements the JMX Get command (<code>/jmxproxy/?get</code>)
- * supported by the Tomcat manager application.
+ * supported by the Thundercat manager application.
  *
  * @author Peter Rossbach
  */

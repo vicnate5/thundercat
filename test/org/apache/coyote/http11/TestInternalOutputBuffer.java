@@ -21,19 +21,19 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.SimpleHttpClient;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 
-public class TestInternalOutputBuffer extends TomcatBaseTest {
+public class TestInternalOutputBuffer extends ThundercatBaseTest {
 
     @Test
     public void testSendAck() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "echo", new EchoBodyServlet());
+        Thundercat.addServlet(ctx, "echo", new EchoBodyServlet());
         ctx.addServletMapping("/echo", "echo");
 
         thundercat.start();

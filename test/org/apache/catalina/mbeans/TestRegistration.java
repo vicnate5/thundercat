@@ -40,16 +40,16 @@ import org.apache.catalina.Realm;
 import org.apache.catalina.core.StandardHost;
 import org.apache.catalina.realm.CombinedRealm;
 import org.apache.catalina.realm.NullRealm;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.modeler.Registry;
 
 /**
  * General tests around the process of registration and de-registration that
- * don't necessarily apply to one specific Tomcat class.
+ * don't necessarily apply to one specific Thundercat class.
  *
  */
-public class TestRegistration extends TomcatBaseTest {
+public class TestRegistration extends ThundercatBaseTest {
 
     private static final String contextName = "/foo";
 
@@ -68,30 +68,30 @@ public class TestRegistration extends TomcatBaseTest {
 
     private static String[] basicMBeanNames() {
         return new String[] {
-            "Tomcat:type=Engine",
-            "Tomcat:type=Realm,realmPath=/realm0",
-            "Tomcat:type=Mapper",
-            "Tomcat:type=MBeanFactory",
-            "Tomcat:type=NamingResources",
-            "Tomcat:type=Server",
-            "Tomcat:type=Service",
-            "Tomcat:type=StringCache",
-            "Tomcat:type=Valve,name=StandardEngineValve",
+            "Thundercat:type=Engine",
+            "Thundercat:type=Realm,realmPath=/realm0",
+            "Thundercat:type=Mapper",
+            "Thundercat:type=MBeanFactory",
+            "Thundercat:type=NamingResources",
+            "Thundercat:type=Server",
+            "Thundercat:type=Service",
+            "Thundercat:type=StringCache",
+            "Thundercat:type=Valve,name=StandardEngineValve",
         };
     }
 
     private static String[] hostMBeanNames(String host) {
         return new String[] {
-            "Tomcat:type=Host,host=" + host,
-            "Tomcat:type=Valve,host=" + host + ",name=ErrorReportValve",
-            "Tomcat:type=Valve,host=" + host + ",name=StandardHostValve",
+            "Thundercat:type=Host,host=" + host,
+            "Thundercat:type=Valve,host=" + host + ",name=ErrorReportValve",
+            "Thundercat:type=Valve,host=" + host + ",name=StandardHostValve",
         };
     }
 
     private String[] optionalMBeanNames(String host) {
         if (isAccessLogEnabled()) {
             return new String[] {
-                "Tomcat:type=Valve,host=" + host + ",name=AccessLogValve",
+                "Thundercat:type=Valve,host=" + host + ",name=AccessLogValve",
             };
         } else {
             return new String[] { };
@@ -100,7 +100,7 @@ public class TestRegistration extends TomcatBaseTest {
 
     private static String[] requestMBeanNames(String port, String type) {
         return new String[] {
-            "Tomcat:type=RequestProcessor,worker=" +
+            "Thundercat:type=RequestProcessor,worker=" +
                     ObjectName.quote("http-" + type + "-" + ADDRESS + "-" + port) +
                     ",name=HttpRequest1",
         };
@@ -108,56 +108,56 @@ public class TestRegistration extends TomcatBaseTest {
 
     private static String[] contextMBeanNames(String host, String context) {
         return new String[] {
-            "Tomcat:j2eeType=WebModule,name=//" + host + context +
+            "Thundercat:j2eeType=WebModule,name=//" + host + context +
                 ",J2EEApplication=none,J2EEServer=none",
-            "Tomcat:type=Loader,host=" + host + ",context=" + context,
-            "Tomcat:type=Manager,host=" + host + ",context=" + context,
-            "Tomcat:type=NamingResources,host=" + host + ",context=" + context,
-            "Tomcat:type=Valve,host=" + host + ",context=" + context +
+            "Thundercat:type=Loader,host=" + host + ",context=" + context,
+            "Thundercat:type=Manager,host=" + host + ",context=" + context,
+            "Thundercat:type=NamingResources,host=" + host + ",context=" + context,
+            "Thundercat:type=Valve,host=" + host + ",context=" + context +
                     ",name=NonLoginAuthenticator",
-            "Tomcat:type=Valve,host=" + host + ",context=" + context +
+            "Thundercat:type=Valve,host=" + host + ",context=" + context +
                     ",name=StandardContextValve",
-            "Tomcat:type=WebappClassLoader,host=" + host + ",context=" + context,
-            "Tomcat:type=WebResourceRoot,host=" + host + ",context=" + context,
-            "Tomcat:type=WebResourceRoot,host=" + host + ",context=" + context +
+            "Thundercat:type=WebappClassLoader,host=" + host + ",context=" + context,
+            "Thundercat:type=WebResourceRoot,host=" + host + ",context=" + context,
+            "Thundercat:type=WebResourceRoot,host=" + host + ",context=" + context +
                     ",name=Cache",
-            "Tomcat:type=Realm,realmPath=/realm0,host=" + host +
+            "Thundercat:type=Realm,realmPath=/realm0,host=" + host +
             ",context=" + context,
-            "Tomcat:type=Realm,realmPath=/realm0/realm0,host=" + host +
+            "Thundercat:type=Realm,realmPath=/realm0/realm0,host=" + host +
             ",context=" + context
         };
     }
 
     private static String[] connectorMBeanNames(String port, String type) {
         return new String[] {
-        "Tomcat:type=Connector,port=" + port + ",address="
+        "Thundercat:type=Connector,port=" + port + ",address="
                 + ObjectName.quote(ADDRESS),
-        "Tomcat:type=GlobalRequestProcessor,name="
+        "Thundercat:type=GlobalRequestProcessor,name="
                 + ObjectName.quote("http-" + type + "-" + ADDRESS + "-" + port),
-        "Tomcat:type=ProtocolHandler,port=" + port + ",address="
+        "Thundercat:type=ProtocolHandler,port=" + port + ",address="
                 + ObjectName.quote(ADDRESS),
-        "Tomcat:type=ThreadPool,name="
+        "Thundercat:type=ThreadPool,name="
                 + ObjectName.quote("http-" + type + "-" + ADDRESS + "-" + port),
         };
     }
 
     /*
-     * Test verifying that Tomcat correctly de-registers the MBeans it has
+     * Test verifying that Thundercat correctly de-registers the MBeans it has
      * registered.
      * @author Marc Guillemot
      */
     @Test
     public void testMBeanDeregistration() throws Exception {
         final MBeanServer mbeanServer = Registry.getRegistry(null, null).getMBeanServer();
-        // Verify there are no Catalina or Tomcat MBeans
+        // Verify there are no Catalina or Thundercat MBeans
         Set<ObjectName> onames = mbeanServer.queryNames(new ObjectName("Catalina:*"), null);
         log.info(MBeanDumper.dumpBeans(mbeanServer, onames));
         assertEquals("Unexpected: " + onames, 0, onames.size());
-        onames = mbeanServer.queryNames(new ObjectName("Tomcat:*"), null);
+        onames = mbeanServer.queryNames(new ObjectName("Thundercat:*"), null);
         log.info(MBeanDumper.dumpBeans(mbeanServer, onames));
         assertEquals("Unexpected: " + onames, 0, onames.size());
 
-        final Tomcat thundercat = getTomcatInstance();
+        final Thundercat thundercat = getThundercatInstance();
         final File contextDir = new File(getTemporaryDirectory(), "webappFoo");
         addDeleteOnTearDown(contextDir);
         if (!contextDir.mkdirs() && !contextDir.isDirectory()) {
@@ -179,8 +179,8 @@ public class TestRegistration extends TomcatBaseTest {
         log.info(MBeanDumper.dumpBeans(mbeanServer, onames));
         assertEquals("Found: " + onames, 0, onames.size());
 
-        // Verify there are the correct Tomcat MBeans
-        onames = mbeanServer.queryNames(new ObjectName("Tomcat:*"), null);
+        // Verify there are the correct Thundercat MBeans
+        onames = mbeanServer.queryNames(new ObjectName("Thundercat:*"), null);
         ArrayList<String> found = new ArrayList<>(onames.size());
         for (ObjectName on: onames) {
             found.add(on.toString());
@@ -207,18 +207,18 @@ public class TestRegistration extends TomcatBaseTest {
         // Did we find all expected MBeans?
         ArrayList<String> missing = new ArrayList<>(expected);
         missing.removeAll(found);
-        assertTrue("Missing Tomcat MBeans: " + missing, missing.isEmpty());
+        assertTrue("Missing Thundercat MBeans: " + missing, missing.isEmpty());
 
         // Did we find any unexpected MBeans?
         List<String> additional = found;
         additional.removeAll(expected);
-        assertTrue("Unexpected Tomcat MBeans: " + additional, additional.isEmpty());
+        assertTrue("Unexpected Thundercat MBeans: " + additional, additional.isEmpty());
 
         thundercat.stop();
 
-        // There should still be some Tomcat MBeans
-        onames = mbeanServer.queryNames(new ObjectName("Tomcat:*"), null);
-        assertTrue("No Tomcat MBeans", onames.size() > 0);
+        // There should still be some Thundercat MBeans
+        onames = mbeanServer.queryNames(new ObjectName("Thundercat:*"), null);
+        assertTrue("No Thundercat MBeans", onames.size() > 0);
 
         // add a new host
         StandardHost host = new StandardHost();
@@ -236,11 +236,11 @@ public class TestRegistration extends TomcatBaseTest {
         thundercat.stop();
         thundercat.destroy();
 
-        // There should be no Catalina MBeans and no Tomcat MBeans
+        // There should be no Catalina MBeans and no Thundercat MBeans
         onames = mbeanServer.queryNames(new ObjectName("Catalina:*"), null);
         log.info(MBeanDumper.dumpBeans(mbeanServer, onames));
         assertEquals("Remaining: " + onames, 0, onames.size());
-        onames = mbeanServer.queryNames(new ObjectName("Tomcat:*"), null);
+        onames = mbeanServer.queryNames(new ObjectName("Thundercat:*"), null);
         log.info(MBeanDumper.dumpBeans(mbeanServer, onames));
         assertEquals("Remaining: " + onames, 0, onames.size());
     }

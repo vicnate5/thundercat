@@ -68,7 +68,7 @@ import org.ietf.jgss.GSSName;
 /**
  * Simple implementation of <b>Realm</b> that reads an XML file to configure
  * the valid users, passwords, and roles.  The file format (and default file
- * location) are identical to those currently supported by Tomcat 3.X.
+ * location) are identical to those currently supported by Thundercat 3.X.
  *
  * @author Craig R. McClanahan
  */
@@ -108,7 +108,7 @@ public abstract class RealmBase extends LifecycleMBeanBase implements Realm {
      * MessageDigest class, or <code>null</code> if no digesting should
      * be performed.
      *
-     * @deprecated Unused. Will be removed in Tomcat 9.0.x onwards.
+     * @deprecated Unused. Will be removed in Thundercat 9.0.x onwards.
      */
     @Deprecated
     protected String digest = null;
@@ -116,7 +116,7 @@ public abstract class RealmBase extends LifecycleMBeanBase implements Realm {
     /**
      * The encoding charset for the digest.
      *
-     * @deprecated Unused. Will be removed in Tomcat 9.0.x onwards.
+     * @deprecated Unused. Will be removed in Thundercat 9.0.x onwards.
      */
     @Deprecated
     protected String digestEncoding = null;
@@ -128,7 +128,7 @@ public abstract class RealmBase extends LifecycleMBeanBase implements Realm {
     /**
      * The MessageDigest object for digesting user credentials (passwords).
      *
-     * @deprecated Unused. Will be removed in Tomcat 9.0.x onwards.
+     * @deprecated Unused. Will be removed in Thundercat 9.0.x onwards.
      */
     @Deprecated
     protected volatile MessageDigest md = null;
@@ -137,7 +137,7 @@ public abstract class RealmBase extends LifecycleMBeanBase implements Realm {
     /**
      * MD5 message digest provider.
      *
-     * @deprecated Unused. Will be removed in Tomcat 9.0.x onwards.
+     * @deprecated Unused. Will be removed in Thundercat 9.0.x onwards.
      */
     @Deprecated
     protected static volatile MessageDigest md5Helper;
@@ -248,7 +248,7 @@ public abstract class RealmBase extends LifecycleMBeanBase implements Realm {
      * @return The currently configured algorithm used to digest stored
      *         credentials
      *
-     * @deprecated  This will be removed in Tomcat 9.0.x as it has been replaced
+     * @deprecated  This will be removed in Thundercat 9.0.x as it has been replaced
      *              by the CredentialHandler
      */
     @Deprecated
@@ -266,7 +266,7 @@ public abstract class RealmBase extends LifecycleMBeanBase implements Realm {
      *
      * @param digest The new digest algorithm
      *
-     * @deprecated  This will be removed in Tomcat 9.0.x as it has been replaced
+     * @deprecated  This will be removed in Thundercat 9.0.x as it has been replaced
      *              by the CredentialHandler
      */
     @Deprecated
@@ -294,7 +294,7 @@ public abstract class RealmBase extends LifecycleMBeanBase implements Realm {
      *
      * @return The charset (may be null) for platform default
      *
-     * @deprecated  This will be removed in Tomcat 9.0.x as it has been replaced
+     * @deprecated  This will be removed in Thundercat 9.0.x as it has been replaced
      *              by the CredentialHandler
      */
     @Deprecated
@@ -311,7 +311,7 @@ public abstract class RealmBase extends LifecycleMBeanBase implements Realm {
      *
      * @param charset The charset (null for platform default)
      *
-     * @deprecated  This will be removed in Tomcat 9.0.x as it has been replaced
+     * @deprecated  This will be removed in Thundercat 9.0.x as it has been replaced
      *              by the CredentialHandler
      */
     @Deprecated
@@ -332,7 +332,7 @@ public abstract class RealmBase extends LifecycleMBeanBase implements Realm {
 
 
     /**
-     * @deprecated  This will be removed in Tomcat 9.0.x as it has been replaced
+     * @deprecated  This will be removed in Thundercat 9.0.x as it has been replaced
      *              by the CredentialHandler
      */
     @Deprecated
@@ -585,7 +585,7 @@ public abstract class RealmBase extends LifecycleMBeanBase implements Realm {
 
 
     /**
-     * @deprecated Unused. Will be removed in Tomcat 9.0.x onwards.
+     * @deprecated Unused. Will be removed in Thundercat 9.0.x onwards.
      */
     @Deprecated
     protected boolean compareCredentials(String userCredentials,

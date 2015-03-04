@@ -31,16 +31,16 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.core.JreMemoryLeakPreventionListener;
 import org.apache.catalina.core.StandardHost;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestWebappClassLoaderThreadLocalMemoryLeak extends TomcatBaseTest {
+public class TestWebappClassLoaderThreadLocalMemoryLeak extends ThundercatBaseTest {
 
     @Test
     public void testThreadLocalLeak1() throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         // Need to make sure we see a leak for the right reasons
         thundercat.getServer().addLifecycleListener(
                 new JreMemoryLeakPreventionListener());
@@ -48,7 +48,7 @@ public class TestWebappClassLoaderThreadLocalMemoryLeak extends TomcatBaseTest {
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "leakServlet1",
+        Thundercat.addServlet(ctx, "leakServlet1",
                 "org.apache.thundercat.unittest.TesterLeakingServlet1");
         ctx.addServletMapping("/leak1", "leakServlet1");
 
@@ -94,7 +94,7 @@ public class TestWebappClassLoaderThreadLocalMemoryLeak extends TomcatBaseTest {
     @Test
     public void testThreadLocalLeak2() throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         // Need to make sure we see a leak for the right reasons
         thundercat.getServer().addLifecycleListener(
                 new JreMemoryLeakPreventionListener());
@@ -102,7 +102,7 @@ public class TestWebappClassLoaderThreadLocalMemoryLeak extends TomcatBaseTest {
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "leakServlet2",
+        Thundercat.addServlet(ctx, "leakServlet2",
                 "org.apache.thundercat.unittest.TesterLeakingServlet2");
         ctx.addServletMapping("/leak2", "leakServlet2");
 

@@ -44,12 +44,12 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.SimpleHttpClient;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
 
-public class TestSwallowAbortedUploads extends TomcatBaseTest {
+public class TestSwallowAbortedUploads extends ThundercatBaseTest {
 
     private static Log log = LogFactory.getLog(TestSwallowAbortedUploads.class);
 
@@ -238,12 +238,12 @@ public class TestSwallowAbortedUploads extends TomcatBaseTest {
         private synchronized void init(boolean limited, boolean swallow)
                 throws Exception {
 
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
             context = thundercat.addContext("", TEMP_DIR);
             Wrapper w;
-            w = Tomcat.addServlet(context, servletName,
+            w = Thundercat.addServlet(context, servletName,
                                   new AbortedUploadServlet());
-            // Tomcat.addServlet does not respect annotations, so we have
+            // Thundercat.addServlet does not respect annotations, so we have
             // to set our own MultipartConfigElement.
             // Choose upload file size limit.
             if (limited) {
@@ -354,11 +354,11 @@ public class TestSwallowAbortedUploads extends TomcatBaseTest {
         private synchronized void init(int status, boolean swallow)
                 throws Exception {
 
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
             context = thundercat.addContext("", TEMP_DIR);
             AbortedPOSTServlet servlet = new AbortedPOSTServlet();
             servlet.setStatus(status);
-            Tomcat.addServlet(context, servletName,
+            Thundercat.addServlet(context, servletName,
                               servlet);
             context.addServletMapping(URI, servletName);
             context.setSwallowAbortedUploads(swallow);
@@ -422,7 +422,7 @@ public class TestSwallowAbortedUploads extends TomcatBaseTest {
 
     public void doTestChunkedPUT(boolean limit) throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         thundercat.addContext("", TEMP_DIR);
         // No need for target to exist.
 

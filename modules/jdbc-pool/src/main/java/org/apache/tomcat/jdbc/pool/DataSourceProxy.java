@@ -631,7 +631,7 @@ public class DataSourceProxy implements PoolConfiguration {
     }
 
   //===============================================================================
-//  Expose JMX attributes through Tomcat's dynamic reflection
+//  Expose JMX attributes through Thundercat's dynamic reflection
 //===============================================================================
     /**
      * If the pool has not been created, it will be created during this call.

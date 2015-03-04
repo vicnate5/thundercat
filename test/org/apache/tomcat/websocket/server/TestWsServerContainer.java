@@ -28,20 +28,20 @@ import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleState;
 import org.apache.catalina.filters.TesterServletContext;
 import org.apache.catalina.servlets.DefaultServlet;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.websocket.TesterEchoServer;
 
 
-public class TestWsServerContainer extends TomcatBaseTest {
+public class TestWsServerContainer extends ThundercatBaseTest {
 
     @Test
     public void testBug54807() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(Bug54807Config.class.getName());
-        Tomcat.addServlet(ctx, "default", new DefaultServlet());
+        Thundercat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
         thundercat.start();

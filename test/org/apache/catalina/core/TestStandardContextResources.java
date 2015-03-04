@@ -42,18 +42,18 @@ import org.apache.catalina.LifecycleEvent;
 import org.apache.catalina.LifecycleListener;
 import org.apache.catalina.startup.Constants;
 import org.apache.catalina.startup.ContextConfig;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.descriptor.web.WebXml;
 
-public class TestStandardContextResources extends TomcatBaseTest {
+public class TestStandardContextResources extends ThundercatBaseTest {
 
     @Override
     public void setUp() throws Exception {
         super.setUp();
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // BZ 49218: The test fails if JreMemoryLeakPreventionListener is not
         // present. The listener affects the JVM, and thus not only the current,
@@ -65,7 +65,7 @@ public class TestStandardContextResources extends TomcatBaseTest {
 
     @Test
     public void testResources() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-fragments");
         // app dir is relative to server home
@@ -102,7 +102,7 @@ public class TestStandardContextResources extends TomcatBaseTest {
 
     @Test
     public void testResourcesWebInfClasses() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // app dir is relative to server home
         File appDir = new File("test/webapp-fragments");
@@ -130,7 +130,7 @@ public class TestStandardContextResources extends TomcatBaseTest {
 
     @Test
     public void testResourcesAbsoluteOrdering() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-fragments");
         // app dir is relative to server home
@@ -151,7 +151,7 @@ public class TestStandardContextResources extends TomcatBaseTest {
         // prevent it from looking ( if it finds one - it'll have dup error )
         config.setDefaultWebXml(Constants.NoDefaultWebXml);
         listener[1] = config;
-        Tomcat.addServlet(ctx, "getresource", new GetResourceServlet());
+        Thundercat.addServlet(ctx, "getresource", new GetResourceServlet());
         ctx.addServletMapping("/getresource", "getresource");
 
         thundercat.start();
@@ -183,7 +183,7 @@ public class TestStandardContextResources extends TomcatBaseTest {
         // Need to init since context won't call init
         config1.lifecycleEvent(
                 new LifecycleEvent(ctx, Lifecycle.AFTER_INIT_EVENT, null));
-        Tomcat.addServlet(ctx, "getresource", new GetResourceServlet());
+        Thundercat.addServlet(ctx, "getresource", new GetResourceServlet());
         ctx.addServletMapping("/getresource", "getresource");
 
         ctx.start();
@@ -200,14 +200,14 @@ public class TestStandardContextResources extends TomcatBaseTest {
 
     @Test
     public void testResources2() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-fragments");
         // app dir is relative to server home
         StandardContext ctx = (StandardContext) thundercat.addWebapp(null, "/test",
                 appDir.getAbsolutePath());
 
-        Tomcat.addServlet(ctx, "getresource", new GetResourceServlet());
+        Thundercat.addServlet(ctx, "getresource", new GetResourceServlet());
         ctx.addServletMapping("/getresource", "getresource");
 
         thundercat.start();

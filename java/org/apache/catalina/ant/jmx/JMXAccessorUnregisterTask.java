@@ -37,7 +37,7 @@ import org.apache.tools.ant.BuildException;
  *           name="Catalina:type=MBeanFactory" /&gt;
  * </pre>
  * <p>
- * <b>WARNING</b>Not all Tomcat MBeans can successfully unregister remotely. The mbean
+ * <b>WARNING</b>Not all Thundercat MBeans can successfully unregister remotely. The mbean
  * unregistration don't remove valves, realm, .. from parent class.
  * Please, use the MBeanFactory operation to remove valves and realms.
  * </p>

@@ -27,19 +27,19 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.websocket.server.WsContextListener;
 
-public class TestWebdavServlet extends TomcatBaseTest {
+public class TestWebdavServlet extends ThundercatBaseTest {
 
     /*
      * Test attempting to access special paths (WEB-INF/META-INF) using WebdavServlet
      */
     @Test
     public void testGetSpecials() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         String contextPath = "/examples";
 
@@ -48,7 +48,7 @@ public class TestWebdavServlet extends TomcatBaseTest {
         org.apache.catalina.Context ctx =
             thundercat.addWebapp(null, "/examples", appDir.getAbsolutePath());
 
-        Tomcat.addServlet(ctx, "webdav", new WebdavServlet());
+        Thundercat.addServlet(ctx, "webdav", new WebdavServlet());
         ctx.addServletMapping("/*", "webdav");
 
         thundercat.start();
@@ -83,7 +83,7 @@ public class TestWebdavServlet extends TomcatBaseTest {
      */
     @Test
     public void testGetWithSubpathmount() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         String contextPath = "/examples";
 
@@ -92,7 +92,7 @@ public class TestWebdavServlet extends TomcatBaseTest {
         org.apache.catalina.Context ctx =
             thundercat.addWebapp(null, "/examples", appDir.getAbsolutePath());
 
-        Tomcat.addServlet(ctx, "webdav", new WebdavServlet());
+        Thundercat.addServlet(ctx, "webdav", new WebdavServlet());
         ctx.addServletMapping("/webdav/*", "webdav");
         ctx.addApplicationListener(WsContextListener.class.getName());
 
@@ -147,7 +147,7 @@ public class TestWebdavServlet extends TomcatBaseTest {
     public static int getUrl(String path, ByteChunk out,
             Map<String, List<String>> resHead) throws IOException {
         out.recycle();
-        return TomcatBaseTest.getUrl(path, out, resHead);
+        return ThundercatBaseTest.getUrl(path, out, resHead);
     }
 
 }

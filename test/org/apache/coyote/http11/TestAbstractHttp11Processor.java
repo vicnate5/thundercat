@@ -47,18 +47,18 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.SimpleHttpClient;
 import org.apache.catalina.startup.TesterServlet;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.B2CConverter;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.descriptor.web.SecurityCollection;
 import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
 
-public class TestAbstractHttp11Processor extends TomcatBaseTest {
+public class TestAbstractHttp11Processor extends ThundercatBaseTest {
 
     @Test
     public void testResponseWithErrorChunked() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // This setting means the connection will be closed at the end of the
         // request
@@ -68,7 +68,7 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
         Context ctx = thundercat.addContext("", null);
 
         // Add protected servlet
-        Tomcat.addServlet(ctx, "ChunkedResponseWithErrorServlet",
+        Thundercat.addServlet(ctx, "ChunkedResponseWithErrorServlet",
                 new ResponseWithErrorServlet(true));
         ctx.addServletMapping("/*", "ChunkedResponseWithErrorServlet");
 
@@ -140,7 +140,7 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
 
     @Test
     public void testWithUnknownExpectation() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         String request =
             "POST /echo-params.jsp HTTP/1.1" + SimpleHttpClient.CRLF +
@@ -159,7 +159,7 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
 
     @Test
     public void testWithTEVoid() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         String request =
             "POST /echo-params.jsp HTTP/1.1" + SimpleHttpClient.CRLF +
@@ -182,7 +182,7 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
 
     @Test
     public void testWithTEBuffered() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         String request =
             "POST /echo-params.jsp HTTP/1.1" + SimpleHttpClient.CRLF +
@@ -218,7 +218,7 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
 
     private void doTestWithTEChunked(boolean withCL) throws Exception {
 
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         String request =
             "POST /test/echo-params.jsp HTTP/1.1" + SimpleHttpClient.CRLF +
@@ -246,7 +246,7 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
 
     @Test
     public void testWithTEIdentity() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         String request =
             "POST /test/echo-params.jsp HTTP/1.1" + SimpleHttpClient.CRLF +
@@ -271,7 +271,7 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
 
     @Test
     public void testWithTESavedRequest() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         String request =
             "POST /echo-params.jsp HTTP/1.1" + SimpleHttpClient.CRLF +
@@ -294,7 +294,7 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
 
     @Test
     public void testWithTEUnsupported() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         String request =
             "POST /echo-params.jsp HTTP/1.1" + SimpleHttpClient.CRLF +
@@ -317,13 +317,13 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
 
     @Test
     public void testPipelining() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         // Add protected servlet
-        Tomcat.addServlet(ctx, "TesterServlet", new TesterServlet());
+        Thundercat.addServlet(ctx, "TesterServlet", new TesterServlet());
         ctx.addServletMapping("/foo", "TesterServlet");
 
         thundercat.start();
@@ -377,12 +377,12 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
 
     @Test
     public void testChunking11NoContentLength() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "NoContentLengthFlushingServlet",
+        Thundercat.addServlet(ctx, "NoContentLengthFlushingServlet",
                 new NoContentLengthFlushingServlet());
         ctx.addServletMapping("/test", "NoContentLengthFlushingServlet");
 
@@ -404,12 +404,12 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
     public void testNoChunking11NoContentLengthConnectionClose()
             throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "NoContentLengthConnectionCloseFlushingServlet",
+        Thundercat.addServlet(ctx, "NoContentLengthConnectionCloseFlushingServlet",
                 new NoContentLengthConnectionCloseFlushingServlet());
         ctx.addServletMapping("/test",
                 "NoContentLengthConnectionCloseFlushingServlet");
@@ -444,12 +444,12 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
     }
 
     private void doTestBug53677(boolean flush) throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "LargeHeaderServlet",
+        Thundercat.addServlet(ctx, "LargeHeaderServlet",
                 new LargeHeaderServlet(flush));
         ctx.addServletMapping("/test", "LargeHeaderServlet");
 
@@ -478,14 +478,14 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
 
     @Test
     public void testBug55772() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         thundercat.getConnector().setProperty("processorCache", "1");
         thundercat.getConnector().setProperty("maxThreads", "1");
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "async", new Bug55772Servlet());
+        Thundercat.addServlet(ctx, "async", new Bug55772Servlet());
         ctx.addServletMapping("/*", "async");
 
         thundercat.start();
@@ -553,12 +553,12 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
     }
 
     private void doTestNon2xxResponseAndExpectation(boolean useExpectation) throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "echo", new EchoBodyServlet());
+        Thundercat.addServlet(ctx, "echo", new EchoBodyServlet());
         ctx.addServletMapping("/echo", "echo");
 
         SecurityCollection collection = new SecurityCollection("All", "");
@@ -611,7 +611,7 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
                 }
                 bug55772Latch3.countDown();
             } else {
-                req.getCookies(); // We have to do this so Tomcat will actually parse the cookies from the request
+                req.getCookies(); // We have to do this so Thundercat will actually parse the cookies from the request
             }
 
             req.setAttribute("org.apache.catalina.ASYNC_SUPPORTED", Boolean.TRUE);

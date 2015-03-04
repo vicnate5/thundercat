@@ -32,14 +32,14 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.core.StandardContext;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 
-public class TestWebappClassLoaderExecutorMemoryLeak extends TomcatBaseTest {
+public class TestWebappClassLoaderExecutorMemoryLeak extends ThundercatBaseTest {
 
     @Test
     public void testTimerThreadLeak() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
@@ -49,7 +49,7 @@ public class TestWebappClassLoaderExecutorMemoryLeak extends TomcatBaseTest {
         }
 
         ExecutorServlet executorServlet = new ExecutorServlet();
-        Tomcat.addServlet(ctx, "taskServlet", executorServlet);
+        Thundercat.addServlet(ctx, "taskServlet", executorServlet);
         ctx.addServletMapping("/", "taskServlet");
 
         thundercat.start();

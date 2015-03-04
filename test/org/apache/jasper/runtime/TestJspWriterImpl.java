@@ -21,14 +21,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestJspWriterImpl extends TomcatBaseTest {
+public class TestJspWriterImpl extends ThundercatBaseTest {
 
     @Test
     public void bug54241a() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
 
@@ -44,7 +44,7 @@ public class TestJspWriterImpl extends TomcatBaseTest {
 
     @Test
     public void bug54241b() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
 

@@ -676,7 +676,7 @@ public class StandardRoot extends LifecycleMBeanBase implements WebResourceRoot 
     protected void registerURLStreamHandlerFactory() {
         // Ensure support for jar:war:file:/ URLs will be available (required
         // for resource JARs in packed WAR files).
-        TomcatURLStreamHandlerFactory.register();
+        ThundercatURLStreamHandlerFactory.register();
     }
 
     @Override

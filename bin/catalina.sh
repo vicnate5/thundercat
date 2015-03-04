@@ -36,7 +36,7 @@
 #   CATALINA_OPTS   (Optional) Java runtime options used when the "start",
 #                   "run" or "debug" command is executed.
 #                   Include here and not in JAVA_OPTS all options, that should
-#                   only be used by Tomcat itself, not by the stop process,
+#                   only be used by Thundercat itself, not by the stop process,
 #                   the version command etc.
 #                   Examples are heap size, GC logging, JMX ports etc.
 #
@@ -54,7 +54,7 @@
 #   JAVA_OPTS       (Optional) Java runtime options used when any command
 #                   is executed.
 #                   Include here and not in CATALINA_OPTS all options, that
-#                   should be used by Tomcat and also by the stop process,
+#                   should be used by Thundercat and also by the stop process,
 #                   the version command etc.
 #                   Most options should go into CATALINA_OPTS.
 #
@@ -80,11 +80,11 @@
 #                   of the catalina startup java process, when start (fork) is
 #                   used
 #
-#   LOGGING_CONFIG  (Optional) Override Tomcat's logging config file
+#   LOGGING_CONFIG  (Optional) Override Thundercat's logging config file
 #                   Example (all one line)
 #                   LOGGING_CONFIG="-Djava.util.logging.config.file=$CATALINA_BASE/conf/logging.properties"
 #
-#   LOGGING_MANAGER (Optional) Override Tomcat's logging manager
+#   LOGGING_MANAGER (Optional) Override Thundercat's logging manager
 #                   Example (all one line)
 #                   LOGGING_MANAGER="-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager"
 # -----------------------------------------------------------------------------
@@ -341,7 +341,7 @@ elif [ "$1" = "start" ] ; then
           PID=`cat "$CATALINA_PID"`
           ps -p $PID >/dev/null 2>&1
           if [ $? -eq 0 ] ; then
-            echo "Tomcat appears to still be running with PID $PID. Start aborted."
+            echo "Thundercat appears to still be running with PID $PID. Start aborted."
             exit 1
           else
             echo "Removing/clearing stale PID file."
@@ -403,7 +403,7 @@ elif [ "$1" = "start" ] ; then
     echo $! > "$CATALINA_PID"
   fi
 
-  echo "Tomcat started."
+  echo "Thundercat started."
 
 elif [ "$1" = "stop" ] ; then
 
@@ -436,7 +436,7 @@ elif [ "$1" = "stop" ] ; then
         echo "PID file is empty and has been ignored."
       fi
     else
-      echo "\$CATALINA_PID was set but the specified file does not exist. Is Tomcat running? Stop aborted."
+      echo "\$CATALINA_PID was set but the specified file does not exist. Is Thundercat running? Stop aborted."
       exit 1
     fi
   fi
@@ -465,13 +465,13 @@ elif [ "$1" = "stop" ] ; then
           if [ $? != 0 ]; then
             if [ -w "$CATALINA_PID" ]; then
               cat /dev/null > "$CATALINA_PID"
-              # If Tomcat has stopped don't try and force a stop with an empty PID file
+              # If Thundercat has stopped don't try and force a stop with an empty PID file
               FORCE=0
             else
               echo "The PID file could not be removed or cleared."
             fi
           fi
-          echo "Tomcat stopped."
+          echo "Thundercat stopped."
           break
         fi
         if [ $SLEEP -gt 0 ]; then
@@ -479,7 +479,7 @@ elif [ "$1" = "stop" ] ; then
         fi
         if [ $SLEEP -eq 0 ]; then
           if [ $FORCE -eq 0 ]; then
-            echo "Tomcat did not stop in time. PID file was not removed. To aid diagnostics a thread dump has been written to standard out."
+            echo "Thundercat did not stop in time. PID file was not removed. To aid diagnostics a thread dump has been written to standard out."
             kill -3 `cat "$CATALINA_PID"`
           fi
         fi
@@ -495,7 +495,7 @@ elif [ "$1" = "stop" ] ; then
     else
       if [ -f "$CATALINA_PID" ]; then
         PID=`cat "$CATALINA_PID"`
-        echo "Killing Tomcat with the PID: $PID"
+        echo "Killing Thundercat with the PID: $PID"
         kill -9 $PID
         while [ $KILL_SLEEP_INTERVAL -ge 0 ]; do
             kill -0 `cat "$CATALINA_PID"` >/dev/null 2>&1
@@ -510,7 +510,7 @@ elif [ "$1" = "stop" ] ; then
                 fi
                 # Set this to zero else a warning will be issued about the process still running
                 KILL_SLEEP_INTERVAL=0
-                echo "The Tomcat process has been killed."
+                echo "The Thundercat process has been killed."
                 break
             fi
             if [ $KILL_SLEEP_INTERVAL -gt 0 ]; then
@@ -519,7 +519,7 @@ elif [ "$1" = "stop" ] ; then
             KILL_SLEEP_INTERVAL=`expr $KILL_SLEEP_INTERVAL - 1 `
         done
         if [ $KILL_SLEEP_INTERVAL -gt 0 ]; then
-            echo "Tomcat has not been killed completely yet. The process might be waiting on some system call or might be UNINTERRUPTIBLE."
+            echo "Thundercat has not been killed completely yet. The process might be waiting on some system call or might be UNINTERRUPTIBLE."
         fi
       fi
     fi

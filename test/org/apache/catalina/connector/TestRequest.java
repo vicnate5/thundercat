@@ -50,8 +50,8 @@ import org.apache.catalina.authenticator.BasicAuthenticator;
 import org.apache.catalina.filters.FailedRequestFilter;
 import org.apache.catalina.startup.SimpleHttpClient;
 import org.apache.catalina.startup.TesterMapRealm;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.descriptor.web.FilterDef;
 import org.apache.thundercat.util.descriptor.web.FilterMap;
@@ -60,7 +60,7 @@ import org.apache.thundercat.util.descriptor.web.LoginConfig;
 /**
  * Test case for {@link Request}.
  */
-public class TestRequest extends TomcatBaseTest {
+public class TestRequest extends ThundercatBaseTest {
 
     @BeforeClass
     public static void setup() {
@@ -174,9 +174,9 @@ public class TestRequest extends TomcatBaseTest {
         private synchronized void init() throws Exception {
             if (init) return;
 
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
             Context root = thundercat.addContext("", TEMP_DIR);
-            Tomcat.addServlet(root, "Bug37794", new Bug37794Servlet());
+            Thundercat.addServlet(root, "Bug37794", new Bug37794Servlet());
             root.addServletMapping("/test", "Bug37794");
 
             if (createFilter) {
@@ -199,7 +199,7 @@ public class TestRequest extends TomcatBaseTest {
         }
 
         private Exception doRequest(int postLimit, boolean ucChunkedHead) {
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
 
             try {
                 init();
@@ -269,14 +269,14 @@ public class TestRequest extends TomcatBaseTest {
      */
     @Test
     public void testBug38113() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         // Add the Servlet
-        Tomcat.addServlet(ctx, "servlet", new EchoQueryStringServlet());
+        Thundercat.addServlet(ctx, "servlet", new EchoQueryStringServlet());
         ctx.addServletMapping("/", "servlet");
 
         thundercat.start();
@@ -313,8 +313,8 @@ public class TestRequest extends TomcatBaseTest {
      */
     @Test
     public void testLoginLogout() throws Exception{
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
@@ -324,7 +324,7 @@ public class TestRequest extends TomcatBaseTest {
         ctx.setLoginConfig(config);
         ctx.getPipeline().addValve(new BasicAuthenticator());
 
-        Tomcat.addServlet(ctx, "servlet", new LoginLogoutServlet());
+        Thundercat.addServlet(ctx, "servlet", new LoginLogoutServlet());
         ctx.addServletMapping("/", "servlet");
 
         TesterMapRealm realm = new TesterMapRealm();
@@ -368,10 +368,10 @@ public class TestRequest extends TomcatBaseTest {
 
     @Test
     public void testBug49424NoChunking() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Context root = thundercat.addContext("",
                 System.getProperty("java.io.tmpdir"));
-        Tomcat.addServlet(root, "Bug37794", new Bug37794Servlet());
+        Thundercat.addServlet(root, "Bug37794", new Bug37794Servlet());
         root.addServletMapping("/", "Bug37794");
         thundercat.start();
 
@@ -382,10 +382,10 @@ public class TestRequest extends TomcatBaseTest {
 
     @Test
     public void testBug49424WithChunking() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Context root = thundercat.addContext("",
                 System.getProperty("java.io.tmpdir"));
-        Tomcat.addServlet(root, "Bug37794", new Bug37794Servlet());
+        Thundercat.addServlet(root, "Bug37794", new Bug37794Servlet());
         root.addServletMapping("/", "Bug37794");
         thundercat.start();
 
@@ -474,11 +474,11 @@ public class TestRequest extends TomcatBaseTest {
 
     @Test
     public void testBug54984() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Context root = thundercat.addContext("",
                 System.getProperty("java.io.tmpdir"));
         root.setAllowCasualMultipartParsing(true);
-        Tomcat.addServlet(root, "Bug54984", new Bug54984Servlet());
+        Thundercat.addServlet(root, "Bug54984", new Bug54984Servlet());
         root.addServletMapping("/", "Bug54984");
         thundercat.start();
 
@@ -553,9 +553,9 @@ public class TestRequest extends TomcatBaseTest {
         private synchronized void init() throws Exception {
             if (init) return;
 
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
             Context root = thundercat.addContext("", TEMP_DIR);
-            Tomcat.addServlet(root, "EchoParameters", new EchoParametersServlet());
+            Thundercat.addServlet(root, "EchoParameters", new EchoParametersServlet());
             root.addServletMapping("/echo", "EchoParameters");
             thundercat.start();
 
@@ -569,7 +569,7 @@ public class TestRequest extends TomcatBaseTest {
                                     String contentType,
                                     String requestBody,
                                     boolean allowBody) {
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
 
             try {
                 init();
@@ -802,13 +802,13 @@ public class TestRequest extends TomcatBaseTest {
     private void doBug56501(String deployPath, String requestPath, String expected)
             throws Exception {
 
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext(deployPath, null);
 
-        Tomcat.addServlet(ctx, "servlet", new Bug56501Servelet());
+        Thundercat.addServlet(ctx, "servlet", new Bug56501Servelet());
         ctx.addServletMapping("/*", "servlet");
 
         thundercat.start();

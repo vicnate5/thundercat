@@ -244,7 +244,7 @@ public class CoyoteAdapter implements Adapter {
             }
 
             // Has an error occurred during async processing that needs to be
-            // processed by the application's error page mechanism (or Tomcat's
+            // processed by the application's error page mechanism (or Thundercat's
             // if the application doesn't define one)?
             if (!request.isAsyncDispatching() && request.isAsync() &&
                     response.isErrorReportRequired()) {

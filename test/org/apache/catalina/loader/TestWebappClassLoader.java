@@ -24,10 +24,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.core.StandardContext;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 
-public class TestWebappClassLoader extends TomcatBaseTest {
+public class TestWebappClassLoader extends ThundercatBaseTest {
 
     @Test
     public void testGetURLs() throws Exception {
@@ -38,7 +38,7 @@ public class TestWebappClassLoader extends TomcatBaseTest {
         expected[0] = "jar:" + warUrl + "!/WEB-INF/classes/";
         expected[1] = "jar:" + warUrl + "!/WEB-INF/lib/test.jar";
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         StandardContext ctx =
                 (StandardContext)thundercat.addContext("",  f.getAbsolutePath());

@@ -20,10 +20,10 @@
   xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
                       http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
   version="2.4">
-  <display-name>Tomcat Servlet 2.4 Tests</display-name>
+  <display-name>Thundercat Servlet 2.4 Tests</display-name>
   <description>
-    Provides a web application used by the Tomcat unit tests to ensure that
-    Tomcat meets the requirements of the current JSP and Servlet specification
+    Provides a web application used by the Thundercat unit tests to ensure that
+    Thundercat meets the requirements of the current JSP and Servlet specification
     for web applications that declare that they follow version 2.4 of the
     Servlet specification and version 2.0 of the JSP specification. This
     typically means ensuring that features introduced in later versions of the

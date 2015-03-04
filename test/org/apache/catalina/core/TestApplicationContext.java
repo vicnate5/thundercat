@@ -38,16 +38,16 @@ import org.apache.catalina.Lifecycle;
 import org.apache.catalina.LifecycleEvent;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.LifecycleListener;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.Tomcat.FixContextListener;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.Thundercat.FixContextListener;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestApplicationContext extends TomcatBaseTest {
+public class TestApplicationContext extends ThundercatBaseTest {
 
     @Test
     public void testBug53257() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug53257/index.jsp");
@@ -64,7 +64,7 @@ public class TestApplicationContext extends TomcatBaseTest {
 
     @Test
     public void testBug53467() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
         int rc = getUrl("http://localhost:" + getPort() +
@@ -101,7 +101,7 @@ public class TestApplicationContext extends TomcatBaseTest {
 
     @Test
     public void testGetJspConfigDescriptor() throws Exception {
-        Tomcat thundercat = getTomcatInstanceTestWebapp(false, false);
+        Thundercat thundercat = getThundercatInstanceTestWebapp(false, false);
 
         StandardContext standardContext =
                 (StandardContext) thundercat.getHost().findChildren()[0];
@@ -117,7 +117,7 @@ public class TestApplicationContext extends TomcatBaseTest {
 
     @Test
     public void testJspPropertyGroupsAreIsolated() throws Exception {
-        Tomcat thundercat = getTomcatInstanceTestWebapp(false, false);
+        Thundercat thundercat = getThundercatInstanceTestWebapp(false, false);
 
         StandardContext standardContext =
                 (StandardContext) thundercat.getHost().findChildren()[0];
@@ -142,7 +142,7 @@ public class TestApplicationContext extends TomcatBaseTest {
 
 
     private ServletContext getServletContext() throws LifecycleException {
-        Tomcat thundercat = getTomcatInstanceTestWebapp(false, false);
+        Thundercat thundercat = getThundercatInstanceTestWebapp(false, false);
 
         StandardContext standardContext =
                 (StandardContext) thundercat.getHost().findChildren()[0];
@@ -153,7 +153,7 @@ public class TestApplicationContext extends TomcatBaseTest {
 
     @Test(expected = IllegalStateException.class)
     public void testSetInitParameter() throws Exception {
-        getTomcatInstance().start();
+        getThundercatInstance().start();
         getServletContext().setInitParameter("name", "value");
     }
 
@@ -163,7 +163,7 @@ public class TestApplicationContext extends TomcatBaseTest {
      */
     @Test
     public void testBug57190() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         Context foo1 = new StandardContext();
         foo1.setName("/foo##1");
@@ -188,7 +188,7 @@ public class TestApplicationContext extends TomcatBaseTest {
         ctx.addLifecycleListener(new SetIdListener("ROOT"));
         ctx.setCrossContext(true);
 
-        Tomcat.addServlet(ctx, "Bug57190Servlet", new Bug57190Servlet());
+        Thundercat.addServlet(ctx, "Bug57190Servlet", new Bug57190Servlet());
         ctx.addServletMapping("/", "Bug57190Servlet");
 
         thundercat.start();

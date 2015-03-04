@@ -22,14 +22,14 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestCompositeELResolver extends TomcatBaseTest {
+public class TestCompositeELResolver extends ThundercatBaseTest {
 
     @Test
     public void testBug50408() throws Exception {
-        getTomcatInstanceTestWebapp(true, true);
+        getThundercatInstanceTestWebapp(true, true);
 
         int rc = getUrl("http://localhost:" + getPort() +
                 "/test/bug5nnnn/bug50408.jsp", new ByteChunk(), null);

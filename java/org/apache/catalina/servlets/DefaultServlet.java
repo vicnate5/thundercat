@@ -559,7 +559,7 @@ public class DefaultServlet extends HttpServlet {
         String convertedResourcePath = path.replace('/', '.');
         File contentFile = new File(tempDir, convertedResourcePath);
         if (contentFile.createNewFile()) {
-            // Clean up contentFile when Tomcat is terminated
+            // Clean up contentFile when Thundercat is terminated
             contentFile.deleteOnExit();
         }
 
@@ -1393,7 +1393,7 @@ public class DefaultServlet extends HttpServlet {
         sb.append(sm.getString("directory.title", directoryWebappPath));
         sb.append("</title>\r\n");
         sb.append("<STYLE><!--");
-        sb.append(org.apache.catalina.util.TomcatCSS.TOMCAT_CSS);
+        sb.append(org.apache.catalina.util.ThundercatCSS.TOMCAT_CSS);
         sb.append("--></STYLE> ");
         sb.append("</head>\r\n");
         sb.append("<body>");

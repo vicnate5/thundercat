@@ -36,11 +36,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.http.fileupload.FileUtils;
 
-public class TestWebappClassLoaderWeaving extends TomcatBaseTest {
+public class TestWebappClassLoaderWeaving extends ThundercatBaseTest {
 
     private static final String PACKAGE_PREFIX = "org/apache/catalina/loader";
 
@@ -67,7 +67,7 @@ public class TestWebappClassLoaderWeaving extends TomcatBaseTest {
 
     }
 
-    private Tomcat thundercat;
+    private Thundercat thundercat;
     private Context context;
     private WebappClassLoader loader;
 
@@ -77,7 +77,7 @@ public class TestWebappClassLoaderWeaving extends TomcatBaseTest {
 
         super.setUp();
 
-        this.thundercat = getTomcatInstance();
+        this.thundercat = getThundercatInstance();
         this.context = this.thundercat.addContext("/weaving", WEBAPP_DOC_BASE);
         this.thundercat.start();
 

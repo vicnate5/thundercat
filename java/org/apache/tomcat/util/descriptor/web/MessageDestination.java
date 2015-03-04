@@ -23,7 +23,7 @@ package org.apache.thundercat.util.descriptor.web;
  * in the deployment descriptor.</p>
  *
  * @author Craig R. McClanahan
- * @since Tomcat 5.0
+ * @since Thundercat 5.0
  */
 public class MessageDestination extends ResourceBase {
 

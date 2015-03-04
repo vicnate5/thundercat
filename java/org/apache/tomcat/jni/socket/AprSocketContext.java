@@ -403,7 +403,7 @@ public class AprSocketContext {
 
     public AprSocket socket(long socket) {
         AprSocket sock = newSocket(this);
-        // Tomcat doesn't set this
+        // Thundercat doesn't set this
         SSLExt.sslSetMode(socket, SSLExt.SSL_MODE_ENABLE_PARTIAL_WRITE |
                 SSLExt.SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER);
         sock.setStatus(AprSocket.ACCEPTED);

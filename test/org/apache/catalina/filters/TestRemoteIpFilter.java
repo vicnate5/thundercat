@@ -50,12 +50,12 @@ import org.apache.catalina.LifecycleException;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.Response;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.descriptor.web.FilterDef;
 import org.apache.thundercat.util.descriptor.web.FilterMap;
 
-public class TestRemoteIpFilter extends TomcatBaseTest {
+public class TestRemoteIpFilter extends ThundercatBaseTest {
 
     /**
      * Mock {@link FilterChain} to keep a handle on the passed
@@ -485,7 +485,7 @@ public class TestRemoteIpFilter extends TomcatBaseTest {
 
     private HttpServletRequest testRemoteIpFilter(FilterDef filterDef, Request request) throws LifecycleException, IOException,
             ServletException {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Context root = thundercat.addContext("", TEMP_DIR);
 
         RemoteIpFilter remoteIpFilter = new RemoteIpFilter();
@@ -499,7 +499,7 @@ public class TestRemoteIpFilter extends TomcatBaseTest {
         filterMap.addURLPattern("*");
         root.addFilterMap(filterMap);
 
-        getTomcatInstance().start();
+        getThundercatInstance().start();
 
         MockFilterChain filterChain = new MockFilterChain();
 
@@ -540,17 +540,17 @@ public class TestRemoteIpFilter extends TomcatBaseTest {
     }
 
     /*
-     * Test {@link RemoteIpFilter} in Tomcat standalone server
+     * Test {@link RemoteIpFilter} in Thundercat standalone server
      */
     @Test
-    public void testWithTomcatServer() throws Exception {
+    public void testWithThundercatServer() throws Exception {
 
         // mostly default configuration : enable "x-forwarded-proto"
         Map<String, String> remoteIpFilterParameter = new HashMap<>();
         remoteIpFilterParameter.put("protocolHeader", "x-forwarded-proto");
 
         // SETUP
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Context root = thundercat.addContext("", TEMP_DIR);
 
         FilterDef filterDef = new FilterDef();
@@ -567,10 +567,10 @@ public class TestRemoteIpFilter extends TomcatBaseTest {
 
         MockHttpServlet mockServlet = new MockHttpServlet();
 
-        Tomcat.addServlet(root, mockServlet.getClass().getName(), mockServlet);
+        Thundercat.addServlet(root, mockServlet.getClass().getName(), mockServlet);
         root.addServletMapping("/test", mockServlet.getClass().getName());
 
-        getTomcatInstance().start();
+        getThundercatInstance().start();
 
         // TEST
         HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(

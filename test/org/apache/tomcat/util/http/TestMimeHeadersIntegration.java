@@ -35,18 +35,18 @@ import org.apache.catalina.Context;
 import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.Response;
 import org.apache.catalina.startup.SimpleHttpClient;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.catalina.valves.TesterAccessLogValve;
 
-public class TestMimeHeadersIntegration extends TomcatBaseTest {
+public class TestMimeHeadersIntegration extends ThundercatBaseTest {
 
     private HeaderCountLogValve alv;
 
-    private void setupHeadersTest(Tomcat thundercat) {
+    private void setupHeadersTest(Thundercat thundercat) {
         Context ctx = thundercat.addContext("", getTemporaryDirectory()
                 .getAbsolutePath());
-        Tomcat.addServlet(ctx, "servlet", new HttpServlet() {
+        Thundercat.addServlet(ctx, "servlet", new HttpServlet() {
             private static final long serialVersionUID = 1L;
 
             @Override
@@ -63,7 +63,7 @@ public class TestMimeHeadersIntegration extends TomcatBaseTest {
     }
 
     private void runHeadersTest(final boolean successExpected,
-            final Tomcat thundercat, final int count,
+            final Thundercat thundercat, final int count,
             final int expectedMaxHeaderCount) throws Exception {
         thundercat.start();
 
@@ -82,7 +82,7 @@ public class TestMimeHeadersIntegration extends TomcatBaseTest {
             client.processRequest();
             client.disconnect();
         } catch (SocketException ex) {
-            // Connection was closed by Tomcat
+            // Connection was closed by Thundercat
             if (successExpected) {
                 // unexpected
                 log.error(ex.getMessage(), ex);
@@ -122,7 +122,7 @@ public class TestMimeHeadersIntegration extends TomcatBaseTest {
     @Test
     public void testHeaderLimits1() throws Exception {
         // Bumping into maxHttpHeaderSize
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         setupHeadersTest(thundercat);
         thundercat.getConnector().setMaxHeaderCount(-1);
         runHeadersTest(false, thundercat, 8 * 1024, -1);
@@ -131,7 +131,7 @@ public class TestMimeHeadersIntegration extends TomcatBaseTest {
     @Test
     public void testHeaderLimits2() throws Exception {
         // Can process 100 headers
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         setupHeadersTest(thundercat);
         runHeadersTest(true, thundercat, 100, 100);
     }
@@ -139,7 +139,7 @@ public class TestMimeHeadersIntegration extends TomcatBaseTest {
     @Test
     public void testHeaderLimits3() throws Exception {
         // Cannot process 101 header
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         setupHeadersTest(thundercat);
         runHeadersTest(false, thundercat, 101, 100);
     }
@@ -147,7 +147,7 @@ public class TestMimeHeadersIntegration extends TomcatBaseTest {
     @Test
     public void testHeaderLimits4() throws Exception {
         // Can change maxHeaderCount
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         setupHeadersTest(thundercat);
         thundercat.getConnector().setMaxHeaderCount(-1);
         runHeadersTest(true, thundercat, 300, -1);
@@ -172,7 +172,7 @@ public class TestMimeHeadersIntegration extends TomcatBaseTest {
     }
 
     private static final class Client extends SimpleHttpClient {
-        public Client(Tomcat thundercat) {
+        public Client(Thundercat thundercat) {
             setPort(thundercat.getConnector().getLocalPort());
         }
 

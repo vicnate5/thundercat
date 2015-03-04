@@ -24,7 +24,7 @@ import org.apache.tools.ant.BuildException;
 
 /**
  * Ant task that implements the <code>/start</code> command, supported by the
- * Tomcat manager application.
+ * Thundercat manager application.
  *
  * @author Craig R. McClanahan
  * @since 4.1

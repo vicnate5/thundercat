@@ -26,12 +26,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.jasper.JspCompilationContext;
 import org.apache.jasper.compiler.ELInterpreterFactory.DefaultELInterpreter;
 
-public class TestELInterpreterFactory extends TomcatBaseTest {
+public class TestELInterpreterFactory extends ThundercatBaseTest {
 
     public static class SimpleELInterpreter implements ELInterpreter {
 
@@ -45,7 +45,7 @@ public class TestELInterpreterFactory extends TomcatBaseTest {
 
     @Test
     public void testBug54239() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp");
         Context ctx = thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());

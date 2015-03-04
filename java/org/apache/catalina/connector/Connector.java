@@ -124,7 +124,7 @@ public class Connector extends LifecycleMBeanBase  {
 
     /**
      * The server name to which we should pretend requests to this Connector
-     * were directed.  This is useful when operating Tomcat behind a proxy
+     * were directed.  This is useful when operating Thundercat behind a proxy
      * server, so that redirects get constructed accurately.  If not specified,
      * the server name included in the <code>Host</code> header is used.
      */
@@ -133,7 +133,7 @@ public class Connector extends LifecycleMBeanBase  {
 
     /**
      * The server port to which we should pretend requests to this Connector
-     * were directed.  This is useful when operating Tomcat behind a proxy
+     * were directed.  This is useful when operating Thundercat behind a proxy
      * server, so that redirects get constructed accurately.  If not specified,
      * the port number specified by the <code>port</code> property is used.
      */

@@ -35,10 +35,10 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.SimpleHttpClient;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 
-public class TestChunkedInputFilter extends TomcatBaseTest {
+public class TestChunkedInputFilter extends ThundercatBaseTest {
 
     private static final String LF = "\n";
     private static final int EXT_SIZE_LIMIT = 10;
@@ -98,14 +98,14 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
             boolean secondheaderUsesCRLF, boolean endUsesCRLF,
             boolean expectPass) throws Exception {
 
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         EchoHeaderServlet servlet = new EchoHeaderServlet(expectPass);
-        Tomcat.addServlet(ctx, "servlet", servlet);
+        Thundercat.addServlet(ctx, "servlet", servlet);
         ctx.addServletMapping("/", "servlet");
 
         thundercat.start();
@@ -161,13 +161,13 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
 
     @Test
     public void testTrailingHeadersSizeLimit() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "servlet", new EchoHeaderServlet(false));
+        Thundercat.addServlet(ctx, "servlet", new EchoHeaderServlet(false));
         ctx.addServletMapping("/", "servlet");
 
         // Limit the size of the trailing header
@@ -221,8 +221,8 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
 
 
     private void doTestExtensionSizeLimit(int len, boolean ok) throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         thundercat.getConnector().setProperty(
                 "maxExtensionSize", Integer.toString(EXT_SIZE_LIMIT));
@@ -230,7 +230,7 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "servlet", new EchoHeaderServlet(ok));
+        Thundercat.addServlet(ctx, "servlet", new EchoHeaderServlet(ok));
         ctx.addServletMapping("/", "servlet");
 
         thundercat.start();
@@ -272,13 +272,13 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
 
     @Test
     public void testNoTrailingHeaders() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "servlet", new EchoHeaderServlet(true));
+        Thundercat.addServlet(ctx, "servlet", new EchoHeaderServlet(true));
         ctx.addServletMapping("/", "servlet");
 
         thundercat.start();
@@ -371,14 +371,14 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
     private void doTestChunkSize(boolean expectPass,
             boolean expectReadWholeBody, String chunks, int readLimit,
             int expectReadCount) throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         BodyReadServlet servlet = new BodyReadServlet(expectPass, readLimit);
-        Tomcat.addServlet(ctx, "servlet", servlet);
+        Thundercat.addServlet(ctx, "servlet", servlet);
         ctx.addServletMapping("/", "servlet");
 
         thundercat.start();

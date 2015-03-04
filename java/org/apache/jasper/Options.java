@@ -118,7 +118,7 @@ public interface Options {
      *
      * <p>
      * If <code>null</code> (the default), the java compiler from Eclipse JDT
-     * project, bundled with Tomcat, will be used. Otherwise, the
+     * project, bundled with Thundercat, will be used. Otherwise, the
      * <code>javac</code> task from Apache Ant will be used to call an external
      * java compiler and the value of this option will be passed to it. See
      * Apache Ant documentation for the possible values.

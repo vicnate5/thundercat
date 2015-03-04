@@ -70,7 +70,7 @@ import org.apache.catalina.Host;
 import org.apache.catalina.Manager;
 import org.apache.catalina.Realm;
 import org.apache.catalina.Session;
-import org.apache.catalina.TomcatPrincipal;
+import org.apache.catalina.ThundercatPrincipal;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.core.ApplicationPart;
 import org.apache.catalina.core.ApplicationSessionCookieConfig;
@@ -908,9 +908,9 @@ public class Request
      * Return the names of all request attributes for this Request, or an
      * empty <code>Enumeration</code> if there are none. Note that the attribute
      * names returned will only be those for the attributes set via
-     * {@link #setAttribute(String, Object)}. Tomcat internal attributes will
+     * {@link #setAttribute(String, Object)}. Thundercat internal attributes will
      * not be included although they are accessible via
-     * {@link #getAttribute(String)}. The Tomcat internal attributes include:
+     * {@link #getAttribute(String)}. The Thundercat internal attributes include:
      * <ul>
      * <li>{@link Globals#DISPATCHER_TYPE_ATTR}</li>
      * <li>{@link Globals#DISPATCHER_REQUEST_PATH_ATTR}</li>
@@ -1438,7 +1438,7 @@ public class Request
                 throw new SecurityException(sm.getString(
                         "coyoteRequest.sendfileNotCanonical", value), e);
             }
-            // Sendfile is performed in Tomcat's security context so need to
+            // Sendfile is performed in Thundercat's security context so need to
             // check if the web app is permitted to access the file while still
             // in the web app's security context
             System.getSecurityManager().checkRead(canonicalPath);
@@ -2380,9 +2380,9 @@ public class Request
      */
     @Override
     public Principal getUserPrincipal() {
-        if (userPrincipal instanceof TomcatPrincipal) {
+        if (userPrincipal instanceof ThundercatPrincipal) {
             GSSCredential gssCredential =
-                    ((TomcatPrincipal) userPrincipal).getGssCredential();
+                    ((ThundercatPrincipal) userPrincipal).getGssCredential();
             if (gssCredential != null) {
                 int left = -1;
                 try {
@@ -2402,7 +2402,7 @@ public class Request
                     return null;
                 }
             }
-            return ((TomcatPrincipal) userPrincipal).getUserPrincipal();
+            return ((ThundercatPrincipal) userPrincipal).getUserPrincipal();
         }
 
         return userPrincipal;
@@ -3242,8 +3242,8 @@ public class Request
                 new SpecialAttributeAdapter() {
                     @Override
                     public Object get(Request request, String name) {
-                        if (request.userPrincipal instanceof TomcatPrincipal) {
-                            return ((TomcatPrincipal) request.userPrincipal)
+                        if (request.userPrincipal instanceof ThundercatPrincipal) {
+                            return ((ThundercatPrincipal) request.userPrincipal)
                                     .getGssCredential();
                         }
                         return null;

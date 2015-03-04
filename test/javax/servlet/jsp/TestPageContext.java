@@ -20,14 +20,14 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestPageContext extends TomcatBaseTest {
+public class TestPageContext extends ThundercatBaseTest {
 
     @Test
     public void testBug49196() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug49nnn/bug49196.jsp");

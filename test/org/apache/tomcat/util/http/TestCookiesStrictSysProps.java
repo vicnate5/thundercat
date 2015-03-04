@@ -24,7 +24,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import org.apache.catalina.startup.Tomcat;
+import org.apache.catalina.startup.Thundercat;
 import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
@@ -43,7 +43,7 @@ public class TestCookiesStrictSysProps extends CookiesBaseTest {
         System.setProperty("org.apache.catalina.STRICT_SERVLET_COMPLIANCE",
                 "true");
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         addServlets(thundercat);
 

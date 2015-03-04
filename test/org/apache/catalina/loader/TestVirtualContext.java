@@ -34,21 +34,21 @@ import org.junit.Test;
 import org.apache.catalina.WebResourceRoot;
 import org.apache.catalina.core.JreMemoryLeakPreventionListener;
 import org.apache.catalina.core.StandardContext;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.catalina.webresources.StandardRoot;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.http.fileupload.FileUtils;
 import org.apache.thundercat.util.http.fileupload.IOUtils;
 import org.apache.thundercat.util.scan.StandardJarScanner;
 
-public class TestVirtualContext extends TomcatBaseTest {
+public class TestVirtualContext extends ThundercatBaseTest {
 
     @Override
     public void setUp() throws Exception {
         super.setUp();
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // BZ 49218: The test fails if JreMemoryLeakPreventionListener is not
         // present. The listener affects the JVM, and thus not only the current,
@@ -60,7 +60,7 @@ public class TestVirtualContext extends TomcatBaseTest {
 
     @Test
     public void testVirtualClassLoader() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-virtual-webapp/src/main/webapp");
         // app dir is relative to server home
@@ -252,7 +252,7 @@ public class TestVirtualContext extends TomcatBaseTest {
 
     @Test
     public void testAdditionalWebInfClassesPaths() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-virtual-webapp/src/main/webapp");
         // app dir is relative to server home

@@ -20,7 +20,7 @@ package org.apache.thundercat.util.http;
 /**
  * Static constants for this package.
  *
- * @deprecated  Will be removed in Tomcat 9.
+ * @deprecated  Will be removed in Thundercat 9.
  */
 @Deprecated
 public final class CookieSupport {

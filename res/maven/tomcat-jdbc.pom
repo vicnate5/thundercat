@@ -20,7 +20,7 @@
   <groupId>org.apache.thundercat</groupId>
   <artifactId>thundercat-jdbc</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
-  <description>Tomcat JDBC Pool Package</description>
+  <description>Thundercat JDBC Pool Package</description>
   <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>

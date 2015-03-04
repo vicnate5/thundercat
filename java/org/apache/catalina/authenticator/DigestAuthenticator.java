@@ -51,7 +51,7 @@ public class DigestAuthenticator extends AuthenticatorBase {
     // -------------------------------------------------------------- Constants
 
     /**
-     * Tomcat's DIGEST implementation only supports auth quality of protection.
+     * Thundercat's DIGEST implementation only supports auth quality of protection.
      */
     protected static final String QOP = "auth";
 

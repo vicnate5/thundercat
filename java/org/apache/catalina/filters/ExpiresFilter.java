@@ -1438,7 +1438,7 @@ public class ExpiresFilter extends FilterBase {
      * {@link Log#isDebugEnabled()} because
      * {@link HttpServletRequest#getRequestURI()} and
      * {@link HttpServletResponse#getContentType()} costs <tt>String</tt>
-     * objects instantiations (as of Tomcat 7).
+     * objects instantiations (as of Thundercat 7).
      * </p>
      */
     public void onBeforeWriteResponseBody(HttpServletRequest request,

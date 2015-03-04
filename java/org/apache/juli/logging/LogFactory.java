@@ -25,11 +25,11 @@ import java.util.logging.LogManager;
  * This is a modified LogFactory that uses a simple {@link ServiceLoader} based
  * discovery mechanism with a default of using JDK based logging. An
  * implementation that uses the full Commons Logging discovery mechanism is
- * available as part of the Tomcat extras download.
+ * available as part of the Thundercat extras download.
  *
  * Why? It is an attempt to strike a balance between simpler code (no discovery)
- * and providing flexibility - particularly for those projects that embed Tomcat
- * or some of Tomcat's components - is an alternative logging
+ * and providing flexibility - particularly for those projects that embed Thundercat
+ * or some of Thundercat's components - is an alternative logging
  * implementation is desired.
  *
  * Note that this implementation is not just a wrapper around JDK logging (like

@@ -236,8 +236,8 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
 
 
     /**
-     * Report the current Tomcat Server Release number
-     * @return Tomcat release identifier
+     * Report the current Thundercat Server Release number
+     * @return Thundercat release identifier
      */
     public String getServerInfo() {
 

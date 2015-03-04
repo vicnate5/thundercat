@@ -674,7 +674,7 @@ public abstract class AbstractEndpoint<S> {
 
                     sw = new OutputStreamWriter(s.getOutputStream(), "ISO-8859-1");
                     sw.write("OPTIONS * HTTP/1.0\r\n" +
-                             "User-Agent: Tomcat wakeup connection\r\n\r\n");
+                             "User-Agent: Thundercat wakeup connection\r\n\r\n");
                     sw.flush();
                 }
                 if (getLog().isDebugEnabled()) {

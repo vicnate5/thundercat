@@ -22,9 +22,9 @@ import org.ietf.jgss.GSSCredential;
 
 /**
  * Defines additional methods implemented by {@link Principal}s created by
- * Tomcat's standard {@link Realm} implementations.
+ * Thundercat's standard {@link Realm} implementations.
  */
-public interface TomcatPrincipal extends Principal {
+public interface ThundercatPrincipal extends Principal {
 
     /**
      * The authenticated Principal to be exposed to applications.

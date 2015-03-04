@@ -20,12 +20,12 @@ import javax.servlet.http.HttpUpgradeHandler;
 
 
 /**
- * Currently just a marker interface to enable Tomcat to identify
+ * Currently just a marker interface to enable Thundercat to identify
  * implementations that expect/require concurrent read/write support.
  *
  * Note that concurrent read/write support is being phased out and this
  * interface is expected to evolve into an interface internal handlers use to
- * gain direct access to Tomcat's I/O layer rather than going through the
+ * gain direct access to Thundercat's I/O layer rather than going through the
  * Servlet API.
  */
 public interface InternalHttpUpgradeHandler extends HttpUpgradeHandler {

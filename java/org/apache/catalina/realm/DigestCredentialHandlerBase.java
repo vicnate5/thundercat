@@ -26,7 +26,7 @@ import org.apache.thundercat.util.buf.HexUtils;
 import org.apache.thundercat.util.res.StringManager;
 
 /**
- * Base implementation for the Tomcat provided {@link CredentialHandler}s.
+ * Base implementation for the Thundercat provided {@link CredentialHandler}s.
  */
 public abstract class DigestCredentialHandlerBase implements CredentialHandler {
 

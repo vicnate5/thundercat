@@ -38,13 +38,13 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.core.StandardContext;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.descriptor.web.ContextEnvironment;
 import org.apache.thundercat.util.descriptor.web.ContextResource;
 
-public class TestNamingContext extends TomcatBaseTest {
+public class TestNamingContext extends ThundercatBaseTest {
 
     @Test
     public void testLookupSingletonResource() throws Exception {
@@ -57,7 +57,7 @@ public class TestNamingContext extends TomcatBaseTest {
     }
 
     public void doTestLookup(boolean useSingletonResource) throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         thundercat.enableNaming();
 
         // No file system docBase required
@@ -73,7 +73,7 @@ public class TestNamingContext extends TomcatBaseTest {
 
         // Map the test Servlet
         Bug49994Servlet bug49994Servlet = new Bug49994Servlet();
-        Tomcat.addServlet(ctx, "bug49994Servlet", bug49994Servlet);
+        Thundercat.addServlet(ctx, "bug49994Servlet", bug49994Servlet);
         ctx.addServletMapping("/", "bug49994Servlet");
 
         thundercat.start();
@@ -118,7 +118,7 @@ public class TestNamingContext extends TomcatBaseTest {
 
     @Test
     public void testListBindings() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         thundercat.enableNaming();
 
         // No file system docBase required
@@ -133,7 +133,7 @@ public class TestNamingContext extends TomcatBaseTest {
 
         // Map the test Servlet
         Bug23950Servlet bug23950Servlet = new Bug23950Servlet();
-        Tomcat.addServlet(ctx, "bug23950Servlet", bug23950Servlet);
+        Thundercat.addServlet(ctx, "bug23950Servlet", bug23950Servlet);
         ctx.addServletMapping("/", "bug23950Servlet");
 
         thundercat.start();
@@ -169,7 +169,7 @@ public class TestNamingContext extends TomcatBaseTest {
 
     @Test
     public void testBeanFactory() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         thundercat.enableNaming();
 
         // No file system docBase required
@@ -185,7 +185,7 @@ public class TestNamingContext extends TomcatBaseTest {
 
         // Map the test Servlet
         Bug50351Servlet bug50351Servlet = new Bug50351Servlet();
-        Tomcat.addServlet(ctx, "bug50351Servlet", bug50351Servlet);
+        Thundercat.addServlet(ctx, "bug50351Servlet", bug50351Servlet);
         ctx.addServletMapping("/", "bug50351Servlet");
 
         thundercat.start();
@@ -228,7 +228,7 @@ public class TestNamingContext extends TomcatBaseTest {
 
     private void doTestBug51744(boolean exceptionOnFailedWrite)
             throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         thundercat.enableNaming();
 
         // No file system docBase required
@@ -238,7 +238,7 @@ public class TestNamingContext extends TomcatBaseTest {
 
         // Map the test Servlet
         Bug51744Servlet bug51744Servlet = new Bug51744Servlet();
-        Tomcat.addServlet(ctx, "bug51744Servlet", bug51744Servlet);
+        Thundercat.addServlet(ctx, "bug51744Servlet", bug51744Servlet);
         ctx.addServletMapping("/", "bug51744Servlet");
 
         thundercat.start();
@@ -286,7 +286,7 @@ public class TestNamingContext extends TomcatBaseTest {
 
     @Test
     public void testBug52830() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         thundercat.enableNaming();
 
         // No file system docBase required
@@ -301,7 +301,7 @@ public class TestNamingContext extends TomcatBaseTest {
 
         // Map the test Servlet
         Bug52830Servlet bug52830Servlet = new Bug52830Servlet();
-        Tomcat.addServlet(ctx, "bug52830Servlet", bug52830Servlet);
+        Thundercat.addServlet(ctx, "bug52830Servlet", bug52830Servlet);
         ctx.addServletMapping("/", "bug52830Servlet");
 
         thundercat.start();
@@ -343,7 +343,7 @@ public class TestNamingContext extends TomcatBaseTest {
 
     @Test
     public void testBug53465() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         thundercat.enableNaming();
 
         File appDir =

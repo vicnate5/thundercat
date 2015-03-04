@@ -117,11 +117,11 @@ public class Utf8Decoder extends CharsetDecoder {
                     }
                     pos += tail;
                 }
-                // Apache Tomcat added test
+                // Apache Thundercat added test
                 if (jchar >= 0xD800 && jchar <= 0xDFFF) {
                     return CoderResult.unmappableForLength(3);
                 }
-                // Apache Tomcat added test
+                // Apache Thundercat added test
                 if (jchar > 0x10FFFF) {
                     return CoderResult.unmappableForLength(4);
                 }
@@ -265,11 +265,11 @@ public class Utf8Decoder extends CharsetDecoder {
                 }
                 inIndex += tail;
             }
-            // Apache Tomcat added test
+            // Apache Thundercat added test
             if (jchar >= 0xD800 && jchar <= 0xDFFF) {
                 return CoderResult.unmappableForLength(3);
             }
-            // Apache Tomcat added test
+            // Apache Thundercat added test
             if (jchar > 0x10FFFF) {
                 return CoderResult.unmappableForLength(4);
             }

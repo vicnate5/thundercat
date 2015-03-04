@@ -32,27 +32,27 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Response;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.descriptor.web.ErrorPage;
 
-public class TestStandardHostValve extends TomcatBaseTest {
+public class TestStandardHostValve extends ThundercatBaseTest {
 
     @Test
     public void testErrorPageHandling() throws Exception {
         // Set up a container
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         // Add the error page
-        Tomcat.addServlet(ctx, "error", new ErrorServlet());
+        Thundercat.addServlet(ctx, "error", new ErrorServlet());
         ctx.addServletMapping("/error", "error");
 
         // Add the error handling page
-        Tomcat.addServlet(ctx, "report", new ReportServlet());
+        Thundercat.addServlet(ctx, "report", new ReportServlet());
         ctx.addServletMapping("/report/*", "report");
 
         // And the handling for 500 responses
@@ -76,13 +76,13 @@ public class TestStandardHostValve extends TomcatBaseTest {
     @Test
     public void testSRLAfterError() throws Exception {
         // Set up a container
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         // Add the error page
-        Tomcat.addServlet(ctx, "error", new ErrorServlet());
+        Thundercat.addServlet(ctx, "error", new ErrorServlet());
         ctx.addServletMapping("/error", "error");
 
         final List<String> result = new ArrayList<>();

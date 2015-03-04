@@ -28,8 +28,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import org.apache.catalina.connector.Connector;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
 import org.apache.thundercat.jni.Address;
@@ -43,7 +43,7 @@ import org.apache.thundercat.jni.Socket;
  * Test case for the Endpoint implementations. The testing framework will ensure
  * that each implementation is tested.
  */
-public class TestXxxEndpoint extends TomcatBaseTest {
+public class TestXxxEndpoint extends ThundercatBaseTest {
 
     private static Log log = LogFactory.getLog(TestXxxEndpoint.class);
 
@@ -116,7 +116,7 @@ public class TestXxxEndpoint extends TomcatBaseTest {
 
     @Test
     public void testStartStopBindOnInit() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         File appDir = new File(getBuildDirectory(), "webapps/examples");
         thundercat.addWebapp(null, "/examples", appDir.getAbsolutePath());
 
@@ -161,7 +161,7 @@ public class TestXxxEndpoint extends TomcatBaseTest {
 
     @Test
     public void testStartStopBindOnStart() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Connector c = thundercat.getConnector();
         c.setProperty("bindOnInit", "false");
 

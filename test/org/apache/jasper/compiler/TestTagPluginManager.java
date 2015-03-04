@@ -24,20 +24,20 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 
 /**
  * Test case for {@link TagPluginManager}.
  */
-public class TestTagPluginManager extends TomcatBaseTest {
+public class TestTagPluginManager extends ThundercatBaseTest {
 
     private static TagInfo tagInfo = new TagInfo("ATag",
             "org.apache.jasper.compiler.ATagSupport", "", "", null, null, null);
 
     @Test
     public void testBug54240() throws Exception {
-        Tomcat thundercat = getTomcatInstanceTestWebapp(false, true);
+        Thundercat thundercat = getThundercatInstanceTestWebapp(false, true);
 
 
 

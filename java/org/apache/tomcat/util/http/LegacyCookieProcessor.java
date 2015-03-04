@@ -36,7 +36,7 @@ import org.apache.thundercat.util.log.UserDataHelper;
 import org.apache.thundercat.util.res.StringManager;
 
 /**
- * The legacy (up to early Tomcat 8 releases) cookie parser based on RFC6265,
+ * The legacy (up to early Thundercat 8 releases) cookie parser based on RFC6265,
  * RFC2109 and RFC2616.
  *
  * This class is not thread-safe.

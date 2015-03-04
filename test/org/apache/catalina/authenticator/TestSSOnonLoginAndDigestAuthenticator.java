@@ -28,8 +28,8 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.TesterServlet;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.descriptor.web.LoginConfig;
 import org.apache.thundercat.util.descriptor.web.SecurityCollection;
@@ -52,7 +52,7 @@ import org.apache.thundercat.util.security.MD5Encoder;
  * Authenticator, but not to comprehensively test all of its logic paths.
  * That is the responsibility of the non-SSO test suite.
  */
-public class TestSSOnonLoginAndDigestAuthenticator extends TomcatBaseTest {
+public class TestSSOnonLoginAndDigestAuthenticator extends ThundercatBaseTest {
 
     private static final String USER = "user";
     private static final String PWD = "pwd";
@@ -304,7 +304,7 @@ public class TestSSOnonLoginAndDigestAuthenticator extends TomcatBaseTest {
         super.setUp();
 
         // create a thundercat server using the default in-memory Realm
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // associate the SingeSignOn Valve before the Contexts
         SingleSignOn sso = new SingleSignOn();
@@ -321,7 +321,7 @@ public class TestSSOnonLoginAndDigestAuthenticator extends TomcatBaseTest {
         thundercat.start();
     }
 
-    private void setUpNonLogin(Tomcat thundercat) throws Exception {
+    private void setUpNonLogin(Thundercat thundercat) throws Exception {
 
         // Must have a real docBase for webapps - just use temp
         Context ctxt = thundercat.addContext(CONTEXT_PATH_NOLOGIN,
@@ -329,7 +329,7 @@ public class TestSSOnonLoginAndDigestAuthenticator extends TomcatBaseTest {
         ctxt.setSessionTimeout(LONG_TIMEOUT_SECS);
 
         // Add protected servlet
-        Tomcat.addServlet(ctxt, "TesterServlet1", new TesterServlet());
+        Thundercat.addServlet(ctxt, "TesterServlet1", new TesterServlet());
         ctxt.addServletMapping(URI_PROTECTED, "TesterServlet1");
         SecurityCollection collection1 = new SecurityCollection();
         collection1.addPattern(URI_PROTECTED);
@@ -339,7 +339,7 @@ public class TestSSOnonLoginAndDigestAuthenticator extends TomcatBaseTest {
         ctxt.addConstraint(sc1);
 
         // Add unprotected servlet
-        Tomcat.addServlet(ctxt, "TesterServlet2", new TesterServlet());
+        Thundercat.addServlet(ctxt, "TesterServlet2", new TesterServlet());
         ctxt.addServletMapping(URI_PUBLIC, "TesterServlet2");
         SecurityCollection collection2 = new SecurityCollection();
         collection2.addPattern(URI_PUBLIC);
@@ -355,7 +355,7 @@ public class TestSSOnonLoginAndDigestAuthenticator extends TomcatBaseTest {
         ctxt.getPipeline().addValve(new NonLoginAuthenticator());
     }
 
-    private void setUpDigest(Tomcat thundercat) throws Exception {
+    private void setUpDigest(Thundercat thundercat) throws Exception {
 
         // Must have a real docBase for webapps - just use temp
         Context ctxt = thundercat.addContext(CONTEXT_PATH_DIGEST,
@@ -363,7 +363,7 @@ public class TestSSOnonLoginAndDigestAuthenticator extends TomcatBaseTest {
         ctxt.setSessionTimeout(SHORT_TIMEOUT_SECS);
 
         // Add protected servlet
-        Tomcat.addServlet(ctxt, "TesterServlet3", new TesterServlet());
+        Thundercat.addServlet(ctxt, "TesterServlet3", new TesterServlet());
         ctxt.addServletMapping(URI_PROTECTED, "TesterServlet3");
         SecurityCollection collection = new SecurityCollection();
         collection.addPattern(URI_PROTECTED);

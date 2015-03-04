@@ -39,7 +39,7 @@ import org.apache.juli.logging.LogFactory;
 import org.apache.thundercat.util.res.StringManager;
 
 /**
- * Valve to handle Tomcat jvmRoute takeover using mod_jk module after node
+ * Valve to handle Thundercat jvmRoute takeover using mod_jk module after node
  * failure. After a node crashes, subsequent requests go to other cluster nodes.
  * That incurs a drop in performance. When this Valve is enabled on a backup
  * node and sees a request, which was intended for another (thus failed) node,

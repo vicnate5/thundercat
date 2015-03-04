@@ -28,16 +28,16 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.descriptor.web.ErrorPage;
 
-public class TestJspServlet  extends TomcatBaseTest {
+public class TestJspServlet  extends ThundercatBaseTest {
 
     @Test
     public void testBug56568a() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // Use the test web application so JSP support is available and the
         // default JSP error page can be used.
@@ -45,7 +45,7 @@ public class TestJspServlet  extends TomcatBaseTest {
         Context context = thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
         // Create a servlet that always throws an exception for a PUT request
-        Tomcat.addServlet(context, "Bug56568Servlet", new Bug56568aServlet());
+        Thundercat.addServlet(context, "Bug56568Servlet", new Bug56568aServlet());
         context.addServletMapping("/bug56568", "Bug56568Servlet");
 
         // Configure a JSP page to handle the 500 error response
@@ -70,7 +70,7 @@ public class TestJspServlet  extends TomcatBaseTest {
 
     @Test
     public void testBug56568b() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         int rc = methodUrl("http://localhost:" + getPort() + "/test/jsp/error.jsp",
                 new ByteChunk(), 500000, null, null, "PUT");
@@ -84,7 +84,7 @@ public class TestJspServlet  extends TomcatBaseTest {
 
     @Test
     public void testBug56568c() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         int rc = methodUrl("http://localhost:" + getPort() + "/test/jsp/test.jsp",
                 new ByteChunk(), 500000, null, null, "PUT");

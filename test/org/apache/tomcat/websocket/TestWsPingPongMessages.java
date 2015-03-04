@@ -32,25 +32,25 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.servlets.DefaultServlet;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.websocket.TesterMessageCountClient.TesterEndpoint;
 import org.apache.thundercat.websocket.TesterMessageCountClient.TesterProgrammaticEndpoint;
 
 
-public class TestWsPingPongMessages extends TomcatBaseTest {
+public class TestWsPingPongMessages extends ThundercatBaseTest {
 
     ByteBuffer applicationData = ByteBuffer.wrap(new String("mydata")
             .getBytes());
 
     @Test
     public void testPingPongMessages() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterEchoServer.Config.class.getName());
 
-        Tomcat.addServlet(ctx, "default", new DefaultServlet());
+        Thundercat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
         thundercat.start();

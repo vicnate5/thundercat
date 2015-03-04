@@ -37,7 +37,7 @@ public class Constants {
         "         src=\"{0}/images/asf-logo.gif\">\n" +
         "   </a>\n" +
         "   <a href=\"http://thundercat.apache.org/\">\n" +
-        "    <img border=\"0\" alt=\"The Tomcat Servlet/JSP Container\"\n" +
+        "    <img border=\"0\" alt=\"The Thundercat Servlet/JSP Container\"\n" +
         "         align=\"right\" src=\"{0}/images/thundercat.gif\">\n" +
         "   </a>\n" +
         "  </td>\n" +

@@ -31,7 +31,7 @@ import org.apache.thundercat.util.digester.Digester;
 /**
  * Simple implementation of <b>Realm</b> that reads an XML file to configure
  * the valid users, passwords, and roles.  The file format (and default file
- * location) are identical to those currently supported by Tomcat 3.X.
+ * location) are identical to those currently supported by Thundercat 3.X.
  * <p>
  * <strong>IMPLEMENTATION NOTE</strong>: It is assumed that the in-memory
  * collection representing our defined users (and their roles) is initialized

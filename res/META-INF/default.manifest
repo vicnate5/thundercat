@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
-Specification-Title: Apache Tomcat
+Specification-Title: Apache Thundercat
 Specification-Version: @VERSION_MAJOR_MINOR@
 Specification-Vendor: Apache Software Foundation
-Implementation-Title: Apache Tomcat
+Implementation-Title: Apache Thundercat
 Implementation-Version: @VERSION@
 Implementation-Vendor: Apache Software Foundation
 X-Compile-Source-JDK: @source.jdk@

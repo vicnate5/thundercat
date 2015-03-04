@@ -73,7 +73,7 @@ import org.apache.catalina.LifecycleListener;
 import org.apache.catalina.LifecycleState;
 import org.apache.catalina.WebResource;
 import org.apache.catalina.WebResourceRoot;
-import org.apache.catalina.webresources.TomcatURLStreamHandlerFactory;
+import org.apache.catalina.webresources.ThundercatURLStreamHandlerFactory;
 import org.apache.juli.WebappProperties;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
@@ -362,7 +362,7 @@ public abstract class WebappClassLoaderBase extends URLClassLoader
 
 
     /**
-     * Should Tomcat attempt to null out any static or final fields from loaded
+     * Should Thundercat attempt to null out any static or final fields from loaded
      * classes when a web application is stopped as a work around for apparent
      * garbage collection bugs and application coding errors? There have been
      * some issues reported with log4j when this option is true. Applications
@@ -373,7 +373,7 @@ public abstract class WebappClassLoaderBase extends URLClassLoader
     private boolean clearReferencesStatic = false;
 
     /**
-     * Should Tomcat attempt to terminate threads that have been started by the
+     * Should Thundercat attempt to terminate threads that have been started by the
      * web application? Stopping threads is performed via the deprecated (for
      * good reason) <code>Thread.stop()</code> method and is likely to result in
      * instability. As such, enabling this should be viewed as an option of last
@@ -384,14 +384,14 @@ public abstract class WebappClassLoaderBase extends URLClassLoader
     private boolean clearReferencesStopThreads = false;
 
     /**
-     * Should Tomcat attempt to terminate any {@link java.util.TimerThread}s
+     * Should Thundercat attempt to terminate any {@link java.util.TimerThread}s
      * that have been started by the web application? If not specified, the
      * default value of <code>false</code> will be used.
      */
     private boolean clearReferencesStopTimerThreads = false;
 
     /**
-     * Should Tomcat call {@link org.apache.juli.logging.LogFactory#release()}
+     * Should Thundercat call {@link org.apache.juli.logging.LogFactory#release()}
      * when the class loader is stopped? If not specified, the default value
      * of <code>true</code> is used. Changing the default setting is likely to
      * lead to memory leaks and other issues.
@@ -400,7 +400,7 @@ public abstract class WebappClassLoaderBase extends URLClassLoader
 
     /**
      * If an HttpClient keep-alive timer thread has been started by this web
-     * application and is still running, should Tomcat change the context class
+     * application and is still running, should Thundercat change the context class
      * loader from the current {@link ClassLoader} to
      * {@link ClassLoader#getParent()} to prevent a memory leak? Note that the
      * keep-alive timer thread will stop on its own once the keep-alives all
@@ -1577,7 +1577,7 @@ public abstract class WebappClassLoaderBase extends URLClassLoader
         java.beans.Introspector.flushCaches();
 
         // Clear any custom URLStreamHandlers
-        TomcatURLStreamHandlerFactory.release(this);
+        ThundercatURLStreamHandlerFactory.release(this);
     }
 
 
@@ -1940,7 +1940,7 @@ public abstract class WebappClassLoaderBase extends URLClassLoader
 
         // Step through the methods in reverse order looking for calls to any
         // CoyoteAdapter method. All request threads will have this unless
-        // Tomcat has been heavily modified - in which case there isn't much we
+        // Thundercat has been heavily modified - in which case there isn't much we
         // can do.
         for (int i = 0; i < elements.length; i++) {
             StackTraceElement element = elements[elements.length - (i+1)];

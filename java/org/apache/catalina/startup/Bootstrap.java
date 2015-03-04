@@ -80,7 +80,7 @@ public final class Bootstrap {
 
         if (homeFile == null) {
             // First fall-back. See if current directory is a bin directory
-            // in a normal Tomcat install
+            // in a normal Thundercat install
             File bootstrapJar = new File(userDir, "bootstrap.jar");
 
             if (bootstrapJar.exists()) {
@@ -441,7 +441,7 @@ public final class Bootstrap {
 
 
     /**
-     * Main method and entry point when starting Tomcat via the provided
+     * Main method and entry point when starting Thundercat via the provided
      * scripts.
      *
      * @param args Command line arguments to be processed

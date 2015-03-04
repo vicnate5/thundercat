@@ -36,10 +36,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 
-public class TestAbstractAjpProcessor extends TomcatBaseTest {
+public class TestAbstractAjpProcessor extends ThundercatBaseTest {
 
     @Override
     protected String getProtocol() {
@@ -73,12 +73,12 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
         Map<String, String> attributes = desc.getAttributes();
         Map<String, String> params = desc.getParams();
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "snoop", new SnoopServlet());
+        Thundercat.addServlet(ctx, "snoop", new SnoopServlet());
         ctx.addServletMapping("/", "snoop");
 
         SimpleAjpClient ajpClient = new SimpleAjpClient();
@@ -447,14 +447,14 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
 
     @Test
     public void testSecret() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         thundercat.getConnector().setProperty("requiredSecret", "RIGHTSECRET");
         thundercat.start();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "helloWorld", new HelloWorldServlet());
+        Thundercat.addServlet(ctx, "helloWorld", new HelloWorldServlet());
         ctx.addServletMapping("/", "helloWorld");
 
         SimpleAjpClient ajpClient = new SimpleAjpClient();
@@ -507,14 +507,14 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
 
     @Test
     public void testKeepAlive() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         thundercat.getConnector().setProperty("connectionTimeout", "-1");
         thundercat.start();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "helloWorld", new HelloWorldServlet());
+        Thundercat.addServlet(ctx, "helloWorld", new HelloWorldServlet());
         ctx.addServletMapping("/", "helloWorld");
 
         SimpleAjpClient ajpClient = new SimpleAjpClient();
@@ -565,7 +565,7 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
     public void doTestPost(boolean multipleCL, int expectedStatus,
                            String expectedMessage) throws Exception {
 
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         SimpleAjpClient ajpClient = new SimpleAjpClient();
         ajpClient.setPort(getPort());
@@ -614,12 +614,12 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
     @Test
     public void test304WithBody() throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "bug55453", new Tester304WithBodyServlet());
+        Thundercat.addServlet(ctx, "bug55453", new Tester304WithBodyServlet());
         ctx.addServletMapping("/", "bug55453");
 
         thundercat.start();
@@ -670,13 +670,13 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
     private void doTestZeroLengthRequestBody(String method, boolean callAvailable)
             throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         ReadBodyServlet servlet = new ReadBodyServlet(callAvailable);
-        Tomcat.addServlet(ctx, "ReadBody", servlet);
+        Thundercat.addServlet(ctx, "ReadBody", servlet);
         ctx.addServletMapping("/", "ReadBody");
 
         thundercat.start();

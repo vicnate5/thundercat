@@ -42,11 +42,11 @@ import org.apache.catalina.Manager;
 import org.apache.catalina.Session;
 import org.apache.catalina.Store;
 import org.apache.catalina.core.StandardContext;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.catalina.valves.PersistentValve;
 
-public class TestPersistentManager extends TomcatBaseTest {
+public class TestPersistentManager extends ThundercatBaseTest {
 
     private final String ACTIVITY_CHECK = "org.apache.catalina.session.StandardSession.ACTIVITY_CHECK";
 
@@ -101,13 +101,13 @@ public class TestPersistentManager extends TomcatBaseTest {
     @Test
     public void noSessionCreate_57637() throws IOException, LifecycleException {
 
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         StandardContext ctx = (StandardContext) thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "DummyServlet", new DummyServlet());
+        Thundercat.addServlet(ctx, "DummyServlet", new DummyServlet());
         ctx.addServletMapping("/dummy", "DummyServlet");
 
         PersistentManager manager = new PersistentManager();
@@ -133,13 +133,13 @@ public class TestPersistentManager extends TomcatBaseTest {
     @Test
     public void testCreateSessionAndPassivate() throws IOException, LifecycleException, ClassNotFoundException {
 
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         StandardContext ctx = (StandardContext) thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "DummyServlet", new DummyServlet());
+        Thundercat.addServlet(ctx, "DummyServlet", new DummyServlet());
         ctx.addServletMapping("/dummy", "DummyServlet");
 
         PersistentManager manager = new PersistentManager();
@@ -165,13 +165,13 @@ public class TestPersistentManager extends TomcatBaseTest {
     public void backsUpOnce_56698() throws IOException, LifecycleException,
             InterruptedException {
 
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "DummyServlet", new DummyServlet());
+        Thundercat.addServlet(ctx, "DummyServlet", new DummyServlet());
         ctx.addServletMapping("/dummy", "DummyServlet");
 
         PersistentManager manager = new PersistentManager();

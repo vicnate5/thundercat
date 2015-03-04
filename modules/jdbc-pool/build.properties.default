@@ -17,8 +17,8 @@
 # build.properties.sample
 #
 # This is an example "build.properties" file, used to customize building
-# Tomcat JDBC Pool for your local environment.  It defines the location of all external
-# modules that Tomcat JDBC Pool depends on.  Copy this file to "build.properties"
+# Thundercat JDBC Pool for your local environment.  It defines the location of all external
+# modules that Thundercat JDBC Pool depends on.  Copy this file to "build.properties"
 # in the top-level source directory, and customize it as needed.
 # -----------------------------------------------------------------------------
 

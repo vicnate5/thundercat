@@ -13,7 +13,7 @@
 ; See the License for the specific language governing permissions and
 ; limitations under the License.
 
-; Tomcat script for Nullsoft Installer
+; Thundercat script for Nullsoft Installer
 
 !ifdef UNINSTALLONLY
   OutFile "tempinstaller.exe"
@@ -25,13 +25,13 @@
   CRCCheck on
   SetCompressor /SOLID lzma
 
-  Name "Apache Tomcat"
+  Name "Apache Thundercat"
 
   ;Product information
-  VIAddVersionKey ProductName "Apache Tomcat"
+  VIAddVersionKey ProductName "Apache Thundercat"
   VIAddVersionKey CompanyName "Apache Software Foundation"
   VIAddVersionKey LegalCopyright "Copyright (c) 1999-@YEAR@ The Apache Software Foundation"
-  VIAddVersionKey FileDescription "Apache Tomcat Installer"
+  VIAddVersionKey FileDescription "Apache Thundercat Installer"
   VIAddVersionKey FileVersion "2.0"
   VIAddVersionKey ProductVersion "@VERSION@"
   VIAddVersionKey Comments "thundercat.apache.org"
@@ -50,30 +50,30 @@ Var JavaExe
 Var JvmDll
 Var Arch
 Var ResetInstDir
-Var TomcatPortShutdown
-Var TomcatPortHttp
-Var TomcatPortAjp
-Var TomcatMenuEntriesEnable
-Var TomcatShortcutAllUsers
-Var TomcatServiceName
-Var TomcatServiceDefaultName
-Var TomcatServiceFileName
-Var TomcatServiceManagerFileName
-Var TomcatAdminEnable
-Var TomcatAdminUsername
-Var TomcatAdminPassword
-Var TomcatAdminRoles
+Var ThundercatPortShutdown
+Var ThundercatPortHttp
+Var ThundercatPortAjp
+Var ThundercatMenuEntriesEnable
+Var ThundercatShortcutAllUsers
+Var ThundercatServiceName
+Var ThundercatServiceDefaultName
+Var ThundercatServiceFileName
+Var ThundercatServiceManagerFileName
+Var ThundercatAdminEnable
+Var ThundercatAdminUsername
+Var ThundercatAdminPassword
+Var ThundercatAdminRoles
 
 ; Variables that store handles of dialog controls
 Var CtlJavaHome
-Var CtlTomcatPortShutdown
-Var CtlTomcatPortHttp
-Var CtlTomcatPortAjp
-Var CtlTomcatServiceName
-Var CtlTomcatShortcutAllUsers
-Var CtlTomcatAdminUsername
-Var CtlTomcatAdminPassword
-Var CtlTomcatAdminRoles
+Var CtlThundercatPortShutdown
+Var CtlThundercatPortHttp
+Var CtlThundercatPortAjp
+Var CtlThundercatServiceName
+Var CtlThundercatShortcutAllUsers
+Var CtlThundercatAdminUsername
+Var CtlThundercatAdminPassword
+Var CtlThundercatAdminRoles
 
 ; Handle of the service-install.log file
 ; It is opened in "Core" section and closed in "-post"
@@ -103,7 +103,7 @@ Var ServiceInstallLog
 
   LangString TEXT_INSTDIR_NOT_EMPTY ${LANG_ENGLISH} "The specified installation directory is not empty. Do you wish to continue?"
   LangString TEXT_CONF_TITLE ${LANG_ENGLISH} "Configuration"
-  LangString TEXT_CONF_SUBTITLE ${LANG_ENGLISH} "Tomcat basic configuration."
+  LangString TEXT_CONF_SUBTITLE ${LANG_ENGLISH} "Thundercat basic configuration."
   LangString TEXT_CONF_PAGETITLE ${LANG_ENGLISH} ": Configuration Options"
 
   LangString TEXT_JVM_LABEL1 ${LANG_ENGLISH} "Please select the path of a Java SE 7.0 or later JRE installed on your system."
@@ -112,7 +112,7 @@ Var ServiceInstallLog
   LangString TEXT_CONF_LABEL_PORT_AJP ${LANG_ENGLISH} "AJP/1.3 Connector Port"
   LangString TEXT_CONF_LABEL_SERVICE_NAME ${LANG_ENGLISH} "Windows Service Name"
   LangString TEXT_CONF_LABEL_SHORTCUT_ALL_USERS ${LANG_ENGLISH} "Create shortcuts for all users"
-  LangString TEXT_CONF_LABEL_ADMIN ${LANG_ENGLISH} "Tomcat Administrator Login (optional)"
+  LangString TEXT_CONF_LABEL_ADMIN ${LANG_ENGLISH} "Thundercat Administrator Login (optional)"
   LangString TEXT_CONF_LABEL_ADMINUSERNAME ${LANG_ENGLISH} "User Name"
   LangString TEXT_CONF_LABEL_ADMINPASSWORD ${LANG_ENGLISH} "Password"
   LangString TEXT_CONF_LABEL_ADMINROLES ${LANG_ENGLISH} "Roles"
@@ -140,14 +140,14 @@ Var ServiceInstallLog
 
   ;Component-selection page
     ;Descriptions
-    LangString DESC_SecTomcat ${LANG_ENGLISH} "Install the Tomcat Servlet container as a Windows service."
-    LangString DESC_SecTomcatCore ${LANG_ENGLISH} "Install the Tomcat Servlet container core and create the Windows service."
-    LangString DESC_SecTomcatService ${LANG_ENGLISH} "Automatically start the Tomcat service when the computer is started."
-    LangString DESC_SecTomcatNative ${LANG_ENGLISH} "Install APR based Tomcat native .dll for better performance and scalability in production environments."
-    LangString DESC_SecMenu ${LANG_ENGLISH} "Create a Start Menu program group for Tomcat."
-    LangString DESC_SecDocs ${LANG_ENGLISH} "Install the Tomcat documentation bundle. This includes documentation on the servlet container and its configuration options, on the Jasper JSP page compiler, as well as on the native webserver connectors."
-    LangString DESC_SecManager ${LANG_ENGLISH} "Install the Tomcat Manager administrative web application."
-    LangString DESC_SecHostManager ${LANG_ENGLISH} "Install the Tomcat Host Manager administrative web application."
+    LangString DESC_SecThundercat ${LANG_ENGLISH} "Install the Thundercat Servlet container as a Windows service."
+    LangString DESC_SecThundercatCore ${LANG_ENGLISH} "Install the Thundercat Servlet container core and create the Windows service."
+    LangString DESC_SecThundercatService ${LANG_ENGLISH} "Automatically start the Thundercat service when the computer is started."
+    LangString DESC_SecThundercatNative ${LANG_ENGLISH} "Install APR based Thundercat native .dll for better performance and scalability in production environments."
+    LangString DESC_SecMenu ${LANG_ENGLISH} "Create a Start Menu program group for Thundercat."
+    LangString DESC_SecDocs ${LANG_ENGLISH} "Install the Thundercat documentation bundle. This includes documentation on the servlet container and its configuration options, on the Jasper JSP page compiler, as well as on the native webserver connectors."
+    LangString DESC_SecManager ${LANG_ENGLISH} "Install the Thundercat Manager administrative web application."
+    LangString DESC_SecHostManager ${LANG_ENGLISH} "Install the Thundercat Host Manager administrative web application."
     LangString DESC_SecExamples ${LANG_ENGLISH} "Install the Servlet and JSP examples web application."
 
   ;Language
@@ -166,9 +166,9 @@ Var ServiceInstallLog
 ;--------------------------------
 ;Installer Sections
 
-SubSection "Tomcat" SecTomcat
+SubSection "Thundercat" SecThundercat
 
-Section "Core" SecTomcatCore
+Section "Core" SecThundercatCore
 
   SectionIn 1 2 3 RO
 
@@ -199,37 +199,37 @@ Section "Core" SecTomcatCore
 
   DetailPrint "Using Jvm: $JavaHome"
 
-  StrCpy $R0 $TomcatServiceName
-  StrCpy $TomcatServiceFileName $R0.exe
-  StrCpy $TomcatServiceManagerFileName $R0w.exe
+  StrCpy $R0 $ThundercatServiceName
+  StrCpy $ThundercatServiceFileName $R0.exe
+  StrCpy $ThundercatServiceManagerFileName $R0w.exe
 
   SetOutPath $INSTDIR\bin
-  File /oname=$TomcatServiceManagerFileName bin\thundercat@VERSION_MAJOR@w.exe
+  File /oname=$ThundercatServiceManagerFileName bin\thundercat@VERSION_MAJOR@w.exe
 
   ; Get the current platform x86 / AMD64 / IA64
   ${If} $Arch == "x86"
-    File /oname=$TomcatServiceFileName bin\thundercat@VERSION_MAJOR@.exe
+    File /oname=$ThundercatServiceFileName bin\thundercat@VERSION_MAJOR@.exe
   ${ElseIf} $Arch == "x64"
-    File /oname=$TomcatServiceFileName bin\x64\thundercat@VERSION_MAJOR@.exe
+    File /oname=$ThundercatServiceFileName bin\x64\thundercat@VERSION_MAJOR@.exe
   ${ElseIf} $Arch == "i64"
-    File /oname=$TomcatServiceFileName bin\i64\thundercat@VERSION_MAJOR@.exe
+    File /oname=$ThundercatServiceFileName bin\i64\thundercat@VERSION_MAJOR@.exe
   ${EndIf}
 
   FileOpen $ServiceInstallLog "$INSTDIR\logs\service-install.log" a
   FileSeek $ServiceInstallLog 0 END
 
   InstallRetry:
-  FileWrite $ServiceInstallLog '"$INSTDIR\bin\$TomcatServiceFileName" //IS//$TomcatServiceName --DisplayName "Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName" --Description "Apache Tomcat @VERSION@ Server - http://thundercat.apache.org/" --LogPath "$INSTDIR\logs" --Install "$INSTDIR\bin\$TomcatServiceFileName" --Jvm "$JvmDll" --StartPath "$INSTDIR" --StopPath "$INSTDIR"'
+  FileWrite $ServiceInstallLog '"$INSTDIR\bin\$ThundercatServiceFileName" //IS//$ThundercatServiceName --DisplayName "Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName" --Description "Apache Thundercat @VERSION@ Server - http://thundercat.apache.org/" --LogPath "$INSTDIR\logs" --Install "$INSTDIR\bin\$ThundercatServiceFileName" --Jvm "$JvmDll" --StartPath "$INSTDIR" --StopPath "$INSTDIR"'
   FileWrite $ServiceInstallLog "$\r$\n"
   ClearErrors
-  DetailPrint "Installing $TomcatServiceName service"
-  nsExec::ExecToStack '"$INSTDIR\bin\$TomcatServiceFileName" //IS//$TomcatServiceName --DisplayName "Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName" --Description "Apache Tomcat @VERSION@ Server - http://thundercat.apache.org/" --LogPath "$INSTDIR\logs" --Install "$INSTDIR\bin\$TomcatServiceFileName" --Jvm "$JvmDll" --StartPath "$INSTDIR" --StopPath "$INSTDIR"'
+  DetailPrint "Installing $ThundercatServiceName service"
+  nsExec::ExecToStack '"$INSTDIR\bin\$ThundercatServiceFileName" //IS//$ThundercatServiceName --DisplayName "Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName" --Description "Apache Thundercat @VERSION@ Server - http://thundercat.apache.org/" --LogPath "$INSTDIR\logs" --Install "$INSTDIR\bin\$ThundercatServiceFileName" --Jvm "$JvmDll" --StartPath "$INSTDIR" --StopPath "$INSTDIR"'
   Pop $0
   Pop $1
   StrCmp $0 "0" InstallOk
     FileWrite $ServiceInstallLog "Install failed: $0 $1$\r$\n"
     MessageBox MB_ABORTRETRYIGNORE|MB_ICONSTOP \
-      "Failed to install $TomcatServiceName service.$\r$\nCheck your settings and permissions.$\r$\nIgnore and continue anyway (not recommended)?" \
+      "Failed to install $ThundercatServiceName service.$\r$\nCheck your settings and permissions.$\r$\nIgnore and continue anyway (not recommended)?" \
        /SD IDIGNORE IDIGNORE InstallOk IDRETRY InstallRetry
   Quit
   InstallOk:
@@ -239,22 +239,22 @@ Section "Core" SecTomcatCore
   ; FileClose $ServiceInstallLog
 SectionEnd
 
-Section "Service Startup" SecTomcatService
+Section "Service Startup" SecThundercatService
 
   SectionIn 3
 
   ${If} $ServiceInstallLog != ""
-    FileWrite $ServiceInstallLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --Startup auto'
+    FileWrite $ServiceInstallLog '"$INSTDIR\bin\$ThundercatServiceFileName" //US//$ThundercatServiceName --Startup auto'
     FileWrite $ServiceInstallLog "$\r$\n"
   ${EndIf}
-  DetailPrint "Configuring $TomcatServiceName service"
-  nsExec::ExecToLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --Startup auto'
+  DetailPrint "Configuring $ThundercatServiceName service"
+  nsExec::ExecToLog '"$INSTDIR\bin\$ThundercatServiceFileName" //US//$ThundercatServiceName --Startup auto'
 
   ClearErrors
 
 SectionEnd
 
-Section "Native" SecTomcatNative
+Section "Native" SecThundercatNative
 
   SectionIn 3
 
@@ -320,27 +320,27 @@ SectionEnd
 
 Section -post
   ${If} $ServiceInstallLog != ""
-    FileWrite $ServiceInstallLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --Classpath "$INSTDIR\bin\bootstrap.jar;$INSTDIR\bin\thundercat-juli.jar" --StartClass org.apache.catalina.startup.Bootstrap --StopClass org.apache.catalina.startup.Bootstrap --StartParams start --StopParams stop  --StartMode jvm --StopMode jvm'
+    FileWrite $ServiceInstallLog '"$INSTDIR\bin\$ThundercatServiceFileName" //US//$ThundercatServiceName --Classpath "$INSTDIR\bin\bootstrap.jar;$INSTDIR\bin\thundercat-juli.jar" --StartClass org.apache.catalina.startup.Bootstrap --StopClass org.apache.catalina.startup.Bootstrap --StartParams start --StopParams stop  --StartMode jvm --StopMode jvm'
     FileWrite $ServiceInstallLog "$\r$\n"
-    FileWrite $ServiceInstallLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --JvmOptions "-Dcatalina.home=$INSTDIR#-Dcatalina.base=$INSTDIR#-Djava.io.tmpdir=$INSTDIR\temp#-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager#-Djava.util.logging.config.file=$INSTDIR\conf\logging.properties"'
+    FileWrite $ServiceInstallLog '"$INSTDIR\bin\$ThundercatServiceFileName" //US//$ThundercatServiceName --JvmOptions "-Dcatalina.home=$INSTDIR#-Dcatalina.base=$INSTDIR#-Djava.io.tmpdir=$INSTDIR\temp#-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager#-Djava.util.logging.config.file=$INSTDIR\conf\logging.properties"'
     FileWrite $ServiceInstallLog "$\r$\n"
-    FileWrite $ServiceInstallLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --StdOutput auto --StdError auto --JvmMs 128 --JvmMx 256'
+    FileWrite $ServiceInstallLog '"$INSTDIR\bin\$ThundercatServiceFileName" //US//$ThundercatServiceName --StdOutput auto --StdError auto --JvmMs 128 --JvmMx 256'
     FileWrite $ServiceInstallLog "$\r$\n"
     FileClose $ServiceInstallLog
   ${EndIf}
 
-  DetailPrint "Configuring $TomcatServiceName service"
-  nsExec::ExecToLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --Classpath "$INSTDIR\bin\bootstrap.jar;$INSTDIR\bin\thundercat-juli.jar" --StartClass org.apache.catalina.startup.Bootstrap --StopClass org.apache.catalina.startup.Bootstrap --StartParams start --StopParams stop  --StartMode jvm --StopMode jvm'
-  nsExec::ExecToLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --JvmOptions "-Dcatalina.home=$INSTDIR#-Dcatalina.base=$INSTDIR#-Djava.io.tmpdir=$INSTDIR\temp#-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager#-Djava.util.logging.config.file=$INSTDIR\conf\logging.properties"'
-  nsExec::ExecToLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --StdOutput auto --StdError auto --JvmMs 128 --JvmMx 256'
+  DetailPrint "Configuring $ThundercatServiceName service"
+  nsExec::ExecToLog '"$INSTDIR\bin\$ThundercatServiceFileName" //US//$ThundercatServiceName --Classpath "$INSTDIR\bin\bootstrap.jar;$INSTDIR\bin\thundercat-juli.jar" --StartClass org.apache.catalina.startup.Bootstrap --StopClass org.apache.catalina.startup.Bootstrap --StartParams start --StopParams stop  --StartMode jvm --StopMode jvm'
+  nsExec::ExecToLog '"$INSTDIR\bin\$ThundercatServiceFileName" //US//$ThundercatServiceName --JvmOptions "-Dcatalina.home=$INSTDIR#-Dcatalina.base=$INSTDIR#-Djava.io.tmpdir=$INSTDIR\temp#-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager#-Djava.util.logging.config.file=$INSTDIR\conf\logging.properties"'
+  nsExec::ExecToLog '"$INSTDIR\bin\$ThundercatServiceFileName" //US//$ThundercatServiceName --StdOutput auto --StdError auto --JvmMs 128 --JvmMx 256'
 
-  ${If} $TomcatShortcutAllUsers == "1"
-    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Run" "ApacheTomcatMonitor@VERSION_MAJOR_MINOR@_$TomcatServiceName" '"$INSTDIR\bin\$TomcatServiceManagerFileName" //MS//$TomcatServiceName'
+  ${If} $ThundercatShortcutAllUsers == "1"
+    WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Run" "ApacheThundercatMonitor@VERSION_MAJOR_MINOR@_$ThundercatServiceName" '"$INSTDIR\bin\$ThundercatServiceManagerFileName" //MS//$ThundercatServiceName'
   ${Else}
-    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "ApacheTomcatMonitor@VERSION_MAJOR_MINOR@_$TomcatServiceName" '"$INSTDIR\bin\$TomcatServiceManagerFileName" //MS//$TomcatServiceName'
+    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "ApacheThundercatMonitor@VERSION_MAJOR_MINOR@_$ThundercatServiceName" '"$INSTDIR\bin\$ThundercatServiceManagerFileName" //MS//$ThundercatServiceName'
   ${EndIf}
 
-  ${If} $TomcatMenuEntriesEnable == "1"
+  ${If} $ThundercatMenuEntriesEnable == "1"
     Call createShortcuts
   ${EndIf}
 
@@ -350,16 +350,16 @@ Section -post
     File Uninstall.exe
   !endif
 
-  WriteRegStr HKLM "SOFTWARE\Apache Software Foundation\Tomcat\@VERSION_MAJOR_MINOR@\$TomcatServiceName" "InstallPath" $INSTDIR
-  WriteRegStr HKLM "SOFTWARE\Apache Software Foundation\Tomcat\@VERSION_MAJOR_MINOR@\$TomcatServiceName" "Version" @VERSION@
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName" \
-                   "DisplayName" "Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName (remove only)"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName" \
+  WriteRegStr HKLM "SOFTWARE\Apache Software Foundation\Thundercat\@VERSION_MAJOR_MINOR@\$ThundercatServiceName" "InstallPath" $INSTDIR
+  WriteRegStr HKLM "SOFTWARE\Apache Software Foundation\Thundercat\@VERSION_MAJOR_MINOR@\$ThundercatServiceName" "Version" @VERSION@
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName" \
+                   "DisplayName" "Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName (remove only)"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName" \
                    "DisplayVersion" @VERSION@
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName" \
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName" \
                    "DisplayIcon" "$\"$INSTDIR\thundercat.ico$\""
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName" \
-                   "UninstallString" "$\"$INSTDIR\Uninstall.exe$\" -ServiceName=$\"$TomcatServiceName$\""
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName" \
+                   "UninstallString" "$\"$INSTDIR\Uninstall.exe$\" -ServiceName=$\"$ThundercatServiceName$\""
 
 SectionEnd
 
@@ -388,19 +388,19 @@ Function .onInit
 
   ;Initialize default values
   StrCpy $JavaHome ""
-  StrCpy $TomcatPortShutdown "8005"
-  StrCpy $TomcatPortHttp "8080"
-  StrCpy $TomcatPortAjp "8009"
-  StrCpy $TomcatMenuEntriesEnable "0"
-  StrCpy $TomcatShortcutAllUsers "0"
-  StrCpy $TomcatServiceDefaultName "Tomcat@VERSION_MAJOR@"
-  StrCpy $TomcatServiceName $TomcatServiceDefaultName
-  StrCpy $TomcatServiceFileName "Tomcat@VERSION_MAJOR@.exe"
-  StrCpy $TomcatServiceManagerFileName "Tomcat@VERSION_MAJOR@w.exe"
-  StrCpy $TomcatAdminEnable "0"
-  StrCpy $TomcatAdminUsername ""
-  StrCpy $TomcatAdminPassword ""
-  StrCpy $TomcatAdminRoles ""
+  StrCpy $ThundercatPortShutdown "8005"
+  StrCpy $ThundercatPortHttp "8080"
+  StrCpy $ThundercatPortAjp "8009"
+  StrCpy $ThundercatMenuEntriesEnable "0"
+  StrCpy $ThundercatShortcutAllUsers "0"
+  StrCpy $ThundercatServiceDefaultName "Thundercat@VERSION_MAJOR@"
+  StrCpy $ThundercatServiceName $ThundercatServiceDefaultName
+  StrCpy $ThundercatServiceFileName "Thundercat@VERSION_MAJOR@.exe"
+  StrCpy $ThundercatServiceManagerFileName "Thundercat@VERSION_MAJOR@w.exe"
+  StrCpy $ThundercatAdminEnable "0"
+  StrCpy $ThundercatAdminUsername ""
+  StrCpy $ThundercatAdminPassword ""
+  StrCpy $ThundercatAdminRoles ""
 FunctionEnd
 
 Function pageChooseJVM
@@ -452,32 +452,32 @@ FunctionEnd
 ; It updates options based on what components were selected.
 ;
 Function pageComponentsLeave
-  StrCpy $TomcatAdminEnable "0"
-  StrCpy $TomcatAdminRoles ""
-  StrCpy $TomcatMenuEntriesEnable "0"
+  StrCpy $ThundercatAdminEnable "0"
+  StrCpy $ThundercatAdminRoles ""
+  StrCpy $ThundercatMenuEntriesEnable "0"
 
   SectionGetFlags ${SecManager} $0
   IntOp $0 $0 & ${SF_SELECTED}
   ${If} $0 <> 0
-    StrCpy $TomcatAdminEnable "1"
-    StrCpy $TomcatAdminRoles "manager-gui"
+    StrCpy $ThundercatAdminEnable "1"
+    StrCpy $ThundercatAdminRoles "manager-gui"
   ${EndIf}
 
   SectionGetFlags ${SecHostManager} $0
   IntOp $0 $0 & ${SF_SELECTED}
   ${If} $0 <> 0
-    StrCpy $TomcatAdminEnable "1"
-    ${If} $TomcatAdminRoles != ""
-      StrCpy $TomcatAdminRoles "admin-gui,$TomcatAdminRoles"
+    StrCpy $ThundercatAdminEnable "1"
+    ${If} $ThundercatAdminRoles != ""
+      StrCpy $ThundercatAdminRoles "admin-gui,$ThundercatAdminRoles"
     ${Else}
-      StrCpy $TomcatAdminRoles "admin-gui"
+      StrCpy $ThundercatAdminRoles "admin-gui"
     ${EndIf}
   ${EndIf}
 
   SectionGetFlags ${SecMenu} $0
   IntOp $0 $0 & ${SF_SELECTED}
   ${If} $0 <> 0
-    StrCpy $TomcatMenuEntriesEnable "1"
+    StrCpy $ThundercatMenuEntriesEnable "1"
   ${EndIf}
 FunctionEnd
 
@@ -502,97 +502,97 @@ Function pageConfiguration
   ${NSD_CreateLabel} 0 2u 100u 14u "$(TEXT_CONF_LABEL_PORT_SHUTDOWN)"
   Pop $R0
 
-  ${NSD_CreateText} 150u 0 50u 12u "$TomcatPortShutdown"
-  Pop $CtlTomcatPortShutdown
-  ${NSD_SetTextLimit} $CtlTomcatPortShutdown 5
+  ${NSD_CreateText} 150u 0 50u 12u "$ThundercatPortShutdown"
+  Pop $CtlThundercatPortShutdown
+  ${NSD_SetTextLimit} $CtlThundercatPortShutdown 5
 
   ${NSD_CreateLabel} 0 19u 100u 14u "$(TEXT_CONF_LABEL_PORT_HTTP)"
   Pop $R0
 
-  ${NSD_CreateText} 150u 17u 50u 12u "$TomcatPortHttp"
-  Pop $CtlTomcatPortHttp
-  ${NSD_SetTextLimit} $CtlTomcatPortHttp 5
+  ${NSD_CreateText} 150u 17u 50u 12u "$ThundercatPortHttp"
+  Pop $CtlThundercatPortHttp
+  ${NSD_SetTextLimit} $CtlThundercatPortHttp 5
 
   ${NSD_CreateLabel} 0 36u 100u 14u "$(TEXT_CONF_LABEL_PORT_AJP)"
   Pop $R0
 
-  ${NSD_CreateText} 150u 34u 50u 12u "$TomcatPortAjp"
-  Pop $CtlTomcatPortAjp
-  ${NSD_SetTextLimit} $CtlTomcatPortAjp 5
+  ${NSD_CreateText} 150u 34u 50u 12u "$ThundercatPortAjp"
+  Pop $CtlThundercatPortAjp
+  ${NSD_SetTextLimit} $CtlThundercatPortAjp 5
 
   ${NSD_CreateLabel} 0 57u 140u 14u "$(TEXT_CONF_LABEL_SERVICE_NAME)"
   Pop $R0
 
-  ${NSD_CreateText} 150u 55u 140u 12u "$TomcatServiceName"
-  Pop $CtlTomcatServiceName
+  ${NSD_CreateText} 150u 55u 140u 12u "$ThundercatServiceName"
+  Pop $CtlThundercatServiceName
 
-  ${If} $TomcatMenuEntriesEnable == "1"
+  ${If} $ThundercatMenuEntriesEnable == "1"
     ${NSD_CreateLabel} 0 75u 100u 14u "$(TEXT_CONF_LABEL_SHORTCUT_ALL_USERS)"
     Pop $R0
-    ${NSD_CreateCheckBox} 150u 74u 10u 10u "$TomcatShortcutAllUsers"
-    Pop $CtlTomcatShortcutAllUsers
+    ${NSD_CreateCheckBox} 150u 74u 10u 10u "$ThundercatShortcutAllUsers"
+    Pop $CtlThundercatShortcutAllUsers
   ${EndIf}
 
-  ${If} $TomcatAdminEnable == "1"
+  ${If} $ThundercatAdminEnable == "1"
     ${NSD_CreateLabel} 0 93u 90u 28u "$(TEXT_CONF_LABEL_ADMIN)"
     Pop $R0
     ${NSD_CreateLabel} 100u 93u 40u 14u "$(TEXT_CONF_LABEL_ADMINUSERNAME)"
     Pop $R0
-    ${NSD_CreateText} 150u 91u 110u 12u "$TomcatAdminUsername"
-    Pop $CtlTomcatAdminUsername
+    ${NSD_CreateText} 150u 91u 110u 12u "$ThundercatAdminUsername"
+    Pop $CtlThundercatAdminUsername
     ${NSD_CreateLabel} 100u 110u 40u 12u "$(TEXT_CONF_LABEL_ADMINPASSWORD)"
     Pop $R0
-    ${NSD_CreatePassword} 150u 108u 110u 12u "$TomcatAdminPassword"
-    Pop $CtlTomcatAdminPassword
+    ${NSD_CreatePassword} 150u 108u 110u 12u "$ThundercatAdminPassword"
+    Pop $CtlThundercatAdminPassword
     ${NSD_CreateLabel} 100u 127u 40u 14u "$(TEXT_CONF_LABEL_ADMINROLES)"
     Pop $R0
-    ${NSD_CreateText} 150u 125u 110u 12u "$TomcatAdminRoles"
-    Pop $CtlTomcatAdminRoles
+    ${NSD_CreateText} 150u 125u 110u 12u "$ThundercatAdminRoles"
+    Pop $CtlThundercatAdminRoles
   ${EndIf}
 
-  ${NSD_SetFocus} $CtlTomcatPortShutdown
+  ${NSD_SetFocus} $CtlThundercatPortShutdown
   nsDialogs::Show
 FunctionEnd
 
 Function pageConfigurationLeave
-  ${NSD_GetText} $CtlTomcatPortShutdown $TomcatPortShutdown
-  ${NSD_GetText} $CtlTomcatPortHttp $TomcatPortHttp
-  ${NSD_GetText} $CtlTomcatPortAjp $TomcatPortAjp
-  ${NSD_GetText} $CtlTomcatServiceName $TomcatServiceName
-  ${If} $TomcatMenuEntriesEnable == "1"
-    ${NSD_GetState} $CtlTomcatShortcutAllUsers $TomcatShortcutAllUsers
+  ${NSD_GetText} $CtlThundercatPortShutdown $ThundercatPortShutdown
+  ${NSD_GetText} $CtlThundercatPortHttp $ThundercatPortHttp
+  ${NSD_GetText} $CtlThundercatPortAjp $ThundercatPortAjp
+  ${NSD_GetText} $CtlThundercatServiceName $ThundercatServiceName
+  ${If} $ThundercatMenuEntriesEnable == "1"
+    ${NSD_GetState} $CtlThundercatShortcutAllUsers $ThundercatShortcutAllUsers
   ${EndIf}
-  ${If} $TomcatAdminEnable == "1"
-    ${NSD_GetText} $CtlTomcatAdminUsername $TomcatAdminUsername
-    ${NSD_GetText} $CtlTomcatAdminPassword $TomcatAdminPassword
-    ${NSD_GetText} $CtlTomcatAdminRoles $TomcatAdminRoles
+  ${If} $ThundercatAdminEnable == "1"
+    ${NSD_GetText} $CtlThundercatAdminUsername $ThundercatAdminUsername
+    ${NSD_GetText} $CtlThundercatAdminPassword $ThundercatAdminPassword
+    ${NSD_GetText} $CtlThundercatAdminRoles $ThundercatAdminRoles
   ${EndIf}
 
-  ${If} $TomcatPortShutdown == ""
+  ${If} $ThundercatPortShutdown == ""
     MessageBox MB_ICONEXCLAMATION|MB_OK 'The shutdown port may not be empty'
     Abort "Config not right"
     Goto exit
   ${EndIf}
 
-  ${If} $TomcatPortHttp == ""
+  ${If} $ThundercatPortHttp == ""
     MessageBox MB_ICONEXCLAMATION|MB_OK 'The HTTP port may not be empty'
     Abort "Config not right"
     Goto exit
   ${EndIf}
 
-  ${If} $TomcatPortAjp == ""
+  ${If} $ThundercatPortAjp == ""
     MessageBox MB_ICONEXCLAMATION|MB_OK 'The AJP port may not be empty'
     Abort "Config not right"
     Goto exit
   ${EndIf}
 
-  ${If} $TomcatServiceName == ""
+  ${If} $ThundercatServiceName == ""
     MessageBox MB_ICONEXCLAMATION|MB_OK 'The Service Name may not be empty'
     Abort "Config not right"
     Goto exit
   ${EndIf}
 
-  Push $TomcatServiceName
+  Push $ThundercatServiceName
   Call validateServiceName
   Pop $0
 
@@ -605,7 +605,7 @@ FunctionEnd
 ; Validates that a service name does not use any of the invalid
 ; characters: <>:"/\:|?*
 ; Note that space is also not permitted although it will be once
-; Tomcat is using Daemon 1.0.6 or later
+; Thundercat is using Daemon 1.0.6 or later
 ;
 ; Put the proposed service name on the stack
 ; If the name is valid, a 1 will be left on the stack
@@ -641,10 +641,10 @@ FunctionEnd
 ;--------------------------------
 ;Descriptions
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecTomcat} $(DESC_SecTomcat)
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecTomcatCore} $(DESC_SecTomcatCore)
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecTomcatService} $(DESC_SecTomcatService)
-  !insertmacro MUI_DESCRIPTION_TEXT ${SecTomcatNative} $(DESC_SecTomcatNative)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecThundercat} $(DESC_SecThundercat)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecThundercatCore} $(DESC_SecThundercatCore)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecThundercatService} $(DESC_SecThundercatService)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecThundercatNative} $(DESC_SecThundercatNative)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecMenu} $(DESC_SecMenu)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecDocs} $(DESC_SecDocs)
   !insertmacro MUI_DESCRIPTION_TEXT ${SecManager} $(DESC_SecManager)
@@ -671,8 +671,8 @@ Function CheckUserType
     Goto done
 
     MessageBox MB_OK|MB_ICONEXCLAMATION 'Note: the current user is not an administrator. \
-               To run Tomcat as a Windows service, you must be an administrator. \
-               You can still run Tomcat from the command-line as this type of user.'
+               To run Thundercat as a Windows service, you must be an administrator. \
+               You can still run Thundercat from the command-line as this type of user.'
     Goto done
 
   Win9x:
@@ -781,16 +781,16 @@ DonePEHeader:
   ; The default varies depending on 32-bit or 64-bit
   ${If} "$INSTDIR" == ""
     ${If} $Arch == "x86"
-      ${If} $TomcatServiceName == $TomcatServiceDefaultName
-        StrCpy $INSTDIR "$PROGRAMFILES32\Apache Software Foundation\Tomcat @VERSION_MAJOR_MINOR@"
+      ${If} $ThundercatServiceName == $ThundercatServiceDefaultName
+        StrCpy $INSTDIR "$PROGRAMFILES32\Apache Software Foundation\Thundercat @VERSION_MAJOR_MINOR@"
       ${Else}
-        StrCpy $INSTDIR "$PROGRAMFILES32\Apache Software Foundation\Tomcat @VERSION_MAJOR_MINOR@_$TomcatServiceName"
+        StrCpy $INSTDIR "$PROGRAMFILES32\Apache Software Foundation\Thundercat @VERSION_MAJOR_MINOR@_$ThundercatServiceName"
       ${EndIf}
     ${Else}
-      ${If} $TomcatServiceName == $TomcatServiceDefaultName
-        StrCpy $INSTDIR "$PROGRAMFILES64\Apache Software Foundation\Tomcat @VERSION_MAJOR_MINOR@"
+      ${If} $ThundercatServiceName == $ThundercatServiceDefaultName
+        StrCpy $INSTDIR "$PROGRAMFILES64\Apache Software Foundation\Thundercat @VERSION_MAJOR_MINOR@"
       ${Else}
-        StrCpy $INSTDIR "$PROGRAMFILES64\Apache Software Foundation\Tomcat @VERSION_MAJOR_MINOR@_$TomcatServiceName"
+        StrCpy $INSTDIR "$PROGRAMFILES64\Apache Software Foundation\Thundercat @VERSION_MAJOR_MINOR@_$ThundercatServiceName"
       ${EndIf}
     ${EndIf}
   ${EndIf}
@@ -917,9 +917,9 @@ Function configure
   SERVER_XML_LOOP:
     FileRead $R1 $R3
     IfErrors SERVER_XML_LEAVELOOP
-    ${StrRep} $R4 $R3 "8005" "$TomcatPortShutdown"
-    ${StrRep} $R3 $R4 "8080" "$TomcatPortHttp"
-    ${StrRep} $R4 $R3 "8009" "$TomcatPortAjp"
+    ${StrRep} $R4 $R3 "8005" "$ThundercatPortShutdown"
+    ${StrRep} $R3 $R4 "8080" "$ThundercatPortHttp"
+    ${StrRep} $R4 $R3 "8009" "$ThundercatPortAjp"
     FileWrite $R2 $R4
   Goto SERVER_XML_LOOP
   SERVER_XML_LEAVELOOP:
@@ -935,29 +935,29 @@ Function configure
   FileClose $R9
   Delete "$INSTDIR\conf\server.xml.new"
 
-  DetailPrint 'Server shutdown listener configured on port "$TomcatPortShutdown"'
-  DetailPrint 'HTTP/1.1 Connector configured on port "$TomcatPortHttp"'
-  DetailPrint 'AJP/1.3 Connector configured on port "$TomcatPortAjp"'
+  DetailPrint 'Server shutdown listener configured on port "$ThundercatPortShutdown"'
+  DetailPrint 'HTTP/1.1 Connector configured on port "$ThundercatPortHttp"'
+  DetailPrint 'AJP/1.3 Connector configured on port "$ThundercatPortAjp"'
   DetailPrint "server.xml written"
 
   StrCpy $R5 ''
 
-  ${If} $TomcatAdminEnable == "1"
-  ${AndIf} "$TomcatAdminUsername" != ""
-  ${AndIf} "$TomcatAdminPassword" != ""
-  ${AndIf} "$TomcatAdminRoles" != ""
+  ${If} $ThundercatAdminEnable == "1"
+  ${AndIf} "$ThundercatAdminUsername" != ""
+  ${AndIf} "$ThundercatAdminPassword" != ""
+  ${AndIf} "$ThundercatAdminRoles" != ""
     ; Escape XML
-    Push $TomcatAdminUsername
+    Push $ThundercatAdminUsername
     Call xmlEscape
     Pop $R1
-    Push $TomcatAdminPassword
+    Push $ThundercatAdminPassword
     Call xmlEscape
     Pop $R2
-    Push $TomcatAdminRoles
+    Push $ThundercatAdminRoles
     Call xmlEscape
     Pop $R3
     StrCpy $R5 '<user username="$R1" password="$R2" roles="$R3" />$\r$\n'
-    DetailPrint 'Admin user added: "$TomcatAdminUsername"'
+    DetailPrint 'Admin user added: "$ThundercatAdminUsername"'
   ${EndIf}
 
 
@@ -1040,50 +1040,50 @@ FunctionEnd
 ; =================
 Function createShortcuts
 
-  ${If} $TomcatShortcutAllUsers == ${BST_CHECKED}
+  ${If} $ThundercatShortcutAllUsers == ${BST_CHECKED}
     SetShellVarContext all
   ${EndIf}
 
-  SetOutPath "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName"
+  SetOutPath "$SMPROGRAMS\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName"
 
-  CreateShortCut "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName\Tomcat Home Page.lnk" \
+  CreateShortCut "$SMPROGRAMS\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName\Thundercat Home Page.lnk" \
                  "http://thundercat.apache.org/"
 
-  CreateShortCut "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName\Welcome.lnk" \
-                 "http://127.0.0.1:$TomcatPortHttp/"
+  CreateShortCut "$SMPROGRAMS\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName\Welcome.lnk" \
+                 "http://127.0.0.1:$ThundercatPortHttp/"
 
   ${If} ${SectionIsSelected} ${SecManager}
-    CreateShortCut "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName\Tomcat Manager.lnk" \
-                   "http://127.0.0.1:$TomcatPortHttp/manager/html"
+    CreateShortCut "$SMPROGRAMS\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName\Thundercat Manager.lnk" \
+                   "http://127.0.0.1:$ThundercatPortHttp/manager/html"
   ${EndIf}
 
   ${If} ${SectionIsSelected} ${SecHostManager}
-    CreateShortCut "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName\Tomcat Host Manager.lnk" \
-                   "http://127.0.0.1:$TomcatPortHttp/host-manager/html"
+    CreateShortCut "$SMPROGRAMS\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName\Thundercat Host Manager.lnk" \
+                   "http://127.0.0.1:$ThundercatPortHttp/host-manager/html"
   ${EndIf}
 
   ${If} ${SectionIsSelected} ${SecDocs}
-    CreateShortCut "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName\Tomcat Documentation.lnk" \
+    CreateShortCut "$SMPROGRAMS\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName\Thundercat Documentation.lnk" \
                    "$INSTDIR\webapps\docs\index.html"
   ${EndIf}
 
-  CreateShortCut "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName\Uninstall Tomcat @VERSION_MAJOR_MINOR@.lnk" \
-                 "$INSTDIR\Uninstall.exe" '-ServiceName="$TomcatServiceName"'
+  CreateShortCut "$SMPROGRAMS\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName\Uninstall Thundercat @VERSION_MAJOR_MINOR@.lnk" \
+                 "$INSTDIR\Uninstall.exe" '-ServiceName="$ThundercatServiceName"'
 
-  CreateShortCut "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName\Tomcat @VERSION_MAJOR_MINOR@ Program Directory.lnk" \
+  CreateShortCut "$SMPROGRAMS\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName\Thundercat @VERSION_MAJOR_MINOR@ Program Directory.lnk" \
                  "$INSTDIR"
 
-  CreateShortCut "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName\Monitor Tomcat.lnk" \
-                 "$INSTDIR\bin\$TomcatServiceManagerFileName" \
-                 '//MS//$TomcatServiceName' \
+  CreateShortCut "$SMPROGRAMS\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName\Monitor Thundercat.lnk" \
+                 "$INSTDIR\bin\$ThundercatServiceManagerFileName" \
+                 '//MS//$ThundercatServiceName' \
                  "$INSTDIR\thundercat.ico" 0 SW_SHOWNORMAL
 
-  CreateShortCut "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName\Configure Tomcat.lnk" \
-                 "$INSTDIR\bin\$TomcatServiceManagerFileName" \
-                 '//ES//$TomcatServiceName' \
+  CreateShortCut "$SMPROGRAMS\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName\Configure Thundercat.lnk" \
+                 "$INSTDIR\bin\$ThundercatServiceManagerFileName" \
+                 '//ES//$ThundercatServiceName' \
                  "$INSTDIR\thundercat.ico" 0 SW_SHOWNORMAL
 
-  ${If} $TomcatShortcutAllUsers == ${BST_CHECKED}
+  ${If} $ThundercatShortcutAllUsers == ${BST_CHECKED}
     SetShellVarContext current
   ${EndIf}
 
@@ -1095,7 +1095,7 @@ FunctionEnd
 ; Using a function allows the service name to be varied
 ; =================
 Function startService
-  ExecShell "" "$INSTDIR\bin\$TomcatServiceManagerFileName" "//MR//$TomcatServiceName"
+  ExecShell "" "$INSTDIR\bin\$ThundercatServiceManagerFileName" "//MR//$ThundercatServiceName"
 FunctionEnd
 
 
@@ -1105,7 +1105,7 @@ FunctionEnd
 !ifdef UNINSTALLONLY
   Section Uninstall
 
-    ${If} $TomcatServiceName == ""
+    ${If} $ThundercatServiceName == ""
       MessageBox MB_ICONSTOP|MB_OK \
           "No service name specified to uninstall. This will be provided automatically if you uninstall via \
            Add/Remove Programs or the shortcut on the Start menu. Alternatively, call the installer from \
@@ -1115,31 +1115,31 @@ FunctionEnd
 
     Delete "$INSTDIR\Uninstall.exe"
 
-    ; Stop Tomcat service monitor if running
-    DetailPrint "Stopping $TomcatServiceName service monitor"
-    nsExec::ExecToLog '"$INSTDIR\bin\$TomcatServiceManagerFileName" //MQ//$TomcatServiceName'
-    ; Delete Tomcat service
-    DetailPrint "Uninstalling $TomcatServiceName service"
-    nsExec::ExecToLog '"$INSTDIR\bin\$TomcatServiceFileName" //DS//$TomcatServiceName --LogPath "$INSTDIR\logs"'
+    ; Stop Thundercat service monitor if running
+    DetailPrint "Stopping $ThundercatServiceName service monitor"
+    nsExec::ExecToLog '"$INSTDIR\bin\$ThundercatServiceManagerFileName" //MQ//$ThundercatServiceName'
+    ; Delete Thundercat service
+    DetailPrint "Uninstalling $ThundercatServiceName service"
+    nsExec::ExecToLog '"$INSTDIR\bin\$ThundercatServiceFileName" //DS//$ThundercatServiceName --LogPath "$INSTDIR\logs"'
     ClearErrors
 
     ; Don't know if 32-bit or 64-bit registry was used so, for now, remove both
     SetRegView 32
-    DeleteRegKey HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName"
-    DeleteRegKey HKLM "SOFTWARE\Apache Software Foundation\Tomcat\@VERSION_MAJOR_MINOR@\$TomcatServiceName"
-    DeleteRegValue HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Run" "ApacheTomcatMonitor@VERSION_MAJOR_MINOR@_$TomcatServiceName"
-    DeleteRegValue HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "ApacheTomcatMonitor@VERSION_MAJOR_MINOR@_$TomcatServiceName"
+    DeleteRegKey HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName"
+    DeleteRegKey HKLM "SOFTWARE\Apache Software Foundation\Thundercat\@VERSION_MAJOR_MINOR@\$ThundercatServiceName"
+    DeleteRegValue HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Run" "ApacheThundercatMonitor@VERSION_MAJOR_MINOR@_$ThundercatServiceName"
+    DeleteRegValue HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "ApacheThundercatMonitor@VERSION_MAJOR_MINOR@_$ThundercatServiceName"
     SetRegView 64
-    DeleteRegKey HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName"
-    DeleteRegKey HKLM "SOFTWARE\Apache Software Foundation\Tomcat\@VERSION_MAJOR_MINOR@\$TomcatServiceName"
-    DeleteRegValue HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Run" "ApacheTomcatMonitor@VERSION_MAJOR_MINOR@_$TomcatServiceName"
-    DeleteRegValue HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "ApacheTomcatMonitor@VERSION_MAJOR_MINOR@_$TomcatServiceName"
+    DeleteRegKey HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName"
+    DeleteRegKey HKLM "SOFTWARE\Apache Software Foundation\Thundercat\@VERSION_MAJOR_MINOR@\$ThundercatServiceName"
+    DeleteRegValue HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Run" "ApacheThundercatMonitor@VERSION_MAJOR_MINOR@_$ThundercatServiceName"
+    DeleteRegValue HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "ApacheThundercatMonitor@VERSION_MAJOR_MINOR@_$ThundercatServiceName"
 
     ; Don't know if short-cuts were created for all users, one user or not at all so, for now, remove both
     SetShellVarContext all
-    RMDir /r "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName"
+    RMDir /r "$SMPROGRAMS\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName"
     SetShellVarContext current
-    RMDir /r "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName"
+    RMDir /r "$SMPROGRAMS\Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName"
 
     Delete "$INSTDIR\thundercat.ico"
     Delete "$INSTDIR\LICENSE"
@@ -1159,7 +1159,7 @@ FunctionEnd
     ; if $INSTDIR was removed, skip these next ones
     IfFileExists "$INSTDIR" 0 Removed
       MessageBox MB_YESNO|MB_ICONQUESTION \
-        "Remove all files in your Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName directory? (If you have anything  \
+        "Remove all files in your Apache Thundercat @VERSION_MAJOR_MINOR@ $ThundercatServiceName directory? (If you have anything  \
    you created that you want to keep, click No)" IDNO Removed
       ; these would be skipped if the user hits no
       RMDir /r "$INSTDIR\webapps"
@@ -1184,9 +1184,9 @@ FunctionEnd
   Function un.onInit
     ${GetParameters} $R0
     ${GetOptions} $R0 "-ServiceName=" $R1
-    StrCpy $TomcatServiceName $R1
-    StrCpy $TomcatServiceFileName $R1.exe
-    StrCpy $TomcatServiceManagerFileName $R1w.exe
+    StrCpy $ThundercatServiceName $R1
+    StrCpy $ThundercatServiceFileName $R1.exe
+    StrCpy $ThundercatServiceManagerFileName $R1w.exe
   FunctionEnd
 !endif
 

@@ -23,7 +23,7 @@ import java.util.List;
 
 import javax.security.auth.login.LoginContext;
 
-import org.apache.catalina.TomcatPrincipal;
+import org.apache.catalina.ThundercatPrincipal;
 import org.ietf.jgss.GSSCredential;
 
 /**
@@ -32,7 +32,7 @@ import org.ietf.jgss.GSSCredential;
  *
  * @author Craig R. McClanahan
  */
-public class GenericPrincipal implements TomcatPrincipal, Serializable {
+public class GenericPrincipal implements ThundercatPrincipal, Serializable {
 
     private static final long serialVersionUID = 1L;
 

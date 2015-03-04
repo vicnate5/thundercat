@@ -23,15 +23,15 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestJspConfig extends TomcatBaseTest {
+public class TestJspConfig extends ThundercatBaseTest {
 
     @Test
     public void testServlet22NoEL() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir =
             new File("test/webapp-2.2");
@@ -51,7 +51,7 @@ public class TestJspConfig extends TomcatBaseTest {
 
     @Test
     public void testServlet23NoEL() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir =
             new File("test/webapp-2.3");
@@ -71,7 +71,7 @@ public class TestJspConfig extends TomcatBaseTest {
 
     @Test
     public void testServlet24NoEL() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir =
             new File("test/webapp-2.4");
@@ -91,7 +91,7 @@ public class TestJspConfig extends TomcatBaseTest {
 
     @Test
     public void testServlet25NoEL() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir =
             new File("test/webapp-2.5");
@@ -110,7 +110,7 @@ public class TestJspConfig extends TomcatBaseTest {
 
     @Test
     public void testServlet30NoEL() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir =
             new File("test/webapp-3.0");
@@ -129,7 +129,7 @@ public class TestJspConfig extends TomcatBaseTest {
 
     @Test
     public void testServlet31NoEL() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir =
             new File("test/webapp-3.1");

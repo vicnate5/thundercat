@@ -55,7 +55,7 @@ import org.xml.sax.helpers.AttributesImpl;
  * <p>A <strong>Digester</strong> processes an XML input stream by matching a
  * series of element nesting patterns to execute Rules that have been added
  * prior to the start of parsing.  This package was inspired by the
- * <code>XmlMapper</code> class that was part of Tomcat 3.0 and 3.1,
+ * <code>XmlMapper</code> class that was part of Thundercat 3.0 and 3.1,
  * but is organized somewhat differently.</p>
  *
  * <p>See the <a href="package-summary.html#package_description">Digester

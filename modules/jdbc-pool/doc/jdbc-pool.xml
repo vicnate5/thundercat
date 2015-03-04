@@ -24,7 +24,7 @@
 
  <properties>
     <author email="fhanik@apache.org">Filip Hanik</author>
-    <title>The Tomcat JDBC Connection Pool</title>
+    <title>The Thundercat JDBC Connection Pool</title>
   </properties>
 
 <body>
@@ -61,11 +61,11 @@
           <code>NoSuchMethodException</code> exceptions.</li>
       <li>It's not worth rewriting over 60 classes, when a connection pool can
           be accomplished with a much simpler implementation.</li>
-      <li>Tomcat jdbc pool implements the ability retrieve a connection
+      <li>Thundercat jdbc pool implements the ability retrieve a connection
           asynchronously, without adding additional threads to the library
           itself.</li>
-      <li>Tomcat jdbc pool is a Tomcat module, it depends on Tomcat JULI, a
-          simplified logging framework used in Tomcat.</li>
+      <li>Thundercat jdbc pool is a Thundercat module, it depends on Thundercat JULI, a
+          simplified logging framework used in Thundercat.</li>
       <li>Retrieve the underlying connection using the
           <code>javax.sql.PooledConnection</code> interface.</li>
       <li>Starvation proof. If a pool is empty, and threads are waiting for a
@@ -89,7 +89,7 @@
           <code>java.sql</code>/<code>javax.sql</code> interface.</li>
       <li>High performance - we will show some differences in performance later on</li>
       <li>Extremely simple, due to the very simplified implementation, the line count and source file count are very low, compare with c3p0
-          that has over 200 source files(last time we checked), Tomcat jdbc has a core of 8 files, the connection pool itself is about half
+          that has over 200 source files(last time we checked), Thundercat jdbc has a core of 8 files, the connection pool itself is about half
           that. As bugs may occur, they will be faster to track down, and easier to fix. Complexity reduction has been a focus from inception.</li>
       <li>Asynchronous connection retrieval - you can queue your request for a connection and receive a <code>Future&lt;Connection&gt;</code> back.</li>
       <li>Better idle connection handling. Instead of closing connections directly, it can still pool connections and sizes the idle pool with a smarter algorithm.</li>
@@ -113,11 +113,11 @@
 </section>
 <section name="How to use">
   <p>
-    Usage of the Tomcat connection pool has been made to be as simple as possible, for those of you that are familiar with commons-dbcp, the
+    Usage of the Thundercat connection pool has been made to be as simple as possible, for those of you that are familiar with commons-dbcp, the
     transition will be very simple. Moving from other connection pools is also fairly straight forward.
   </p>
   <subsection name="Additional features">
-    <p>The Tomcat connection pool offers a few additional features over what most other pools let you do:</p>
+    <p>The Thundercat connection pool offers a few additional features over what most other pools let you do:</p>
     <ul>
       <li><code>initSQL</code> - the ability to run a SQL statement exactly once, when the connection is created</li>
       <li><code>validationInterval</code> - in addition to running validations on connections, avoid running them too frequently.</li>
@@ -126,9 +126,9 @@
       <li><code>fairQueue</code> - Set the fair flag to true to achieve thread fairness or to use asynchronous connection retrieval</li>
     </ul>
   </subsection>
-  <subsection name="Inside the Apache Tomcat Container">
+  <subsection name="Inside the Apache Thundercat Container">
     <p>
-      The Tomcat Connection pool is configured as a resource described in <a href="http://thundercat.apache.org/thundercat-8.0-doc/jndi-datasource-examples-howto.html" target="_blank">The Tomcat JDBC documentation</a>
+      The Thundercat Connection pool is configured as a resource described in <a href="http://thundercat.apache.org/thundercat-8.0-doc/jndi-datasource-examples-howto.html" target="_blank">The Thundercat JDBC documentation</a>
       With the only difference being that you have to specify the <code>factory</code> attribute and set the value to
       <code>org.apache.thundercat.jdbc.pool.DataSourceFactory</code>
     </p>
@@ -146,7 +146,7 @@
       The connection pool object exposes an MBean that can be registered.
       In order for the connection pool object to create the MBean, the flag <code>jmxEnabled</code> has to be set to true.
       This doesn't imply that the pool will be registered with an MBean server, merely that the MBean is created.
-      In a container like Tomcat, Tomcat itself registers the DataSource with the MBean server, the
+      In a container like Thundercat, Thundercat itself registers the DataSource with the MBean server, the
       <code>org.apache.thundercat.jdbc.pool.DataSource</code> object will then register the actual
       connection pool MBean.
       If you're running outside of a container, you can register the DataSource yourself under any object name you specify,
@@ -182,7 +182,7 @@
            loaded the pool classes) and if class loading fails attempt to
            load using the thread context loader. Set this value to
            <code>true</code>, if you wish to remain backwards compatible
-           with Apache Tomcat 8.0.8 and earlier, and only attempt the
+           with Apache Thundercat 8.0.8 and earlier, and only attempt the
            current loader.
            If not set then the default value is <code>false</code>.
         </p>
@@ -389,7 +389,7 @@
 
   </subsection>
 
-  <subsection name="Tomcat JDBC Enhanced Attributes">
+  <subsection name="Thundercat JDBC Enhanced Attributes">
 
   <attributes>
 
@@ -699,7 +699,7 @@
   <subsection name="org.apache.thundercat.jdbc.pool.interceptor.SlowQueryReportJmx">
     <p>Extends the <code>SlowQueryReport</code> and in addition to log entries it issues JMX notification
        for monitoring tools to react to. Inherits all the attributes from its parent class.
-       This class uses Tomcat's JMX engine so it wont work outside of the Tomcat container.
+       This class uses Thundercat's JMX engine so it wont work outside of the Thundercat container.
        By default, JMX notifications are sent through the ConnectionPool mbean if it is enabled.
        The <code>SlowQueryReportJmx</code> can also register an MBean if <code>notifyPool=false</code>
     </p>
@@ -732,7 +732,7 @@
 </section>
 
 <section name="Code Example">
-  <p>Other examples of Tomcat configuration for JDBC usage can be found <a href="http://thundercat.apache.org/thundercat-8.0-doc/jndi-datasource-examples-howto.html">in the Tomcat documentation</a>. </p>
+  <p>Other examples of Thundercat configuration for JDBC usage can be found <a href="http://thundercat.apache.org/thundercat-8.0-doc/jndi-datasource-examples-howto.html">in the Thundercat documentation</a>. </p>
   <subsection name="Plain Ol' Java">
     <p>Here is a simple example of how to create and use a data source.</p>
 <source><![CDATA[  import java.sql.Connection;
@@ -820,7 +820,7 @@
 
   </subsection>
   <subsection name="Asynchronous Connection Retrieval">
-    <p> The Tomcat JDBC connection pool supports asynchronous connection retrieval without adding additional threads to the
+    <p> The Thundercat JDBC connection pool supports asynchronous connection retrieval without adding additional threads to the
         pool library. It does this by adding a method to the data source called <code>Future&lt;Connection&gt; getConnectionAsync()</code>.
         In order to use the async retrieval, two conditions must be met:
     </p>
@@ -939,7 +939,7 @@
 
 <section name="Building">
   <p>We build the JDBC pool code with 1.6, but it is backwards compatible down to 1.5 for runtime environment. For unit test, we use 1.6 and higher</p>
-  <p>Other examples of Tomcat configuration for JDBC usage can be found <a href="http://thundercat.apache.org/thundercat-8.0-doc/jndi-datasource-examples-howto.html">in the Tomcat documentation</a>. </p>
+  <p>Other examples of Thundercat configuration for JDBC usage can be found <a href="http://thundercat.apache.org/thundercat-8.0-doc/jndi-datasource-examples-howto.html">in the Thundercat documentation</a>. </p>
   <subsection name="Building from source">
     <p>Building is pretty simple. The pool has a dependency on <code>thundercat-juli.jar</code> and in case you want the <code>SlowQueryReportJmx</code></p>
 <source><![CDATA[  javac -classpath thundercat-juli.jar \
@@ -948,7 +948,7 @@
         org/apache/thundercat/jdbc/pool/interceptor/*.java \
         org/apache/thundercat/jdbc/pool/jmx/*.java]]></source>
     <p>
-       A build file can be found in the Tomcat <a href="http://svn.apache.org/viewvc/thundercat/trunk/modules/jdbc-pool/">source repository</a>.
+       A build file can be found in the Thundercat <a href="http://svn.apache.org/viewvc/thundercat/trunk/modules/jdbc-pool/">source repository</a>.
     </p>
     <p>
       As a convenience, a build file is also included where a simple build command will generate all files needed.

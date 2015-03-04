@@ -35,8 +35,8 @@ import org.apache.catalina.connector.Request;
 import org.apache.catalina.core.TesterContext;
 import org.apache.catalina.startup.TesterMapRealm;
 import org.apache.catalina.startup.TesterServlet;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.descriptor.web.LoginConfig;
 import org.apache.thundercat.util.descriptor.web.SecurityCollection;
@@ -44,7 +44,7 @@ import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
 import org.apache.thundercat.util.security.ConcurrentMessageDigest;
 import org.apache.thundercat.util.security.MD5Encoder;
 
-public class TestDigestAuthenticator extends TomcatBaseTest {
+public class TestDigestAuthenticator extends ThundercatBaseTest {
 
     private static String USER = "user";
     private static String PWD = "pwd";
@@ -188,11 +188,11 @@ public class TestDigestAuthenticator extends TomcatBaseTest {
 
         if (!validateUri) {
             DigestAuthenticator auth =
-                (DigestAuthenticator) getTomcatInstance().getHost().findChild(
+                (DigestAuthenticator) getThundercatInstance().getHost().findChild(
                         CONTEXT_PATH).getPipeline().getFirst();
             auth.setValidateUri(false);
         }
-        getTomcatInstance().start();
+        getThundercatInstance().start();
 
         String digestUri;
         if (breakUri) {
@@ -266,13 +266,13 @@ public class TestDigestAuthenticator extends TomcatBaseTest {
         super.setUp();
 
         // Configure a context with digest auth and a single protected resource
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctxt = thundercat.addContext(CONTEXT_PATH, null);
 
         // Add protected servlet
-        Tomcat.addServlet(ctxt, "TesterServlet", new TesterServlet());
+        Thundercat.addServlet(ctxt, "TesterServlet", new TesterServlet());
         ctxt.addServletMapping(URI, "TesterServlet");
         SecurityCollection collection = new SecurityCollection();
         collection.addPattern(URI);

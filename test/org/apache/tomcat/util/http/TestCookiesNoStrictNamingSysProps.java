@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import org.apache.catalina.startup.Tomcat;
+import org.apache.catalina.startup.Thundercat;
 import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
@@ -41,7 +41,7 @@ public class TestCookiesNoStrictNamingSysProps extends CookiesBaseTest {
         System.setProperty("org.apache.thundercat.util.http.ServerCookie.STRICT_NAMING",
                 "false");
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         addServlets(thundercat);
 

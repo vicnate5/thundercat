@@ -32,7 +32,7 @@ import org.apache.catalina.WebResourceRoot;
 /**
  * Represents a {@link org.apache.catalina.WebResourceSet} based on a JAR file
  * that is nested inside a packed WAR file. This is only intended for internal
- * use within Tomcat and therefore cannot be created via configuration.
+ * use within Thundercat and therefore cannot be created via configuration.
  */
 public class JarWarResourceSet extends AbstractArchiveResourceSet {
 

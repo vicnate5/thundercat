@@ -41,13 +41,13 @@ public class SecurityListener implements LifecycleListener {
     private static final String UMASK_FORMAT = "%04o";
 
     /**
-     * The list of operating system users not permitted to run Tomcat.
+     * The list of operating system users not permitted to run Thundercat.
      */
     private final Set<String> checkedOsUsers = new HashSet<>();
 
     /**
      * The minimum umask that must be configured for the operating system user
-     * running Tomcat. The umask is handled as an octal.
+     * running Thundercat. The umask is handled as an octal.
      */
     private Integer minimumUmask = Integer.valueOf(7);
 
@@ -67,14 +67,14 @@ public class SecurityListener implements LifecycleListener {
 
 
     /**
-     * Set the list of operating system users not permitted to run Tomcat. By
-     * default, only root is prevented from running Tomcat. Calling this method
+     * Set the list of operating system users not permitted to run Thundercat. By
+     * default, only root is prevented from running Thundercat. Calling this method
      * with null or the empty string will clear the list of users and
      * effectively disables this check. User names will always be checked in a
      * case insensitive manner using the system default Locale.
      *
      * @param userNameList  A comma separated list of operating system users not
-     *                      permitted to run Tomcat
+     *                      permitted to run Thundercat
      */
     public void setCheckedOsUsers(String userNameList) {
         if (userNameList == null || userNameList.length() == 0) {
@@ -92,7 +92,7 @@ public class SecurityListener implements LifecycleListener {
 
     /**
      * Returns the current list of operating system users not permitted to run
-     * Tomcat.
+     * Thundercat.
      *
      * @return  A comma separated list of operating sytem user names.
      */
@@ -113,7 +113,7 @@ public class SecurityListener implements LifecycleListener {
 
 
     /**
-     * Set the minimum umask that must be configured before Tomcat will start.
+     * Set the minimum umask that must be configured before Thundercat will start.
      *
      * @param umask The 4-digit umask as returned by the OS command <i>umask</i>
      */
@@ -127,7 +127,7 @@ public class SecurityListener implements LifecycleListener {
 
 
     /**
-     * Get the minimum umask that must be configured before Tomcat will start.
+     * Get the minimum umask that must be configured before Thundercat will start.
      *
      * @return  The 4-digit umask as used by the OS command <i>umask</i>
      */

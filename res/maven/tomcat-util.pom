@@ -20,7 +20,7 @@
   <groupId>org.apache.thundercat</groupId>
   <artifactId>thundercat-util</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
-  <description>Common code shared by multiple Tomcat components</description>
+  <description>Common code shared by multiple Thundercat components</description>
   <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>

@@ -93,10 +93,10 @@ import org.apache.thundercat.util.ExceptionUtils;
  *     matches the "user classes" list.</li>
  * <li>By default, the enclosing Container's name serves as the
  *     application name used to obtain the JAAS LoginContext ("Catalina" in
- *     a default installation). Tomcat must be able to find an application
+ *     a default installation). Thundercat must be able to find an application
  *     with this name in the JAAS configuration file. Here is a hypothetical
  *     JAAS configuration file entry for a database-oriented login module that uses
- *     a Tomcat-managed JNDI database resource:
+ *     a Thundercat-managed JNDI database resource:
  *     <blockquote><pre>Catalina {
 org.foobar.auth.DatabaseLoginModule REQUIRED
     JNDI_RESOURCE=jdbc/AuthDB
@@ -376,7 +376,7 @@ public class JAASRealm extends RealmBase {
         // Establish a LoginContext to use for authentication
         try {
         LoginContext loginContext = null;
-        if( appName==null ) appName="Tomcat";
+        if( appName==null ) appName="Thundercat";
 
         if( log.isDebugEnabled())
             log.debug(sm.getString("jaasRealm.beginLogin", username, appName));

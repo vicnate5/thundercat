@@ -31,7 +31,7 @@ rem
 rem   CATALINA_OPTS   (Optional) Java runtime options used when the "start",
 rem                   "run" or "debug" command is executed.
 rem                   Include here and not in JAVA_OPTS all options, that should
-rem                   only be used by Tomcat itself, not by the stop process,
+rem                   only be used by Thundercat itself, not by the stop process,
 rem                   the version command etc.
 rem                   Examples are heap size, GC logging, JMX ports etc.
 rem
@@ -49,7 +49,7 @@ rem
 rem   JAVA_OPTS       (Optional) Java runtime options used when any command
 rem                   is executed.
 rem                   Include here and not in CATALINA_OPTS all options, that
-rem                   should be used by Tomcat and also by the stop process,
+rem                   should be used by Thundercat and also by the stop process,
 rem                   the version command etc.
 rem                   Most options should go into CATALINA_OPTS.
 rem
@@ -71,18 +71,18 @@ rem
 rem                   -agentlib:jdwp=transport=%JPDA_TRANSPORT%,
 rem                       address=%JPDA_ADDRESS%,server=y,suspend=%JPDA_SUSPEND%
 rem
-rem   LOGGING_CONFIG  (Optional) Override Tomcat's logging config file
+rem   LOGGING_CONFIG  (Optional) Override Thundercat's logging config file
 rem                   Example (all one line)
 rem                   set LOGGING_CONFIG="-Djava.util.logging.config.file=%CATALINA_BASE%\conf\logging.properties"
 rem
-rem   LOGGING_MANAGER (Optional) Override Tomcat's logging manager
+rem   LOGGING_MANAGER (Optional) Override Thundercat's logging manager
 rem                   Example (all one line)
 rem                   set LOGGING_MANAGER="-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager"
 rem
-rem   TITLE           (Optional) Specify the title of Tomcat window. The default
-rem                   TITLE is Tomcat if it's not specified.
+rem   TITLE           (Optional) Specify the title of Thundercat window. The default
+rem                   TITLE is Thundercat if it's not specified.
 rem                   Example (all one line)
-rem                   set TITLE=Tomcat.Cluster#1.Server#1 [%DATE% %TIME%]
+rem                   set TITLE=Thundercat.Cluster#1.Server#1 [%DATE% %TIME%]
 rem ---------------------------------------------------------------------------
 
 setlocal
@@ -272,7 +272,7 @@ goto execCmd
 
 :doStart
 shift
-if "%TITLE%" == "" set TITLE=Tomcat
+if "%TITLE%" == "" set TITLE=Thundercat
 set _EXECJAVA=start "%TITLE%" %_RUNJAVA%
 if not ""%1"" == ""-security"" goto execCmd
 shift

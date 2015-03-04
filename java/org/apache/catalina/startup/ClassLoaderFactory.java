@@ -244,7 +244,7 @@ public final class ClassLoaderFactory {
                 File defaultValue = new File(base, "lib");
 
                 // Existence of ${catalina.base}/lib directory is optional.
-                // Hide the warning if Tomcat runs with separate catalina.home
+                // Hide the warning if Thundercat runs with separate catalina.home
                 // and catalina.base and that directory is absent.
                 if (!home.getPath().equals(base.getPath())
                         && file.getPath().equals(defaultValue.getPath())

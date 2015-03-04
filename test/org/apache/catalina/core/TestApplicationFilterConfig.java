@@ -26,21 +26,21 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.filters.AddDefaultCharsetFilter;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.descriptor.web.FilterDef;
 import org.apache.thundercat.util.modeler.Registry;
 
-public class TestApplicationFilterConfig extends TomcatBaseTest {
+public class TestApplicationFilterConfig extends ThundercatBaseTest {
 
     @Test
     public void testBug54170() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "HelloWorld", new HelloWorldServlet());
+        Thundercat.addServlet(ctx, "HelloWorld", new HelloWorldServlet());
         ctx.addServletMapping("/", "HelloWorld");
 
         // Add a filter with a name that should be escaped if used in a JMX
@@ -57,12 +57,12 @@ public class TestApplicationFilterConfig extends TomcatBaseTest {
 
         // There should be one Servlet MBean registered
         Set<ObjectName> servlets = mbeanServer.queryNames(
-                new ObjectName("Tomcat:j2eeType=Servlet,*"), null);
+                new ObjectName("Thundercat:j2eeType=Servlet,*"), null);
         Assert.assertEquals(1, servlets.size());
 
         // There should be one Filter MBean registered
         Set<ObjectName> filters = mbeanServer.queryNames(
-                new ObjectName("Tomcat:j2eeType=Filter,*"), null);
+                new ObjectName("Thundercat:j2eeType=Filter,*"), null);
         Assert.assertEquals(1, filters.size());
     }
 }

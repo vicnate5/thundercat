@@ -28,10 +28,10 @@ import org.junit.Test;
 
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.SimpleHttpClient;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 
-public class TestMaxConnections extends TomcatBaseTest {
+public class TestMaxConnections extends ThundercatBaseTest {
     private static final int MAX_CONNECTIONS = 3;
     public static final int soTimeout = 5000;
     public static final int connectTimeout = 1000;
@@ -69,10 +69,10 @@ public class TestMaxConnections extends TomcatBaseTest {
 
 
     private synchronized void init() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         StandardContext root = (StandardContext) thundercat.addContext("", SimpleHttpClient.TEMP_DIR);
         root.setUnloadDelay(soTimeout);
-        Tomcat.addServlet(root, "Simple", new SimpleServlet());
+        Thundercat.addServlet(root, "Simple", new SimpleServlet());
         root.addServletMapping("/test", "Simple");
         thundercat.getConnector().setProperty("maxKeepAliveRequests", "1");
         thundercat.getConnector().setProperty("maxThreads", "10");

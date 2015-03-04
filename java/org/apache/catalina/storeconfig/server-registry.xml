@@ -15,7 +15,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<Registry name="Tomcat" version="6.0.35" encoding="UTF-8" >
+<Registry name="Thundercat" version="6.0.35" encoding="UTF-8" >
      <Description
         tag="Server"
         standard="true"

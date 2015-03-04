@@ -17,8 +17,8 @@
 # build.properties.sample
 #
 # This is an example "build.properties" file, used to customize building
-# Tomcat for your local environment.  It defines the location of all external
-# modules that Tomcat depends on.  Copy this file to "build.properties"
+# Thundercat for your local environment.  It defines the location of all external
+# modules that Thundercat depends on.  Copy this file to "build.properties"
 # in the top-level source directory, and customize it as needed.
 # -----------------------------------------------------------------------------
 
@@ -153,7 +153,7 @@ npn.home=${base.path}/npn-${npn.version}
 npn.jar=${npn.home}/npn-${npn.version}.jar
 npn.loc=http://repo1.maven.org/maven2/org/eclipse/jetty/npn/npn-api/${npn.version}/npn-api-${npn.version}.jar
 
-# ----- Tomcat native library -----
+# ----- Thundercat native library -----
 thundercat-native.version=1.1.32
 thundercat-native.home=${base.path}/thundercat-native-${thundercat-native.version}
 thundercat-native.tar.gz=${thundercat-native.home}/thundercat-native.tar.gz

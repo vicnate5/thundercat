@@ -52,13 +52,13 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.Wrapper;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.catalina.valves.TesterAccessLogValve;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.descriptor.web.ErrorPage;
 
-public class TestAsyncContextImpl extends TomcatBaseTest {
+public class TestAsyncContextImpl extends ThundercatBaseTest {
 
     // Time for a request to process (need to allow for threads to start etc.)
     private static final long REQUEST_TIME = 1500;
@@ -83,15 +83,15 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
 
     @Test
     public void testBug49528() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         Bug49528Servlet servlet = new Bug49528Servlet();
 
-        Wrapper wrapper = Tomcat.addServlet(ctx, "servlet", servlet);
+        Wrapper wrapper = Thundercat.addServlet(ctx, "servlet", servlet);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/", "servlet");
 
@@ -120,15 +120,15 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
 
     @Test
     public void testBug49567() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         Bug49567Servlet servlet = new Bug49567Servlet();
 
-        Wrapper wrapper = Tomcat.addServlet(ctx, "servlet", servlet);
+        Wrapper wrapper = Thundercat.addServlet(ctx, "servlet", servlet);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/", "servlet");
 
@@ -158,8 +158,8 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testAsyncStartNoComplete() throws Exception {
         resetTracker();
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // Minimise pauses during test
         thundercat.getConnector().setAttribute(
@@ -171,7 +171,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         AsyncStartNoCompleteServlet servlet =
             new AsyncStartNoCompleteServlet();
 
-        Wrapper wrapper = Tomcat.addServlet(ctx, "servlet", servlet);
+        Wrapper wrapper = Thundercat.addServlet(ctx, "servlet", servlet);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/", "servlet");
 
@@ -201,8 +201,8 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
 
     @Test
     public void testAsyncStartWithComplete() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
@@ -210,7 +210,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         AsyncStartWithCompleteServlet servlet =
             new AsyncStartWithCompleteServlet();
 
-        Wrapper wrapper = Tomcat.addServlet(ctx, "servlet", servlet);
+        Wrapper wrapper = Thundercat.addServlet(ctx, "servlet", servlet);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/", "servlet");
 
@@ -458,15 +458,15 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
             }
         }
 
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         TimeoutServlet timeout = new TimeoutServlet(completeOnTimeout, dispatchUrl);
 
-        Wrapper wrapper = Tomcat.addServlet(ctx, "time", timeout);
+        Wrapper wrapper = Thundercat.addServlet(ctx, "time", timeout);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/start", "time");
 
@@ -475,12 +475,12 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
                 AsyncStartRunnable asyncStartRunnable =
                         new AsyncStartRunnable();
                 Wrapper async =
-                        Tomcat.addServlet(ctx, "async", asyncStartRunnable);
+                        Thundercat.addServlet(ctx, "async", asyncStartRunnable);
                 async.setAsyncSupported(true);
                 ctx.addServletMapping(dispatchUrl, "async");
             } else {
                 NonAsyncServlet nonAsync = new NonAsyncServlet();
-                Tomcat.addServlet(ctx, "nonasync", nonAsync);
+                Thundercat.addServlet(ctx, "nonasync", nonAsync);
                 ctx.addServletMapping(dispatchUrl, "nonasync");
             }
          }
@@ -614,19 +614,19 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
 
     private void doTestDispatch(int iter, boolean useThread) throws Exception {
         resetTracker();
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         DispatchingServlet dispatch = new DispatchingServlet(false, false);
-        Wrapper wrapper = Tomcat.addServlet(ctx, "dispatch", dispatch);
+        Wrapper wrapper = Thundercat.addServlet(ctx, "dispatch", dispatch);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/stage1", "dispatch");
 
         NonAsyncServlet nonasync = new NonAsyncServlet();
-        Wrapper wrapper2 = Tomcat.addServlet(ctx, "nonasync", nonasync);
+        Wrapper wrapper2 = Thundercat.addServlet(ctx, "nonasync", nonasync);
         wrapper2.setAsyncSupported(true);
         ctx.addServletMapping("/stage2", "nonasync");
 
@@ -733,19 +733,19 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testListeners() throws Exception {
         resetTracker();
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         TrackingServlet tracking = new TrackingServlet();
-        Wrapper wrapper = Tomcat.addServlet(ctx, "tracking", tracking);
+        Wrapper wrapper = Thundercat.addServlet(ctx, "tracking", tracking);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/stage1", "tracking");
 
         TimeoutServlet timeout = new TimeoutServlet(Boolean.TRUE, null);
-        Wrapper wrapper2 = Tomcat.addServlet(ctx, "timeout", timeout);
+        Wrapper wrapper2 = Thundercat.addServlet(ctx, "timeout", timeout);
         wrapper2.setAsyncSupported(true);
         ctx.addServletMapping("/stage2", "timeout");
 
@@ -955,20 +955,20 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
             boolean completeOnError)
             throws Exception {
         resetTracker();
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         DispatchingServlet dispatch =
             new DispatchingServlet(true, completeOnError);
-        Wrapper wrapper = Tomcat.addServlet(ctx, "dispatch", dispatch);
+        Wrapper wrapper = Thundercat.addServlet(ctx, "dispatch", dispatch);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/stage1", "dispatch");
 
         ErrorServlet error = new ErrorServlet();
-        Tomcat.addServlet(ctx, "error", error);
+        Thundercat.addServlet(ctx, "error", error);
         ctx.addServletMapping("/stage2", "error");
 
         ctx.addApplicationListener(TrackingRequestListener.class.getName());
@@ -1034,14 +1034,14 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testBug50352() throws Exception {
         resetTracker();
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         AsyncStartRunnable servlet = new AsyncStartRunnable();
-        Wrapper wrapper = Tomcat.addServlet(ctx, "servlet", servlet);
+        Wrapper wrapper = Thundercat.addServlet(ctx, "servlet", servlet);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/", "servlet");
 
@@ -1101,15 +1101,15 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
 
     @Test
     public void testBug50753() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         Bug50753Servlet servlet = new Bug50753Servlet();
 
-        Wrapper wrapper = Tomcat.addServlet(ctx, "servlet", servlet);
+        Wrapper wrapper = Thundercat.addServlet(ctx, "servlet", servlet);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/", "servlet");
 
@@ -1165,14 +1165,14 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
 
     @Test
     public void testErrorHandling() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         ErrorServlet error = new ErrorServlet();
-        Tomcat.addServlet(ctx, "error", error);
+        Thundercat.addServlet(ctx, "error", error);
         ctx.addServletMapping("/error", "error");
 
         TesterAccessLogValve alv = new TesterAccessLogValve();
@@ -1199,8 +1199,8 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
 
     @Test
     public void testCommitOnComplete() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
@@ -1208,7 +1208,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         AsyncStatusServlet asyncStatusServlet =
             new AsyncStatusServlet(HttpServletResponse.SC_BAD_REQUEST);
         Wrapper wrapper =
-            Tomcat.addServlet(ctx, "asyncStatusServlet", asyncStatusServlet);
+            Thundercat.addServlet(ctx, "asyncStatusServlet", asyncStatusServlet);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/asyncStatusServlet", "asyncStatusServlet");
 
@@ -1277,8 +1277,8 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     }
 
     private void doTestBug51197(boolean threaded, boolean customError) throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
@@ -1286,13 +1286,13 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         AsyncErrorServlet asyncErrorServlet =
             new AsyncErrorServlet(HttpServletResponse.SC_BAD_REQUEST, threaded);
         Wrapper wrapper =
-            Tomcat.addServlet(ctx, "asyncErrorServlet", asyncErrorServlet);
+            Thundercat.addServlet(ctx, "asyncErrorServlet", asyncErrorServlet);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/asyncErrorServlet", "asyncErrorServlet");
 
         if (customError) {
             CustomErrorServlet customErrorServlet = new CustomErrorServlet();
-            Tomcat.addServlet(ctx, "customErrorServlet", customErrorServlet);
+            Thundercat.addServlet(ctx, "customErrorServlet", customErrorServlet);
             ctx.addServletMapping("/customErrorServlet", "customErrorServlet");
 
             ErrorPage ep = new ErrorPage();
@@ -1394,17 +1394,17 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
 
     @Test
     public void testBug53337() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Wrapper a = Tomcat.addServlet(ctx, "ServletA", new Bug53337ServletA());
+        Wrapper a = Thundercat.addServlet(ctx, "ServletA", new Bug53337ServletA());
         a.setAsyncSupported(true);
-        Wrapper b = Tomcat.addServlet(ctx, "ServletB", new Bug53337ServletB());
+        Wrapper b = Thundercat.addServlet(ctx, "ServletB", new Bug53337ServletB());
         b.setAsyncSupported(true);
-        Tomcat.addServlet(ctx, "ServletC", new Bug53337ServletC());
+        Thundercat.addServlet(ctx, "ServletC", new Bug53337ServletC());
         ctx.addServletMapping("/ServletA", "ServletA");
         ctx.addServletMapping("/ServletB", "ServletB");
         ctx.addServletMapping("/ServletC", "ServletC");
@@ -1474,16 +1474,16 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
 
     @Test
     public void testBug53843() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         Bug53843ServletA servletA = new Bug53843ServletA();
-        Wrapper a = Tomcat.addServlet(ctx, "ServletA", servletA);
+        Wrapper a = Thundercat.addServlet(ctx, "ServletA", servletA);
         a.setAsyncSupported(true);
-        Tomcat.addServlet(ctx, "ServletB", new Bug53843ServletB());
+        Thundercat.addServlet(ctx, "ServletB", new Bug53843ServletB());
 
         ctx.addServletMapping("/ServletA", "ServletA");
         ctx.addServletMapping("/ServletB", "ServletB");
@@ -1587,24 +1587,24 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     private void doTestTimeoutErrorDispatch(Boolean asyncError,
             ErrorPageAsyncMode mode) throws Exception {
         resetTracker();
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         TimeoutServlet timeout = new TimeoutServlet(null, null);
-        Wrapper w1 = Tomcat.addServlet(ctx, "time", timeout);
+        Wrapper w1 = Thundercat.addServlet(ctx, "time", timeout);
         w1.setAsyncSupported(true);
         ctx.addServletMapping("/async", "time");
 
         NonAsyncServlet nonAsync = new NonAsyncServlet();
-        Wrapper w2 = Tomcat.addServlet(ctx, "nonAsync", nonAsync);
+        Wrapper w2 = Thundercat.addServlet(ctx, "nonAsync", nonAsync);
         w2.setAsyncSupported(true);
         ctx.addServletMapping("/error/nonasync", "nonAsync");
 
         AsyncErrorPage asyncErrorPage = new AsyncErrorPage(mode);
-        Wrapper w3 = Tomcat.addServlet(ctx, "asyncErrorPage", asyncErrorPage);
+        Wrapper w3 = Thundercat.addServlet(ctx, "asyncErrorPage", asyncErrorPage);
         w3.setAsyncSupported(true);
         ctx.addServletMapping("/error/async", "asyncErrorPage");
 
@@ -1716,20 +1716,20 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
 
     @Test
     public void testBug54178() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         Bug54178ServletA bug54178ServletA = new Bug54178ServletA();
         Wrapper wrapper =
-            Tomcat.addServlet(ctx, "bug54178ServletA", bug54178ServletA);
+            Thundercat.addServlet(ctx, "bug54178ServletA", bug54178ServletA);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/bug54178ServletA", "bug54178ServletA");
 
         Bug54178ServletB bug54178ServletB = new Bug54178ServletB();
-        Tomcat.addServlet(ctx, "bug54178ServletB", bug54178ServletB);
+        Thundercat.addServlet(ctx, "bug54178ServletB", bug54178ServletB);
         ctx.addServletMapping("/bug54178ServletB", "bug54178ServletB");
 
         thundercat.start();
@@ -1819,20 +1819,20 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testForbiddenDispatching() throws Exception {
         resetTracker();
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         NonAsyncServlet nonAsyncServlet = new NonAsyncServlet();
-        Wrapper wrapper = Tomcat.addServlet(ctx, "nonAsyncServlet",
+        Wrapper wrapper = Thundercat.addServlet(ctx, "nonAsyncServlet",
                 nonAsyncServlet);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/target", "nonAsyncServlet");
 
         DispatchingGenericServlet forbiddenDispatchingServlet = new DispatchingGenericServlet();
-        Wrapper wrapper1 = Tomcat.addServlet(ctx,
+        Wrapper wrapper1 = Thundercat.addServlet(ctx,
                 "forbiddenDispatchingServlet", forbiddenDispatchingServlet);
         wrapper1.setAsyncSupported(true);
         ctx.addServletMapping("/forbiddenDispatchingServlet",
@@ -1909,15 +1909,15 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
 
 
     private void doTestAsyncISE(boolean useGetRequest) throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         AsyncISEServlet servlet = new AsyncISEServlet();
 
-        Wrapper w = Tomcat.addServlet(ctx, "AsyncISEServlet", servlet);
+        Wrapper w = Thundercat.addServlet(ctx, "AsyncISEServlet", servlet);
         w.setAsyncSupported(true);
         ctx.addServletMapping("/test", "AsyncISEServlet");
 
@@ -2046,19 +2046,19 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
 
     private void prepareApplicationWithGenericServlet(String contextPath)
             throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext(contextPath, null);
 
         DispatchingGenericServlet dispatch = new DispatchingGenericServlet();
-        Wrapper wrapper = Tomcat.addServlet(ctx, "dispatch", dispatch);
+        Wrapper wrapper = Thundercat.addServlet(ctx, "dispatch", dispatch);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/dispatch", "dispatch");
 
         CustomGenericServlet customGeneric = new CustomGenericServlet();
-        Wrapper wrapper2 = Tomcat.addServlet(ctx, "customGeneric",
+        Wrapper wrapper2 = Thundercat.addServlet(ctx, "customGeneric",
                 customGeneric);
         wrapper2.setAsyncSupported(true);
         ctx.addServletMapping("/target", "customGeneric");
@@ -2088,24 +2088,24 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     public void testAsyncContextListenerClearing() throws Exception {
         resetTracker();
 
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         Servlet stage1 = new DispatchingServletTracking("/stage2", true);
-        Wrapper wrapper1 = Tomcat.addServlet(ctx, "stage1", stage1);
+        Wrapper wrapper1 = Thundercat.addServlet(ctx, "stage1", stage1);
         wrapper1.setAsyncSupported(true);
         ctx.addServletMapping("/stage1", "stage1");
 
         Servlet stage2 = new DispatchingServletTracking("/stage3", false);
-        Wrapper wrapper2 = Tomcat.addServlet(ctx, "stage2", stage2);
+        Wrapper wrapper2 = Thundercat.addServlet(ctx, "stage2", stage2);
         wrapper2.setAsyncSupported(true);
         ctx.addServletMapping("/stage2", "stage2");
 
         Servlet stage3 = new NonAsyncServlet();
-        Tomcat.addServlet(ctx, "stage3", stage3);
+        Thundercat.addServlet(ctx, "stage3", stage3);
         ctx.addServletMapping("/stage3", "stage3");
 
         TesterAccessLogValve alv = new TesterAccessLogValve();
@@ -2148,14 +2148,14 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     // https://bz.apache.org/bugzilla/show_bug.cgi?id=57559
     @Test
     public void testAsyncRequestURI() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         Servlet servlet = new AsyncRequestUriServlet();
-        Wrapper wrapper1 = Tomcat.addServlet(ctx, "bug57559", servlet);
+        Wrapper wrapper1 = Thundercat.addServlet(ctx, "bug57559", servlet);
         wrapper1.setAsyncSupported(true);
         ctx.addServletMapping("/", "bug57559");
 
@@ -2190,23 +2190,23 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testDispatchFromOtherContainerThread() throws Exception {
         resetTracker();
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         NonAsyncServlet nonAsyncServlet = new NonAsyncServlet();
-        Tomcat.addServlet(ctx, "nonAsyncServlet", nonAsyncServlet);
+        Thundercat.addServlet(ctx, "nonAsyncServlet", nonAsyncServlet);
         ctx.addServletMapping("/target", "nonAsyncServlet");
 
         AsyncStashServlet asyncStashServlet = new AsyncStashServlet();
-        Wrapper w1 = Tomcat.addServlet(ctx, "asyncStashServlet", asyncStashServlet);
+        Wrapper w1 = Thundercat.addServlet(ctx, "asyncStashServlet", asyncStashServlet);
         w1.setAsyncSupported(true);
         ctx.addServletMapping("/asyncStashServlet", "asyncStashServlet");
 
         AsyncRetrieveServlet asyncRetrieveServlet = new AsyncRetrieveServlet();
-        Wrapper w2 = Tomcat.addServlet(ctx, "asyncRetrieveServlet", asyncRetrieveServlet);
+        Wrapper w2 = Thundercat.addServlet(ctx, "asyncRetrieveServlet", asyncRetrieveServlet);
         w2.setAsyncSupported(true);
         ctx.addServletMapping("/asyncRetrieveServlet", "asyncRetrieveServlet");
 

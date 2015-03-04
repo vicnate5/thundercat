@@ -30,17 +30,17 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Response;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.descriptor.web.ErrorPage;
 
-public class TestStandardContextValve extends TomcatBaseTest {
+public class TestStandardContextValve extends ThundercatBaseTest {
 
     @Test
     public void testBug51653a() throws Exception {
         // Set up a container
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
@@ -49,7 +49,7 @@ public class TestStandardContextValve extends TomcatBaseTest {
         StringBuilder trace = new StringBuilder();
 
         //Add the error page
-        Tomcat.addServlet(ctx, "errorPage", new Bug51653ErrorPage(trace));
+        Thundercat.addServlet(ctx, "errorPage", new Bug51653ErrorPage(trace));
         ctx.addServletMapping("/error", "errorPage");
         // And the handling for 404 responses
         ErrorPage errorPage = new ErrorPage();
@@ -86,7 +86,7 @@ public class TestStandardContextValve extends TomcatBaseTest {
     @Test
     public void testBug51653b() throws Exception {
         // Set up a container
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
@@ -95,11 +95,11 @@ public class TestStandardContextValve extends TomcatBaseTest {
         StringBuilder trace = new StringBuilder();
 
         // Add the page that generates the error
-        Tomcat.addServlet(ctx, "test", new Bug51653ErrorTrigger());
+        Thundercat.addServlet(ctx, "test", new Bug51653ErrorTrigger());
         ctx.addServletMapping("/test", "test");
 
         // Add the error page
-        Tomcat.addServlet(ctx, "errorPage", new Bug51653ErrorPage(trace));
+        Thundercat.addServlet(ctx, "errorPage", new Bug51653ErrorPage(trace));
         ctx.addServletMapping("/error", "errorPage");
         // And the handling for 404 responses
         ErrorPage errorPage = new ErrorPage();

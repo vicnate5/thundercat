@@ -27,7 +27,7 @@ import org.apache.tools.ant.BuildException;
 
 /**
  * Ant task that implements the JMX Set command (<code>/jmxproxy/?set</code>)
- * supported by the Tomcat manager application.
+ * supported by the Thundercat manager application.
  *
  * @author Vivek Chopra
  */

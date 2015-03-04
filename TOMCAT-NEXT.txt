@@ -15,7 +15,7 @@
   limitations under the License.
 ================================================================================
 
-Notes of things to consider for the next major Tomcat release (9.0.x)
+Notes of things to consider for the next major Thundercat release (9.0.x)
 
  1. Fix Java 8 Javadoc warnings. Currently ~2800.
 
@@ -39,7 +39,7 @@ Notes of things to consider for the next major Tomcat release (9.0.x)
  8. Keep an eye on the other Java EE 8 EGs (no sign of any movement apart
     from the Servlet EG so far).
 
- 9. Refactor WebSocket I/O to go directly to Tomcat's internals rather than via
+ 9. Refactor WebSocket I/O to go directly to Thundercat's internals rather than via
     the Servlet API.
 
 10. Remove the use of system properties to control configuration wherever

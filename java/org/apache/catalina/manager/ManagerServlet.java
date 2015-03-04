@@ -1114,7 +1114,7 @@ public class ManagerServlet extends HttpServlet implements ContainerServlet {
         try {
             StringBuilder props = new StringBuilder();
             props.append("OK - Server info");
-            props.append("\nTomcat Version: ");
+            props.append("\nThundercat Version: ");
             props.append(ServerInfo.getServerInfo());
             props.append("\nOS Name: ");
             props.append(System.getProperty("os.name"));

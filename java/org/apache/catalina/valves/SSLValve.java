@@ -34,9 +34,9 @@ import org.apache.juli.logging.LogFactory;
 /**
  * When using mod_proxy_http, the client SSL information is not included in the
  * protocol (unlike mod_jk and mod_proxy_ajp). To make the client SSL
- * information available to Tomcat, some additional configuration is required.
+ * information available to Thundercat, some additional configuration is required.
  * In httpd, mod_headers is used to add the SSL information as HTTP headers. In
- * Tomcat, this valve is used to read the information from the HTTP headers and
+ * Thundercat, this valve is used to read the information from the HTTP headers and
  * insert it into the request.<p>
  *
  * <b>Note: Ensure that the headers are always set by httpd for all requests to

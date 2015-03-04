@@ -30,22 +30,22 @@ import org.apache.catalina.ContainerListener;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.LifecycleListener;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.websocket.server.WsContextListener;
 
-public class TestMapperListener extends TomcatBaseTest {
+public class TestMapperListener extends ThundercatBaseTest {
 
     @Test
-    public void testTomcatRestartListenerCount_Bug56717() throws IOException,
+    public void testThundercatRestartListenerCount_Bug56717() throws IOException,
             LifecycleException {
-        // The test runs Tomcat twice, tests that it has started successfully,
+        // The test runs Thundercat twice, tests that it has started successfully,
         // and compares the counts of listeners registered on containers
         // after the first and the second starts.
-        // Sample request is from TestTomcat#testSingleWebapp()
+        // Sample request is from TestThundercat#testSingleWebapp()
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File(getBuildDirectory(), "webapps/examples");
         // app dir is relative to server home

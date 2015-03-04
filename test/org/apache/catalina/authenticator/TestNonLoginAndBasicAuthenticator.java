@@ -32,8 +32,8 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.session.ManagerBase;
 import org.apache.catalina.startup.TesterServlet;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.codec.binary.Base64;
 import org.apache.thundercat.util.descriptor.web.LoginConfig;
@@ -59,7 +59,7 @@ import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
  * BasicAuthenticator and BasicCredentials, which it does by running
  * each test under a separate thundercat instance.
  */
-public class TestNonLoginAndBasicAuthenticator extends TomcatBaseTest {
+public class TestNonLoginAndBasicAuthenticator extends ThundercatBaseTest {
 
     protected static final boolean USE_COOKIES = true;
     protected static final boolean NO_COOKIES = !USE_COOKIES;
@@ -100,7 +100,7 @@ public class TestNonLoginAndBasicAuthenticator extends TomcatBaseTest {
     private static final BasicCredentials BAD_METHOD =
                 new BasicCredentials("BadMethod", USER, PWD);
 
-    private Tomcat thundercat;
+    private Thundercat thundercat;
     private Context basicContext;
     private Context nonloginContext;
     private List<String> cookies;
@@ -432,7 +432,7 @@ public class TestNonLoginAndBasicAuthenticator extends TomcatBaseTest {
         super.setUp();
 
         // create a thundercat server using the default in-memory Realm
-        thundercat = getTomcatInstance();
+        thundercat = getThundercatInstance();
 
         // add the test user and role to the Realm
         thundercat.addUser(USER, PWD);
@@ -454,7 +454,7 @@ public class TestNonLoginAndBasicAuthenticator extends TomcatBaseTest {
         nonloginContext.setSessionTimeout(LONG_SESSION_TIMEOUT_MINS);
 
         // Add protected servlet to the context
-        Tomcat.addServlet(nonloginContext, "TesterServlet1", new TesterServlet());
+        Thundercat.addServlet(nonloginContext, "TesterServlet1", new TesterServlet());
         nonloginContext.addServletMapping(URI_PROTECTED, "TesterServlet1");
 
         SecurityCollection collection1 = new SecurityCollection();
@@ -465,7 +465,7 @@ public class TestNonLoginAndBasicAuthenticator extends TomcatBaseTest {
         nonloginContext.addConstraint(sc1);
 
         // Add unprotected servlet to the context
-        Tomcat.addServlet(nonloginContext, "TesterServlet2", new TesterServlet());
+        Thundercat.addServlet(nonloginContext, "TesterServlet2", new TesterServlet());
         nonloginContext.addServletMapping(URI_PUBLIC, "TesterServlet2");
 
         SecurityCollection collection2 = new SecurityCollection();
@@ -491,7 +491,7 @@ public class TestNonLoginAndBasicAuthenticator extends TomcatBaseTest {
         basicContext.setSessionTimeout(SHORT_SESSION_TIMEOUT_MINS);
 
         // Add protected servlet to the context
-        Tomcat.addServlet(basicContext, "TesterServlet3", new TesterServlet());
+        Thundercat.addServlet(basicContext, "TesterServlet3", new TesterServlet());
         basicContext.addServletMapping(URI_PROTECTED, "TesterServlet3");
         SecurityCollection collection = new SecurityCollection();
         collection.addPattern(URI_PROTECTED);
@@ -501,7 +501,7 @@ public class TestNonLoginAndBasicAuthenticator extends TomcatBaseTest {
         basicContext.addConstraint(sc);
 
         // Add unprotected servlet to the context
-        Tomcat.addServlet(basicContext, "TesterServlet4", new TesterServlet());
+        Thundercat.addServlet(basicContext, "TesterServlet4", new TesterServlet());
         basicContext.addServletMapping(URI_PUBLIC, "TesterServlet4");
 
         SecurityCollection collection2 = new SecurityCollection();

@@ -78,7 +78,7 @@
  * </code>
  *
  * <p>
- * Apache Tomcat deploys all objects configured similarly to above within the
+ * Apache Thundercat deploys all objects configured similarly to above within the
  * <strong>java:comp/env</strong> namespace.  So the JNDI path given for
  * the dataSourceName parameter is valid for a
  * <code>ConnectionPoolDataSource</code> that is deployed as given in the

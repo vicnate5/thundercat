@@ -29,27 +29,27 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestOutputBuffer extends TomcatBaseTest{
+public class TestOutputBuffer extends ThundercatBaseTest{
 
     /*
-     * Expect that the buffered results are slightly slower since Tomcat now has
+     * Expect that the buffered results are slightly slower since Thundercat now has
      * an internal buffer so an extra one just adds overhead.
      *
      * @see "https://bz.apache.org/bugzilla/show_bug.cgi?id=52328"
      */
     @Test
     public void testWriteSpeed() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         Context root = thundercat.addContext("", TEMP_DIR);
 
         for (int i = 1; i <= WritingServlet.EXPECTED_CONTENT_LENGTH; i*=10) {
             WritingServlet servlet = new WritingServlet(i);
-            Tomcat.addServlet(root, "servlet" + i, servlet);
+            Thundercat.addServlet(root, "servlet" + i, servlet);
             root.addServletMapping("/servlet" + i, "servlet" + i);
         }
 
@@ -78,12 +78,12 @@ public class TestOutputBuffer extends TomcatBaseTest{
 
     @Test
     public void testBug52577() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         Context root = thundercat.addContext("", TEMP_DIR);
 
         Bug52577Servlet bug52577 = new Bug52577Servlet();
-        Tomcat.addServlet(root, "bug52577", bug52577);
+        Thundercat.addServlet(root, "bug52577", bug52577);
         root.addServletMapping("/", "bug52577");
 
         thundercat.start();

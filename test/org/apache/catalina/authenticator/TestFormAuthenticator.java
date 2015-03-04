@@ -37,8 +37,8 @@ import org.apache.catalina.Valve;
 import org.apache.catalina.startup.SimpleHttpClient;
 import org.apache.catalina.startup.TesterMapRealm;
 import org.apache.catalina.startup.TesterServlet;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.descriptor.web.LoginConfig;
 import org.apache.thundercat.util.descriptor.web.SecurityCollection;
 import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
@@ -57,7 +57,7 @@ import org.apache.thundercat.websocket.server.WsContextListener;
  *    achievable with servlets, jsps, jstl (all of which which can ask for an
  *    encoded url to be inserted into the dynamic web page). It cannot work
  *    with static html.
- *    note: this test class uses the Tomcat sample jsps, which conform.
+ *    note: this test class uses the Thundercat sample jsps, which conform.
  *
  * 3. Therefore, any webapp that MIGHT need to authenticate a client that
  *    does not accept cookies MUST generate EVERY protected resource url
@@ -75,7 +75,7 @@ import org.apache.thundercat.websocket.server.WsContextListener;
  * but it makes no claims to generality).
  *
  */
-public class TestFormAuthenticator extends TomcatBaseTest {
+public class TestFormAuthenticator extends ThundercatBaseTest {
 
     // these should really be singletons to be type-safe,
     // we are in a unit test and don't need to paranoid.
@@ -641,7 +641,7 @@ public class TestFormAuthenticator extends TomcatBaseTest {
 
             this.clientShouldUseHttp11 = clientShouldUseHttp11;
 
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
             File appDir = new File(getBuildDirectory(), "webapps/examples");
             Context ctx = thundercat.addWebapp(null, "/examples",
                     appDir.getAbsolutePath());
@@ -670,14 +670,14 @@ public class TestFormAuthenticator extends TomcatBaseTest {
                 }
             }
 
-            // Port only known after Tomcat starts
+            // Port only known after Thundercat starts
             setPort(getPort());
         }
     }
 
 
     /**
-     * Encapsulate the logic needed to run a suitably-configured Tomcat
+     * Encapsulate the logic needed to run a suitably-configured Thundercat
      * instance, send it an HTTP request and process the server response when
      * the protected resource is only protected for some HTTP methods. The use
      * case of particular interest is when GET and POST are not protected since
@@ -694,16 +694,16 @@ public class TestFormAuthenticator extends TomcatBaseTest {
 
             this.clientShouldUseHttp11 = clientShouldUseHttp11;
 
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
 
             Context ctx = thundercat.addContext(
                     "", System.getProperty("java.io.tmpdir"));
-            Tomcat.addServlet(ctx, "SelectedMethods",
+            Thundercat.addServlet(ctx, "SelectedMethods",
                     new SelectedMethodsServlet());
             ctx.addServletMapping("/test", "SelectedMethods");
             // Login servlet just needs to respond "OK". Client will handle
             // creating a valid response. No need for a form.
-            Tomcat.addServlet(ctx, "Login",
+            Thundercat.addServlet(ctx, "Login",
                     new TesterServlet());
             ctx.addServletMapping("/login", "Login");
 
@@ -748,7 +748,7 @@ public class TestFormAuthenticator extends TomcatBaseTest {
                 }
             }
 
-            // Port only known after Tomcat starts
+            // Port only known after Thundercat starts
             setPort(getPort());
         }
 

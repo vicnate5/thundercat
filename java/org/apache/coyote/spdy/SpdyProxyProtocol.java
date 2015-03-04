@@ -62,7 +62,7 @@ public class SpdyProxyProtocol extends AbstractProtocol<NioChannel> {
 
     public SpdyProxyProtocol() {
         super(new NioEndpoint());
-        NioEndpoint.Handler cHandler = new TomcatNioHandler();
+        NioEndpoint.Handler cHandler = new ThundercatNioHandler();
         ((NioEndpoint) getEndpoint()).setHandler(cHandler);
         setSoTimeout(Constants.DEFAULT_CONNECTION_TIMEOUT);
     }
@@ -107,7 +107,7 @@ public class SpdyProxyProtocol extends AbstractProtocol<NioChannel> {
         this.compress = compress;
     }
 
-    public class TomcatNioHandler implements NioEndpoint.Handler {
+    public class ThundercatNioHandler implements NioEndpoint.Handler {
 
         @Override
         public Object getGlobal() {

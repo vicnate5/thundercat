@@ -35,7 +35,7 @@ import org.apache.thundercat.util.buf.CharChunk;
 import org.apache.thundercat.util.res.StringManager;
 
 /**
- * The buffer used by Tomcat response. This is a derivative of the Tomcat 3.3
+ * The buffer used by Thundercat response. This is a derivative of the Thundercat 3.3
  * OutputBuffer, with the removal of some of the state handling (which in
  * Coyote is mostly the Processor's responsibility).
  *

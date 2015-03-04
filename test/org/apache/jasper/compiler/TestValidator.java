@@ -29,15 +29,15 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestValidator extends TomcatBaseTest {
+public class TestValidator extends ThundercatBaseTest {
 
     @Test
     public void testBug47331() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         int rc = getUrl("http://localhost:" + getPort() +
                 "/test/bug47331.jsp", new ByteChunk(), null);
@@ -47,7 +47,7 @@ public class TestValidator extends TomcatBaseTest {
 
     @Test
     public void testTldVersions22() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir =
             new File("test/webapp-2.2");
@@ -72,7 +72,7 @@ public class TestValidator extends TomcatBaseTest {
 
     @Test
     public void testTldVersions23() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir =
             new File("test/webapp-2.3");
@@ -97,7 +97,7 @@ public class TestValidator extends TomcatBaseTest {
 
     @Test
     public void testTldVersions24() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir =
             new File("test/webapp-2.4");
@@ -122,7 +122,7 @@ public class TestValidator extends TomcatBaseTest {
 
     @Test
     public void testTldVersions25() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir =
             new File("test/webapp-2.5");
@@ -147,7 +147,7 @@ public class TestValidator extends TomcatBaseTest {
 
     @Test
     public void testTldVersions30() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir =
             new File("test/webapp-3.0");
@@ -172,7 +172,7 @@ public class TestValidator extends TomcatBaseTest {
 
     @Test
     public void testTldVersions31() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir =
             new File("test/webapp-3.1");

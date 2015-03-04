@@ -721,7 +721,7 @@ public class RewriteValve extends ValveBase {
             rule.setNocase(true);
         } else if (flag.startsWith("noescape") || flag.startsWith("NE")) {
             rule.setNoescape(true);
-        // FIXME: Proxy not supported, would require proxy capabilities in Tomcat
+        // FIXME: Proxy not supported, would require proxy capabilities in Thundercat
         /* } else if (flag.startsWith("proxy") || flag.startsWith("P")) {
             rule.setProxy(true);*/
         } else if (flag.startsWith("qsappend") || flag.startsWith("QSA")) {

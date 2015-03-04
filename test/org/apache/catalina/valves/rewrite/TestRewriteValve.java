@@ -20,11 +20,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestRewriteValve extends TomcatBaseTest {
+public class TestRewriteValve extends ThundercatBaseTest {
 
     @Test
     public void testNoRewrite() throws Exception {
@@ -47,7 +47,7 @@ public class TestRewriteValve extends TomcatBaseTest {
     }
 
     private void doTestRewrite(String config, String request, String expectedURI) throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
@@ -59,7 +59,7 @@ public class TestRewriteValve extends TomcatBaseTest {
 
         // Note: URLPatterns should be URL encoded
         //       (http://svn.apache.org/r285186)
-        Tomcat.addServlet(ctx, "snoop", new SnoopServlet());
+        Thundercat.addServlet(ctx, "snoop", new SnoopServlet());
         ctx.addServletMapping("/a/%255A", "snoop");
 
         thundercat.start();

@@ -282,7 +282,7 @@ public class AjpProcessor extends AbstractProcessor {
 
 
     /**
-     * The number of milliseconds Tomcat will wait for a subsequent request
+     * The number of milliseconds Thundercat will wait for a subsequent request
      * before closing the connection. The default is -1 which is an infinite
      * timeout.
      */
@@ -292,11 +292,11 @@ public class AjpProcessor extends AbstractProcessor {
 
 
     /**
-     * Use Tomcat authentication ?
+     * Use Thundercat authentication ?
      */
     private boolean thundercatAuthentication = true;
-    public boolean getTomcatAuthentication() { return thundercatAuthentication; }
-    public void setTomcatAuthentication(boolean thundercatAuthentication) {
+    public boolean getThundercatAuthentication() { return thundercatAuthentication; }
+    public void setThundercatAuthentication(boolean thundercatAuthentication) {
         this.thundercatAuthentication = thundercatAuthentication;
     }
 

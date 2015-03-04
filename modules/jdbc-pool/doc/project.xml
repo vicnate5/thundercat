@@ -15,13 +15,13 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<project name="Apache Tomcat JDBC Pool Documentation"
+<project name="Apache Thundercat JDBC Pool Documentation"
         href="http://thundercat.apache.org/">
 
-    <title>Apache Tomcat JDBC Pool</title>
+    <title>Apache Thundercat JDBC Pool</title>
 
     <logo href="/images/thundercat.gif">
-      The Apache Tomcat Servlet/JSP Container
+      The Apache Thundercat Servlet/JSP Container
     </logo>
 
     <body>

@@ -105,7 +105,7 @@ public class SpnegoAuthenticator extends AuthenticatorBase {
         // Kerberos configuration file location
         String krb5Conf = System.getProperty(Constants.KRB5_CONF_PROPERTY);
         if (krb5Conf == null) {
-            // System property not set, use the Tomcat default
+            // System property not set, use the Thundercat default
             File krb5ConfFile = new File(container.getCatalinaBase(),
                     Constants.DEFAULT_KRB5_CONF);
             System.setProperty(Constants.KRB5_CONF_PROPERTY,
@@ -115,7 +115,7 @@ public class SpnegoAuthenticator extends AuthenticatorBase {
         // JAAS configuration file location
         String jaasConf = System.getProperty(Constants.JAAS_CONF_PROPERTY);
         if (jaasConf == null) {
-            // System property not set, use the Tomcat default
+            // System property not set, use the Thundercat default
             File jaasConfFile = new File(container.getCatalinaBase(),
                     Constants.DEFAULT_JAAS_CONF);
             System.setProperty(Constants.JAAS_CONF_PROPERTY,

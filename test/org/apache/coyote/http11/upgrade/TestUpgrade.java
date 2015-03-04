@@ -45,10 +45,10 @@ import org.junit.Test;
 import static org.apache.catalina.startup.SimpleHttpClient.CRLF;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 
-public class TestUpgrade extends TomcatBaseTest {
+public class TestUpgrade extends ThundercatBaseTest {
 
     private static final String MESSAGE = "This is a test.";
 
@@ -153,14 +153,14 @@ public class TestUpgrade extends TomcatBaseTest {
 
     private UpgradeConnection doUpgrade(
             Class<? extends HttpUpgradeHandler> upgradeHandlerClass) throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         UpgradeServlet servlet = new UpgradeServlet(upgradeHandlerClass);
-        Tomcat.addServlet(ctx, "servlet", servlet);
+        Thundercat.addServlet(ctx, "servlet", servlet);
         ctx.addServletMapping("/", "servlet");
 
         thundercat.start();

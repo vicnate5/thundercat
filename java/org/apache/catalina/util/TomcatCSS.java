@@ -19,7 +19,7 @@
 package org.apache.catalina.util;
 
 
-public class TomcatCSS {
+public class ThundercatCSS {
 
     public static final String TOMCAT_CSS =
         "H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} " +

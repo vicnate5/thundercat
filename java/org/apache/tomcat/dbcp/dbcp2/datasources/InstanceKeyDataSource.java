@@ -77,7 +77,7 @@ import org.apache.thundercat.dbcp.pool2.impl.GenericKeyedObjectPoolConfig;
  *
  * <p>
  * The <a href="package-summary.html">package documentation</a> contains an
- * example using Apache Tomcat and JNDI and it also contains a non-JNDI example.
+ * example using Apache Thundercat and JNDI and it also contains a non-JNDI example.
  * </p>
  *
  * @author John D. McNally

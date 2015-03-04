@@ -51,7 +51,7 @@ import org.apache.thundercat.util.descriptor.web.ContextEnvironment;
 import org.apache.thundercat.util.descriptor.web.ContextResourceLink;
 import org.apache.thundercat.websocket.server.WsContextListener;
 
-public class TestTomcat extends TomcatBaseTest {
+public class TestThundercat extends ThundercatBaseTest {
 
     /**
      * Simple servlet to test in-line registration.
@@ -183,12 +183,12 @@ public class TestTomcat extends TomcatBaseTest {
      */
     @Test
     public void testProgrammatic() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         org.apache.catalina.Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "myServlet", new HelloWorld());
+        Thundercat.addServlet(ctx, "myServlet", new HelloWorld());
         ctx.addServletMapping("/", "myServlet");
 
         thundercat.start();
@@ -199,7 +199,7 @@ public class TestTomcat extends TomcatBaseTest {
 
     @Test
     public void testSingleWebapp() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File(getBuildDirectory(), "webapps/examples");
         // app dir is relative to server home
@@ -215,7 +215,7 @@ public class TestTomcat extends TomcatBaseTest {
 
     @Test
     public void testJsps() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File(getBuildDirectory(), "webapps/examples");
         // app dir is relative to server home
@@ -232,12 +232,12 @@ public class TestTomcat extends TomcatBaseTest {
 
     @Test
     public void testSession() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         org.apache.catalina.Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "myServlet", new HelloWorldSession());
+        Thundercat.addServlet(ctx, "myServlet", new HelloWorldSession());
         ctx.addServletMapping("/", "myServlet");
 
         thundercat.start();
@@ -248,11 +248,11 @@ public class TestTomcat extends TomcatBaseTest {
 
     @Test
     public void testLaunchTime() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         long t0 = System.currentTimeMillis();
         thundercat.addContext(null, "", ".");
         thundercat.start();
-        log.info("Tomcat started in [" + (System.currentTimeMillis() - t0)
+        log.info("Thundercat started in [" + (System.currentTimeMillis() - t0)
                 + "] ms");
      }
 
@@ -262,7 +262,7 @@ public class TestTomcat extends TomcatBaseTest {
      */
     @Test
     public void testEnableNaming() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         org.apache.catalina.Context ctx = thundercat.addContext("", null);
@@ -273,16 +273,16 @@ public class TestTomcat extends TomcatBaseTest {
         ContextEnvironment environment = new ContextEnvironment();
         environment.setType("java.lang.String");
         environment.setName(HelloWorldJndi.JNDI_ENV_NAME);
-        environment.setValue("Tomcat User");
+        environment.setValue("Thundercat User");
         ctx.getNamingResources().addEnvironment(environment);
 
-        Tomcat.addServlet(ctx, "jndiServlet", new HelloWorldJndi());
+        Thundercat.addServlet(ctx, "jndiServlet", new HelloWorldJndi());
         ctx.addServletMapping("/", "jndiServlet");
 
         thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() + "/");
-        assertEquals("Hello, Tomcat User", res.toString());
+        assertEquals("Hello, Thundercat User", res.toString());
     }
 
     /*
@@ -290,7 +290,7 @@ public class TestTomcat extends TomcatBaseTest {
      */
     @Test
     public void testEnableNamingGlobal() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         org.apache.catalina.Context ctx = thundercat.addContext("", null);
@@ -301,7 +301,7 @@ public class TestTomcat extends TomcatBaseTest {
         ContextEnvironment environment = new ContextEnvironment();
         environment.setType("java.lang.String");
         environment.setName("globalTest");
-        environment.setValue("Tomcat User");
+        environment.setValue("Thundercat User");
         thundercat.getServer().getGlobalNamingResources().addEnvironment(environment);
 
         ContextResourceLink link = new ContextResourceLink();
@@ -309,13 +309,13 @@ public class TestTomcat extends TomcatBaseTest {
         link.setName(HelloWorldJndi.JNDI_ENV_NAME);
         ctx.getNamingResources().addResourceLink(link);
 
-        Tomcat.addServlet(ctx, "jndiServlet", new HelloWorldJndi());
+        Thundercat.addServlet(ctx, "jndiServlet", new HelloWorldJndi());
         ctx.addServletMapping("/", "jndiServlet");
 
         thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() + "/");
-        assertEquals("Hello, Tomcat User", res.toString());
+        assertEquals("Hello, Thundercat User", res.toString());
     }
 
 
@@ -324,7 +324,7 @@ public class TestTomcat extends TomcatBaseTest {
      */
     @Test
     public void testGetResource() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         String contextPath = "/examples";
 
@@ -334,7 +334,7 @@ public class TestTomcat extends TomcatBaseTest {
             thundercat.addWebapp(null, "/examples", appDir.getAbsolutePath());
         ctx.addApplicationListener(WsContextListener.class.getName());
 
-        Tomcat.addServlet(ctx, "testGetResource", new GetResource());
+        Thundercat.addServlet(ctx, "testGetResource", new GetResource());
         ctx.addServletMapping("/testGetResource", "testGetResource");
 
         thundercat.start();
@@ -349,7 +349,7 @@ public class TestTomcat extends TomcatBaseTest {
 
     @Test
     public void testBug50826() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         String contextPath = "/examples";
 
         File appDir = new File(getBuildDirectory(), "webapps" + contextPath);
@@ -368,13 +368,13 @@ public class TestTomcat extends TomcatBaseTest {
 
     @Test
     public void testBug53301() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         org.apache.catalina.Context ctx = thundercat.addContext("", null);
 
         InitCount initCount = new InitCount();
-        Tomcat.addServlet(ctx, "initCount", initCount);
+        Thundercat.addServlet(ctx, "initCount", initCount);
         ctx.addServletMapping("/", "initCount");
 
         thundercat.start();
@@ -387,31 +387,31 @@ public class TestTomcat extends TomcatBaseTest {
 
     @Test
     public void testGetWebappConfigFileFromDirectory() {
-        Tomcat thundercat = new Tomcat();
+        Thundercat thundercat = new Thundercat();
         assertNotNull(thundercat.getWebappConfigFile("test/deployment/dirContext", ""));
     }
 
     @Test
     public void testGetWebappConfigFileFromDirectoryNegative() {
-        Tomcat thundercat = new Tomcat();
+        Thundercat thundercat = new Thundercat();
         assertNull(thundercat.getWebappConfigFile("test/deployment/dirNoContext", ""));
     }
 
     @Test
     public void testGetWebappConfigFileFromJar() {
-        Tomcat thundercat = new Tomcat();
+        Thundercat thundercat = new Thundercat();
         assertNotNull(thundercat.getWebappConfigFile("test/deployment/context.war", ""));
     }
 
     @Test
     public void testGetWebappConfigFileFromJarNegative() {
-        Tomcat thundercat = new Tomcat();
+        Thundercat thundercat = new Thundercat();
         assertNull(thundercat.getWebappConfigFile("test/deployment/noContext.war", ""));
     }
 
     @Test
     public void testBug51526() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appFile = new File("test/deployment/context.war");
         StandardContext context = (StandardContext) thundercat.addWebapp(null, "/test",
@@ -424,7 +424,7 @@ public class TestTomcat extends TomcatBaseTest {
 
     @Test
     public void testGetDefaultContextPerAddWebapp() {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appFile = new File("test/deployment/context.war");
         org.apache.catalina.Context context = thundercat.addWebapp(null,
@@ -436,7 +436,7 @@ public class TestTomcat extends TomcatBaseTest {
 
     @Test
     public void testGetBrokenContextPerAddWepapp() {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Host host = thundercat.getHost();
         if (host instanceof StandardHost) {
             ((StandardHost) host).setContextClass("InvalidContextClassName");
@@ -453,7 +453,7 @@ public class TestTomcat extends TomcatBaseTest {
 
     @Test
     public void testGetCustomContextPerAddWebappWithNullHost() {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Host host = thundercat.getHost();
         if (host instanceof StandardHost) {
             ((StandardHost) host).setContextClass(ReplicatedContext.class
@@ -470,7 +470,7 @@ public class TestTomcat extends TomcatBaseTest {
 
     @Test
     public void testGetCustomContextPerAddWebappWithHost() {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Host host = thundercat.getHost();
         if (host instanceof StandardHost) {
             ((StandardHost) host).setContextClass(ReplicatedContext.class
@@ -487,7 +487,7 @@ public class TestTomcat extends TomcatBaseTest {
 
         @Test
     public void testGetDefaultContextPerAddContext() {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         org.apache.catalina.Context ctx = thundercat.addContext(null, "", null);
@@ -496,7 +496,7 @@ public class TestTomcat extends TomcatBaseTest {
 
     @Test
     public void testGetBrokenContextPerAddContext() {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Host host = thundercat.getHost();
         if (host instanceof StandardHost) {
             ((StandardHost) host).setContextClass("InvalidContextClassName");
@@ -513,7 +513,7 @@ public class TestTomcat extends TomcatBaseTest {
 
     @Test
     public void testGetCustomContextPerAddContextWithHost() {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Host host = thundercat.getHost();
         if (host instanceof StandardHost) {
             ((StandardHost) host).setContextClass(ReplicatedContext.class

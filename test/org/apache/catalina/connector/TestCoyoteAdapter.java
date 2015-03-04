@@ -34,12 +34,12 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.SimpleHttpClient;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.buf.MessageBytes;
 
-public class TestCoyoteAdapter extends TomcatBaseTest {
+public class TestCoyoteAdapter extends ThundercatBaseTest {
 
     public static final String TEXT_8K;
     public static final byte[] BYTES_8K;
@@ -94,8 +94,8 @@ public class TestCoyoteAdapter extends TomcatBaseTest {
 
     @Test
     public void testPathParamsRedirect() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // Must have a real docBase. Don't use java.io.tmpdir as it may not be
         // writable.
@@ -114,7 +114,7 @@ public class TestCoyoteAdapter extends TomcatBaseTest {
 
         Context ctx = thundercat.addContext("", docBase.getAbsolutePath());
 
-        Tomcat.addServlet(ctx, "servlet", new PathParamServlet());
+        Thundercat.addServlet(ctx, "servlet", new PathParamServlet());
         ctx.addServletMapping("/", "servlet");
 
         thundercat.start();
@@ -129,13 +129,13 @@ public class TestCoyoteAdapter extends TomcatBaseTest {
     }
 
     private void pathParamTest(String path, String expected) throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "servlet", new PathParamServlet());
+        Thundercat.addServlet(ctx, "servlet", new PathParamServlet());
         ctx.addServletMapping("/", "servlet");
 
         thundercat.start();
@@ -182,13 +182,13 @@ public class TestCoyoteAdapter extends TomcatBaseTest {
 
     private void pathParamExtenionTest(String path, String expected)
             throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("/testapp", null);
 
-        Tomcat.addServlet(ctx, "servlet", new PathParamServlet());
+        Thundercat.addServlet(ctx, "servlet", new PathParamServlet());
         ctx.addServletMapping("*.txt", "servlet");
 
         thundercat.start();
@@ -230,8 +230,8 @@ public class TestCoyoteAdapter extends TomcatBaseTest {
     private void doTestUriDecoding(String path, String encoding,
             String expectedPathInfo) throws Exception{
 
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         thundercat.getConnector().setURIEncoding(encoding);
 
@@ -239,7 +239,7 @@ public class TestCoyoteAdapter extends TomcatBaseTest {
         Context ctx = thundercat.addContext("", null);
 
         PathInfoServlet servlet = new PathInfoServlet();
-        Tomcat.addServlet(ctx, "servlet", servlet);
+        Thundercat.addServlet(ctx, "servlet", servlet);
         ctx.addServletMapping("/*", "servlet");
 
         thundercat.start();
@@ -273,14 +273,14 @@ public class TestCoyoteAdapter extends TomcatBaseTest {
 
     @Test
     public void testBug54928() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         AsyncServlet servlet = new AsyncServlet();
-        Wrapper w = Tomcat.addServlet(ctx, "async", servlet);
+        Wrapper w = Thundercat.addServlet(ctx, "async", servlet);
         w.setAsyncSupported(true);
         ctx.addServletMapping("/async", "async");
 

@@ -31,7 +31,7 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 
-public class TestListener extends TomcatBaseTest {
+public class TestListener extends ThundercatBaseTest {
 
     /*
      * Check that a ServletContainerInitializer can install a
@@ -40,7 +40,7 @@ public class TestListener extends TomcatBaseTest {
      */
     @Test
     public void testServletContainerInitializer() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         Context context = thundercat.addContext("",
                 System.getProperty("java.io.tmpdir"));
@@ -57,7 +57,7 @@ public class TestListener extends TomcatBaseTest {
      */
     @Test
     public void testServletContextListener() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         Context context = thundercat.addContext("",
                 System.getProperty("java.io.tmpdir"));

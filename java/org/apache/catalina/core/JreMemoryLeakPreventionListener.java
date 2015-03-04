@@ -46,7 +46,7 @@ import org.apache.thundercat.util.res.StringManager;
  * Memory leaks occur when JRE code uses
  * the context class loader to load a singleton as this will cause a memory leak
  * if a web application class loader happens to be the context class loader at
- * the time. The work-around is to initialise these singletons when Tomcat's
+ * the time. The work-around is to initialise these singletons when Thundercat's
  * common class loader is the context class loader.
  * <p>
  * Locked files usually occur when a resource inside a JAR is accessed without
@@ -226,7 +226,7 @@ public class JreMemoryLeakPreventionListener implements LifecycleListener {
 
     @Override
     public void lifecycleEvent(LifecycleEvent event) {
-        // Initialise these classes when Tomcat starts
+        // Initialise these classes when Thundercat starts
         if (Lifecycle.BEFORE_INIT_EVENT.equals(event.getType())) {
 
             ClassLoader loader = Thread.currentThread().getContextClassLoader();
@@ -253,7 +253,7 @@ public class JreMemoryLeakPreventionListener implements LifecycleListener {
                  * Those libraries / components known to trigger memory leaks
                  * due to eventual calls to getAppContext() are:
                  * - Google Web Toolkit via its use of javax.imageio
-                 * - Tomcat via its use of java.beans.Introspector.flushCaches()
+                 * - Thundercat via its use of java.beans.Introspector.flushCaches()
                  *   in 1.7.0 to 1.7.0_01. From 1.7.0_02 onwards use of
                  *   AppContext by Introspector.flushCaches() was replaced with
                  *   ThreadGroupContext

@@ -31,19 +31,19 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.buf.TestUtf8;
 import org.apache.thundercat.util.buf.TestUtf8.Utf8TestCase;
 
-public class TestInputBuffer extends TomcatBaseTest {
+public class TestInputBuffer extends ThundercatBaseTest {
 
     @Test
     public void testUtf8Body() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Context root = thundercat.addContext("", TEMP_DIR);
-        Tomcat.addServlet(root, "Echo", new Utf8Echo());
+        Thundercat.addServlet(root, "Echo", new Utf8Echo());
         root.addServletMapping("/test", "Echo");
 
         thundercat.getConnector().setProperty("soTimeout", "300000");

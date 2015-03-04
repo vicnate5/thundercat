@@ -43,7 +43,7 @@ import org.apache.catalina.util.ContextName;
  * The purpose of this class is to test the automatic deployment features of the
  * {@link HostConfig} implementation.
  */
-public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
+public class TestHostConfigAutomaticDeployment extends ThundercatBaseTest {
 
     private static final ContextName  APP_NAME = new ContextName("myapp", false);
     private static final File XML_SOURCE =
@@ -90,7 +90,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
     public void setUp() throws Exception {
         super.setUp();
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         external = new File(getTemporaryDirectory(), "external");
         if (!external.exists() && !external.mkdir()) {
@@ -585,7 +585,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
             boolean resultXml, boolean resultWar, boolean resultDir)
             throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // Start the instance
         thundercat.start();
@@ -696,7 +696,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
 
     @Test
     public void testDeleteXmlDirRemoveXmlCopyXml() throws Exception {
-        ((StandardHost) getTomcatInstance().getHost()).setCopyXML(true);
+        ((StandardHost) getThundercatInstance().getHost()).setCopyXML(true);
         doTestDelete(true, false, false, false, true, XML, true, false, true,
                 DIR_COOKIE_NAME);
     }
@@ -757,7 +757,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
 
     @Test
     public void testDeleteXmlWarRemoveXmlCopyXml() throws Exception {
-        ((StandardHost) getTomcatInstance().getHost()).setCopyXML(true);
+        ((StandardHost) getThundercatInstance().getHost()).setCopyXML(true);
         doTestDelete(true, false, false, true, false, XML, true, true, false,
                 WAR_COOKIE_NAME);
     }
@@ -770,7 +770,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
 
     @Test
     public void testDeleteXmlWarDirRemoveDirCopyXml() throws Exception {
-        ((StandardHost) getTomcatInstance().getHost()).setCopyXML(true);
+        ((StandardHost) getThundercatInstance().getHost()).setCopyXML(true);
         doTestDelete(true, false, false, true, true, DIR, true, true, true,
                 WAR_COOKIE_NAME);
     }
@@ -783,7 +783,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
 
     @Test
     public void testDeleteXmlWarDirRemoveWarCopyXml() throws Exception {
-        ((StandardHost) getTomcatInstance().getHost()).setCopyXML(true);
+        ((StandardHost) getThundercatInstance().getHost()).setCopyXML(true);
         doTestDelete(true, false, false, true, true, WAR, false, false, false,
                 null);
     }
@@ -796,7 +796,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
 
     @Test
     public void testDeleteXmlWarDirRemoveXmlCopyXml() throws Exception {
-        ((StandardHost) getTomcatInstance().getHost()).setCopyXML(true);
+        ((StandardHost) getThundercatInstance().getHost()).setCopyXML(true);
         doTestDelete(true, false, false, true, true, XML, true, true, true,
                 WAR_COOKIE_NAME);
     }
@@ -806,7 +806,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
             int toDelete, boolean resultXml, boolean resultWar,
             boolean resultDir, String resultCookieName) throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         StandardHost host = (StandardHost) thundercat.getHost();
 
         // Init
@@ -967,7 +967,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
 
     @Test
     public void testModifyWarDirUpdateDir() throws Exception {
-        // DIR_COOKIE_NAME since Tomcat is going to assume DIR is expanded WAR
+        // DIR_COOKIE_NAME since Thundercat is going to assume DIR is expanded WAR
         doTestModify(false, false, false, true, true, DIR,
                 false, true, true, DIR_COOKIE_NAME, NONE);
     }
@@ -1085,7 +1085,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
             boolean resultDir, String resultCookieName, int resultAction,
             LifecycleState resultState) throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         StandardHost host = (StandardHost) thundercat.getHost();
 
         // Init
@@ -1399,7 +1399,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
             int resultAction, LifecycleState state)
             throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         StandardHost host = (StandardHost) thundercat.getHost();
 
         // Init
@@ -1600,7 +1600,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
     private void doTestUnpackWAR(boolean unpackWARs, boolean unpackWAR,
             boolean external, boolean resultDir) throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         StandardHost host = (StandardHost) thundercat.getHost();
 
         host.setUnpackWARs(unpackWARs);
@@ -1638,7 +1638,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
     private void testBrokenAppWithAntiLocking(boolean unpackWARs)
             throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         StandardHost host = (StandardHost) thundercat.getHost();
 
         host.setUnpackWARs(unpackWARs);
@@ -1660,7 +1660,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
     }
 
     private File createDirInAppbase(boolean withXml) throws IOException {
-        File dir = new File(getTomcatInstance().getHost().getAppBaseFile(),
+        File dir = new File(getThundercatInstance().getHost().getAppBaseFile(),
                 APP_NAME.getBaseName());
         if (withXml) {
             recurrsiveCopy(DIR_XML_SOURCE.toPath(), dir.toPath());
@@ -1671,7 +1671,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
     }
 
     private File createDirXmlInAppbase() throws IOException {
-        File dir = new File(getTomcatInstance().getHost().getAppBaseFile(),
+        File dir = new File(getThundercatInstance().getHost().getAppBaseFile(),
                 APP_NAME.getBaseName() + "/META-INF");
         recurrsiveCopy(DIR_XML_SOURCE_META_INF.toPath(), dir.toPath());
         return dir;
@@ -1690,7 +1690,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
     private File createWar(File src, boolean useAppbase) throws IOException {
         File dest;
         if (useAppbase) {
-            dest = new File(getTomcatInstance().getHost().getAppBaseFile(),
+            dest = new File(getThundercatInstance().getHost().getAppBaseFile(),
                 APP_NAME.getBaseName() + ".war");
         } else {
             dest = new File(external, "external" + ".war");
@@ -1710,7 +1710,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
     }
 
     private File getXmlInConfigBaseForAppbase() {
-        Host host = getTomcatInstance().getHost();
+        Host host = getThundercatInstance().getHost();
         return new File(host.getConfigBaseFile(), APP_NAME + ".xml");
     }
 
@@ -1720,7 +1720,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
 
     private File createXmlInConfigBaseForExternal(File ext, boolean antiLocking)
             throws IOException {
-        File xml = new File(getTomcatInstance().getHost().getConfigBaseFile(),
+        File xml = new File(getThundercatInstance().getHost().getConfigBaseFile(),
                 APP_NAME + ".xml");
         File parent = xml.getParentFile();
         if (!parent.isDirectory()) {
@@ -1846,7 +1846,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
     private void doTestCopyXML(boolean copyXmlHost, boolean copyXmlWar,
             boolean external, boolean resultXml) throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         StandardHost host = (StandardHost) thundercat.getHost();
 
         host.setCopyXML(copyXmlHost);
@@ -1884,7 +1884,7 @@ public class TestHostConfigAutomaticDeployment extends TomcatBaseTest {
     @Test
     public void testSetContextClassName() throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         Host host = thundercat.getHost();
         if (host instanceof StandardHost) {

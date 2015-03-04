@@ -10,7 +10,7 @@ Export-Package: org.apache.thundercat.jdbc.naming;uses:="javax.naming,org.ap
  g.apache.juli.logging,javax.management";version="@VERSION@"
 Bundle-Vendor: Apache Software Foundation
 Bundle-Version: @VERSION@
-Bundle-Name: Apache Tomcat JDBC Connection Pool
+Bundle-Name: Apache Thundercat JDBC Connection Pool
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.apache.thundercat.jdbc
 Import-Package: 

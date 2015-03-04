@@ -239,10 +239,10 @@ case "$1" in
       echo "Unknown command: \`$1'"
       echo "Usage: $PROGRAM ( commands ... )"
       echo "commands:"
-      echo "  run               Start Tomcat without detaching from console"
-      echo "  start             Start Tomcat"
-      echo "  stop              Stop Tomcat"
-      echo "  version           What version of commons daemon and Tomcat"
+      echo "  run               Start Thundercat without detaching from console"
+      echo "  start             Start Thundercat"
+      echo "  stop              Stop Thundercat"
+      echo "  version           What version of commons daemon and Thundercat"
       echo "                    are you running?"
       exit 1
     ;;

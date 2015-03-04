@@ -36,11 +36,11 @@ public final class Constants {
      * A dummy value used to suppress loading the default web.xml file.
      *
      * <p>
-     * It is useful when embedding Tomcat, when the default configuration is
+     * It is useful when embedding Thundercat, when the default configuration is
      * done programmatically, e.g. by calling
-     * <code>Tomcat.initWebappDefaults(context)</code>.
+     * <code>Thundercat.initWebappDefaults(context)</code>.
      *
-     * @see Tomcat
+     * @see Thundercat
      */
     public static final String NoDefaultWebXml =
             "org/apache/catalina/startup/NO_DEFAULT_XML";

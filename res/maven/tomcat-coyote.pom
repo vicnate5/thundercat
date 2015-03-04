@@ -20,7 +20,7 @@
   <groupId>org.apache.thundercat</groupId>
   <artifactId>thundercat-coyote</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
-  <description>Tomcat Connectors and HTTP parser</description>
+  <description>Thundercat Connectors and HTTP parser</description>
   <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>

@@ -48,7 +48,7 @@ import org.apache.thundercat.util.res.StringManager;
 
 /**
  * This listener fixes the port used by JMX/RMI Server making things much
- * simpler if you need to connect jconsole or similar to a remote Tomcat
+ * simpler if you need to connect jconsole or similar to a remote Thundercat
  * instance that is running behind a firewall. Only the ports are configured via
  * the listener. The remainder of the configuration is via the standard system
  * properties for configuring JMX.

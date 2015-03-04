@@ -16,7 +16,7 @@
   limitations under the License.
 -->
 <inspections version="1.0" is_locked="false">
-  <option name="myName" value="Tomcat" />
+  <option name="myName" value="Thundercat" />
   <option name="myLocal" value="true" />
   <inspection_tool class="StaticImport" enabled="true" level="WARNING" enabled_by_default="true" />
   <inspection_tool class="UnnecessaryBoxing" enabled="false" level="WARNING" enabled_by_default="false" />

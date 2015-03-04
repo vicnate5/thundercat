@@ -33,7 +33,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
+import org.apache.catalina.startup.Thundercat;
 import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
@@ -48,7 +48,7 @@ public class TestBug49158 extends CookiesBaseTest {
     @Override
     @Test
     public void testCookiesInstance() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         addServlets(thundercat);
         thundercat.start();
         Map<String,List<String>> headers = new HashMap<>();
@@ -59,11 +59,11 @@ public class TestBug49158 extends CookiesBaseTest {
                 1, cookieHeaders.size());
     }
 
-    public static void addServlets(Tomcat thundercat) {
+    public static void addServlets(Thundercat thundercat) {
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, path, new TestBug49158Servlet());
+        Thundercat.addServlet(ctx, path, new TestBug49158Servlet());
         ctx.addServletMapping("/"+path, path);
     }
 

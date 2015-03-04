@@ -20,7 +20,7 @@
   <groupId>org.apache.thundercat</groupId>
   <artifactId>thundercat-catalina-ant</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
-  <description>Tomcat Ant tasks for remote management</description>
+  <description>Thundercat Ant tasks for remote management</description>
   <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>

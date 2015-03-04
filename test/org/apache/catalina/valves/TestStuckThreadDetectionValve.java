@@ -30,19 +30,19 @@ import org.junit.Test;
 
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.core.StandardContext;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestStuckThreadDetectionValve extends TomcatBaseTest {
+public class TestStuckThreadDetectionValve extends ThundercatBaseTest {
     private StandardContext context;
-    private Tomcat thundercat;
+    private Thundercat thundercat;
 
     @Override
     @Before
     public void setUp() throws Exception {
         super.setUp();
-        thundercat = getTomcatInstance();
+        thundercat = getThundercatInstance();
         File docBase = new File(System.getProperty("java.io.tmpdir"));
         context = (StandardContext) thundercat.addContext("",
                 docBase.getAbsolutePath());
@@ -52,7 +52,7 @@ public class TestStuckThreadDetectionValve extends TomcatBaseTest {
     public void testDetection() throws Exception {
         // second, we test the actual effect of the flag on the startup
         StuckingServlet stuckingServlet = new StuckingServlet(8000L);
-        Wrapper servlet = Tomcat.addServlet(context, "myservlet",
+        Wrapper servlet = Thundercat.addServlet(context, "myservlet",
                 stuckingServlet);
         servlet.addMapping("/myservlet");
 
@@ -98,7 +98,7 @@ public class TestStuckThreadDetectionValve extends TomcatBaseTest {
         // second, we test the actual effect of the flag on the startup
         StuckingServlet stuckingServlet = new StuckingServlet(
                 TimeUnit.SECONDS.toMillis(20L));
-        Wrapper servlet = Tomcat.addServlet(context, "myservlet",
+        Wrapper servlet = Thundercat.addServlet(context, "myservlet",
                 stuckingServlet);
         servlet.addMapping("/myservlet");
 

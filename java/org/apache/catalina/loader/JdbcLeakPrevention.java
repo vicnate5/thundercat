@@ -35,7 +35,7 @@ import java.util.List;
  * keyword.
  *
  * Since this class is loaded by {@link WebappClassLoaderBase}, it can not refer
- * to any internal Tomcat classes as that will cause the security manager to
+ * to any internal Thundercat classes as that will cause the security manager to
  * complain.
  */
 public class JdbcLeakPrevention {

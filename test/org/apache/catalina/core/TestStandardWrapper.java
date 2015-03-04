@@ -52,12 +52,12 @@ import org.apache.catalina.Context;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.authenticator.BasicAuthenticator;
 import org.apache.catalina.startup.TesterMapRealm;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.descriptor.web.LoginConfig;
 
-public class TestStandardWrapper extends TomcatBaseTest {
+public class TestStandardWrapper extends ThundercatBaseTest {
 
     @Test
     public void testSecurityAnnotationsSimple() throws Exception {
@@ -149,8 +149,8 @@ public class TestStandardWrapper extends TomcatBaseTest {
     @Test
     public void testSecurityAnnotationsWebXmlPriority() throws Exception {
 
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-fragments");
         thundercat.addWebapp(null, "", appDir.getAbsolutePath());
@@ -169,7 +169,7 @@ public class TestStandardWrapper extends TomcatBaseTest {
 
     @Test
     public void testSecurityAnnotationsMetaDataPriority() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk bc = new ByteChunk();
         int rc;
@@ -193,8 +193,8 @@ public class TestStandardWrapper extends TomcatBaseTest {
 
     @Test
     public void testSecurityAnnotationsNoWebXmlConstraints() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-servletsecurity");
         thundercat.addWebapp(null, "", appDir.getAbsolutePath());
@@ -212,8 +212,8 @@ public class TestStandardWrapper extends TomcatBaseTest {
 
     @Test
     public void testSecurityAnnotationsNoWebXmlLoginConfig() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-servletsecurity2");
         thundercat.addWebapp(null, "", appDir.getAbsolutePath());
@@ -240,8 +240,8 @@ public class TestStandardWrapper extends TomcatBaseTest {
     private void doTestSecurityAnnotationsAddServlet(boolean useCreateServlet)
             throws Exception {
 
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
@@ -269,15 +269,15 @@ public class TestStandardWrapper extends TomcatBaseTest {
             boolean useRole, boolean expect200, boolean denyUncovered)
             throws Exception {
 
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         ctx.setDenyUncoveredHttpMethods(denyUncovered);
 
-        Wrapper wrapper = Tomcat.addServlet(ctx, "servlet", servletClassName);
+        Wrapper wrapper = Thundercat.addServlet(ctx, "servlet", servletClassName);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/", "servlet");
 
@@ -421,12 +421,12 @@ public class TestStandardWrapper extends TomcatBaseTest {
 
         initLatch();
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "Bug51445", new Bug51445Servlet());
+        Thundercat.addServlet(ctx, "Bug51445", new Bug51445Servlet());
         ctx.addServletMapping("/", "Bug51445");
 
         thundercat.start();
@@ -464,7 +464,7 @@ public class TestStandardWrapper extends TomcatBaseTest {
 
         initLatch();
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);

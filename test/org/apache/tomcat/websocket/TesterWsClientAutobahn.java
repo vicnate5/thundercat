@@ -45,7 +45,7 @@ public class TesterWsClientAutobahn {
 
     private static final String HOST = "localhost";
     private static final int PORT = 9001;
-    private static final String USER_AGENT = "ApacheTomcat8WebSocketClient";
+    private static final String USER_AGENT = "ApacheThundercat8WebSocketClient";
 
 
     public static void main(String[] args) throws Exception {

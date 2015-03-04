@@ -23,17 +23,17 @@ import org.junit.Before;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.WebResourceRoot;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.catalina.webresources.StandardRoot;
 
-public abstract class AbstractTestTag extends TomcatBaseTest {
+public abstract class AbstractTestTag extends ThundercatBaseTest {
 
     @Override
     @Before
     public void setUp() throws Exception {
         super.setUp();
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp");
         Context ctx = thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());

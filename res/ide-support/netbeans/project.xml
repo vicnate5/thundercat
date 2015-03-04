@@ -16,16 +16,16 @@
   limitations under the License.
 -->
 <!--
-  Free-Form project definition for Tomcat under NetBeans.
+  Free-Form project definition for Thundercat under NetBeans.
 
   Paths are all relative to the project root.
 
   Warning: Do NOT use the NetBeans GUI Project Properties customizer
            for this project, otherwise you might trigger unwanted
            changes to this critical file, which must be maintained
-           by the Tomcat developers!
+           by the Thundercat developers!
 
-  Note:    As specified in the BUILDING.txt file of Tomcat, the code completion
+  Note:    As specified in the BUILDING.txt file of Thundercat, the code completion
            classpaths below depend on the ANT_HOME environment
            variable being properly defined.
 -->
@@ -34,11 +34,11 @@
     <configuration>
         <general-data xmlns="http://www.netbeans.org/ns/freeform-project/1">
             <!-- Do not use Project Properties customizer when editing this file manually. -->
-            <name>Tomcat 8.0</name>
+            <name>Thundercat 8.0</name>
             <properties>
-              <!-- load the local Tomcat build.properties, especially base.path. -->
+              <!-- load the local Thundercat build.properties, especially base.path. -->
               <property-file>./build.properties</property-file>
-              <!-- prime some NetBeans build properties for Tomcat, which will   -->
+              <!-- prime some NetBeans build properties for Thundercat, which will   -->
               <!-- also be defined in the standard properties.                   -->
               <property-file>./nbproject/nb-thundercat-project.properties</property-file>
             </properties>
@@ -68,7 +68,7 @@
                 <!--
                      Note: all NetBeans actions are delegated to an external
                            script, so that Properties can be used consistently
-                           with the standard Tomcat build.
+                           with the standard Thundercat build.
                  -->
                 <action name="build">
                     <script>nbproject/nb-thundercat.xml</script>

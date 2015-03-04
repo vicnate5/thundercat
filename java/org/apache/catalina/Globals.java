@@ -100,7 +100,7 @@ public final class Globals {
 
     /**
      * The request attribute key for the session manager.
-     * This one is a Tomcat extension to the Servlet spec.
+     * This one is a Thundercat extension to the Servlet spec.
      */
     public static final String SSL_SESSION_MGR_ATTR =
         "javax.servlet.request.ssl_session_mgr";
@@ -269,9 +269,9 @@ public final class Globals {
 
     static {
         /**
-         * There are a few places where Tomcat either accesses JVM internals
+         * There are a few places where Thundercat either accesses JVM internals
          * (e.g. the memory leak protection) or where feature support varies
-         * between JVMs (e.g. SPNEGO). These flags exist to enable Tomcat to
+         * between JVMs (e.g. SPNEGO). These flags exist to enable Thundercat to
          * adjust its behaviour based on the vendor of the JVM. In an ideal
          * world this code would not exist.
          */

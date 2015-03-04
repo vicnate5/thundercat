@@ -28,15 +28,15 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestCompiler extends TomcatBaseTest {
+public class TestCompiler extends ThundercatBaseTest {
 
     @Test
     public void testBug49726a() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
         Map<String,List<String>> headers = new HashMap<>();
@@ -54,7 +54,7 @@ public class TestCompiler extends TomcatBaseTest {
 
     @Test
     public void testBug49726b() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
         Map<String,List<String>> headers = new HashMap<>();
@@ -72,7 +72,7 @@ public class TestCompiler extends TomcatBaseTest {
 
     @Test
     public void testBug53257a() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         // foo;bar.jsp
         ByteChunk res = getUrl("http://localhost:" + getPort() +
@@ -85,7 +85,7 @@ public class TestCompiler extends TomcatBaseTest {
 
     @Test
     public void testBug53257b() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug53257/foo&bar.jsp");
@@ -97,7 +97,7 @@ public class TestCompiler extends TomcatBaseTest {
 
     @Test
     public void testBug53257c() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         // foo#bar.jsp
         ByteChunk res = getUrl("http://localhost:" + getPort() +
@@ -110,7 +110,7 @@ public class TestCompiler extends TomcatBaseTest {
 
     @Test
     public void testBug53257d() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         // foo%bar.jsp
         ByteChunk res = getUrl("http://localhost:" + getPort() +
@@ -123,7 +123,7 @@ public class TestCompiler extends TomcatBaseTest {
 
     @Test
     public void testBug53257e() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug53257/foo+bar.jsp");
@@ -135,7 +135,7 @@ public class TestCompiler extends TomcatBaseTest {
 
     @Test
     public void testBug53257f() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug53257/foo%20bar.jsp");
@@ -147,7 +147,7 @@ public class TestCompiler extends TomcatBaseTest {
 
     @Test
     public void testBug53257g() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug53257/foo%20bar/foobar.jsp");
@@ -159,7 +159,7 @@ public class TestCompiler extends TomcatBaseTest {
 
     @Test
     public void testBug53257z() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         // Check that URL decoding is not done twice
         ByteChunk res = new ByteChunk();
@@ -170,7 +170,7 @@ public class TestCompiler extends TomcatBaseTest {
 
     @Test
     public void testBug51584() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-fragments");
         thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
@@ -183,7 +183,7 @@ public class TestCompiler extends TomcatBaseTest {
 
     @Test
     public void testBug55262() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug5nnnn/bug55262.jsp");

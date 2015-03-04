@@ -29,11 +29,11 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.SimpleHttpClient;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 
 
-public class TestCookieParsing extends TomcatBaseTest {
+public class TestCookieParsing extends ThundercatBaseTest {
 
     private static final String[] COOKIES_WITH_EQUALS = new String[] {
             "name=equals=middle", "name==equalsstart", "name=equalsend=" };
@@ -248,14 +248,14 @@ public class TestCookieParsing extends TomcatBaseTest {
 
 
         private void doRequest() throws Exception {
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
             Context root = thundercat.addContext("", TEMP_DIR);
             root.setCookieProcessor(cookieProcessor);
 
             if (echoHeader) {
-                Tomcat.addServlet(root, "Cookies", new EchoCookieHeader());
+                Thundercat.addServlet(root, "Cookies", new EchoCookieHeader());
             } else {
-                Tomcat.addServlet(root, "Cookies", new EchoCookies());
+                Thundercat.addServlet(root, "Cookies", new EchoCookies());
             }
             root.addServletMapping("/test", "Cookies");
 

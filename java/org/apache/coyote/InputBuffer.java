@@ -26,7 +26,7 @@ import org.apache.thundercat.util.buf.ByteChunk;
  * Input buffer.
  *
  * This class is used only in the protocol implementation. All reading from
- * Tomcat ( or adapter ) should be done using Request.doRead().
+ * Thundercat ( or adapter ) should be done using Request.doRead().
  */
 public interface InputBuffer {
 

@@ -93,7 +93,7 @@ public class StandardEngine extends ContainerBase implements Engine {
     private Service service = null;
 
     /**
-     * The JVM Route ID for this Tomcat instance. All Route ID's must be unique
+     * The JVM Route ID for this Thundercat instance. All Route ID's must be unique
      * across the cluster.
      */
     private String jvmRouteId;

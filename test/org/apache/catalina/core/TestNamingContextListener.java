@@ -28,11 +28,11 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleState;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.descriptor.web.ContextEnvironment;
 
-public class TestNamingContextListener extends TomcatBaseTest {
+public class TestNamingContextListener extends ThundercatBaseTest {
 
     private static final String BUG49132_NAME = "TestName";
     private static final String BUG49132_VALUE = "Test Value";
@@ -47,7 +47,7 @@ public class TestNamingContextListener extends TomcatBaseTest {
      */
     @Test
     public void testBug49132() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
@@ -94,7 +94,7 @@ public class TestNamingContextListener extends TomcatBaseTest {
 
     @Test
     public void testBug54096() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);

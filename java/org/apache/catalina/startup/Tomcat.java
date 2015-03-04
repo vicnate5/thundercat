@@ -74,7 +74,7 @@ import org.apache.thundercat.util.descriptor.web.LoginConfig;
 /**
  * Minimal thundercat starter for embedding/unit tests.
  *
- * Tomcat supports multiple styles of configuration and
+ * Thundercat supports multiple styles of configuration and
  * startup - the most common and stable is server.xml-based,
  * implemented in org.apache.catalina.startup.Bootstrap.
  *
@@ -103,7 +103,7 @@ import org.apache.thundercat.util.descriptor.web.LoginConfig;
  * listener that adds the standard DefaultServlet, JSP processing, and welcome
  * files.
  *
- * In complex cases, you may prefer to use the ordinary Tomcat API to create
+ * In complex cases, you may prefer to use the ordinary Thundercat API to create
  * webapp contexts; for example, you might need to install a custom Loader
  * before the call to {@link Host#addChild(Container)}. To replicate the basic
  * behavior of the <code>addWebapp</code> methods, you may want to call two
@@ -112,7 +112,7 @@ import org.apache.thundercat.util.descriptor.web.LoginConfig;
  *
  * {@link #getDefaultWebXmlListener()} returns a {@link LifecycleListener} that
  * adds the standard DefaultServlet, JSP processing, and welcome files. If you
- * add this listener, you must prevent Tomcat from applying any standard global
+ * add this listener, you must prevent Thundercat from applying any standard global
  * web.xml with ...
  *
  * {@link #noDefaultWebXmlPath()} returns a dummy pathname to configure to
@@ -122,10 +122,10 @@ import org.apache.thundercat.util.descriptor.web.LoginConfig;
  * see setters for doc. It can be used for simple tests and
  * demo.
  *
- * @see <a href="http://svn.apache.org/repos/asf/thundercat/trunk/test/org/apache/catalina/startup/TestTomcat.java">TestTomcat</a>
+ * @see <a href="http://svn.apache.org/repos/asf/thundercat/trunk/test/org/apache/catalina/startup/TestThundercat.java">TestThundercat</a>
  * @author Costin Manolache
  */
-public class Tomcat {
+public class Thundercat {
     // Some logging implementations use weak references for loggers so there is
     // the possibility that logging configuration could be lost if GC runs just
     // after Loggers are configured but before they are used. The purpose of
@@ -157,12 +157,12 @@ public class Tomcat {
     private final Map<String, List<String>> userRoles = new HashMap<>();
     private final Map<String, Principal> userPrincipals = new HashMap<>();
 
-    public Tomcat() {
+    public Thundercat() {
         // NOOP
     }
 
     /**
-     * Tomcat needs a directory for temp files. This should be the
+     * Thundercat needs a directory for temp files. This should be the
      * first method called.
      *
      * By default, if this method is not called, we use:
@@ -193,7 +193,7 @@ public class Tomcat {
     }
 
     /**
-     * This is equivalent to adding a web application to Tomcat's webapps
+     * This is equivalent to adding a web application to Thundercat's webapps
      * directory. The equivalent of the default web.xml will be applied  to the
      * web application and any WEB-INF/web.xml and META-INF/context.xml packaged
      * with the application will be processed normally. Normal web fragment and
@@ -460,7 +460,7 @@ public class Tomcat {
         if(engine == null ) {
             getServer();
             engine = new StandardEngine();
-            engine.setName( "Tomcat" );
+            engine.setName( "Thundercat" );
             engine.setDefaultHost(hostname);
             engine.setRealm(createDefaultRealm());
             service.setContainer(engine);
@@ -487,7 +487,7 @@ public class Tomcat {
         server.setPort( -1 );
 
         service = new StandardService();
-        service.setName("Tomcat");
+        service.setName("Thundercat");
         server.addService( service );
         return server;
     }
@@ -556,7 +556,7 @@ public class Tomcat {
 
     /**
      * Return a listener that provides the required configuration items for JSP
-     * processing. From the standard Tomcat global web.xml. Pass this to
+     * processing. From the standard Thundercat global web.xml. Pass this to
      * {@link Context#addLifecycleListener(LifecycleListener)} and then pass the
      * result of {@link #noDefaultWebXmlPath()} to
      * {@link ContextConfig#setDefaultWebXml(String)}.
@@ -580,7 +580,7 @@ public class Tomcat {
     /**
      * Create an in-memory realm. You can replace it for contexts with a real
      * one. The Realm created here will be added to the Engine by default and
-     * may be replaced at the Engine level or over-ridden (as per normal Tomcat
+     * may be replaced at the Engine level or over-ridden (as per normal Thundercat
      * behaviour) at the Host or Context level.
      */
     protected Realm createDefaultRealm() {
@@ -665,7 +665,7 @@ public class Tomcat {
     /**
      * Controls if the loggers will be silenced or not.
      * @param silent    <code>true</code> sets the log level to WARN for the
-     *                  loggers that log information on Tomcat start up. This
+     *                  loggers that log information on Thundercat start up. This
      *                  prevents the usual startup information being logged.
      *                  <code>false</code> sets the log level to the default
      *                  level of INFO.
@@ -774,7 +774,7 @@ public class Tomcat {
      * Provide default configuration for a context. This is the programmatic
      * equivalent of the default web.xml.
      *
-     *  TODO: in normal Tomcat, if default-web.xml is not found, use this
+     *  TODO: in normal Thundercat, if default-web.xml is not found, use this
      *  method
      *
      * @param contextPath   The context to set the defaults for

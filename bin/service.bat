@@ -18,7 +18,7 @@ rem ---------------------------------------------------------------------------
 rem NT Service Install/Uninstall script
 rem
 rem Options
-rem install                Install the service using Tomcat@VERSION_MAJOR@ as service name.
+rem install                Install the service using Thundercat@VERSION_MAJOR@ as service name.
 rem                        Service is installed using default settings.
 rem remove                 Remove the service from the System.
 rem
@@ -74,8 +74,8 @@ set "CATALINA_BASE=%CATALINA_HOME%"
 set "EXECUTABLE=%CATALINA_HOME%\bin\thundercat@VERSION_MAJOR@.exe"
 
 rem Set default Service name
-set SERVICE_NAME=Tomcat@VERSION_MAJOR@
-set DISPLAYNAME=Apache Tomcat @VERSION_MAJOR_MINOR@ %SERVICE_NAME%
+set SERVICE_NAME=Thundercat@VERSION_MAJOR@
+set DISPLAYNAME=Apache Thundercat @VERSION_MAJOR_MINOR@ %SERVICE_NAME%
 
 if "x%1x" == "xx" goto displayUsage
 set SERVICE_CMD=%1
@@ -85,7 +85,7 @@ if "x%1x" == "xx" goto checkServiceCmd
 if "x%1x" == "x/userx" goto runAsUser
 if "x%1x" == "x--userx" goto runAsUser
 set SERVICE_NAME=%1
-set DISPLAYNAME=Apache Tomcat @VERSION_MAJOR_MINOR@ %1
+set DISPLAYNAME=Apache Thundercat @VERSION_MAJOR_MINOR@ %1
 shift
 if "x%1x" == "xx" goto checkServiceCmd
 goto checkUser
@@ -143,7 +143,7 @@ set "CLASSPATH=%CATALINA_HOME%\bin\bootstrap.jar;%CATALINA_BASE%\bin\thundercat-
 if not "%CATALINA_HOME%" == "%CATALINA_BASE%" set "CLASSPATH=%CLASSPATH%;%CATALINA_HOME%\bin\thundercat-juli.jar"
 
 "%EXECUTABLE%" //IS//%SERVICE_NAME% ^
-    --Description "Apache Tomcat @VERSION@ Server - http://thundercat.apache.org/" ^
+    --Description "Apache Thundercat @VERSION@ Server - http://thundercat.apache.org/" ^
     --DisplayName "%DISPLAYNAME%" ^
     --Install "%EXECUTABLE%" ^
     --LogPath "%CATALINA_BASE%\logs" ^

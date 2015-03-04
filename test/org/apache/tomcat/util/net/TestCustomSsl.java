@@ -30,8 +30,8 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.coyote.ProtocolHandler;
 import org.apache.coyote.http11.AbstractHttp11JsseProtocol;
 import org.apache.thundercat.util.buf.ByteChunk;
@@ -40,17 +40,17 @@ import org.apache.thundercat.websocket.server.WsContextListener;
 
 /**
  * The keys and certificates used in this file are all available in svn and were
- * generated using a test CA the files for which are in the Tomcat PMC private
+ * generated using a test CA the files for which are in the Thundercat PMC private
  * repository since not all of them are AL2 licensed.
  */
-public class TestCustomSsl extends TomcatBaseTest {
+public class TestCustomSsl extends ThundercatBaseTest {
 
     @Test
     public void testCustomSslImplementation() throws Exception {
 
         TesterSupport.configureClientSsl();
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Connector connector = thundercat.getConnector();
 
         Assume.assumeFalse("This test is only for JSSE based SSL connectors",
@@ -95,10 +95,10 @@ public class TestCustomSsl extends TomcatBaseTest {
     private void doTestCustomTrustManager(boolean serverTrustAll)
             throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         Assume.assumeTrue("SSL renegotiation has to be supported for this test",
-                TesterSupport.isRenegotiationSupported(getTomcatInstance()));
+                TesterSupport.isRenegotiationSupported(getThundercatInstance()));
 
         TesterSupport.configureClientCertContext(thundercat);
 
@@ -115,7 +115,7 @@ public class TestCustomSsl extends TomcatBaseTest {
                     "org.apache.thundercat.util.net.TesterSupport$TrustAllCerts");
         }
 
-        // Start Tomcat
+        // Start Thundercat
         thundercat.start();
 
         TesterSupport.configureClientSsl();

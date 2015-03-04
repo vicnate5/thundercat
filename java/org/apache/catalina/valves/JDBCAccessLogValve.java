@@ -36,10 +36,10 @@ import org.apache.thundercat.util.ExceptionUtils;
 
 /**
  * <p>
- * This Tomcat extension logs server access directly to a database, and can
+ * This Thundercat extension logs server access directly to a database, and can
  * be used instead of the regular file-based access log implemented in
  * AccessLogValve.
- * To use, copy into the server/classes directory of the Tomcat installation
+ * To use, copy into the server/classes directory of the Thundercat installation
  * and configure in server.xml as:
  * </p>
  * <pre>
@@ -59,8 +59,8 @@ import org.apache.thundercat.util.ExceptionUtils;
  * only).
  * </p>
  * <p>
- * When Tomcat is started, a database connection is created and used for all the
- * log activity. When Tomcat is shutdown, the database connection is closed.
+ * When Thundercat is started, a database connection is created and used for all the
+ * log activity. When Thundercat is shutdown, the database connection is closed.
  * This logger can be used at the level of the Engine context (being shared
  * by all the defined hosts) or the Host context (one instance of the logger
  * per host, possibly using different databases).
@@ -437,7 +437,7 @@ public final class JDBCAccessLogValve extends ValveBase implements AccessLog {
 
 
     /**
-     * This method is invoked by Tomcat on each query.
+     * This method is invoked by Thundercat on each query.
      *
      * @param request The Request object.
      * @param response The Response object.

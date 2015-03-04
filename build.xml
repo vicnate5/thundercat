@@ -15,7 +15,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<project name="Tomcat 9.0" default="deploy" basedir=".">
+<project name="Thundercat 9.0" default="deploy" basedir=".">
 
   <!-- ===================== Initialize Property Values ==================== -->
 
@@ -513,7 +513,7 @@
     <delete dir="${thundercat.build}/temp" />
     <delete dir="${thundercat.build}/work" />
 
-    <!-- Minimum dirs needed for a working Tomcat instance -->
+    <!-- Minimum dirs needed for a working Thundercat instance -->
     <mkdir dir="${thundercat.build}"/>
     <mkdir dir="${thundercat.build}/bin"/>
     <mkdir dir="${thundercat.build}/conf"/>
@@ -745,7 +745,7 @@
       filesId="files.bootstrap"
       manifest="${thundercat.manifests}/bootstrap.jar.manifest" />
 
-    <!-- Tomcat-juli JAR File -->
+    <!-- Thundercat-juli JAR File -->
     <jarIt jarfile="${thundercat-juli.jar}"
       filesDir="${thundercat.classes}"
       filesId="files.thundercat-juli" />
@@ -775,17 +775,17 @@
       filesDir="${thundercat.classes}"
       filesId="files.catalina-storeconfig" />
 
-    <!-- Tomcat API JAR File -->
+    <!-- Thundercat API JAR File -->
     <jarIt jarfile="${thundercat-api.jar}"
       filesDir="${thundercat.classes}"
       filesId="files.thundercat-api" />
 
-    <!-- Tomcat Util JAR File -->
+    <!-- Thundercat Util JAR File -->
     <jarIt jarfile="${thundercat-util.jar}"
       filesDir="${thundercat.classes}"
       filesId="files.thundercat-util" />
 
-    <!-- Tomcat Util Scan JAR File -->
+    <!-- Thundercat Util Scan JAR File -->
     <jarIt jarfile="${thundercat-util-scan.jar}"
       filesDir="${thundercat.classes}"
       filesId="files.thundercat-util-scan" />
@@ -996,7 +996,7 @@
   </target>
 
   <target name="deploy" depends="package,build-docs,build-thundercat-jdbc,compile-webapp-examples"
-          description="Default. Builds a working Tomcat instance">
+          description="Default. Builds a working Thundercat instance">
 
     <copy tofile="${thundercat.build}/bin/thundercat-native.tar.gz"
             file="${thundercat-native.tar.gz}" />
@@ -1100,7 +1100,7 @@
 
   <target name="build-thundercat-jdbc" depends="package">
     <!-- build the jdbc-pool jar and source jar-->
-    <echo message="Building Tomcat JDBC pool libraries"/>
+    <echo message="Building Thundercat JDBC pool libraries"/>
     <ant antfile="${thundercat.jdbc.dir}/build.xml" dir="${thundercat.jdbc.dir}"
          inheritAll="false" target="build">
       <property name="thundercat.pool" value="${thundercat.pool}" />
@@ -1115,7 +1115,7 @@
 
   <target name="build-thundercat-jdbc-src">
     <!-- build the jdbc-pool source jar-->
-    <echo message="Building Tomcat JDBC pool src JAR"/>
+    <echo message="Building Thundercat JDBC pool src JAR"/>
     <ant antfile="${thundercat.jdbc.dir}/build.xml" dir="${thundercat.jdbc.dir}"
          inheritAll="false" target="build-src">
       <property name="thundercat.pool" value="${thundercat.pool}" />
@@ -1882,24 +1882,24 @@
 
     <!-- platform README files -->
     <echo append="false" file="${thundercat.dist}/bin/i64/README">
-Apache Tomcat ${version} native binaries for Win64 IA64 platform.
+Apache Thundercat ${version} native binaries for Win64 IA64 platform.
     </echo>
     <echo append="false" file="${thundercat.dist}/bin/x64/README">
-Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
+Apache Thundercat ${version} native binaries for Win64 AMD64/EMT64 platform.
     </echo>
 
   </target>
 
   <target name="javadoc" depends="dist-source,extras-webservices-prepare"
-    description="Create the Tomcat javadoc" >
+    description="Create the Thundercat javadoc" >
     <javadoc packagenames="javax.servlet.*"
       excludepackagenames="javax.servlet.jsp.*"
       sourcepath="${thundercat.dist}/src/java"
       destdir="${thundercat.dist}/webapps/docs/servletapi"
       version="true"
-      windowtitle="Servlet 3.1 API Documentation - Apache Tomcat ${version}"
-      doctitle="Servlet 3.1 API - Apache Tomcat ${version}"
-      header="&lt;b&gt;Servlet 3.1 - Apache Tomcat ${version}&lt;/b&gt;"
+      windowtitle="Servlet 3.1 API Documentation - Apache Thundercat ${version}"
+      doctitle="Servlet 3.1 API - Apache Thundercat ${version}"
+      header="&lt;b&gt;Servlet 3.1 - Apache Thundercat ${version}&lt;/b&gt;"
       bottom="Copyright &amp;#169; 2000-${year} Apache Software Foundation. All Rights Reserved."
       encoding="UTF-8"
       docencoding="UTF-8"
@@ -1916,9 +1916,9 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       sourcepath="${thundercat.dist}/src/java"
       destdir="${thundercat.dist}/webapps/docs/jspapi"
       version="true"
-      windowtitle="JSP 2.3 API Documentation - Apache Tomcat ${version}"
-      doctitle="JSP 2.3 API - Apache Tomcat ${version}"
-      header="&lt;b&gt;JSP 2.3 - Apache Tomcat ${version}&lt;/b&gt;"
+      windowtitle="JSP 2.3 API Documentation - Apache Thundercat ${version}"
+      doctitle="JSP 2.3 API - Apache Thundercat ${version}"
+      header="&lt;b&gt;JSP 2.3 - Apache Thundercat ${version}&lt;/b&gt;"
       bottom="Copyright &amp;#169; 2000-${year} Apache Software Foundation. All Rights Reserved."
       encoding="UTF-8"
       docencoding="UTF-8"
@@ -1935,9 +1935,9 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       sourcepath="${thundercat.dist}/src/java"
       destdir="${thundercat.dist}/webapps/docs/elapi"
       version="true"
-      windowtitle="EL 3.0 API Documentation - Apache Tomcat ${version}"
-      doctitle="EL 3.0 API - Apache Tomcat ${version}"
-      header="&lt;b&gt;EL 3.0 - Apache Tomcat ${version}&lt;/b&gt;"
+      windowtitle="EL 3.0 API Documentation - Apache Thundercat ${version}"
+      doctitle="EL 3.0 API - Apache Thundercat ${version}"
+      header="&lt;b&gt;EL 3.0 - Apache Thundercat ${version}&lt;/b&gt;"
       bottom="Copyright &amp;#169; 2000-${year} Apache Software Foundation. All Rights Reserved."
       encoding="UTF-8"
       docencoding="UTF-8"
@@ -1954,9 +1954,9 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       sourcepath="${thundercat.dist}/src/java"
       destdir="${thundercat.dist}/webapps/docs/websocketapi"
       version="true"
-      windowtitle="WebSocket 1.1 API Documentation - Apache Tomcat ${version}"
-      doctitle="WebSocket 1.1 API - Apache Tomcat ${version}"
-      header="&lt;b&gt;WebSocket 1.1 - Apache Tomcat ${version}&lt;/b&gt;"
+      windowtitle="WebSocket 1.1 API Documentation - Apache Thundercat ${version}"
+      doctitle="WebSocket 1.1 API - Apache Thundercat ${version}"
+      header="&lt;b&gt;WebSocket 1.1 - Apache Thundercat ${version}&lt;/b&gt;"
       bottom="Copyright &amp;#169; 2000-${year} Apache Software Foundation. All Rights Reserved."
       encoding="UTF-8"
       docencoding="UTF-8"
@@ -1972,9 +1972,9 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
     <javadoc packagenames="org.apache.*"
       destdir="${thundercat.dist}/webapps/docs/api"
       version="true"
-      windowtitle="Apache Tomcat ${version} API Documentation"
-      doctitle="Apache Tomcat ${version} API"
-      header="&lt;b&gt;Apache Tomcat ${version}&lt;/b&gt;"
+      windowtitle="Apache Thundercat ${version} API Documentation"
+      doctitle="Apache Thundercat ${version} API"
+      header="&lt;b&gt;Apache Thundercat ${version}&lt;/b&gt;"
       bottom="Copyright &amp;#169; 2000-${year} Apache Software Foundation. All Rights Reserved."
       encoding="UTF-8"
       docencoding="UTF-8"
@@ -2002,7 +2002,7 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
   </target>
 
   <target name="dist-deployer" depends="dist-prepare,deploy"
-    description="Create the Tomcat deployer binary">
+    description="Create the Thundercat deployer binary">
 
     <!-- Servlet and JSP -->
     <copy todir="${thundercat.deployer}/lib">
@@ -2072,7 +2072,7 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
 
     <mkdir dir="${thundercat.dist}/src"/>
 
-    <!-- Tomcat source -->
+    <!-- Thundercat source -->
     <copy todir="${thundercat.dist}/src">
       <fileset dir="${basedir}" defaultexcludes="true">
         <not>
@@ -2180,7 +2180,7 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
         classpath="${thundercat.classes}" />
     <signcode userName="${codesigning.user}" password="${codesigning.pwd}"
         partnerCode="${codesigning.partnercode}"
-        applicationName="Apache Tomcat ${version.major.minor} Uninstaller"
+        applicationName="Apache Thundercat ${version.major.minor} Uninstaller"
         applicationversion="${version}"
         signingService="${codesigning.service}">
       <fileset dir="${thundercat.dist}">
@@ -2212,7 +2212,7 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
         classpath="${thundercat.classes}" />
     <signcode userName="${codesigning.user}" password="${codesigning.pwd}"
               partnerCode="${codesigning.partnercode}"
-              applicationName="Apache Tomcat ${version.major.minor}"
+              applicationName="Apache Thundercat ${version.major.minor}"
               applicationversion="${version}"
               signingService="${codesigning.service}">
       <fileset dir="${thundercat.release}">
@@ -2228,7 +2228,7 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
 
   <target name="release"
     depends="clean,release-init,dist-deployer,installer-sign,package-zip,package-winzip,package-tgz,package-deployer-zip,package-deployer-tgz,javadoc,package-docs-tgz,package-src-zip,package-src-tgz,package-src-jar"
-    description="Create a Tomcat packaged distribution">
+    description="Create a Thundercat packaged distribution">
 
     <copy file="KEYS"
          todir="${thundercat.release}/v${version}"/>
@@ -2493,7 +2493,7 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
     <hashAndSign file="${thundercat.release}/v${version}/bin/${final.name}.tar.gz" />
   </target>
 
-  <!-- Packages the deployer Tomcat distro in tar.gz format -->
+  <!-- Packages the deployer Thundercat distro in tar.gz format -->
   <target name="package-deployer-tgz">
     <fixcrlf srcdir="${thundercat.dist}" eol="lf"
         encoding="ISO-8859-1" fixlast="false" >
@@ -2625,7 +2625,7 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       filesId="files.bootstrap"
       manifest="${thundercat.manifests}/bootstrap.jar.manifest" />
 
-    <!-- Tomcat-juli JAR File -->
+    <!-- Thundercat-juli JAR File -->
     <jarIt jarfile="${thundercat-juli-src.jar}"
       filesDir="java"
       filesId="files.thundercat-juli" />
@@ -2655,17 +2655,17 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       filesDir="java"
       filesId="files.catalina-storeconfig" />
 
-    <!-- Tomcat API JAR File -->
+    <!-- Thundercat API JAR File -->
     <jarIt jarfile="${thundercat-api-src.jar}"
       filesDir="java"
       filesId="files.thundercat-api" />
 
-    <!-- Tomcat Util JAR File -->
+    <!-- Thundercat Util JAR File -->
     <jarIt jarfile="${thundercat-util-src.jar}"
       filesDir="java"
       filesId="files.thundercat-util" />
 
-    <!-- Tomcat Util Scan JAR File -->
+    <!-- Thundercat Util Scan JAR File -->
     <jarIt jarfile="${thundercat-util-scan-src.jar}"
       filesDir="java"
       filesId="files.thundercat-util-scan" />
@@ -2988,7 +2988,7 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
     <copy file="${thundercat.home}/res/ide-support/eclipse/org.eclipse.jdt.core.prefs.properties" tofile="${thundercat.home}/.settings/org.eclipse.jdt.core.prefs"/>
 
     <echo>Eclipse project files created.
-Read the Building page on the Apache Tomcat documentation site for details on how to configure your Eclipse workplace.</echo>
+Read the Building page on the Apache Thundercat documentation site for details on how to configure your Eclipse workplace.</echo>
   </target>
 
   <!-- ============================ NetBeans =============================== -->
@@ -3026,7 +3026,7 @@ Use the "ide-netbeans-replace" target if you wish to overwrite them.</echo>
       <fileset dir="${thundercat-nb.dist}"/>
     </copy>
     <echo>NetBeans project files created.
-Read the Building page on the Apache Tomcat documentation site for details on how to customise your NetBeans project.</echo>
+Read the Building page on the Apache Thundercat documentation site for details on how to customise your NetBeans project.</echo>
   </target>
 
 

@@ -25,8 +25,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 
 /**
  * Base Test case for {@link LegacyCookieProcessor}. <b>Note</b> because of the
@@ -35,7 +35,7 @@ import org.apache.catalina.startup.TomcatBaseTest;
  * been place in separate classes to facilitate this when running the unit tests
  * via Ant.
  */
-public abstract class CookiesBaseTest extends TomcatBaseTest {
+public abstract class CookiesBaseTest extends ThundercatBaseTest {
 
     /**
      * Servlet for cookie naming test.
@@ -67,25 +67,25 @@ public abstract class CookiesBaseTest extends TomcatBaseTest {
     }
 
 
-    public static void addServlets(Tomcat thundercat) {
+    public static void addServlets(Thundercat thundercat) {
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "invalid", new CookieServlet("na;me", "value"));
+        Thundercat.addServlet(ctx, "invalid", new CookieServlet("na;me", "value"));
         ctx.addServletMapping("/invalid", "invalid");
-        Tomcat.addServlet(ctx, "null", new CookieServlet(null, "value"));
+        Thundercat.addServlet(ctx, "null", new CookieServlet(null, "value"));
         ctx.addServletMapping("/null", "null");
-        Tomcat.addServlet(ctx, "blank", new CookieServlet("", "value"));
+        Thundercat.addServlet(ctx, "blank", new CookieServlet("", "value"));
         ctx.addServletMapping("/blank", "blank");
-        Tomcat.addServlet(ctx, "invalidFwd",
+        Thundercat.addServlet(ctx, "invalidFwd",
                 new CookieServlet("na/me", "value"));
         ctx.addServletMapping("/invalidFwd", "invalidFwd");
-        Tomcat.addServlet(ctx, "invalidStrict",
+        Thundercat.addServlet(ctx, "invalidStrict",
                 new CookieServlet("na?me", "value"));
         ctx.addServletMapping("/invalidStrict", "invalidStrict");
-        Tomcat.addServlet(ctx, "valid", new CookieServlet("name", "value"));
+        Thundercat.addServlet(ctx, "valid", new CookieServlet("name", "value"));
         ctx.addServletMapping("/valid", "valid");
-        Tomcat.addServlet(ctx, "switch", new CookieServlet("name", "val?ue"));
+        Thundercat.addServlet(ctx, "switch", new CookieServlet("name", "val?ue"));
         ctx.addServletMapping("/switch", "switch");
 
     }

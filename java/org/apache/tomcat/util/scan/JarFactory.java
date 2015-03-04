@@ -51,7 +51,7 @@ public class JarFactory {
 
         if (baseExternal.startsWith("jar")) {
             // Assume this is pointing to a JAR file within a WAR. Java doesn't
-            // support jar:jar:file:... so switch to Tomcat's war:file:...
+            // support jar:jar:file:... so switch to Thundercat's war:file:...
             baseExternal = baseExternal.replaceFirst("^jar:", "war:");
             baseExternal = baseExternal.replaceFirst("!/", "^/");
         }

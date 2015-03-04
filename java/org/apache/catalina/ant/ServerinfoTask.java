@@ -24,7 +24,7 @@ import org.apache.tools.ant.BuildException;
 
 /**
  * Ant task that implements the <code>/serverinfo</code> command
- * supported by the Tomcat manager application.
+ * supported by the Thundercat manager application.
  *
  * @author Vivek Chopra
  */

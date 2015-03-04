@@ -20,7 +20,7 @@
   <groupId>org.apache.thundercat.extras</groupId>
   <artifactId>thundercat-extras-juli</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
-  <description>Replacement for Tomcat Core Logging Package</description>
+  <description>Replacement for Thundercat Core Logging Package</description>
   <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>

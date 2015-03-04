@@ -20,7 +20,7 @@
   <groupId>org.apache.thundercat</groupId>
   <artifactId>thundercat</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
-  <description>Binary distribution of Apache Tomcat</description>
+  <description>Binary distribution of Apache Thundercat</description>
   <url>http://thundercat.apache.org/</url>
   <packaging>pom</packaging>
   <licenses>

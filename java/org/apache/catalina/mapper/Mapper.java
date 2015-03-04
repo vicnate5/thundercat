@@ -725,7 +725,7 @@ public final class Mapper {
             String version, MappingData mappingData) throws IOException {
 
         if (mappingData.host != null) {
-            // The legacy code (dating down at least to Tomcat 4.1) just
+            // The legacy code (dating down at least to Thundercat 4.1) just
             // skipped all mapping work in this case. That behaviour has a risk
             // of returning an inconsistent result.
             // I do not see a valid use case for it.

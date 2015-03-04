@@ -53,13 +53,13 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.servlets.DefaultServlet;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.websocket.pojo.TesterUtil.ServerConfigListener;
 import org.apache.thundercat.websocket.pojo.TesterUtil.SingletonConfigurator;
 import org.apache.thundercat.websocket.server.WsContextListener;
 
-public class TestEncodingDecoding extends TomcatBaseTest {
+public class TestEncodingDecoding extends ThundercatBaseTest {
 
     private static final String MESSAGE_ONE = "message-one";
     private static final String MESSAGE_TWO = "message-two";
@@ -72,11 +72,11 @@ public class TestEncodingDecoding extends TomcatBaseTest {
 
     @Test
     public void testProgrammaticEndPoints() throws Exception{
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(ProgramaticServerEndpointConfig.class.getName());
-        Tomcat.addServlet(ctx, "default", new DefaultServlet());
+        Thundercat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
         WebSocketContainer wsContainer = ContainerProvider.getWebSocketContainer();
@@ -121,11 +121,11 @@ public class TestEncodingDecoding extends TomcatBaseTest {
         SingletonConfigurator.setInstance(server);
         ServerConfigListener.setPojoClazz(Server.class);
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(ServerConfigListener.class.getName());
-        Tomcat.addServlet(ctx, "default", new DefaultServlet());
+        Thundercat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
         WebSocketContainer wsContainer =
@@ -180,11 +180,11 @@ public class TestEncodingDecoding extends TomcatBaseTest {
         SingletonConfigurator.setInstance(server);
         ServerConfigListener.setPojoClazz(GenericsServer.class);
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(ServerConfigListener.class.getName());
-        Tomcat.addServlet(ctx, "default", new DefaultServlet());
+        Thundercat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
         WebSocketContainer wsContainer =
@@ -228,11 +228,11 @@ public class TestEncodingDecoding extends TomcatBaseTest {
         SingletonConfigurator.setInstance(server);
         ServerConfigListener.setPojoClazz(MessagesServer.class);
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(ServerConfigListener.class.getName());
-        Tomcat.addServlet(ctx, "default", new DefaultServlet());
+        Thundercat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
         WebSocketContainer wsContainer =
@@ -275,11 +275,11 @@ public class TestEncodingDecoding extends TomcatBaseTest {
         SingletonConfigurator.setInstance(server);
         ServerConfigListener.setPojoClazz(BatchedServer.class);
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(ServerConfigListener.class.getName());
-        Tomcat.addServlet(ctx, "default", new DefaultServlet());
+        Thundercat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
         WebSocketContainer wsContainer =
@@ -755,11 +755,11 @@ public class TestEncodingDecoding extends TomcatBaseTest {
 
     @Test
     public void testUnsupportedObject() throws Exception{
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(ProgramaticServerEndpointConfig.class.getName());
-        Tomcat.addServlet(ctx, "default", new DefaultServlet());
+        Thundercat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
         WebSocketContainer wsContainer = ContainerProvider.getWebSocketContainer();

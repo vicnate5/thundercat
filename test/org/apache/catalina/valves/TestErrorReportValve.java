@@ -30,20 +30,20 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.Wrapper;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestErrorReportValve extends TomcatBaseTest {
+public class TestErrorReportValve extends ThundercatBaseTest {
 
     @Test
     public void testBug53071() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "errorServlet", new ErrorServlet());
+        Thundercat.addServlet(ctx, "errorServlet", new ErrorServlet());
         ctx.addServletMapping("/", "errorServlet");
 
         thundercat.start();
@@ -71,12 +71,12 @@ public class TestErrorReportValve extends TomcatBaseTest {
 
     @Test
     public void testBug54220DoNotSetNotFound() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "bug54220", new Bug54220Servlet(false));
+        Thundercat.addServlet(ctx, "bug54220", new Bug54220Servlet(false));
         ctx.addServletMapping("/", "bug54220");
 
         thundercat.start();
@@ -91,12 +91,12 @@ public class TestErrorReportValve extends TomcatBaseTest {
 
     @Test
     public void testBug54220SetNotFound() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "bug54220", new Bug54220Servlet(true));
+        Thundercat.addServlet(ctx, "bug54220", new Bug54220Servlet(true));
         ctx.addServletMapping("/", "bug54220");
 
         thundercat.start();
@@ -135,12 +135,12 @@ public class TestErrorReportValve extends TomcatBaseTest {
      */
     @Test
     public void testBug54536() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "bug54536", new Bug54536Servlet());
+        Thundercat.addServlet(ctx, "bug54536", new Bug54536Servlet());
         ctx.addServletMapping("/", "bug54536");
 
         thundercat.start();
@@ -170,15 +170,15 @@ public class TestErrorReportValve extends TomcatBaseTest {
 
     @Test
     public void testBug56042() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         Bug56042Servlet bug56042Servlet = new Bug56042Servlet();
         Wrapper wrapper =
-            Tomcat.addServlet(ctx, "bug56042Servlet", bug56042Servlet);
+            Thundercat.addServlet(ctx, "bug56042Servlet", bug56042Servlet);
         wrapper.setAsyncSupported(true);
         ctx.addServletMapping("/bug56042Servlet", "bug56042Servlet");
 

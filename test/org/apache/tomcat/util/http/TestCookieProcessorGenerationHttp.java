@@ -32,19 +32,19 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestCookieProcessorGenerationHttp extends TomcatBaseTest {
+public class TestCookieProcessorGenerationHttp extends ThundercatBaseTest {
 
     @Test
     public void testUtf8CookieValue() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
         ctx.setCookieProcessor(new Rfc6265CookieProcessor());
-        Tomcat.addServlet(ctx, "test", new CookieServlet("\u0120"));
+        Thundercat.addServlet(ctx, "test", new CookieServlet("\u0120"));
         ctx.addServletMapping("/test", "test");
         thundercat.start();
 

@@ -36,7 +36,7 @@ import java.util.logging.LogRecord;
  *    Default value: <code>1000</code></li>
  * </ul>
  *
- * <p>See the System Properties page in the configuration reference of Tomcat.</p>
+ * <p>See the System Properties page in the configuration reference of Thundercat.</p>
  */
 public class AsyncFileHandler extends FileHandler {
 

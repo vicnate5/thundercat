@@ -35,8 +35,8 @@ import org.apache.catalina.Context;
 import org.apache.catalina.Session;
 import org.apache.catalina.session.ManagerBase;
 import org.apache.catalina.startup.TesterServletEncodeUrl;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.codec.binary.Base64;
 import org.apache.thundercat.util.descriptor.web.LoginConfig;
@@ -68,12 +68,12 @@ import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
  *
  * <p>
  * The other situation examined is where the server returns authentication
- * cookies, but the client is configured to ignore them. The Tomcat
+ * cookies, but the client is configured to ignore them. The Thundercat
  * documentation clearly states that SSO <i>requires</i> the client to
  * support cookies, so access to resources in other webapp containers
  * receives no SSO assistance.
  */
-public class TestSSOnonLoginAndBasicAuthenticator extends TomcatBaseTest {
+public class TestSSOnonLoginAndBasicAuthenticator extends ThundercatBaseTest {
 
     protected static final boolean USE_COOKIES = true;
     protected static final boolean NO_COOKIES = !USE_COOKIES;
@@ -118,7 +118,7 @@ public class TestSSOnonLoginAndBasicAuthenticator extends TomcatBaseTest {
                 new TestSSOnonLoginAndBasicAuthenticator.BasicCredentials(
                             NICE_METHOD, USER, PWD);
 
-    private Tomcat thundercat;
+    private Thundercat thundercat;
     private Context basicContext;
     private Context nonloginContext;
     private List<String> cookies;
@@ -451,7 +451,7 @@ public class TestSSOnonLoginAndBasicAuthenticator extends TomcatBaseTest {
         super.setUp();
 
         // create a thundercat server using the default in-memory Realm
-        thundercat = getTomcatInstance();
+        thundercat = getThundercatInstance();
 
         // associate the SingeSignOn Valve before the Contexts
         SingleSignOn sso = new SingleSignOn();
@@ -482,7 +482,7 @@ public class TestSSOnonLoginAndBasicAuthenticator extends TomcatBaseTest {
         nonloginContext.setSessionTimeout(LONG_SESSION_TIMEOUT_MINS);
 
         // Add protected servlet to the context
-        Tomcat.addServlet(nonloginContext, "TesterServlet1",
+        Thundercat.addServlet(nonloginContext, "TesterServlet1",
                 new TesterServletEncodeUrl());
         nonloginContext.addServletMapping(URI_PROTECTED, "TesterServlet1");
 
@@ -494,7 +494,7 @@ public class TestSSOnonLoginAndBasicAuthenticator extends TomcatBaseTest {
         nonloginContext.addConstraint(sc1);
 
         // Add unprotected servlet to the context
-        Tomcat.addServlet(nonloginContext, "TesterServlet2",
+        Thundercat.addServlet(nonloginContext, "TesterServlet2",
                 new TesterServletEncodeUrl());
         nonloginContext.addServletMapping(URI_PUBLIC, "TesterServlet2");
 
@@ -521,7 +521,7 @@ public class TestSSOnonLoginAndBasicAuthenticator extends TomcatBaseTest {
         basicContext.setSessionTimeout(SHORT_SESSION_TIMEOUT_MINS);
 
         // Add protected servlet to the context
-        Tomcat.addServlet(basicContext, "TesterServlet3",
+        Thundercat.addServlet(basicContext, "TesterServlet3",
                 new TesterServletEncodeUrl());
         basicContext.addServletMapping(URI_PROTECTED, "TesterServlet3");
         SecurityCollection collection = new SecurityCollection();
@@ -532,7 +532,7 @@ public class TestSSOnonLoginAndBasicAuthenticator extends TomcatBaseTest {
         basicContext.addConstraint(sc);
 
         // Add unprotected servlet to the context
-        Tomcat.addServlet(basicContext, "TesterServlet4",
+        Thundercat.addServlet(basicContext, "TesterServlet4",
                 new TesterServletEncodeUrl());
         basicContext.addServletMapping(URI_PUBLIC, "TesterServlet4");
         SecurityCollection collection2 = new SecurityCollection();

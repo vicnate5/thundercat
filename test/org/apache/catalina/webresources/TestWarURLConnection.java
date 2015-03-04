@@ -28,7 +28,7 @@ public class TestWarURLConnection {
 
     @Before
     public void register() {
-        TomcatURLStreamHandlerFactory.register();
+        ThundercatURLStreamHandlerFactory.register();
     }
 
 

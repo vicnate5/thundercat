@@ -26,22 +26,22 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.TesterServlet;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Test cases for {@link Connector}.
  */
-public class TestConnector extends TomcatBaseTest {
+public class TestConnector extends ThundercatBaseTest {
 
     @Test
     public void testStop() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         Context root = thundercat.addContext("", TEMP_DIR);
         Wrapper w =
-            Tomcat.addServlet(root, "tester", new TesterServlet());
+            Thundercat.addServlet(root, "tester", new TesterServlet());
         w.setAsyncSupported(true);
         root.addServletMapping("/", "tester");
 
@@ -74,7 +74,7 @@ public class TestConnector extends TomcatBaseTest {
 
     @Test
     public void testPort() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         Connector connector1 = thundercat.getConnector();
         connector1.setPort(0);

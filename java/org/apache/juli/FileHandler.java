@@ -46,7 +46,7 @@ import java.util.logging.LogRecord;
  * <ul>
  *   <li><code>directory</code> - The directory where to create the log file.
  *    If the path is not absolute, it is relative to the current working
- *    directory of the application. The Apache Tomcat configuration files usually
+ *    directory of the application. The Apache Thundercat configuration files usually
  *    specify an absolute path for this property,
  *    <code>${catalina.base}/logs</code>
  *    Default value: <code>logs</code></li>

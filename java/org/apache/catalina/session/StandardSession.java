@@ -53,7 +53,7 @@ import org.apache.catalina.Manager;
 import org.apache.catalina.Session;
 import org.apache.catalina.SessionEvent;
 import org.apache.catalina.SessionListener;
-import org.apache.catalina.TomcatPrincipal;
+import org.apache.catalina.ThundercatPrincipal;
 import org.apache.catalina.security.SecurityUtil;
 import org.apache.thundercat.util.ExceptionUtils;
 import org.apache.thundercat.util.res.StringManager;
@@ -877,8 +877,8 @@ public class StandardSession implements HttpSession, Session, Serializable {
             }
 
             // Call the logout method
-            if (principal instanceof TomcatPrincipal) {
-                TomcatPrincipal gp = (TomcatPrincipal) principal;
+            if (principal instanceof ThundercatPrincipal) {
+                ThundercatPrincipal gp = (ThundercatPrincipal) principal;
                 try {
                     gp.logout();
                 } catch (Exception e) {

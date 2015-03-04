@@ -172,7 +172,7 @@ public class SingleSignOn extends ValveBase {
      * Valve.
      * <p>
      * The default value of this property is <code>false</code>, in order
-     * to maintain backward compatibility with previous versions of Tomcat.
+     * to maintain backward compatibility with previous versions of Thundercat.
      *
      * @param required  <code>true</code> if it is required that a downstream
      *                  Authenticator reauthenticate each request before calls

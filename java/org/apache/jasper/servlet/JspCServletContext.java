@@ -408,7 +408,7 @@ public class JspCServletContext implements ServletContext {
      */
     @Override
     public String getServerInfo() {
-        return ("JspC/ApacheTomcat8");
+        return ("JspC/ApacheThundercat8");
     }
 
 

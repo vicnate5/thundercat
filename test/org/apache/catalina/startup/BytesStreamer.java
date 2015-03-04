@@ -18,7 +18,7 @@ package org.apache.catalina.startup;
 
 /**
  *
- * Used by {@link TomcatBaseTest}
+ * Used by {@link ThundercatBaseTest}
  *
  *
  */

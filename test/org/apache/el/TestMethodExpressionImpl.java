@@ -374,9 +374,9 @@ public class TestMethodExpressionImpl {
     @Test
     public void testBug50449b() throws Exception {
         MethodExpression me1 = factory.createMethodExpression(context,
-                "${beanB.sayHello('Tomcat')}", null, null);
+                "${beanB.sayHello('Thundercat')}", null, null);
         String actual = (String) me1.invoke(context, null);
-        assertEquals("Hello Tomcat from B", actual);
+        assertEquals("Hello Thundercat from B", actual);
     }
 
     @Test

@@ -28,13 +28,13 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.ThundercatBaseTest;
 
-public class TestScriptingVariabler extends TomcatBaseTest {
+public class TestScriptingVariabler extends ThundercatBaseTest {
 
     @Test
     public void testBug42390() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         Exception e = null;
         try {
@@ -70,7 +70,7 @@ public class TestScriptingVariabler extends TomcatBaseTest {
 
     @Test
     public void testBug48616() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         Exception e = null;
         try {
@@ -85,7 +85,7 @@ public class TestScriptingVariabler extends TomcatBaseTest {
 
     @Test
     public void testBug48616b() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         Exception e = null;
         try {

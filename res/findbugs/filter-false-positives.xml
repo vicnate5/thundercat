@@ -488,7 +488,7 @@
 
   <!-- Example code -->
   <Match>
-    <!-- FindBugs assumes the container uses the values as is. Tomcat validates
+    <!-- FindBugs assumes the container uses the values as is. Thundercat validates
          them and escapes them as necessary to ensure they are safe. -->
     <Class name="CookieExample" />
     <Method name="doGet" />
@@ -555,7 +555,7 @@
     <Bug code="ST" />
   </Match>
   <Match>
-    <Class name="org.apache.catalina.startup.TestTomcatClassLoader$ClassLoaderReport"/>
+    <Class name="org.apache.catalina.startup.TestThundercatClassLoader$ClassLoaderReport"/>
     <Bug code="Se"/>
   </Match>
   <Match>

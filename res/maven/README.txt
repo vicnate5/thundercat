@@ -18,7 +18,7 @@
 General preparations before any publishing:
 1 - Download Maven Ant Tasks (version 2.1.0 is known to work) and place it in
     this directory
-2 - Generate a standard Tomcat release (ant release)
+2 - Generate a standard Thundercat release (ant release)
 3 - Copy mvn.properties.default to mvn.properties and adjust it as necessary.
     You will need to set asf.ldap.username and you'll probably need to set
     gpg.exec

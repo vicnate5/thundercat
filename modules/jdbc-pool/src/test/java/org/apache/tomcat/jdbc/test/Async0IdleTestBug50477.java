@@ -28,7 +28,7 @@ public class Async0IdleTestBug50477 extends DefaultTestCase {
 
     @Test
     public void testAsync0Idle0Size() throws Exception {
-        System.out.println("[testPoolThreads20Connections10FairAsync] Starting fairness - Tomcat JDBC - Fair - Async");
+        System.out.println("[testPoolThreads20Connections10FairAsync] Starting fairness - Thundercat JDBC - Fair - Async");
         this.datasource.getPoolProperties().setMaxActive(10);
         this.datasource.getPoolProperties().setFairQueue(true);
         this.datasource.getPoolProperties().setInitialSize(0);

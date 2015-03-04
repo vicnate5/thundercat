@@ -16,18 +16,18 @@
 ================================================================================
 
             ====================================================
-            Building The Apache Tomcat @VERSION_MAJOR_MINOR@ Servlet/JSP Container
+            Building The Apache Thundercat @VERSION_MAJOR_MINOR@ Servlet/JSP Container
             ====================================================
 
-This subproject contains the source code for Tomcat @VERSION_MAJOR_MINOR@, a container that
+This subproject contains the source code for Thundercat @VERSION_MAJOR_MINOR@, a container that
 implements the Servlet 4.0, JSP 2.4?, EL 3.1? and WebSocket 1.2? specifications
 from the Java Community Process <http://www.jcp.org/>.
 
-Note: If you just need to run Apache Tomcat, it is not necessary to build
+Note: If you just need to run Apache Thundercat, it is not necessary to build
 it. You may simply download a binary distribution. It is cross-platform.
 Read RUNNING.txt for the instruction on how to run it.
 
-In order to build a binary distribution version of Apache Tomcat from a
+In order to build a binary distribution version of Apache Thundercat from a
 source distribution, do the following:
 
 
@@ -44,7 +44,7 @@ source distribution, do the following:
 
     Note regarding later versions of Java:
 
-      As documented elsewhere, one of components in Apache Tomcat includes
+      As documented elsewhere, one of components in Apache Thundercat includes
       a private copy of the Apache Commons DBCP library.
 
       The JDBC interfaces implemented by DBCP frequently change in non-backwards
@@ -66,7 +66,7 @@ source distribution, do the following:
 
 (2) Install Apache Ant version 1.9.3 or later on your computer.
 
-    Note: Ant 1.9.4 has a regression and cannot be used for Tomcat's
+    Note: Ant 1.9.4 has a regression and cannot be used for Thundercat's
     release build (Ant bug 56641).
 
  1. If Apache Ant version 1.9.3 or later is already installed on your
@@ -92,15 +92,15 @@ source distribution, do the following:
     available, which will be used to actually perform the build.
 
 
-(3) Building Tomcat @VERSION_MAJOR_MINOR@
+(3) Building Thundercat @VERSION_MAJOR_MINOR@
 
-(3.1) Checkout or obtain the source code for Tomcat @VERSION_MAJOR_MINOR@
+(3.1) Checkout or obtain the source code for Thundercat @VERSION_MAJOR_MINOR@
 
 Checkout the source using SVN, selecting a tag for released version or
 trunk for the current development code, or download and unpack a source
 package.
 
- *  Tomcat SVN repository URL:
+ *  Thundercat SVN repository URL:
 
         http://svn.apache.org/repos/asf/thundercat/tc@VERSION_MAJOR_MINOR@.x/trunk/
 
@@ -128,13 +128,13 @@ ${thundercat.source}.
  2. Configure base.path property by adding it to the
     ${thundercat.source}/build.properties file.
 
-    The base.path property specifies the place where Tomcat dependencies
+    The base.path property specifies the place where Thundercat dependencies
     required by the build are downloaded. It is recommended to place this
     directory outside of the source tree, so that you do not waste your
     time re-downloading the libraries.
 
 * WARNING: The default value of base.path property makes the build script
-  to download libraries required to build Tomcat to the /usr/share/java
+  to download libraries required to build Thundercat to the /usr/share/java
   directory. On a typical Linux or MacOX system an ordinary user will not
   have access to write to this directory. Even if you do have access to
   that directory, it is likely not appropriate for you to write there.
@@ -163,23 +163,23 @@ ${thundercat.source}.
 
     This will execute the "deploy" target in build.xml.
 
-    Once the build has completed successfully, a usable Tomcat installation
+    Once the build has completed successfully, a usable Thundercat installation
     will have been produced in the ${thundercat.source}/output/build directory,
     and can be started and stopped with the usual scripts.
 
-    Note that the build includes Tomcat documentation, which can be found
+    Note that the build includes Thundercat documentation, which can be found
     in the output/build/webapps/docs directory.
 
     The path of the output directory can be controlled by specifying the
     "thundercat.output" property in the build.properties file.
 
-* NOTE: Do not run the build as the root user. Building and running Tomcat
+* NOTE: Do not run the build as the root user. Building and running Thundercat
   does not require root privileges.
 
 
 (4) Updating sources and rebuilding
 
-It is recommended that you regularly update the downloaded Tomcat @VERSION_MAJOR_MINOR@
+It is recommended that you regularly update the downloaded Thundercat @VERSION_MAJOR_MINOR@
 sources using your SVN client.
 
 For a quick rebuild of only modified code you can use:
@@ -190,7 +190,7 @@ For a quick rebuild of only modified code you can use:
 
 (5) Special builds
 
-There are several targets in Tomcat build files that are useful to be
+There are several targets in Thundercat build files that are useful to be
 called separately. They build components that you may want to build
 quickly, or ones that are included in the full release and are not built
 during the default "deploy" build.
@@ -285,9 +285,9 @@ You can build them by using the following commands:
 
 (7) Tests
 
-(7.1) Running Tomcat tests
+(7.1) Running Thundercat tests
 
-Tomcat includes a number of junit tests. The tests are not run when a
+Thundercat includes a number of junit tests. The tests are not run when a
 release is built. There is separate command to run them.
 
 To run the testsuite use the following command:
@@ -304,8 +304,8 @@ directory:
     output/build/logs
 
 By default the testsuite is run three times to test 3 different
-implementations of Tomcat connectors: NIO, NIO2 and APR. (If you are not
-familiar with Tomcat connectors, see config/http.html in documentation for
+implementations of Thundercat connectors: NIO, NIO2 and APR. (If you are not
+familiar with Thundercat connectors, see config/http.html in documentation for
 details).
 
 The 3 runs are enabled and disabled individually by the following
@@ -315,7 +315,7 @@ properties, which all are "true" by default:
     execute.test.nio2=true
     execute.test.apr=true
 
-The APR connector can be tested only if Tomcat-Native library binaries are
+The APR connector can be tested only if Thundercat-Native library binaries are
 found by the testsuite. The "test.apr.loc" property specifies the directory
 where the library binaries are located.
 
@@ -328,7 +328,7 @@ tcnative-1.dll file into ${thundercat.source}/bin/native/ and it will be copied
 into the above directory when the build runs.
 
 The unit tests include tests of the clustering functionality which require
-multicast to be enabled. There is a simple application provided in the Tomcat
+multicast to be enabled. There is a simple application provided in the Thundercat
 test source (org.apache.catalina.tribes.TesterMulticast) that can be used to
 check if a machine supports multicast. Notes on enabling multicast for different
 operating systems are provided in the Javadoc for that class.
@@ -402,7 +402,7 @@ For example:
 
 * NOTE: Cobertura is licensed under GPL v2 with parts of it being under
   Apache License v1.1. See http://cobertura.sf.net for details. Using it
-  during Tomcat build is optional and is off by default.
+  during Thundercat build is optional and is off by default.
 
  6. The performance tests are written to run reasonably powerful machines (such
     as a developer may use day to day) assuming no other resource hungry
@@ -423,10 +423,10 @@ For example:
 
 (8.1) Checkstyle
 
-* NOTE: Checkstyle is licensed under LGPL. Using Checkstyle during Tomcat
+* NOTE: Checkstyle is licensed under LGPL. Using Checkstyle during Thundercat
   build is optional and is off by default.
 
-Tomcat comes with a Checkstyle configuration that tests its source code
+Thundercat comes with a Checkstyle configuration that tests its source code
 for certain conventions, like presence of the license header.
 
 To enable Checkstyle, add the following property to build.properties file:
@@ -452,7 +452,7 @@ target. The command is:
 
 You usually would not need to run this check. You can skip this section.
 
-Apache Tomcat project has convention that all of its textual source files,
+Apache Thundercat project has convention that all of its textual source files,
 stored in Subversion repository, are marked with Subversion property
 "svn:eol-style" with value of "native". This convention makes the editing
 of source code on different platforms easier.

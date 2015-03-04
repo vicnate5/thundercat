@@ -22,9 +22,9 @@
   version="3.0"
   metadata-complete="false">
 
-  <display-name>Tomcat Test Application</display-name>
+  <display-name>Thundercat Test Application</display-name>
   <description>
-     Used as part of the Tomcat unit tests when a full web application is
+     Used as part of the Thundercat unit tests when a full web application is
      required.
   </description>
 

@@ -29,10 +29,10 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.SimpleHttpClient;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 
-public class TestKeepAliveCount extends TomcatBaseTest {
+public class TestKeepAliveCount extends ThundercatBaseTest {
 
     @Test
     public void testHttp10() throws Exception {
@@ -55,9 +55,9 @@ public class TestKeepAliveCount extends TomcatBaseTest {
         private synchronized void init() {
             if (init) return;
 
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
             Context root = thundercat.addContext("", TEMP_DIR);
-            Tomcat.addServlet(root, "Simple", new SimpleServlet());
+            Thundercat.addServlet(root, "Simple", new SimpleServlet());
             root.addServletMapping("/test", "Simple");
             thundercat.getConnector().setProperty("maxKeepAliveRequests", "5");
             thundercat.getConnector().setProperty("soTimeout", "20000");
@@ -66,7 +66,7 @@ public class TestKeepAliveCount extends TomcatBaseTest {
         }
 
         private void doHttp10Request() throws Exception {
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
             init();
             thundercat.start();
             setPort(thundercat.getConnector().getLocalPort());
@@ -89,7 +89,7 @@ public class TestKeepAliveCount extends TomcatBaseTest {
         }
 
         private void doHttp11Request() throws Exception {
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
             init();
             thundercat.start();
             setPort(thundercat.getConnector().getLocalPort());

@@ -20,7 +20,7 @@
   <groupId>org.apache.thundercat</groupId>
   <artifactId>thundercat-jasper</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
-  <description>Tomcats JSP Parser</description>
+  <description>Thundercats JSP Parser</description>
   <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>

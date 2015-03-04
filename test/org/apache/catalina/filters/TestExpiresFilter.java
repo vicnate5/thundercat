@@ -40,18 +40,18 @@ import org.apache.catalina.filters.ExpiresFilter.Duration;
 import org.apache.catalina.filters.ExpiresFilter.DurationUnit;
 import org.apache.catalina.filters.ExpiresFilter.ExpiresConfiguration;
 import org.apache.catalina.filters.ExpiresFilter.StartingPoint;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.descriptor.web.FilterDef;
 import org.apache.thundercat.util.descriptor.web.FilterMap;
 
-public class TestExpiresFilter extends TomcatBaseTest {
+public class TestExpiresFilter extends ThundercatBaseTest {
     public static final String TEMP_DIR = System.getProperty("java.io.tmpdir");
 
     @Test
     public void testConfiguration() throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Context root = thundercat.addContext("", TEMP_DIR);
 
         FilterDef filterDef = new FilterDef();
@@ -375,7 +375,7 @@ public class TestExpiresFilter extends TomcatBaseTest {
             throws Exception {
         // SETUP
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Context root = thundercat.addContext("", TEMP_DIR);
 
         FilterDef filterDef = new FilterDef();
@@ -399,7 +399,7 @@ public class TestExpiresFilter extends TomcatBaseTest {
         filterMap.addURLPattern("*");
         root.addFilterMap(filterMap);
 
-        Tomcat.addServlet(root, servlet.getClass().getName(), servlet);
+        Thundercat.addServlet(root, servlet.getClass().getName(), servlet);
         root.addServletMapping("/test", servlet.getClass().getName());
 
         thundercat.start();

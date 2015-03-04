@@ -33,11 +33,11 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.Wrapper;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestCoyoteOutputStream extends TomcatBaseTest {
+public class TestCoyoteOutputStream extends ThundercatBaseTest {
 
     @Test
     public void testNonBlockingWriteNoneBlockingWriteNone() throws Exception {
@@ -72,14 +72,14 @@ public class TestCoyoteOutputStream extends TomcatBaseTest {
     private void doNonBlockingTest(int asyncWriteTarget, int syncWriteTarget)
             throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         Context root = thundercat.addContext("", TEMP_DIR);
-        Wrapper w = Tomcat.addServlet(root, "nbWrite",
+        Wrapper w = Thundercat.addServlet(root, "nbWrite",
                 new NonBlockingWriteServlet(asyncWriteTarget));
         w.setAsyncSupported(true);
         root.addServletMapping("/nbWrite", "nbWrite");
-        Tomcat.addServlet(root, "write",
+        Thundercat.addServlet(root, "write",
                 new BlockingWriteServlet(asyncWriteTarget, syncWriteTarget));
         w.setAsyncSupported(true);
         root.addServletMapping("/write", "write");

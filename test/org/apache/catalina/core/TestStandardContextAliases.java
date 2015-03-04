@@ -34,16 +34,16 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.WebResourceRoot;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.catalina.webresources.StandardRoot;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestStandardContextAliases extends TomcatBaseTest {
+public class TestStandardContextAliases extends ThundercatBaseTest {
 
     @Test
     public void testDirContextAliases() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
@@ -55,7 +55,7 @@ public class TestStandardContextAliases extends TomcatBaseTest {
                 lib.getAbsolutePath(), null, "/");
 
 
-        Tomcat.addServlet(ctx, "test", new TestServlet());
+        Thundercat.addServlet(ctx, "test", new TestServlet());
         ctx.addServletMapping("/", "test");
 
         thundercat.start();

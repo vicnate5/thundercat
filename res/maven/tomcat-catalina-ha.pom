@@ -20,7 +20,7 @@
   <groupId>org.apache.thundercat</groupId>
   <artifactId>thundercat-catalina-ha</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
-  <description>Tomcat High Availability Implementation</description>
+  <description>Thundercat High Availability Implementation</description>
   <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>

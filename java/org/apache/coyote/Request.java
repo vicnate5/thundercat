@@ -42,7 +42,7 @@ import org.apache.thundercat.util.res.StringManager;
  * access the information using a facade, which provides the high-level view
  * of the request.
  *
- * Tomcat defines a number of attributes:
+ * Thundercat defines a number of attributes:
  * <ul>
  *   <li>"org.apache.thundercat.request" - allows access to the low-level
  *       request object in trusted applications

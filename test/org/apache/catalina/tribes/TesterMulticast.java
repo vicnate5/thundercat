@@ -22,7 +22,7 @@ import java.net.MulticastSocket;
 import java.net.UnknownHostException;
 
 /**
- * A simple multicast test that replicates the core elements of Tomcat's
+ * A simple multicast test that replicates the core elements of Thundercat's
  * multicast membership. If this works then multicast membership should work.
  * Useful notes for various operating systems follow.<p>
  * OSX

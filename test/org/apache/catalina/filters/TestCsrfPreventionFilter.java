@@ -31,9 +31,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import org.apache.catalina.filters.CsrfPreventionFilter.LruCache;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.ThundercatBaseTest;
 
-public class TestCsrfPreventionFilter extends TomcatBaseTest {
+public class TestCsrfPreventionFilter extends ThundercatBaseTest {
 
     private static final String RESULT_NONCE =
         Constants.CSRF_NONCE_SESSION_ATTR_NAME + "=TESTNONCE";

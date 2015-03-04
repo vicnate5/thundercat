@@ -21,7 +21,7 @@ import org.apache.catalina.ha.ClusterMessage;
  *
  * <B>Class Description:</B><BR>
  * The SessionMessage class is a class that is used when a session has been
- * created, modified, expired in a Tomcat cluster node.<BR>
+ * created, modified, expired in a Thundercat cluster node.<BR>
  *
  * The following events are currently available:
  * <ul>

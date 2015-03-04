@@ -21,7 +21,7 @@ import javax.servlet.http.Cookie;
 /**
  * Support class for generating Set-Cookie header values.
  *
- * @deprecated  Will be removed in Tomcat 9.
+ * @deprecated  Will be removed in Thundercat 9.
  */
 @Deprecated
 public class SetCookieSupport {

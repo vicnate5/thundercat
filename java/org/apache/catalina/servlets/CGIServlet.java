@@ -123,7 +123,7 @@ import org.apache.catalina.util.IOTools;
  * or an instance where the specification cited differs from Best
  * Community Practice (BCP).
  * Such instances should be well-documented here.  Please email the
- * <a href="http://thundercat.apache.org/lists.html">Tomcat group</a>
+ * <a href="http://thundercat.apache.org/lists.html">Thundercat group</a>
  * with amendments.
  *
  * </p>
@@ -195,7 +195,7 @@ import org.apache.catalina.util.IOTools;
  * unaltered by the server.
  * </p>
  * <p>
- * The function of a servlet container (including Tomcat) is specifically
+ * The function of a servlet container (including Thundercat) is specifically
  * designed to parse and possible alter CGI-specific variables, and as
  * such makes NPH functionality difficult to support.
  * </p>
@@ -231,7 +231,7 @@ import org.apache.catalina.util.IOTools;
  *
  * @author Martin T Dengler [root@martindengler.com]
  * @author Amy Roh
- * @since Tomcat 4.0
+ * @since Thundercat 4.0
  */
 public final class CGIServlet extends HttpServlet {
 
@@ -639,7 +639,7 @@ public final class CGIServlet extends HttpServlet {
      * <p>
      * </p>
      *
-     * @since    Tomcat 4.0
+     * @since    Thundercat 4.0
      */
     protected class CGIEnvironment {
 
@@ -840,7 +840,7 @@ public final class CGIServlet extends HttpServlet {
          *                        cgi script, or null if no cgi was found
          * </ul>
          *
-         * @since Tomcat 4.0
+         * @since Thundercat 4.0
          */
         protected String[] findCGI(String pathInfo, String webAppRootDir,
                                    String contextPath, String servletPath,
@@ -1541,7 +1541,7 @@ public final class CGIServlet extends HttpServlet {
          *             This implementation does not allow "<code>.</code>" and
          *             "<code>..</code>" in the the path, and such characters
          *             will result in an IOException being thrown (this should
-         *             never happen since Tomcat normalises the requestURI
+         *             never happen since Thundercat normalises the requestURI
          *             before determining the contextPath, servletPath and
          *             pathInfo);
          *     <LI> <u>Implementation limitations</u>: This implementation

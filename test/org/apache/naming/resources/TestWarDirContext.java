@@ -24,18 +24,18 @@ import org.junit.Test;
 
 import org.apache.catalina.core.JreMemoryLeakPreventionListener;
 import org.apache.catalina.core.StandardContext;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.catalina.webresources.StandardRoot;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestWarDirContext extends TomcatBaseTest {
+public class TestWarDirContext extends ThundercatBaseTest {
 
     @Override
     public void setUp() throws Exception {
         super.setUp();
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // The test fails if JreMemoryLeakPreventionListener is not
         // present. The listener affects the JVM, and thus not only the current,
@@ -50,7 +50,7 @@ public class TestWarDirContext extends TomcatBaseTest {
      */
     @Test
     public void testLookupException() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-fragments");
         // app dir is relative to server home
@@ -71,7 +71,7 @@ public class TestWarDirContext extends TomcatBaseTest {
      */
     @Test
     public void testReservedJNDIFileNamesWithCache() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-fragments");
         // app dir is relative to server home
@@ -103,7 +103,7 @@ public class TestWarDirContext extends TomcatBaseTest {
      */
     @Test
     public void testReservedJNDIFileNamesNoCache() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-fragments");
         // app dir is relative to server home

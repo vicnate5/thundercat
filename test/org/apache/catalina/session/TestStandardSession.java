@@ -30,11 +30,11 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.ha.tcp.SimpleTcpCluster;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestStandardSession extends TomcatBaseTest {
+public class TestStandardSession extends ThundercatBaseTest {
 
     /*
      * Test session.invalidate() in a clustered environment.
@@ -50,13 +50,13 @@ public class TestStandardSession extends TomcatBaseTest {
     }
 
     private void doTestInvalidate(boolean useClustering) throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "bug56578", new Bug56578Servlet());
+        Thundercat.addServlet(ctx, "bug56578", new Bug56578Servlet());
         ctx.addServletMapping("/bug56578", "bug56578");
 
         if (useClustering) {

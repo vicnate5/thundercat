@@ -137,7 +137,7 @@ public abstract class ContainerBase extends LifecycleMBeanBase
      * Perform addChild with the permissions of this class.
      * addChild can be called with the XML parser on the stack,
      * this allows the XML parser to have fewer privileges than
-     * Tomcat.
+     * Thundercat.
      */
     protected class PrivilegedAddChild implements PrivilegedAction<Void> {
 

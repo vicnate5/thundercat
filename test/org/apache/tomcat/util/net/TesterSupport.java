@@ -39,7 +39,7 @@ import org.apache.catalina.Context;
 import org.apache.catalina.authenticator.SSLAuthenticator;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.startup.TesterMapRealm;
-import org.apache.catalina.startup.Tomcat;
+import org.apache.catalina.startup.Thundercat;
 import org.apache.thundercat.util.descriptor.web.LoginConfig;
 import org.apache.thundercat.util.descriptor.web.SecurityCollection;
 import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
@@ -48,11 +48,11 @@ public final class TesterSupport {
 
     public static final String ROLE = "testrole";
 
-    public static void initSsl(Tomcat thundercat) {
+    public static void initSsl(Thundercat thundercat) {
         initSsl(thundercat, "localhost.jks", null, null);
     }
 
-    protected static void initSsl(Tomcat thundercat, String keystore,
+    protected static void initSsl(Thundercat thundercat, String keystore,
             String keystorePass, String keyPass) {
 
         String protocol = thundercat.getConnector().getProtocolHandlerClassName();
@@ -128,7 +128,7 @@ public final class TesterSupport {
         return System.getProperty("os.name").toLowerCase(Locale.ENGLISH).startsWith("mac os x");
     }
 
-    protected static boolean isRenegotiationSupported(Tomcat thundercat) {
+    protected static boolean isRenegotiationSupported(Thundercat thundercat) {
         String protocol = thundercat.getConnector().getProtocolHandlerClassName();
         if (protocol.contains("Apr")) {
             // Disabled by default in 1.1.20 windows binary (2010-07-27)
@@ -142,14 +142,14 @@ public final class TesterSupport {
         return true;
     }
 
-    protected static void configureClientCertContext(Tomcat thundercat) {
+    protected static void configureClientCertContext(Thundercat thundercat) {
         TesterSupport.initSsl(thundercat);
 
         // Need a web application with a protected and unprotected URL
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "simple", new SimpleServlet());
+        Thundercat.addServlet(ctx, "simple", new SimpleServlet());
         ctx.addServletMapping("/unprotected", "simple");
         ctx.addServletMapping("/protected", "simple");
 

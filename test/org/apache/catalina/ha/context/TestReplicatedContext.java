@@ -31,15 +31,15 @@ import org.apache.catalina.Context;
 import org.apache.catalina.Host;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.core.StandardHost;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestReplicatedContext extends TomcatBaseTest {
+public class TestReplicatedContext extends ThundercatBaseTest {
 
     @Test
     public void testBug57425() throws LifecycleException, IOException {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         Host host = thundercat.getHost();
         if (host instanceof StandardHost) {
             ((StandardHost) host).setContextClass(ReplicatedContext.class.getName());
@@ -48,7 +48,7 @@ public class TestReplicatedContext extends TomcatBaseTest {
         File root = new File("test/webapp");
         Context context = thundercat.addWebapp(host, "", "", root.getAbsolutePath());
 
-        Tomcat.addServlet(context, "test", new AccessContextServlet());
+        Thundercat.addServlet(context, "test", new AccessContextServlet());
         context.addServletMapping("/access", "test");
 
         thundercat.start();

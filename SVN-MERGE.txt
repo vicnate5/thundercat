@@ -15,14 +15,14 @@
   limitations under the License.
 ================================================================================
 
-Apache Tomcat re-uses code from a number of other Apache projects. There are
+Apache Thundercat re-uses code from a number of other Apache projects. There are
 several reasons why depending on the binary releases of those projects is not
 ideal. These include:
 - potential conflicts if a web application ships with the same JAR
-- a large JAR where Tomcat only depends on a small fraction
+- a large JAR where Thundercat only depends on a small fraction
 
 There are various approaches taken to dealing with this. One of those approaches
-is to svn copy the classes to the Tomcat source tree, modify them (always with a
+is to svn copy the classes to the Thundercat source tree, modify them (always with a
 package rename, sometimes with additional changes) and then keep them in sync
 with the original via regular svn merges. This file keeps track of these copies
 to assist committers in keeping them up to date.
@@ -42,7 +42,7 @@ org.apache.thundercat.dbcp.pool2 is copied from:
 FileUpload
 org.apache.thundercat.util.http.fileupload is copied from:
 /commons/proper/fileupload/trunk/src/main/java/org/apache/commons/fileupload
-Note: Tomcat's copy of fileupload also includes classes copied manually (rather
+Note: Thundercat's copy of fileupload also includes classes copied manually (rather
       than svn copied) from Commons IO.
 
 Codec

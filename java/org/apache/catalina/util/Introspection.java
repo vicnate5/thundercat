@@ -30,8 +30,8 @@ import org.apache.thundercat.util.ExceptionUtils;
 import org.apache.thundercat.util.res.StringManager;
 
 /**
- * Provides introspection utilities that either require knowledge of Tomcat
- * internals or are solely used by Tomcat internals.
+ * Provides introspection utilities that either require knowledge of Thundercat
+ * internals or are solely used by Thundercat internals.
  */
 public class Introspection {
 

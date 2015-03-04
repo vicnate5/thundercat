@@ -977,7 +977,7 @@ public class ContextConfig implements LifecycleListener {
             log.debug(sm.getString("contextConfig.destroy"));
         }
 
-        // Skip clearing the work directory if Tomcat is being shutdown
+        // Skip clearing the work directory if Thundercat is being shutdown
         Server s = getServer();
         if (s != null && !s.getState().isAvailable()) {
             return;
@@ -1083,8 +1083,8 @@ public class ContextConfig implements LifecycleListener {
 
         /*
          * The rules for annotation scanning are not as clear-cut as one might
-         * think. Tomcat implements the following process:
-         * - As per SRV.1.6.2, Tomcat will scan for annotations regardless of
+         * think. Thundercat implements the following process:
+         * - As per SRV.1.6.2, Thundercat will scan for annotations regardless of
          *   which Servlet spec version is declared in web.xml. The EG has
          *   confirmed this is the expected behaviour.
          * - As per http://java.net/jira/browse/SERVLET_SPEC-36, if the main
@@ -1288,7 +1288,7 @@ public class ContextConfig implements LifecycleListener {
             context.getNamingResources().addMessageDestinationRef(mdr);
         }
 
-        // messageDestinations were ignored in Tomcat 6, so ignore here
+        // messageDestinations were ignored in Thundercat 6, so ignore here
 
         context.setIgnoreAnnotations(webxml.isMetadataComplete());
         for (Entry<String, String> entry :

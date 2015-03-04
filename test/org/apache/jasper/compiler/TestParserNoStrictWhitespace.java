@@ -25,14 +25,14 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Tests are duplicated in {@link TestParser} with the strict whitespace parsing
  * enabled by default.
  */
-public class TestParserNoStrictWhitespace extends TomcatBaseTest {
+public class TestParserNoStrictWhitespace extends ThundercatBaseTest {
 
     @Override
     public void setUp() throws Exception {
@@ -44,7 +44,7 @@ public class TestParserNoStrictWhitespace extends TomcatBaseTest {
 
     @Test
     public void testBug48627() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug48nnn/bug48627.jsp");
@@ -58,7 +58,7 @@ public class TestParserNoStrictWhitespace extends TomcatBaseTest {
 
     @Test
     public void testBug48668a() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug48nnn/bug48668a.jsp");
@@ -97,7 +97,7 @@ public class TestParserNoStrictWhitespace extends TomcatBaseTest {
 
     @Test
     public void testBug48668b() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug48nnn/bug48668b.jsp");
@@ -108,7 +108,7 @@ public class TestParserNoStrictWhitespace extends TomcatBaseTest {
 
     @Test
     public void testBug49297NoSpaceNotStrict() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
         int sc = getUrl("http://localhost:" + getPort() +
@@ -122,7 +122,7 @@ public class TestParserNoStrictWhitespace extends TomcatBaseTest {
 
     @Test
     public void testBug49297DuplicateAttr() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         int sc = getUrl("http://localhost:" + getPort() +
                 "/test/bug49nnn/bug49297DuplicateAttr.jsp", new ByteChunk(),

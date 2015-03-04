@@ -16,7 +16,7 @@
   limitations under the License.
 -->
 <!-- Basedir points at thundercat-trunk directory -->
-<project name="Tomcat JDBC Pool" default="simplebuild" basedir=".">
+<project name="Thundercat JDBC Pool" default="simplebuild" basedir=".">
 
 
   <!-- ===================== Initialize Property Values =================== -->
@@ -37,7 +37,7 @@
   <property name="version.major.minor"   value="${version.major}.${version.minor}" />
 
   <!-- Project Properties -->
-  <property name="name"                  value="Apache Tomcat JDBC Pool" />
+  <property name="name"                  value="Apache Thundercat JDBC Pool" />
   <tstamp>
     <format property="year" pattern="yyyy" locale="en" timezone="UTC" />
     <format property="TODAY" pattern="MMM d yyyy" locale="en" timezone="UTC" />

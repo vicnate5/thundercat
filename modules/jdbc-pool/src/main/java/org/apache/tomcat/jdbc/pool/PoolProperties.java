@@ -65,7 +65,7 @@ public class PoolProperties implements PoolConfiguration, Cloneable, Serializabl
     private volatile boolean removeAbandoned = false;
     private volatile int removeAbandonedTimeout = 60;
     private volatile boolean logAbandoned = false;
-    private volatile String name = "Tomcat Connection Pool["+(poolCounter.addAndGet(1))+"-"+System.identityHashCode(PoolProperties.class)+"]";
+    private volatile String name = "Thundercat Connection Pool["+(poolCounter.addAndGet(1))+"-"+System.identityHashCode(PoolProperties.class)+"]";
     private volatile String password;
     private volatile String username;
     private volatile long validationInterval = 30000;

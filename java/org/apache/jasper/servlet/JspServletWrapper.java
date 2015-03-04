@@ -54,7 +54,7 @@ import org.apache.thundercat.util.scan.Jar;
  *
  * The servlet container is responsible for providing a
  * URLClassLoader for the web application context Jasper
- * is being used in. Jasper will try get the Tomcat
+ * is being used in. Jasper will try get the Thundercat
  * ServletContext attribute for its ServletContext class
  * loader, if that fails, it uses the parent class loader.
  * In either case, it must be a URLClassLoader.
@@ -290,7 +290,7 @@ public class JspServletWrapper {
                 return ((JspSourceDependent) target).getDependants();
             }
         } catch (AbstractMethodError ame) {
-            // Almost certainly a pre Tomcat 7.0.17 compiled JSP using the old
+            // Almost certainly a pre Thundercat 7.0.17 compiled JSP using the old
             // version of the interface. Force a re-compile.
             return ALWAYS_OUTDATED_DEPENDENCIES;
         } catch (Throwable ex) {

@@ -36,7 +36,7 @@ import org.apache.thundercat.util.ExceptionUtils;
  * the following requirements:</p>
  * <ul>
  * <li>Passes the <code>catalina.home</code> system property configured with
- *     the pathname of the Tomcat installation directory.</li>
+ *     the pathname of the Thundercat installation directory.</li>
  * <li>Sets the system classpath to include <code>bootstrap.jar</code> and
  *     <code>$JAVA_HOME/lib/tools.jar</code>.</li>
  * </ul>

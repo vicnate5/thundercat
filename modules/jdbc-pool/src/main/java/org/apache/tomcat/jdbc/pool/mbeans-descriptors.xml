@@ -17,7 +17,7 @@
 -->
 <mbeans-descriptors>
 
-    <mbean        name="TomcatJDBCPool"
+    <mbean        name="ThundercatJDBCPool"
            description="Provides per diagnostic metrics and notifications for JDBC operations"
                 domain="thundercat"
                  group="jdbc"

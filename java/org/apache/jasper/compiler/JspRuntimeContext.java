@@ -403,7 +403,7 @@ public final class JspRuntimeContext {
             URL [] urls = ((URLClassLoader)parentClassLoader).getURLs();
 
             for (int i = 0; i < urls.length; i++) {
-                // Tomcat can use URLs other than file URLs. However, a protocol
+                // Thundercat can use URLs other than file URLs. However, a protocol
                 // other than file: will generate a bad file system path, so
                 // only add file: protocol URLs to the classpath.
 

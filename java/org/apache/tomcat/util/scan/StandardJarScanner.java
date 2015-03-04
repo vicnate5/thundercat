@@ -42,7 +42,7 @@ import org.apache.thundercat.util.res.StringManager;
  * The default {@link JarScanner} implementation scans the WEB-INF/lib directory
  * followed by the provided classloader and then works up the classloader
  * hierarchy. This implementation is sufficient to meet the requirements of the
- * Servlet 3.0 specification as well as to provide a number of Tomcat specific
+ * Servlet 3.0 specification as well as to provide a number of Thundercat specific
  * extensions. The extensions are:
  * <ul>
  *   <li>Scanning the classloader hierarchy (enabled by default)</li>
@@ -177,7 +177,7 @@ public class StandardJarScanner implements JarScanner {
                 URL url = context.getResource("/WEB-INF/classes/META-INF");
                 if (url != null) {
                     // Class path scanning will look at WEB-INF/classes since
-                    // that is the URL that Tomcat's web application class
+                    // that is the URL that Thundercat's web application class
                     // loader returns. Therefore, it is this URL that needs to
                     // be added to the set of processed URLs.
                     URL webInfURL = context.getResource("/WEB-INF/classes");

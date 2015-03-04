@@ -36,7 +36,7 @@ import org.apache.catalina.Context;
 import org.apache.catalina.core.StandardContext;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestContextConfig extends TomcatBaseTest {
+public class TestContextConfig extends ThundercatBaseTest {
 
     @Test
     public void testOverrideWithSCIDefaultName() throws Exception {
@@ -51,7 +51,7 @@ public class TestContextConfig extends TomcatBaseTest {
     private void doTestOverrideDefaultServletWithSCI(String servletName)
             throws Exception{
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp");
         StandardContext ctxt = (StandardContext) thundercat.addContext(null,
@@ -69,7 +69,7 @@ public class TestContextConfig extends TomcatBaseTest {
 
     @Test
     public void testBug51396() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir =  new File("test/webapp-fragments");
         // app dir is relative to server home
@@ -82,13 +82,13 @@ public class TestContextConfig extends TomcatBaseTest {
 
     @Test
     public void testBug53574() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
         assertPageContains("/test/bug53574", "OK");
     }
 
     @Test
     public void testBug54262() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-fragments-empty-absolute-ordering");
         thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
@@ -103,13 +103,13 @@ public class TestContextConfig extends TomcatBaseTest {
 
     @Test
     public void testBug54379() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-fragments");
         Context context =
                 thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        Tomcat.addServlet(context, "TestServlet",
+        Thundercat.addServlet(context, "TestServlet",
                 "org.apache.catalina.startup.TesterServletWithLifeCycleMethods");
         context.addServletMapping("/testServlet", "TestServlet");
 
@@ -122,13 +122,13 @@ public class TestContextConfig extends TomcatBaseTest {
 
     @Test
     public void testBug54448and54450() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-fragments");
         Context context = thundercat.addWebapp(null, "/test",
                 appDir.getAbsolutePath());
 
-        Tomcat.addServlet(context, "TestServlet",
+        Thundercat.addServlet(context, "TestServlet",
                 "org.apache.catalina.startup.TesterServletWithAnnotations");
         context.addServletMapping("/testServlet", "TestServlet");
 
@@ -142,7 +142,7 @@ public class TestContextConfig extends TomcatBaseTest {
 
     @Test
     public void testBug55210() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp-fragments");
         thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());

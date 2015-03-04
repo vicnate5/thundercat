@@ -26,11 +26,11 @@ import org.junit.Test;
 
 import org.apache.catalina.WebResourceRoot;
 import org.apache.catalina.core.StandardContext;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.catalina.webresources.StandardRoot;
 
-public class TestVirtualWebappLoader extends TomcatBaseTest {
+public class TestVirtualWebappLoader extends ThundercatBaseTest {
 
     @Test
     public void testModified() throws Exception {
@@ -41,7 +41,7 @@ public class TestVirtualWebappLoader extends TomcatBaseTest {
 
     @Test
     public void testStartInternal() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp");
         StandardContext ctx = (StandardContext) thundercat.addContext("",

@@ -36,24 +36,24 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Test case for {@link Request}.
  */
-public class TestResponse extends TomcatBaseTest {
+public class TestResponse extends ThundercatBaseTest {
 
     @Test
     public void testBug49598() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "servlet", new Bug49598Servlet());
+        Thundercat.addServlet(ctx, "servlet", new Bug49598Servlet());
         ctx.addServletMapping("/", "servlet");
 
         thundercat.start();
@@ -103,13 +103,13 @@ public class TestResponse extends TomcatBaseTest {
      */
     @Test
     public void testCharset() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "servlet", new CharsetServlet());
+        Thundercat.addServlet(ctx, "servlet", new CharsetServlet());
         ctx.addServletMapping("/", "servlet");
 
         thundercat.start();
@@ -142,13 +142,13 @@ public class TestResponse extends TomcatBaseTest {
 
     @Test
     public void testBug52811() throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "servlet", new Bug52811Servlet());
+        Thundercat.addServlet(ctx, "servlet", new Bug52811Servlet());
         ctx.addServletMapping("/", "servlet");
 
         thundercat.start();

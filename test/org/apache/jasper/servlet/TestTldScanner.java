@@ -25,16 +25,16 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.scan.StandardJarScanner;
 
-public class TestTldScanner extends TomcatBaseTest {
+public class TestTldScanner extends ThundercatBaseTest {
 
     @Test
     public void testWithWebapp() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         File appDir = new File("test/webapp-3.0");
         Context context = thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
         thundercat.start();
@@ -49,7 +49,7 @@ public class TestTldScanner extends TomcatBaseTest {
 
     @Test
     public void testBug55807() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp");
         Context context = thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());

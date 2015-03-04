@@ -25,18 +25,18 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Tests are duplicated in {@link TestParserNoStrictWhitespace} with the strict
  * whitespace parsing disabled.
  */
-public class TestParser extends TomcatBaseTest {
+public class TestParser extends ThundercatBaseTest {
 
     @Test
     public void testBug48627() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug48nnn/bug48627.jsp");
@@ -50,7 +50,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug48668a() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug48nnn/bug48668a.jsp");
@@ -89,7 +89,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug48668b() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug48nnn/bug48668b.jsp");
@@ -100,7 +100,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug49297NoSpaceStrict() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         int sc = getUrl("http://localhost:" + getPort() +
                 "/test/bug49nnn/bug49297NoSpace.jsp", new ByteChunk(),
@@ -111,7 +111,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug49297DuplicateAttr() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         int sc = getUrl("http://localhost:" + getPort() +
                 "/test/bug49nnn/bug49297DuplicateAttr.jsp", new ByteChunk(),
@@ -122,7 +122,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug49297MultipleImport1() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
         int sc = getUrl("http://localhost:" + getPort() +
@@ -135,7 +135,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug49297MultipleImport2() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
         int sc = getUrl("http://localhost:" + getPort() +
@@ -148,7 +148,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug49297MultiplePageEncoding1() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
         int sc = getUrl("http://localhost:" + getPort() +
@@ -160,7 +160,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug49297MultiplePageEncoding2() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
         int sc = getUrl("http://localhost:" + getPort() +
@@ -172,7 +172,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug49297MultiplePageEncoding3() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
         int sc = getUrl("http://localhost:" + getPort() +
@@ -184,7 +184,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug49297MultiplePageEncoding4() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
         int sc = getUrl("http://localhost:" + getPort() +
@@ -196,7 +196,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug49297Tag() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
         int sc = getUrl("http://localhost:" + getPort() +
@@ -209,7 +209,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug52335() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug5nnnn/bug52335.jsp");
@@ -224,7 +224,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug55198() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug5nnnn/bug55198.jsp");
@@ -250,7 +250,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug56265() throws Exception {
-        getTomcatInstanceTestWebapp(true, true);
+        getThundercatInstanceTestWebapp(true, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug5nnnn/bug56265.jsp");
@@ -269,7 +269,7 @@ public class TestParser extends TomcatBaseTest {
 
     @Test
     public void testBug56334And56561() throws Exception {
-        getTomcatInstanceTestWebapp(true, true);
+        getThundercatInstanceTestWebapp(true, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug5nnnn/bug56334and56561.jspx");

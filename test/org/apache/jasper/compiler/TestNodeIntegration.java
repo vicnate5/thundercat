@@ -19,14 +19,14 @@ package org.apache.jasper.compiler;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestNodeIntegration extends TomcatBaseTest {
+public class TestNodeIntegration extends ThundercatBaseTest {
 
     @Test
     public void testJspAttributeIsLiteral() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug5nnnn/bug55642a.jsp");

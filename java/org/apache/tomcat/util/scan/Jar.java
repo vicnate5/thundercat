@@ -95,7 +95,7 @@ public interface Jar extends AutoCloseable {
 
     /**
      * Obtain, in String form, the URL for an entry in this JAR. Note that for
-     * JARs nested in WAR files, the Tomcat specific war:file:... form will not
+     * JARs nested in WAR files, the Thundercat specific war:file:... form will not
      * be used, rather the jar:jar:file:... form (that the JRE does not
      * understand will be used). Note that this means that any code using these
      * URLs will need to understand the jar:jar:file:... form and use the

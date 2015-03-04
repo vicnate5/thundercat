@@ -20,7 +20,7 @@
   <groupId>org.apache.thundercat</groupId>
   <artifactId>thundercat-tribes</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
-  <description>Tomcat Group Communication Package</description>
+  <description>Thundercat Group Communication Package</description>
   <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>

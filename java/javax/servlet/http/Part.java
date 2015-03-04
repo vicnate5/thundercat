@@ -100,7 +100,7 @@ public interface Part {
      * at an earlier time, thus preserving system resources.
      * <p>
      * Containers are only required to delete the associated storage when the
-     * Part instance is garbage collected. Apache Tomcat will delete the
+     * Part instance is garbage collected. Apache Thundercat will delete the
      * associated storage when the associated request has finished processing.
      * Behaviour of other containers may be different.
      *

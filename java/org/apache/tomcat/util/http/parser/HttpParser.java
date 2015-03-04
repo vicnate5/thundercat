@@ -28,7 +28,7 @@ import java.io.StringReader;
  *
  * The purpose of this parser is to let the parser worry about the edge cases.
  * It provides tolerant (where safe to do so) parsing of HTTP header values
- * assuming that wrapped header lines have already been unwrapped. (The Tomcat
+ * assuming that wrapped header lines have already been unwrapped. (The Thundercat
  * header processing code does the unwrapping.)
  *
  */

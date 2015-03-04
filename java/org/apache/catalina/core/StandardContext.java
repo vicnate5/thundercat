@@ -717,7 +717,7 @@ public class StandardContext extends ContainerBase
     private JarScanner jarScanner = null;
 
     /**
-     * Should Tomcat attempt to null out any static or final fields from loaded
+     * Should Thundercat attempt to null out any static or final fields from loaded
      * classes when a web application is stopped as a work around for apparent
      * garbage collection bugs and application coding errors? There have been
      * some issues reported with log4j when this option is true. Applications
@@ -728,7 +728,7 @@ public class StandardContext extends ContainerBase
     private boolean clearReferencesStatic = false;
 
     /**
-     * Should Tomcat attempt to terminate threads that have been started by the
+     * Should Thundercat attempt to terminate threads that have been started by the
      * web application? Stopping threads is performed via the deprecated (for
      * good reason) <code>Thread.stop()</code> method and is likely to result in
      * instability. As such, enabling this should be viewed as an option of last
@@ -739,7 +739,7 @@ public class StandardContext extends ContainerBase
     private boolean clearReferencesStopThreads = false;
 
     /**
-     * Should Tomcat attempt to terminate any {@link java.util.TimerThread}s
+     * Should Thundercat attempt to terminate any {@link java.util.TimerThread}s
      * that have been started by the web application? If not specified, the
      * default value of <code>false</code> will be used.
      */
@@ -747,7 +747,7 @@ public class StandardContext extends ContainerBase
 
     /**
      * If an HttpClient keep-alive timer thread has been started by this web
-     * application and is still running, should Tomcat change the context class
+     * application and is still running, should Thundercat change the context class
      * loader from the current {@link ClassLoader} to
      * {@link ClassLoader#getParent()} to prevent a memory leak? Note that the
      * keep-alive timer thread will stop on its own once the keep-alives all
@@ -756,7 +756,7 @@ public class StandardContext extends ContainerBase
     private boolean clearReferencesHttpClientKeepAliveThread = true;
 
     /**
-     * Should Tomcat renew the threads of the thread pool when the application
+     * Should Thundercat renew the threads of the thread pool when the application
      * is stopped to avoid memory leaks because of uncleaned ThreadLocal
      * variables. This also requires that the threadRenewalDelay property of the
      * StandardThreadExecutor of ThreadPoolExecutor be set to a positive value.
@@ -4401,7 +4401,7 @@ public class StandardContext extends ContainerBase
     @Override
     public String getRealPath(String path) {
         // The WebResources API expects all paths to start with /. This is a
-        // special case for consistency with earlier Tomcat versions.
+        // special case for consistency with earlier Thundercat versions.
         if ("".equals(path)) {
             path = "/";
         }

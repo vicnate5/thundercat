@@ -42,7 +42,7 @@ public interface Adapter {
      *  we are processing an included servlet (otherwise it is swallowed
      *  and handled by the top level error handler mechanism)
      *  </ul>
-     *  Tomcat should be able to handle and log any other exception ( including
+     *  Thundercat should be able to handle and log any other exception ( including
      *  runtime exceptions )
      */
     public void service(Request req, Response res) throws Exception;

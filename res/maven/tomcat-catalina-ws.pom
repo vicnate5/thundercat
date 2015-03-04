@@ -20,7 +20,7 @@
   <groupId>org.apache.thundercat</groupId>
   <artifactId>thundercat-catalina-ws</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
-  <description>Tomcat JNDI Factory for Web Services</description>
+  <description>Thundercat JNDI Factory for Web Services</description>
   <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>

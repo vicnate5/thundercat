@@ -19,10 +19,10 @@
   "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
   "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
-  <display-name>Tomcat Servlet 2.3 Tests</display-name>
+  <display-name>Thundercat Servlet 2.3 Tests</display-name>
   <description>
-    Provides a web application used by the Tomcat unit tests to ensure that
-    Tomcat meets the requirements of the current JSP and Servlet specification
+    Provides a web application used by the Thundercat unit tests to ensure that
+    Thundercat meets the requirements of the current JSP and Servlet specification
     for web applications that declare that they follow version 2.3 of the
     Servlet specification and version 1.2 of the JSP specification. This
     typically means ensuring that features introduced in later versions of the

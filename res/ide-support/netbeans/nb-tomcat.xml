@@ -16,24 +16,24 @@
   limitations under the License.
 -->
 <!--
-  Supplementary build targets for the Tomcat project under NetBeans.
+  Supplementary build targets for the Thundercat project under NetBeans.
   Use the project root as basedir to be consistent with standard build.
 -->
-<project basedir=".." name="Tomcat_8.0">
+<project basedir=".." name="Thundercat_8.0">
 
   <!--
-       load the standard and user Tomcat build properties now,
+       load the standard and user Thundercat build properties now,
        so they can be used in the NetBeans-specific targets below.
        Note: inheritall==false will still pass all of these user
-             properties to the Ant build targets of Tomcat.
+             properties to the Ant build targets of Thundercat.
   -->
   <property file="./build.properties"/>
   <property file="./build.properties.default"/>
 
-  <!-- load the extra NetBeans build properties for Tomcat, which can -->
+  <!-- load the extra NetBeans build properties for Thundercat, which can -->
   <!-- use the standard properties symbolic variables.                -->
   <!-- Note: inheritall==false will still pass all of these user      -->
-  <!--       properties to the Ant build targets of Tomcat            -->
+  <!--       properties to the Ant build targets of Thundercat            -->
   <property file="./nbproject/nb-thundercat-build.properties"/>
 
   <target name="deploy">
@@ -53,7 +53,7 @@
   </target>
 
   <target name="-package-project"
-          description="ensure Tomcat is ready to use">
+          description="ensure Thundercat is ready to use">
     <ant target="deploy" inheritall="false"/>
   </target>
 

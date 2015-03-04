@@ -20,7 +20,7 @@
   <groupId>org.apache.thundercat</groupId>
   <artifactId>thundercat-dbcp</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
-  <description>Tomcat Database Connection Pooling package</description>
+  <description>Thundercat Database Connection Pooling package</description>
   <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>

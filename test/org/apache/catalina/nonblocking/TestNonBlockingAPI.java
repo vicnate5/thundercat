@@ -47,14 +47,14 @@ import org.apache.catalina.Context;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.BytesStreamer;
 import org.apache.catalina.startup.TesterServlet;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.catalina.valves.TesterAccessLogValve;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestNonBlockingAPI extends TomcatBaseTest {
+public class TestNonBlockingAPI extends ThundercatBaseTest {
 
     private static final Log log = LogFactory.getLog(TestNonBlockingAPI.class);
 
@@ -95,7 +95,7 @@ public class TestNonBlockingAPI extends TomcatBaseTest {
 
 
     private void doTestNonBlockingRead(boolean ignoreIsReady) throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // Must have a real docBase - just use temp
         StandardContext ctx = (StandardContext) thundercat.addContext("",
@@ -103,7 +103,7 @@ public class TestNonBlockingAPI extends TomcatBaseTest {
 
         NBReadServlet servlet = new NBReadServlet(ignoreIsReady);
         String servletName = NBReadServlet.class.getName();
-        Tomcat.addServlet(ctx, servletName, servlet);
+        Thundercat.addServlet(ctx, servletName, servlet);
         ctx.addServletMapping("/", servletName);
 
         thundercat.start();
@@ -118,13 +118,13 @@ public class TestNonBlockingAPI extends TomcatBaseTest {
 
     @Test
     public void testNonBlockingWrite() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         NBWriteServlet servlet = new NBWriteServlet();
         String servletName = NBWriteServlet.class.getName();
-        Tomcat.addServlet(ctx, servletName, servlet);
+        Thundercat.addServlet(ctx, servletName, servlet);
         ctx.addServletMapping("/", servletName);
         thundercat.getConnector().setProperty("socket.txBufSize", "1024");
         thundercat.start();
@@ -262,7 +262,7 @@ public class TestNonBlockingAPI extends TomcatBaseTest {
 
     @Test
     public void testNonBlockingWriteError() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
@@ -272,7 +272,7 @@ public class TestNonBlockingAPI extends TomcatBaseTest {
 
         NBWriteServlet servlet = new NBWriteServlet();
         String servletName = NBWriteServlet.class.getName();
-        Tomcat.addServlet(ctx, servletName, servlet);
+        Thundercat.addServlet(ctx, servletName, servlet);
         ctx.addServletMapping("/", servletName);
         thundercat.getConnector().setProperty("socket.txBufSize", "1024");
         thundercat.start();
@@ -348,14 +348,14 @@ public class TestNonBlockingAPI extends TomcatBaseTest {
 
     @Test
     public void testBug55438NonBlockingReadWriteEmptyRead() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         NBReadWriteServlet servlet = new NBReadWriteServlet();
         String servletName = NBReadWriteServlet.class.getName();
-        Tomcat.addServlet(ctx, servletName, servlet);
+        Thundercat.addServlet(ctx, servletName, servlet);
         ctx.addServletMapping("/", servletName);
 
         thundercat.start();

@@ -26,18 +26,18 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.w3c.dom.Document;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-public class TestJspDocumentParser extends TomcatBaseTest {
+public class TestJspDocumentParser extends ThundercatBaseTest {
 
     @Test
     public void testBug47977() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         int rc = getUrl("http://localhost:" + getPort() +
                 "/test/bug47977.jspx", new ByteChunk(), null);
@@ -47,7 +47,7 @@ public class TestJspDocumentParser extends TomcatBaseTest {
 
     @Test
     public void testBug48827() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         Exception e = null;
         try {
@@ -62,7 +62,7 @@ public class TestJspDocumentParser extends TomcatBaseTest {
 
     @Test
     public void testBug54801() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk bc = new ByteChunk();
         int rc = getUrl("http://localhost:" + getPort() +
@@ -77,7 +77,7 @@ public class TestJspDocumentParser extends TomcatBaseTest {
 
     @Test
     public void testBug54821() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk bc = new ByteChunk();
         int rc = getUrl("http://localhost:" + getPort() +
@@ -92,7 +92,7 @@ public class TestJspDocumentParser extends TomcatBaseTest {
 
     @Test
     public void testSchemaValidation() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         String path = "http://localhost:" + getPort() + "/test/valid.jspx";
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

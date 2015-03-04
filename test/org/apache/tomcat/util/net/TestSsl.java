@@ -38,23 +38,23 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.TesterServlet;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.websocket.server.WsContextListener;
 
 /**
  * The keys and certificates used in this file are all available in svn and were
- * generated using a test CA the files for which are in the Tomcat PMC private
+ * generated using a test CA the files for which are in the Thundercat PMC private
  * repository since not all of them are AL2 licensed.
  */
-public class TestSsl extends TomcatBaseTest {
+public class TestSsl extends ThundercatBaseTest {
 
     @Test
     public void testSimpleSsl() throws Exception {
         TesterSupport.configureClientSsl();
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File(getBuildDirectory(), "webapps/examples");
         org.apache.catalina.Context ctxt  = thundercat.addWebapp(
@@ -73,7 +73,7 @@ public class TestSsl extends TomcatBaseTest {
     public void testKeyPass() throws Exception {
         TesterSupport.configureClientSsl();
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File(getBuildDirectory(), "webapps/examples");
         org.apache.catalina.Context ctxt  = thundercat.addWebapp(
@@ -92,14 +92,14 @@ public class TestSsl extends TomcatBaseTest {
 
     @Test
     public void testRenegotiateWorks() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         Assume.assumeTrue("SSL renegotiation has to be supported for this test",
-                TesterSupport.isRenegotiationSupported(getTomcatInstance()));
+                TesterSupport.isRenegotiationSupported(getThundercatInstance()));
 
         Context root = thundercat.addContext("", TEMP_DIR);
         Wrapper w =
-            Tomcat.addServlet(root, "tester", new TesterServlet());
+            Thundercat.addServlet(root, "tester", new TesterServlet());
         w.setAsyncSupported(true);
         root.addServletMapping("/", "tester");
 

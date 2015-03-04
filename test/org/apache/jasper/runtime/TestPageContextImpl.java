@@ -32,16 +32,16 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.jasper.Constants;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestPageContextImpl extends TomcatBaseTest {
+public class TestPageContextImpl extends ThundercatBaseTest {
 
     @Test
     public void testDoForward() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
 
@@ -57,14 +57,14 @@ public class TestPageContextImpl extends TomcatBaseTest {
 
     @Test
     public void testDefaultBufferSize() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp");
         // app dir is relative to server home
         Context ctx = thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
         // Add the Servlet
-        Tomcat.addServlet(ctx, "bug56010", new Bug56010());
+        Thundercat.addServlet(ctx, "bug56010", new Bug56010());
         ctx.addServletMapping("/bug56010", "bug56010");
 
         thundercat.start();
@@ -77,7 +77,7 @@ public class TestPageContextImpl extends TomcatBaseTest {
 
     @Test
     public void testIncludeThrowsIOException() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
 

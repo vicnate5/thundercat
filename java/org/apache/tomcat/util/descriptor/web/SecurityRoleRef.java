@@ -26,7 +26,7 @@ import java.io.Serializable;
  * represented in a <code>&lt;security-role-ref&gt;</code> element
  * in the deployment descriptor.</p>
  *
- * @since Tomcat 5.5
+ * @since Thundercat 5.5
  */
 public class SecurityRoleRef implements Serializable {
 

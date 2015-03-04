@@ -27,22 +27,22 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.core.StandardContext;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestHttpServlet extends TomcatBaseTest {
+public class TestHttpServlet extends ThundercatBaseTest {
 
     @Test
     public void testBug53454() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         StandardContext ctx = (StandardContext) thundercat.addContext("", null);
 
         // Map the test Servlet
         LargeBodyServlet largeBodyServlet = new LargeBodyServlet();
-        Tomcat.addServlet(ctx, "largeBodyServlet", largeBodyServlet);
+        Thundercat.addServlet(ctx, "largeBodyServlet", largeBodyServlet);
         ctx.addServletMapping("/", "largeBodyServlet");
 
         thundercat.start();

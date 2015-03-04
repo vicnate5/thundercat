@@ -83,15 +83,15 @@
                type="[Ljavax.management.ObjectName;"/>
 
     <attribute name="clearReferencesStatic"
-               description="Should Tomcat attempt to null out any static or final fields from loaded classes when a web application is stopped as a work around for apparent garbage collection bugs and application coding errors?"
+               description="Should Thundercat attempt to null out any static or final fields from loaded classes when a web application is stopped as a work around for apparent garbage collection bugs and application coding errors?"
                type="boolean"/>
 
     <attribute name="clearReferencesStopThreads"
-               description="Should Tomcat attempt to terminate threads that have been started by the web application? Advisable to be used only in a development environment."
+               description="Should Thundercat attempt to terminate threads that have been started by the web application? Advisable to be used only in a development environment."
                type="boolean"/>
 
     <attribute name="clearReferencesStopTimerThreads"
-               description="Should Tomcat attempt to terminate TimerThreads that have been started by the web application? Advisable to be used only in a development environment."
+               description="Should Thundercat attempt to terminate TimerThreads that have been started by the web application? Advisable to be used only in a development environment."
                type="boolean"/>
 
     <attribute name="configFile"
@@ -254,7 +254,7 @@
                type="boolean"/>
 
     <attribute name="renewThreadsWhenStoppingContext"
-               description="Should Tomcat renew the threads of the thread pool when the application is stopped to avoid memory leaks because of uncleaned ThreadLocal variables."
+               description="Should Thundercat renew the threads of the thread pool when the application is stopped to avoid memory leaks because of uncleaned ThreadLocal variables."
                type="boolean"/>
 
     <attribute name="server"
@@ -1337,7 +1337,7 @@
                type="int"/>
 
     <attribute name="serverInfo"
-               description="Tomcat server release identifier"
+               description="Thundercat server release identifier"
                type="java.lang.String"
                writeable="false"/>
 

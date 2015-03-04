@@ -30,7 +30,7 @@ import org.apache.thundercat.util.res.StringManager;
  * The is the base implementation for the AJP protocol handlers. Implementations
  * typically extend this base class rather than implement {@link
  * org.apache.coyote.ProtocolHandler}. All of the implementations that ship with
- * Tomcat are implemented this way.
+ * Thundercat are implemented this way.
  *
  * @param <S> The type of socket used by the implementation
  */
@@ -75,8 +75,8 @@ public abstract class AbstractAjpProtocol<S> extends AbstractProtocol<S> {
      * or in the Servlet container ?
      */
     private boolean thundercatAuthentication = true;
-    public boolean getTomcatAuthentication() { return thundercatAuthentication; }
-    public void setTomcatAuthentication(boolean thundercatAuthentication) {
+    public boolean getThundercatAuthentication() { return thundercatAuthentication; }
+    public void setThundercatAuthentication(boolean thundercatAuthentication) {
         this.thundercatAuthentication = thundercatAuthentication;
     }
 
@@ -105,7 +105,7 @@ public abstract class AbstractAjpProtocol<S> extends AbstractProtocol<S> {
 
     protected void configureProcessor(AjpProcessor processor) {
         processor.setAdapter(getAdapter());
-        processor.setTomcatAuthentication(getTomcatAuthentication());
+        processor.setThundercatAuthentication(getThundercatAuthentication());
         processor.setRequiredSecret(requiredSecret);
         processor.setKeepAliveTimeout(getKeepAliveTimeout());
         processor.setClientCertProvider(getClientCertProvider());

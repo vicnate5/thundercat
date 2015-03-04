@@ -23,14 +23,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestJspCompilationContext extends TomcatBaseTest {
+public class TestJspCompilationContext extends ThundercatBaseTest {
 
     @Test
     public void testTagFileInJar() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk body = new ByteChunk();
 
@@ -47,7 +47,7 @@ public class TestJspCompilationContext extends TomcatBaseTest {
      */
     @Test
     public void testModifiedTagFileInJar() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk body = new ByteChunk();
 

@@ -33,13 +33,13 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.util.descriptor.web.FilterDef;
 import org.apache.thundercat.util.descriptor.web.FilterMap;
 
-public class TestAddCharSetFilter extends TomcatBaseTest {
+public class TestAddCharSetFilter extends ThundercatBaseTest {
 
     @Test
     public void testNoneSpecifiedMode1() throws Exception {
@@ -88,15 +88,15 @@ public class TestAddCharSetFilter extends TomcatBaseTest {
 
     private void doTest(String encoding, String expected, int mode)
             throws Exception {
-        // Setup Tomcat instance
-        Tomcat thundercat = getTomcatInstance();
+        // Setup Thundercat instance
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
         // Add the Servlet
         CharsetServlet servlet = new CharsetServlet(mode);
-        Tomcat.addServlet(ctx, "servlet", servlet);
+        Thundercat.addServlet(ctx, "servlet", servlet);
         ctx.addServletMapping("/", "servlet");
 
         // Add the Filter

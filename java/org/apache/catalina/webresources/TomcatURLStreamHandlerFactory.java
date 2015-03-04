@@ -23,12 +23,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class TomcatURLStreamHandlerFactory implements URLStreamHandlerFactory {
+public class ThundercatURLStreamHandlerFactory implements URLStreamHandlerFactory {
 
     private static final String WAR_PROTOCOL = "war";
 
     // Singleton instance
-    private static volatile TomcatURLStreamHandlerFactory instance = null;
+    private static volatile ThundercatURLStreamHandlerFactory instance = null;
 
     /**
      * Obtain a reference to the singleton instance. It is recommended that
@@ -37,18 +37,18 @@ public class TomcatURLStreamHandlerFactory implements URLStreamHandlerFactory {
      *
      * @return A reference to the singleton instance
      */
-    public static TomcatURLStreamHandlerFactory getInstance() {
+    public static ThundercatURLStreamHandlerFactory getInstance() {
         getInstanceInternal(true);
         return instance;
     }
 
 
-    private static TomcatURLStreamHandlerFactory getInstanceInternal(boolean register) {
+    private static ThundercatURLStreamHandlerFactory getInstanceInternal(boolean register) {
         // Double checked locking. OK because instance is volatile.
         if (instance == null) {
-            synchronized (TomcatURLStreamHandlerFactory.class) {
+            synchronized (ThundercatURLStreamHandlerFactory.class) {
                 if (instance == null) {
-                    instance = new TomcatURLStreamHandlerFactory(register);
+                    instance = new ThundercatURLStreamHandlerFactory(register);
                 }
             }
         }
@@ -113,7 +113,7 @@ public class TomcatURLStreamHandlerFactory implements URLStreamHandlerFactory {
     }
 
 
-    private TomcatURLStreamHandlerFactory(boolean register) {
+    private ThundercatURLStreamHandlerFactory(boolean register) {
         // Hide default constructor
         // Singleton pattern to ensure there is only one instance of this
         // factory
@@ -132,10 +132,10 @@ public class TomcatURLStreamHandlerFactory implements URLStreamHandlerFactory {
     /**
      * Since the JVM only allows a single call to
      * {@link URL#setURLStreamHandlerFactory(URLStreamHandlerFactory)} and
-     * Tomcat needs to register a handler, provide a mechanism to allow
+     * Thundercat needs to register a handler, provide a mechanism to allow
      * applications to register their own handlers.
      *
-     * @param factory The user provided factory to add to the factories Tomcat
+     * @param factory The user provided factory to add to the factories Thundercat
      *                has alredy registered
      */
     public void addUserFactory(URLStreamHandlerFactory factory) {
@@ -146,7 +146,7 @@ public class TomcatURLStreamHandlerFactory implements URLStreamHandlerFactory {
     @Override
     public URLStreamHandler createURLStreamHandler(String protocol) {
 
-        // Tomcat's handler always takes priority so applications can't override
+        // Thundercat's handler always takes priority so applications can't override
         // it.
         if (WAR_PROTOCOL.equals(protocol)) {
             return new WarURLStreamHandler();

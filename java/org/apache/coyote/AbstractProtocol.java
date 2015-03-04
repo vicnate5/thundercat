@@ -241,7 +241,7 @@ public abstract class AbstractProtocol<S> implements ProtocolHandler,
     public int getLocalPort() { return endpoint.getLocalPort(); }
 
     /*
-     * When Tomcat expects data from the client, this is the time Tomcat will
+     * When Thundercat expects data from the client, this is the time Thundercat will
      * wait for that data to arrive before closing the connection.
      */
     public int getConnectionTimeout() {

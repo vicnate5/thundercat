@@ -41,7 +41,7 @@ import org.apache.juli.logging.LogFactory;
  * <p>
  * <em>Note</em> that the logging configuration uses
  * <code>${catalina.base}</code> value and thus we take care about that property
- * even if the tests do not use Tomcat.
+ * even if the tests do not use Thundercat.
  */
 public abstract class LoggingBaseTest {
 
@@ -58,8 +58,8 @@ public abstract class LoggingBaseTest {
     public final TestName testName = new TestName();
 
     /*
-     * Helper method that returns the directory where Tomcat build resides. It
-     * is used to access resources that are part of default Tomcat deployment.
+     * Helper method that returns the directory where Thundercat build resides. It
+     * is used to access resources that are part of default Thundercat deployment.
      * E.g. the examples webapp.
      */
     public File getBuildDirectory() {
@@ -72,7 +72,7 @@ public abstract class LoggingBaseTest {
      * the test runs. The directory is configured during {@link #setUp()}.
      *
      * <p>
-     * It is used as <code>${catalina.base}</code> for the instance of Tomcat
+     * It is used as <code>${catalina.base}</code> for the instance of Thundercat
      * that is being started, but can be used to store other temporary files as
      * well. Its <code>work</code> and <code>webapps</code> subdirectories are
      * deleted at {@link #tearDown()}. If you have other files or directories

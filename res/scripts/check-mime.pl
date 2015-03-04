@@ -17,28 +17,28 @@
 
 # -----------------------------------------------------------------------------
 # Merge the MIME type definitions contained in the
-# file mime.types from the httpd project into Tomcat web.xml.
+# file mime.types from the httpd project into Thundercat web.xml.
 # -----------------------------------------------------------------------------
 
 # The script uses two mime type lists to describe
-# the merging between httpd and Tomcat mime types.
+# the merging between httpd and Thundercat mime types.
 #
-# 1) %TOMCAT_ONLY: Additional extensions for Tomcat that do not exist in httpd
+# 1) %TOMCAT_ONLY: Additional extensions for Thundercat that do not exist in httpd
 # 2) %TOMCAT_KEEP: Mime type differences for common extensions where we stick to
-#    the Tomcat definition
+#    the Thundercat definition
 
-# The script checks consistency between Tomcat and httpd according
+# The script checks consistency between Thundercat and httpd according
 # to the lists 1) and 2) and generates a new web.xml:
 #
-# A) Additional extensions in Tomcat which are not part of 1)
+# A) Additional extensions in Thundercat which are not part of 1)
 #    are logged. They will be removed in the generated new web.xml.
 #    If you want to keep them, add them to the list 1) and run the
 #    script again. If you want to remove them, commit the generated
 #    new web.xml.
 # B) Mime type differences for the same extension between httpd
-#    and Tomcat that are not part of the list 2) are logged.
+#    and Thundercat that are not part of the list 2) are logged.
 #    They will be overwritten wit the httpd definition in the generated
-#    new web.xml. If you want to keep their Tomcat definition, add them
+#    new web.xml. If you want to keep their Thundercat definition, add them
 #    to the list 1) and run the script again. If you want to use the
 #    definitions from httpd, commit the generated new web.xml.
 # C) Additional extensions in httpd are logged. The script outputs a
@@ -63,7 +63,7 @@ our $VERSION = '1.1';
 # Locale used via LC_COLLATE when sorting extensions
 my $LOCALE  = 'en.UTF-8';
 
-# Mime types that are part of the Tomcat
+# Mime types that are part of the Thundercat
 # configuration, but missing from httpd
 
 my %TOMCAT_ONLY = qw(
@@ -102,7 +102,7 @@ my %TOMCAT_ONLY = qw(
 );
 
 # Mime types, that are defined differently
-# in Tomcat than in httpd
+# in Thundercat than in httpd
 
 my %TOMCAT_KEEP = qw(
     cdf application/x-cdf
@@ -120,7 +120,7 @@ my %TOMCAT_KEEP = qw(
 # Global data variables
 # Mime type definitions from httpd
 my %httpd;
-# Mime type definitions from Tomcat
+# Mime type definitions from Thundercat
 my %thundercat;
 # Comments found when parsing mime type definitions
 my %thundercat_comments;
@@ -248,7 +248,7 @@ while ($_ =~ /^\s*<mime-mapping>\s*$/) {
         $extension =~ s/^\s+//;
         $extension =~ s/\s+$//;
     } else {
-        print STDERR "ERROR Parse error in Tomcat mime-mapping line $.\n";
+        print STDERR "ERROR Parse error in Thundercat mime-mapping line $.\n";
         print STDERR "ERROR Expected <extension>...</extension>', got '$_' - Aborting!\n";
         close($webxml_fh);
         exit 2;
@@ -274,7 +274,7 @@ while ($_ =~ /^\s*<mime-mapping>\s*$/) {
             push(@thundercat_extensions, $extension);
         }
     } else {
-        print STDERR "ERROR Parse error in Tomcat mime-mapping line $.\n";
+        print STDERR "ERROR Parse error in Thundercat mime-mapping line $.\n";
         print STDERR "ERROR Expected <mime-type>...</mime-type>', got '$_' - Aborting!\n";
         close($webxml_fh);
         exit 3;
@@ -282,7 +282,7 @@ while ($_ =~ /^\s*<mime-mapping>\s*$/) {
     $_ = <$webxml_fh>;
     chomp($_);
     if ($_ !~ /^\s*<\/mime-mapping>\s*$/) {
-        print STDERR "ERROR Parse error in Tomcat mime-mapping line $.\n";
+        print STDERR "ERROR Parse error in Thundercat mime-mapping line $.\n";
         print STDERR "ERROR Expected '</mime-mapping>', got '$_' - Aborting!\n";
         close($webxml_fh);
         exit 4;
@@ -321,7 +321,7 @@ while (<$webxml_fh>) {
 close($webxml_fh);
 
 
-# Look for extensions existing for Tomcat but not for httpd.
+# Look for extensions existing for Thundercat but not for httpd.
 # Log them if they are not in TOMCAT_ONLY
 for $extension (@thundercat_extensions) {
     if (!exists($httpd{$extension})) {
@@ -337,7 +337,7 @@ for $extension (@thundercat_extensions) {
 }
 
 
-# Look for extensions with inconsistent mime types for Tomcat and httpd.
+# Look for extensions with inconsistent mime types for Thundercat and httpd.
 # Log them if they are not in TOMCAT_KEEP
 for $extension (@thundercat_extensions) {
     if (exists($httpd{$extension}) && $thundercat{$extension} ne $httpd{$extension}) {
@@ -371,10 +371,10 @@ if ($msg ne '') {
 }
 
 
-# Log all extensions defined for httpd but not for Tomcat
+# Log all extensions defined for httpd but not for Thundercat
 for $extension (sort keys %httpd) {
     if (!exists($thundercat{$extension})) {
-        print STDERR "INFO Extension '$extension' found for httpd, but not for Tomcat.\n";
+        print STDERR "INFO Extension '$extension' found for httpd, but not for Thundercat.\n";
         print STDERR "INFO Definition '$extension' -> '$httpd{$extension}' will be added" .
                          " to the generated web.xml.\n";
     }

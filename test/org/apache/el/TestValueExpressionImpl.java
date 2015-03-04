@@ -43,7 +43,7 @@ public class TestValueExpressionImpl {
         ELContext context = new ELContextImpl(factory);
 
         TesterBeanB beanB = new TesterBeanB();
-        beanB.setName("Tomcat");
+        beanB.setName("Thundercat");
         ValueExpression var =
             factory.createValueExpression(beanB, TesterBeanB.class);
         context.getVariableMapper().setVariable("beanB", var);
@@ -53,7 +53,7 @@ public class TestValueExpressionImpl {
 
         // First check the basics work
         String result = (String) ve.getValue(context);
-        assertEquals("Tomcat", result);
+        assertEquals("Thundercat", result);
 
         // Now check the value reference
         ValueReference vr = ve.getValueReference(context);
@@ -69,7 +69,7 @@ public class TestValueExpressionImpl {
         ELContext context = new ELContextImpl(factory);
 
         TesterBeanB beanB = new TesterBeanB();
-        beanB.setName("Tomcat");
+        beanB.setName("Thundercat");
         ValueExpression var =
             factory.createValueExpression(beanB, TesterBeanB.class);
         context.getVariableMapper().setVariable("beanB", var);
@@ -98,7 +98,7 @@ public class TestValueExpressionImpl {
 
         TesterBeanA beanA = new TesterBeanA();
         TesterBeanB beanB = new TesterBeanB();
-        beanB.setName("Tomcat");
+        beanB.setName("Thundercat");
         beanA.setBean(beanB);
 
         ValueExpression var =
@@ -110,7 +110,7 @@ public class TestValueExpressionImpl {
 
         // First check the basics work
         String result = (String) ve.getValue(context);
-        assertEquals("Tomcat", result);
+        assertEquals("Thundercat", result);
 
         // Now check the value reference
         ValueReference vr = ve.getValueReference(context);
@@ -249,7 +249,7 @@ public class TestValueExpressionImpl {
         ELContext context = new ELContextImpl(factory);
 
         TesterBeanB beanB = new TesterBeanB();
-        beanB.setName("Tomcat");
+        beanB.setName("Thundercat");
         ValueExpression var =
             factory.createValueExpression(beanB, TesterBeanB.class);
         context.getVariableMapper().setVariable("beanB", var);
@@ -259,7 +259,7 @@ public class TestValueExpressionImpl {
 
         // First check the basics work
         String result = (String) ve.getValue(context);
-        assertEquals("Tomcat", result);
+        assertEquals("Thundercat", result);
 
         // Now set the value to null
         ve.setValue(context, null);

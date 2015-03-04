@@ -35,10 +35,10 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.SimpleHttpClient;
 import org.apache.catalina.startup.TesterServlet;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 
-public class TestInternalInputBuffer extends TomcatBaseTest {
+public class TestInternalInputBuffer extends ThundercatBaseTest {
 
     /**
      * Test case for https://bz.apache.org/bugzilla/show_bug.cgi?id=48839
@@ -61,10 +61,10 @@ public class TestInternalInputBuffer extends TomcatBaseTest {
 
         private Exception doRequest() {
 
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
 
             Context root = thundercat.addContext("", TEMP_DIR);
-            Tomcat.addServlet(root, "Bug48839", new Bug48839Servlet());
+            Thundercat.addServlet(root, "Bug48839", new Bug48839Servlet());
             root.addServletMapping("/test", "Bug48839");
 
             try {
@@ -235,10 +235,10 @@ public class TestInternalInputBuffer extends TomcatBaseTest {
 
         private Exception doRequest() {
 
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
 
             Context root = thundercat.addContext("", TEMP_DIR);
-            Tomcat.addServlet(root, "Bug51557",
+            Thundercat.addServlet(root, "Bug51557",
                     new Bug51557Servlet(headerName));
             root.addServletMapping("/test", "Bug51557");
 
@@ -322,7 +322,7 @@ public class TestInternalInputBuffer extends TomcatBaseTest {
 
     /**
      * Test case for new lines at the start of a request. RFC2616
-     * does not permit any, but Tomcat is tolerant of them if they are present.
+     * does not permit any, but Thundercat is tolerant of them if they are present.
      */
     @Test
     public void testNewLines() {
@@ -337,7 +337,7 @@ public class TestInternalInputBuffer extends TomcatBaseTest {
 
     /**
      * Test case for new lines at the start of a request. RFC2616
-     * does not permit any, but Tomcat is tolerant of them if they are present.
+     * does not permit any, but Thundercat is tolerant of them if they are present.
      */
     @Test
     public void testNewLinesExcessive() {
@@ -368,10 +368,10 @@ public class TestInternalInputBuffer extends TomcatBaseTest {
 
         private Exception doRequest() {
 
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
 
             Context root = thundercat.addContext("", TEMP_DIR);
-            Tomcat.addServlet(root, "test", new TesterServlet());
+            Thundercat.addServlet(root, "test", new TesterServlet());
             root.addServletMapping("/test", "test");
 
             try {
@@ -436,10 +436,10 @@ public class TestInternalInputBuffer extends TomcatBaseTest {
 
         private Exception doRequest() {
 
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
 
             Context root = thundercat.addContext("", TEMP_DIR);
-            Tomcat.addServlet(root, "Bug54947", new TesterServlet());
+            Thundercat.addServlet(root, "Bug54947", new TesterServlet());
             root.addServletMapping("/test", "Bug54947");
 
             try {

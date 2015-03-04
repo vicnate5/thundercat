@@ -37,14 +37,14 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.LifecycleException;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestGenerator extends TomcatBaseTest {
+public class TestGenerator extends ThundercatBaseTest {
 
     @Test
     public void testBug45015a() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/bug45nnn/bug45015a.jsp");
@@ -66,7 +66,7 @@ public class TestGenerator extends TomcatBaseTest {
 
     @Test
     public void testBug45015b() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         int rc = getUrl("http://localhost:" + getPort() +
                 "/test/bug45nnn/bug45015b.jsp", new ByteChunk(), null);
@@ -76,7 +76,7 @@ public class TestGenerator extends TomcatBaseTest {
 
     @Test
     public void testBug45015c() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         int rc = getUrl("http://localhost:" + getPort() +
                 "/test/bug45nnn/bug45015c.jsp", new ByteChunk(), null);
@@ -86,7 +86,7 @@ public class TestGenerator extends TomcatBaseTest {
 
     @Test
     public void testBug48701Fail() throws Exception {
-        getTomcatInstanceTestWebapp(true, true);
+        getThundercatInstanceTestWebapp(true, true);
 
         int rc = getUrl("http://localhost:" + getPort() +
                 "/test/bug48nnn/bug48701-fail.jsp", new ByteChunk(), null);
@@ -115,7 +115,7 @@ public class TestGenerator extends TomcatBaseTest {
     }
 
     private void testBug48701(String jsp) throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/" + jsp);
@@ -183,7 +183,7 @@ public class TestGenerator extends TomcatBaseTest {
                               "<p style=\"color:red\">04-Red</p>",
                               "<p>05-Not Red</p>"};
 
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
         Map<String,List<String>> headers = new HashMap<>();
@@ -210,7 +210,7 @@ public class TestGenerator extends TomcatBaseTest {
 
     @Test
     public void testBug56529() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk bc = new ByteChunk();
         int rc = getUrl("http://localhost:" + getPort() +
@@ -263,7 +263,7 @@ public class TestGenerator extends TomcatBaseTest {
 
     @Test
     public void testBug56581() throws LifecycleException {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
         try {
@@ -271,7 +271,7 @@ public class TestGenerator extends TomcatBaseTest {
                     + "/test/bug5nnnn/bug56581.jsp", res, null);
             Assert.fail("An IOException was expected.");
         } catch (IOException expected) {
-            // ErrorReportValve in Tomcat 8.0.9+ flushes and aborts the
+            // ErrorReportValve in Thundercat 8.0.9+ flushes and aborts the
             // connection when an unexpected error is encountered and response
             // has already been committed. It results in an exception here:
             // java.io.IOException: Premature EOF

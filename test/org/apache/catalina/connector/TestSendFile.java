@@ -37,11 +37,11 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.Globals;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestSendFile extends TomcatBaseTest{
+public class TestSendFile extends ThundercatBaseTest{
 
     public static final int ITERATIONS = 10;
     public static final int EXPECTED_CONTENT_LENGTH = 100000;
@@ -49,7 +49,7 @@ public class TestSendFile extends TomcatBaseTest{
     @Test
     public void testSendFile() throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         Context root = thundercat.addContext("", TEMP_DIR);
 
@@ -61,7 +61,7 @@ public class TestSendFile extends TomcatBaseTest{
 
             for (int i=0; i<ITERATIONS; i++) {
                 WritingServlet servlet = new WritingServlet(files[i]);
-                Tomcat.addServlet(root, "servlet" + i, servlet);
+                Thundercat.addServlet(root, "servlet" + i, servlet);
                 root.addServletMapping("/servlet" + i, "servlet" + i);
             }
 

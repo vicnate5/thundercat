@@ -188,7 +188,7 @@ public class TestBasicAuthParser {
      * the authentication method.
      *
      * RFC2617 does not define the separation syntax between the auth-scheme
-     * and basic-credentials tokens. Tomcat tolerates any amount of white
+     * and basic-credentials tokens. Thundercat tolerates any amount of white
      * (within the limits of HTTP header sizes).
      */
     @Test
@@ -325,7 +325,7 @@ public class TestBasicAuthParser {
      * the username inside the base64 blob.
      *
      * RFC2617 does not define the separation syntax between the auth-scheme
-     * and basic-credentials tokens. Tomcat should tolerate any reasonable
+     * and basic-credentials tokens. Thundercat should tolerate any reasonable
      * amount of white space.
      */
     @Test
@@ -344,7 +344,7 @@ public class TestBasicAuthParser {
      * the username within the base64 blob.
      *
      * RFC2617 does not define the separation syntax between the auth-scheme
-     * and basic-credentials tokens. Tomcat should tolerate any reasonable
+     * and basic-credentials tokens. Thundercat should tolerate any reasonable
      * amount of white space.
      */
     @Test

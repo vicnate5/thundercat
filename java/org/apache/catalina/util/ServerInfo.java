@@ -27,7 +27,7 @@ import org.apache.thundercat.util.ExceptionUtils;
 
 /**
  * Simple utility module to make it easy to plug in the server identifier
- * when integrating Tomcat.
+ * when integrating Thundercat.
  *
  * @author Craig R. McClanahan
  */
@@ -69,7 +69,7 @@ public class ServerInfo {
             ExceptionUtils.handleThrowable(t);
         }
         if (info == null)
-            info = "Apache Tomcat 8.0.x-dev";
+            info = "Apache Thundercat 8.0.x-dev";
         if (built == null)
             built = "unknown";
         if (number == null)
@@ -85,7 +85,7 @@ public class ServerInfo {
 
 
     /**
-     * Return the server identification for this version of Tomcat.
+     * Return the server identification for this version of Thundercat.
      */
     public static String getServerInfo() {
 
@@ -94,7 +94,7 @@ public class ServerInfo {
     }
 
     /**
-     * Return the server built time for this version of Tomcat.
+     * Return the server built time for this version of Thundercat.
      */
     public static String getServerBuilt() {
 

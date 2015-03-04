@@ -49,7 +49,7 @@ public final class SecurityClassLoad {
         loadValvesPackage(loader);
         loadJavaxPackage(loader);
         loadConnectorPackage(loader);
-        loadTomcatPackage(loader);
+        loadThundercatPackage(loader);
     }
 
 
@@ -259,7 +259,7 @@ public final class SecurityClassLoad {
              "Response$3");
     }
 
-    private static final void loadTomcatPackage(ClassLoader loader)
+    private static final void loadThundercatPackage(ClassLoader loader)
             throws Exception {
         final String basePackage = "org.apache.thundercat.";
         // buf

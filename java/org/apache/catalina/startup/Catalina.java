@@ -685,7 +685,7 @@ public class Catalina {
             }
         } catch (Throwable t) {
             ExceptionUtils.handleThrowable(t);
-            // This will fail on JDK 1.2. Ignoring, as Tomcat can run
+            // This will fail on JDK 1.2. Ignoring, as Thundercat can run
             // fine without the shutdown hook.
         }
 

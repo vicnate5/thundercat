@@ -107,7 +107,7 @@ public class ErrorReportValve extends ValveBase {
         if (throwable != null && !response.isError()) {
             // Make sure that the necessary methods have been called on the
             // response. (It is possible a component may just have set the
-            // Throwable. Tomcat won't do that but other components might.)
+            // Throwable. Thundercat won't do that but other components might.)
             // These are safe to call at this point as we know that the response
             // has not been committed.
             response.reset();
@@ -192,7 +192,7 @@ public class ErrorReportValve extends ValveBase {
             sb.append(smClient.getString("errorReportValve.errorReport"));
             sb.append("</title>");
             sb.append("<style type=\"text/css\">");
-            sb.append(org.apache.catalina.util.TomcatCSS.TOMCAT_CSS);
+            sb.append(org.apache.catalina.util.ThundercatCSS.TOMCAT_CSS);
             sb.append("</style> ");
         } else {
             sb.append("<title>");

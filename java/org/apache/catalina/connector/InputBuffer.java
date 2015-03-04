@@ -35,7 +35,7 @@ import org.apache.thundercat.util.buf.CharChunk;
 import org.apache.thundercat.util.res.StringManager;
 
 /**
- * The buffer used by Tomcat request. This is a derivative of the Tomcat 3.3
+ * The buffer used by Thundercat request. This is a derivative of the Thundercat 3.3
  * OutputBuffer, adapted to handle input instead of output. This allows
  * complete recycling of the facade objects (the ServletInputStream and the
  * BufferedReader).

@@ -42,12 +42,12 @@ import static org.apache.catalina.startup.SimpleHttpClient.CRLF;
 import org.apache.catalina.Context;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.SimpleHttpClient;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 import org.apache.thundercat.websocket.server.WsContextListener;
 
-public class TestDefaultServlet extends TomcatBaseTest {
+public class TestDefaultServlet extends ThundercatBaseTest {
 
     /*
      * Test attempting to access special paths (WEB-INF/META-INF) using
@@ -55,7 +55,7 @@ public class TestDefaultServlet extends TomcatBaseTest {
      */
     @Test
     public void testGetSpecials() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         String contextPath = "/examples";
 
@@ -95,7 +95,7 @@ public class TestDefaultServlet extends TomcatBaseTest {
     @Test
     public void testGzippedFile() throws Exception {
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         File appDir = new File("test/webapp");
 
@@ -107,7 +107,7 @@ public class TestDefaultServlet extends TomcatBaseTest {
 
         // app dir is relative to server home
         Context ctxt = thundercat.addContext("", appDir.getAbsolutePath());
-        Wrapper defaultServlet = Tomcat.addServlet(ctxt, "default",
+        Wrapper defaultServlet = Thundercat.addServlet(ctxt, "default",
                 "org.apache.catalina.servlets.DefaultServlet");
         defaultServlet.addInitParameter("gzip", "true");
         ctxt.addServletMapping("/", "default");
@@ -150,7 +150,7 @@ public class TestDefaultServlet extends TomcatBaseTest {
      */
     @Test
     public void testGetWithSubpathmount() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         String contextPath = "/examples";
 
@@ -161,7 +161,7 @@ public class TestDefaultServlet extends TomcatBaseTest {
         ctx.addApplicationListener(WsContextListener.class.getName());
 
         // Override the default servlet with our own mappings
-        Tomcat.addServlet(ctx, "default2", new DefaultServlet());
+        Thundercat.addServlet(ctx, "default2", new DefaultServlet());
         ctx.addServletMapping("/", "default2");
         ctx.addServletMapping("/servlets/*", "default2");
         ctx.addServletMapping("/static/*", "default2");
@@ -248,7 +248,7 @@ public class TestDefaultServlet extends TomcatBaseTest {
             w.write("It is 404.html");
         }
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         String contextPath = "/MyApp";
         thundercat.addWebapp(null, contextPath, appDir.getAbsolutePath());
         thundercat.start();
@@ -324,7 +324,7 @@ public class TestDefaultServlet extends TomcatBaseTest {
                     + "</web-app>\n");
         }
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         String contextPath = "/MyApp";
         thundercat.addWebapp(null, contextPath, appDir.getAbsolutePath());
         thundercat.start();
@@ -343,7 +343,7 @@ public class TestDefaultServlet extends TomcatBaseTest {
     public static int getUrl(String path, ByteChunk out,
             Map<String, List<String>> resHead) throws IOException {
         out.recycle();
-        return TomcatBaseTest.getUrl(path, out, resHead);
+        return ThundercatBaseTest.getUrl(path, out, resHead);
     }
 
     private static class TestCustomErrorClient extends SimpleHttpClient {

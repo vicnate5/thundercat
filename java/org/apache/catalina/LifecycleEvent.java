@@ -26,7 +26,7 @@ import java.util.EventObject;
  * General event for notifying listeners of significant changes on a component
  * that implements the Lifecycle interface.  In particular, this will be useful
  * on Containers, where these events replace the ContextInterceptor concept in
- * Tomcat 3.x.
+ * Thundercat 3.x.
  *
  * @author Craig R. McClanahan
  */

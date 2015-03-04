@@ -22,12 +22,12 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import org.apache.catalina.Wrapper;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.jasper.servlet.JasperInitializer;
 
 
-public class TestDefaultInstanceManager extends TomcatBaseTest {
+public class TestDefaultInstanceManager extends ThundercatBaseTest {
 
     @Test
     public void testClassUnloading() throws Exception {
@@ -66,7 +66,7 @@ public class TestDefaultInstanceManager extends TomcatBaseTest {
     }
 
     private DefaultInstanceManager doClassUnloadingPrep() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // Create the context (don't use addWebapp as we want to modify the
         // JSP Servlet settings).
@@ -78,7 +78,7 @@ public class TestDefaultInstanceManager extends TomcatBaseTest {
 
         // Configure the defaults and then tweak the JSP servlet settings
         // Note: Min value for maxLoadedJsps is 2
-        Tomcat.initWebappDefaults(ctxt);
+        Thundercat.initWebappDefaults(ctxt);
         Wrapper w = (Wrapper) ctxt.findChild("jsp");
         w.addInitParameter("maxLoadedJsps", "2");
 

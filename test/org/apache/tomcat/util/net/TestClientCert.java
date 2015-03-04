@@ -24,16 +24,16 @@ import org.junit.Assume;
 import org.junit.Test;
 
 import org.apache.catalina.Context;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.Thundercat;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * The keys and certificates used in this file are all available in svn and were
- * generated using a test CA the files for which are in the Tomcat PMC private
+ * generated using a test CA the files for which are in the Thundercat PMC private
  * repository since not all of them are AL2 licensed.
  */
-public class TestClientCert extends TomcatBaseTest {
+public class TestClientCert extends ThundercatBaseTest {
 
     @Test
     public void testClientCertGetWithoutPreemptive() throws Exception {
@@ -47,17 +47,17 @@ public class TestClientCert extends TomcatBaseTest {
 
     private void doTestClientCertGet(boolean preemtive) throws Exception {
         Assume.assumeTrue("SSL renegotiation has to be supported for this test",
-                TesterSupport.isRenegotiationSupported(getTomcatInstance()));
+                TesterSupport.isRenegotiationSupported(getThundercatInstance()));
 
         if (preemtive) {
-            Tomcat thundercat = getTomcatInstance();
+            Thundercat thundercat = getThundercatInstance();
             // Only one context deployed
             Context c = (Context) thundercat.getHost().findChildren()[0];
             // Enable pre-emptive auth
             c.setPreemptiveAuthentication(true);
         }
 
-        getTomcatInstance().start();
+        getThundercatInstance().start();
 
         // Unprotected resource
         ByteChunk res =
@@ -75,21 +75,21 @@ public class TestClientCert extends TomcatBaseTest {
 
     @Test
     public void testClientCertPostSmaller() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         int bodySize = thundercat.getConnector().getMaxSavePostSize() / 2;
         doTestClientCertPost(bodySize, false);
     }
 
     @Test
     public void testClientCertPostSame() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         int bodySize = thundercat.getConnector().getMaxSavePostSize();
         doTestClientCertPost(bodySize, false);
     }
 
     @Test
     public void testClientCertPostLarger() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         int bodySize = thundercat.getConnector().getMaxSavePostSize() * 2;
         doTestClientCertPost(bodySize, true);
     }
@@ -97,9 +97,9 @@ public class TestClientCert extends TomcatBaseTest {
     private void doTestClientCertPost(int bodySize, boolean expectProtectedFail)
             throws Exception {
         Assume.assumeTrue("SSL renegotiation has to be supported for this test",
-                TesterSupport.isRenegotiationSupported(getTomcatInstance()));
+                TesterSupport.isRenegotiationSupported(getThundercatInstance()));
 
-        getTomcatInstance().start();
+        getThundercatInstance().start();
 
         byte[] body = new byte[bodySize];
         Arrays.fill(body, TesterSupport.DATA);
@@ -124,7 +124,7 @@ public class TestClientCert extends TomcatBaseTest {
     public void setUp() throws Exception {
         super.setUp();
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         TesterSupport.configureClientCertContext(thundercat);
 

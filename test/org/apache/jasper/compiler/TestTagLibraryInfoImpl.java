@@ -21,17 +21,17 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Test case for {@link TagLibraryInfoImpl}.
  */
-public class TestTagLibraryInfoImpl extends TomcatBaseTest {
+public class TestTagLibraryInfoImpl extends ThundercatBaseTest {
 
     @Test
     public void testRelativeTldLocation() throws Exception {
-        getTomcatInstanceTestWebapp(false, true);
+        getThundercatInstanceTestWebapp(false, true);
 
         ByteChunk res = new ByteChunk();
 

@@ -31,17 +31,17 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.nonblocking.TestNonBlockingAPI.DataWriter;
-import org.apache.catalina.startup.TomcatBaseTest;
+import org.apache.catalina.startup.ThundercatBaseTest;
 import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * This is not a standard set of unit tests. This is a set of test clients for
  * AJP support of Servlet 3.1 non-blocking IO. It assumes that there is an httpd
  * instance listening on localhost:80 that is redirecting all traffic to a
- * default Tomcat instance of version 8 or above that includes the examples
+ * default Thundercat instance of version 8 or above that includes the examples
  * web application.
  */
-public class TesterAjpNonBlockingClient extends TomcatBaseTest {
+public class TesterAjpNonBlockingClient extends ThundercatBaseTest {
 
     @Test
     public void doTestAJPNonBlockingRead() throws Exception {

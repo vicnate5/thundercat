@@ -517,7 +517,7 @@ public class Http11OutputBuffer implements OutputBuffer {
             return;
         }
 
-        // From the Tomcat 3.3 HTTP/1.0 connector
+        // From the Thundercat 3.3 HTTP/1.0 connector
         int len = s.length();
         checkLengthBeforeWrite(len);
         for (int i = 0; i < len; i++) {

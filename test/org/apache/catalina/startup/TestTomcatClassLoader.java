@@ -34,16 +34,16 @@ import org.apache.catalina.Context;
 import org.apache.catalina.loader.WebappClassLoader;
 import org.apache.thundercat.util.buf.ByteChunk;
 
-public class TestTomcatClassLoader extends TomcatBaseTest {
+public class TestThundercatClassLoader extends ThundercatBaseTest {
 
     @Test
     public void testDefaultClassLoader() throws Exception {
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "ClassLoaderReport", new ClassLoaderReport(null));
+        Thundercat.addServlet(ctx, "ClassLoaderReport", new ClassLoaderReport(null));
         ctx.addServletMapping("/", "ClassLoaderReport");
 
         thundercat.start();
@@ -60,13 +60,13 @@ public class TestTomcatClassLoader extends TomcatBaseTest {
 
         Thread.currentThread().setContextClassLoader(cl);
 
-        Tomcat thundercat = getTomcatInstance();
+        Thundercat thundercat = getThundercatInstance();
         thundercat.getServer().setParentClassLoader(cl);
 
         // No file system docBase required
         Context ctx = thundercat.addContext("", null);
 
-        Tomcat.addServlet(ctx, "ClassLoaderReport", new ClassLoaderReport(cl));
+        Thundercat.addServlet(ctx, "ClassLoaderReport", new ClassLoaderReport(cl));
         ctx.addServletMapping("/", "ClassLoaderReport");
 
         thundercat.start();
