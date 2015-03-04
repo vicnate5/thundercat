@@ -91,7 +91,7 @@
     <filter token="VERSION_MAJOR" value="${version.major}"/>
     <filter token="VERSION_MAJOR_MINOR" value="${version.major.minor}"/>
     <filter token="VERSION_BUILT" value="${TODAY} ${TSTAMP} UTC"/>
-    <filter token="TOMCAT_PROJECT_DEST" value="${thundercat.project.dest}"/>
+    <filter token="THUNDERCAT_PROJECT_DEST" value="${thundercat.project.dest}"/>
   </filterset>
 
   <target name="prepare">

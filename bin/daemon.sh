@@ -56,7 +56,7 @@ do
         continue
     ;;
     --thundercat-user )
-        TOMCAT_USER="$2"
+        THUNDERCAT_USER="$2"
         shift; shift;
         continue
     ;;
@@ -86,7 +86,7 @@ esac
 test ".$MAX_FD" = . && MAX_FD="maximum"
 # Setup parameters for running the jsvc
 #
-test ".$TOMCAT_USER" = . && TOMCAT_USER=thundercat
+test ".$THUNDERCAT_USER" = . && THUNDERCAT_USER=thundercat
 # Set JAVA_HOME to working JDK or JRE
 # JAVA_HOME=/opt/jdk-1.6.0.22
 # If not set we'll try to guess the JAVA_HOME
@@ -195,7 +195,7 @@ case "$1" in
     start   )
       "$JSVC" $JSVC_OPTS \
       -java-home "$JAVA_HOME" \
-      -user $TOMCAT_USER \
+      -user $THUNDERCAT_USER \
       -pidfile "$CATALINA_PID" \
       -wait "$SERVICE_START_WAIT_TIME" \
       -outfile "$CATALINA_OUT" \

@@ -752,7 +752,7 @@ public class TestCorsFilter {
     public void testCheckSimpleRequestType() throws ServletException {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                TesterFilterConfigs.HTTP_TOMCAT_APACHE_ORG);
+                TesterFilterConfigs.HTTP_THUNDERCAT_APACHE_ORG);
         request.setMethod("GET");
         CorsFilter corsFilter = new CorsFilter();
         corsFilter.init(TesterFilterConfigs
@@ -771,7 +771,7 @@ public class TestCorsFilter {
     public void testCheckActualRequestType() throws ServletException {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                TesterFilterConfigs.HTTP_TOMCAT_APACHE_ORG);
+                TesterFilterConfigs.HTTP_THUNDERCAT_APACHE_ORG);
         request.setMethod("PUT");
         CorsFilter corsFilter = new CorsFilter();
         corsFilter.init(TesterFilterConfigs
@@ -791,7 +791,7 @@ public class TestCorsFilter {
             throws ServletException {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                TesterFilterConfigs.HTTP_TOMCAT_APACHE_ORG);
+                TesterFilterConfigs.HTTP_THUNDERCAT_APACHE_ORG);
         request.setMethod("POST");
         request.setContentType("application/json");
         CorsFilter corsFilter = new CorsFilter();
@@ -811,7 +811,7 @@ public class TestCorsFilter {
     public void testCheckPreFlightRequestType() throws ServletException {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                TesterFilterConfigs.HTTP_TOMCAT_APACHE_ORG);
+                TesterFilterConfigs.HTTP_THUNDERCAT_APACHE_ORG);
         request.setHeader(
                 CorsFilter.REQUEST_HEADER_ACCESS_CONTROL_REQUEST_METHOD,
                 "PUT");
@@ -835,7 +835,7 @@ public class TestCorsFilter {
     public void testCheckPreFlightRequestTypeNoACRM() throws ServletException {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                TesterFilterConfigs.HTTP_TOMCAT_APACHE_ORG);
+                TesterFilterConfigs.HTTP_THUNDERCAT_APACHE_ORG);
 
         request.setMethod("OPTIONS");
         CorsFilter corsFilter = new CorsFilter();
@@ -855,7 +855,7 @@ public class TestCorsFilter {
             throws ServletException {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                TesterFilterConfigs.HTTP_TOMCAT_APACHE_ORG);
+                TesterFilterConfigs.HTTP_THUNDERCAT_APACHE_ORG);
         request.setHeader(
                 CorsFilter.REQUEST_HEADER_ACCESS_CONTROL_REQUEST_METHOD,
                 "");
@@ -879,7 +879,7 @@ public class TestCorsFilter {
             throws ServletException {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                TesterFilterConfigs.HTTP_TOMCAT_APACHE_ORG);
+                TesterFilterConfigs.HTTP_THUNDERCAT_APACHE_ORG);
         request.setHeader(
                 CorsFilter.REQUEST_HEADER_ACCESS_CONTROL_REQUEST_METHOD,
                 "PUT");
@@ -904,7 +904,7 @@ public class TestCorsFilter {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         TesterHttpServletResponse response = new TesterHttpServletResponse();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                TesterFilterConfigs.HTTP_TOMCAT_APACHE_ORG);
+                TesterFilterConfigs.HTTP_THUNDERCAT_APACHE_ORG);
         request.setHeader(
                 CorsFilter.REQUEST_HEADER_ACCESS_CONTROL_REQUEST_METHOD,
                 "POLITE");
@@ -929,7 +929,7 @@ public class TestCorsFilter {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         TesterHttpServletResponse response = new TesterHttpServletResponse();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                TesterFilterConfigs.HTTP_TOMCAT_APACHE_ORG);
+                TesterFilterConfigs.HTTP_THUNDERCAT_APACHE_ORG);
         request.setHeader(
                 CorsFilter.REQUEST_HEADER_ACCESS_CONTROL_REQUEST_METHOD,
                 "TRACE");
@@ -982,7 +982,7 @@ public class TestCorsFilter {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         TesterHttpServletResponse response = new TesterHttpServletResponse();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                TesterFilterConfigs.HTTP_TOMCAT_APACHE_ORG);
+                TesterFilterConfigs.HTTP_THUNDERCAT_APACHE_ORG);
         request.setHeader(
                 CorsFilter.REQUEST_HEADER_ACCESS_CONTROL_REQUEST_METHOD,
                 "PUT");
@@ -1030,7 +1030,7 @@ public class TestCorsFilter {
             throws ServletException {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                TesterFilterConfigs.HTTP_TOMCAT_APACHE_ORG);
+                TesterFilterConfigs.HTTP_THUNDERCAT_APACHE_ORG);
         request.setHeader(
                 CorsFilter.REQUEST_HEADER_ACCESS_CONTROL_REQUEST_METHOD,
                 "PUT");

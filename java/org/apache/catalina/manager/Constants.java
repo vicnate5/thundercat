@@ -36,7 +36,7 @@ public class Constants {
             "<html>\n" +
             "<head>\n" +
             "<style>\n" +
-            org.apache.catalina.util.ThundercatCSS.TOMCAT_CSS + "\n" +
+            org.apache.catalina.util.ThundercatCSS.THUNDERCAT_CSS + "\n" +
             "  table {\n" +
             "    width: 100%;\n" +
             "  }\n" +

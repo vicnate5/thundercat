@@ -1393,7 +1393,7 @@ public class DefaultServlet extends HttpServlet {
         sb.append(sm.getString("directory.title", directoryWebappPath));
         sb.append("</title>\r\n");
         sb.append("<STYLE><!--");
-        sb.append(org.apache.catalina.util.ThundercatCSS.TOMCAT_CSS);
+        sb.append(org.apache.catalina.util.ThundercatCSS.THUNDERCAT_CSS);
         sb.append("--></STYLE> ");
         sb.append("</head>\r\n");
         sb.append("<body>");

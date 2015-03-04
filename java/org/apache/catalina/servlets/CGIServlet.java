@@ -968,7 +968,7 @@ public final class CGIServlet extends HttpServlet {
                 return false;
             }
 
-            envp.put("SERVER_SOFTWARE", "TOMCAT");
+            envp.put("SERVER_SOFTWARE", "THUNDERCAT");
 
             envp.put("SERVER_NAME", nullsToBlanks(req.getServerName()));
 
@@ -1082,7 +1082,7 @@ public final class CGIServlet extends HttpServlet {
             File fCGIFullPath = new File(sCGIFullPath);
             command = fCGIFullPath.getCanonicalPath();
 
-            envp.put("X_TOMCAT_SCRIPT_PATH", command);  //for kicks
+            envp.put("X_THUNDERCAT_SCRIPT_PATH", command);  //for kicks
 
             envp.put("SCRIPT_FILENAME", command);  //for PHP
 

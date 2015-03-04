@@ -23,8 +23,8 @@
 # The script uses two mime type lists to describe
 # the merging between httpd and Thundercat mime types.
 #
-# 1) %TOMCAT_ONLY: Additional extensions for Thundercat that do not exist in httpd
-# 2) %TOMCAT_KEEP: Mime type differences for common extensions where we stick to
+# 1) %THUNDERCAT_ONLY: Additional extensions for Thundercat that do not exist in httpd
+# 2) %THUNDERCAT_KEEP: Mime type differences for common extensions where we stick to
 #    the Thundercat definition
 
 # The script checks consistency between Thundercat and httpd according
@@ -66,7 +66,7 @@ my $LOCALE  = 'en.UTF-8';
 # Mime types that are part of the Thundercat
 # configuration, but missing from httpd
 
-my %TOMCAT_ONLY = qw(
+my %THUNDERCAT_ONLY = qw(
     abs audio/x-mpeg
     aim application/x-aim
     anx application/annodex
@@ -104,7 +104,7 @@ my %TOMCAT_ONLY = qw(
 # Mime types, that are defined differently
 # in Thundercat than in httpd
 
-my %TOMCAT_KEEP = qw(
+my %THUNDERCAT_KEEP = qw(
     cdf application/x-cdf
     class application/java
     exe application/octet-stream
@@ -322,33 +322,33 @@ close($webxml_fh);
 
 
 # Look for extensions existing for Thundercat but not for httpd.
-# Log them if they are not in TOMCAT_ONLY
+# Log them if they are not in THUNDERCAT_ONLY
 for $extension (@thundercat_extensions) {
     if (!exists($httpd{$extension})) {
-        if (!exists($TOMCAT_ONLY{$extension})) {
-            print STDERR "WARN Extension '$extension' found in web.xml but not in mime.types is missing from TOMCAT_ONLY list.\n";
+        if (!exists($THUNDERCAT_ONLY{$extension})) {
+            print STDERR "WARN Extension '$extension' found in web.xml but not in mime.types is missing from THUNDERCAT_ONLY list.\n";
             print STDERR "WARN Definition '$extension' -> '$thundercat{$extension}' will be removed from generated web.xml.\n";
-        } elsif ($thundercat{$extension} ne $TOMCAT_ONLY{$extension}) {
-            print STDERR "WARN Additional extension '$extension' allowed by TOMCAT_ONLY list, but has new definition.\n";
+        } elsif ($thundercat{$extension} ne $THUNDERCAT_ONLY{$extension}) {
+            print STDERR "WARN Additional extension '$extension' allowed by THUNDERCAT_ONLY list, but has new definition.\n";
             print STDERR "WARN Definition '$extension' -> '$thundercat{$extension}' will be replaced" .
-                         " by '$extension' -> '$TOMCAT_ONLY{$extension}' in generated web.xml.\n";
+                         " by '$extension' -> '$THUNDERCAT_ONLY{$extension}' in generated web.xml.\n";
         }
     }
 }
 
 
 # Look for extensions with inconsistent mime types for Thundercat and httpd.
-# Log them if they are not in TOMCAT_KEEP
+# Log them if they are not in THUNDERCAT_KEEP
 for $extension (@thundercat_extensions) {
     if (exists($httpd{$extension}) && $thundercat{$extension} ne $httpd{$extension}) {
-        if (!exists($TOMCAT_KEEP{$extension})) {
-            print STDERR "WARN Mapping '$extension' inconsistency is missing from TOMCAT_KEEP list.\n";
+        if (!exists($THUNDERCAT_KEEP{$extension})) {
+            print STDERR "WARN Mapping '$extension' inconsistency is missing from THUNDERCAT_KEEP list.\n";
             print STDERR "WARN Definition '$extension' -> '$thundercat{$extension}' will be replaced" .
                          " by '$extension' -> '$httpd{$extension}' in generated web.xml.\n";
-        } elsif ($thundercat{$extension} ne $TOMCAT_KEEP{$extension}) {
-            print STDERR "WARN Extension '$extension' inconsistency allowed by TOMCAT_KEEP list, but has new definition.\n";
+        } elsif ($thundercat{$extension} ne $THUNDERCAT_KEEP{$extension}) {
+            print STDERR "WARN Extension '$extension' inconsistency allowed by THUNDERCAT_KEEP list, but has new definition.\n";
             print STDERR "WARN Definition '$extension' -> '$thundercat{$extension}' will be replaced" .
-                         " by '$extension' -> '$TOMCAT_KEEP{$extension}' in generated web.xml.\n";
+                         " by '$extension' -> '$THUNDERCAT_KEEP{$extension}' in generated web.xml.\n";
         }
     }
 }
@@ -383,13 +383,13 @@ for $extension (sort keys %httpd) {
 
 # Generate new web.xml:
 #   - Use definitions from httpd
-#   - Add TOMCAT_ONLY
-#   - Fix TOMCAT_KEEP
+#   - Add THUNDERCAT_ONLY
+#   - Fix THUNDERCAT_KEEP
 #   - output thundercat_pre, sorted mime-mappings, thundercat_post.
-while (($extension, $mimetype) = each %TOMCAT_ONLY) {
+while (($extension, $mimetype) = each %THUNDERCAT_ONLY) {
     $httpd{$extension} = $mimetype;
 }
-while (($extension, $mimetype) = each %TOMCAT_KEEP) {
+while (($extension, $mimetype) = each %THUNDERCAT_KEEP) {
     $httpd{$extension} = $mimetype;
 }
 open ($output_fh, '>', $opt_o) or die "Could not open file '$opt_o' for write - Aborting!";

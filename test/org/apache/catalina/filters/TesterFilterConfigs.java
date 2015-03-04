@@ -23,7 +23,7 @@ import javax.servlet.ServletContext;
 
 public class TesterFilterConfigs {
     public static final String HTTPS_WWW_APACHE_ORG = "https://www.apache.org";
-    public static final String HTTP_TOMCAT_APACHE_ORG =
+    public static final String HTTP_THUNDERCAT_APACHE_ORG =
             "http://thundercat.apache.org";
     public static final String EXPOSED_HEADERS = "X-CUSTOM-HEADER";
     /**
@@ -94,7 +94,7 @@ public class TesterFilterConfigs {
         final String allowedHttpMethods =
                 CorsFilter.DEFAULT_ALLOWED_HTTP_METHODS + ",PUT";
         final String allowedOrigins =
-                HTTP_TOMCAT_APACHE_ORG + "," + HTTPS_WWW_APACHE_ORG;
+                HTTP_THUNDERCAT_APACHE_ORG + "," + HTTPS_WWW_APACHE_ORG;
         final String exposedHeaders = CorsFilter.DEFAULT_EXPOSED_HEADERS;
         final String supportCredentials = "false";
         final String preflightMaxAge =
@@ -111,7 +111,7 @@ public class TesterFilterConfigs {
                 CorsFilter.DEFAULT_ALLOWED_HTTP_HEADERS;
         final String allowedHttpMethods =
                 CorsFilter.DEFAULT_ALLOWED_HTTP_METHODS;
-        final String allowedOrigins = HTTP_TOMCAT_APACHE_ORG + ",null";
+        final String allowedOrigins = HTTP_THUNDERCAT_APACHE_ORG + ",null";
         final String exposedHeaders = CorsFilter.DEFAULT_EXPOSED_HEADERS;
         final String supportCredentials =
                 CorsFilter.DEFAULT_SUPPORTS_CREDENTIALS;
@@ -165,7 +165,7 @@ public class TesterFilterConfigs {
 
     public static FilterConfig getSpecificOriginFilterConfig() {
         final String allowedOrigins =
-                HTTPS_WWW_APACHE_ORG + "," + HTTP_TOMCAT_APACHE_ORG;
+                HTTPS_WWW_APACHE_ORG + "," + HTTP_THUNDERCAT_APACHE_ORG;
 
         final String allowedHttpHeaders =
                 CorsFilter.DEFAULT_ALLOWED_HTTP_HEADERS;
@@ -185,7 +185,7 @@ public class TesterFilterConfigs {
 
     public static FilterConfig getSpecificOriginFilterConfigNegativeMaxAge() {
         final String allowedOrigins =
-                HTTPS_WWW_APACHE_ORG + "," + HTTP_TOMCAT_APACHE_ORG;
+                HTTPS_WWW_APACHE_ORG + "," + HTTP_THUNDERCAT_APACHE_ORG;
 
         final String allowedHttpHeaders =
                 CorsFilter.DEFAULT_ALLOWED_HTTP_HEADERS;

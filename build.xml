@@ -641,7 +641,7 @@
     <copy tofile="webapps/docs/jdbc-pool.xml"
           file="${thundercat.jdbc.dir}/doc/jdbc-pool.xml" encoding="UTF-8">
       <filterset>
-        <filter token="TOMCAT_PROJECT_DEST" value="project.xml"/>
+        <filter token="THUNDERCAT_PROJECT_DEST" value="project.xml"/>
       </filterset>
     </copy>
   </target>

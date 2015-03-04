@@ -21,7 +21,7 @@ package org.apache.catalina.util;
 
 public class ThundercatCSS {
 
-    public static final String TOMCAT_CSS =
+    public static final String THUNDERCAT_CSS =
         "H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} " +
         "H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} " +
         "H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} " +
