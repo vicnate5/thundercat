@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.bugs;
+package org.apache.thundercat.jdbc.bugs;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -23,14 +23,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.tomcat.jdbc.pool.ConnectionPool;
-import org.apache.tomcat.jdbc.pool.PoolConfiguration;
-import org.apache.tomcat.jdbc.test.DefaultProperties;
+import org.apache.thundercat.jdbc.pool.ConnectionPool;
+import org.apache.thundercat.jdbc.pool.PoolConfiguration;
+import org.apache.thundercat.jdbc.test.DefaultProperties;
 
 public class Bug51582 {
 
     public static void main(String[] args) throws SQLException {
-        org.apache.tomcat.jdbc.pool.DataSource datasource = null;
+        org.apache.thundercat.jdbc.pool.DataSource datasource = null;
         PoolConfiguration p = new DefaultProperties();
         p.setJmxEnabled(true);
         p.setTestOnBorrow(false);
@@ -39,9 +39,9 @@ public class Bug51582 {
         p.setTimeBetweenEvictionRunsMillis(2000);
         p.setMaxWait(2000);
         p.setMinEvictableIdleTimeMillis(1000);
-        datasource = new org.apache.tomcat.jdbc.pool.DataSource();
+        datasource = new org.apache.thundercat.jdbc.pool.DataSource();
         datasource.setPoolProperties(p);
-        datasource.setJdbcInterceptors("org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReportJmx(threshold=200)");
+        datasource.setJdbcInterceptors("org.apache.thundercat.jdbc.pool.interceptor.SlowQueryReportJmx(threshold=200)");
         ConnectionPool pool = datasource.createPool();
         Connection con = pool.getConnection();
         Statement st = con.createStatement();

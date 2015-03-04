@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.threads;
+package org.apache.thundercat.util.threads;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.RejectedExecutionException;
@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Same as a java.util.concurrent.ThreadPoolExecutor but implements a much more efficient
@@ -38,7 +38,7 @@ public class ThreadPoolExecutor extends java.util.concurrent.ThreadPoolExecutor 
      * The string manager for this package.
      */
     protected static final StringManager sm = StringManager
-            .getManager("org.apache.tomcat.util.threads.res");
+            .getManager("org.apache.thundercat.util.threads.res");
 
     /**
      * The number of tasks submitted but not yet finished. This includes tasks

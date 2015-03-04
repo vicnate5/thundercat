@@ -27,7 +27,7 @@ import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
 import org.apache.catalina.webresources.StandardRoot;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestWarDirContext extends TomcatBaseTest {
 
@@ -35,13 +35,13 @@ public class TestWarDirContext extends TomcatBaseTest {
     public void setUp() throws Exception {
         super.setUp();
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // The test fails if JreMemoryLeakPreventionListener is not
         // present. The listener affects the JVM, and thus not only the current,
         // but also the subsequent tests that are run in the same JVM. So it is
         // fair to add it in every test.
-        tomcat.getServer().addLifecycleListener(
+        thundercat.getServer().addLifecycleListener(
                 new JreMemoryLeakPreventionListener());
     }
 
@@ -50,13 +50,13 @@ public class TestWarDirContext extends TomcatBaseTest {
      */
     @Test
     public void testLookupException() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp-fragments");
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk bc = getUrl("http://localhost:" + getPort() +
                 "/test/warDirContext.jsp");
@@ -71,17 +71,17 @@ public class TestWarDirContext extends TomcatBaseTest {
      */
     @Test
     public void testReservedJNDIFileNamesWithCache() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp-fragments");
         // app dir is relative to server home
-        StandardContext ctxt = (StandardContext) tomcat.addWebapp(
+        StandardContext ctxt = (StandardContext) thundercat.addWebapp(
                 null, "/test", appDir.getAbsolutePath());
         StandardRoot root = new StandardRoot();
         root.setCachingAllowed(true);
         ctxt.setResources(root);
 
-        tomcat.start();
+        thundercat.start();
 
         // Should be found in resources.jar
         ByteChunk bc = getUrl("http://localhost:" + getPort() +
@@ -103,17 +103,17 @@ public class TestWarDirContext extends TomcatBaseTest {
      */
     @Test
     public void testReservedJNDIFileNamesNoCache() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp-fragments");
         // app dir is relative to server home
-        StandardContext ctxt = (StandardContext) tomcat.addWebapp(
+        StandardContext ctxt = (StandardContext) thundercat.addWebapp(
                 null, "/test", appDir.getAbsolutePath());
         StandardRoot root = new StandardRoot();
         root.setCachingAllowed(true);
         ctxt.setResources(root);
 
-        tomcat.start();
+        thundercat.start();
 
         // Should be found in resources.jar
         ByteChunk bc = getUrl("http://localhost:" + getPort() +

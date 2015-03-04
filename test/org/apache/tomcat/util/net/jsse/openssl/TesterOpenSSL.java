@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.net.jsse.openssl;
+package org.apache.thundercat.util.net.jsse.openssl;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.catalina.util.IOTools;
-import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
+import org.apache.thundercat.util.http.fileupload.ByteArrayOutputStream;
 
 public class TesterOpenSSL {
 
@@ -60,7 +60,7 @@ public class TesterOpenSSL {
     static {
         // Note: The tests are configured for OpenSSL 1.1.0. Running with a
         //       different version is likely to trigger failures
-        String expected_version = System.getProperty("tomcat.test.openssl.version", "");
+        String expected_version = System.getProperty("thundercat.test.openssl.version", "");
         String versionString = null;
         try {
             versionString = executeOpenSSLCommand("version");
@@ -142,7 +142,7 @@ public class TesterOpenSSL {
 
 
     private static String executeOpenSSLCommand(String... args) throws IOException {
-        String openSSLPath = System.getProperty("tomcat.test.openssl.path");
+        String openSSLPath = System.getProperty("thundercat.test.openssl.path");
         if (openSSLPath == null || openSSLPath.length() == 0) {
             openSSLPath = "openssl";
         }

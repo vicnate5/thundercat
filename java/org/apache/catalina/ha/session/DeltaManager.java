@@ -38,8 +38,8 @@ import org.apache.catalina.tribes.Member;
 import org.apache.catalina.tribes.io.ReplicationStream;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * The DeltaManager manages replicated sessions by only replicating the deltas

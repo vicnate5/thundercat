@@ -37,10 +37,10 @@ import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
 import org.apache.catalina.webresources.StandardRoot;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.http.fileupload.FileUtils;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
-import org.apache.tomcat.util.scan.StandardJarScanner;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.http.fileupload.FileUtils;
+import org.apache.thundercat.util.http.fileupload.IOUtils;
+import org.apache.thundercat.util.scan.StandardJarScanner;
 
 public class TestVirtualContext extends TomcatBaseTest {
 
@@ -48,23 +48,23 @@ public class TestVirtualContext extends TomcatBaseTest {
     public void setUp() throws Exception {
         super.setUp();
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // BZ 49218: The test fails if JreMemoryLeakPreventionListener is not
         // present. The listener affects the JVM, and thus not only the current,
         // but also the subsequent tests that are run in the same JVM. So it is
         // fair to add it in every test.
-        tomcat.getServer().addLifecycleListener(
+        thundercat.getServer().addLifecycleListener(
             new JreMemoryLeakPreventionListener());
     }
 
     @Test
     public void testVirtualClassLoader() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp-virtual-webapp/src/main/webapp");
         // app dir is relative to server home
-        StandardContext ctx = (StandardContext) tomcat.addWebapp(null, "/test",
+        StandardContext ctx = (StandardContext) thundercat.addWebapp(null, "/test",
             appDir.getAbsolutePath());
 
         ctx.setResources(new StandardRoot(ctx));
@@ -100,7 +100,7 @@ public class TestVirtualContext extends TomcatBaseTest {
         ctx.setJarScanner(jarScanner);
         ctx.setAddWebinfClassesResources(true);
 
-        tomcat.start();
+        thundercat.start();
 
         assertPageContains("/test/classpathGetResourceAsStream.jsp?path=nonexistent",
             "resourceAInWebInfClasses=true", 404);
@@ -252,11 +252,11 @@ public class TestVirtualContext extends TomcatBaseTest {
 
     @Test
     public void testAdditionalWebInfClassesPaths() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp-virtual-webapp/src/main/webapp");
         // app dir is relative to server home
-        StandardContext ctx = (StandardContext) tomcat.addWebapp(null, "/test",
+        StandardContext ctx = (StandardContext) thundercat.addWebapp(null, "/test",
             appDir.getAbsolutePath());
         File tempFile = File.createTempFile("virtualWebInfClasses", null);
 
@@ -286,12 +286,12 @@ public class TestVirtualContext extends TomcatBaseTest {
                 WebResourceRoot.ResourceSetType.POST, "/WEB-INF/classes",
                 f2.getAbsolutePath(), null, "/");
 
-        tomcat.start();
+        thundercat.start();
         // first test that without the setting on StandardContext the annotated
         // servlet is not detected
         assertPageContains("/test/annotatedServlet", MyAnnotatedServlet.MESSAGE, 404);
 
-        tomcat.stop();
+        thundercat.stop();
 
         // then test that if we configure StandardContext with the additional
         // path, the servlet is detected
@@ -306,9 +306,9 @@ public class TestVirtualContext extends TomcatBaseTest {
                 WebResourceRoot.ResourceSetType.POST, "/WEB-INF/classes",
                 additionWebInfClasses.getAbsolutePath(), null, "/");
 
-        tomcat.start();
+        thundercat.start();
         assertPageContains("/test/annotatedServlet", MyAnnotatedServlet.MESSAGE);
-        tomcat.stop();
+        thundercat.stop();
         FileUtils.deleteDirectory(additionWebInfClasses);
         tempFile.delete();
     }

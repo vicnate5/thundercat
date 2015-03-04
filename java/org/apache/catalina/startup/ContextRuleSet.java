@@ -19,8 +19,8 @@
 package org.apache.catalina.startup;
 
 
-import org.apache.tomcat.util.digester.Digester;
-import org.apache.tomcat.util.digester.RuleSetBase;
+import org.apache.thundercat.util.digester.Digester;
+import org.apache.thundercat.util.digester.RuleSetBase;
 
 
 /**
@@ -161,11 +161,11 @@ public class ContextRuleSet extends RuleSetBase {
                             "org.apache.catalina.SessionIdGenerator");
 
         digester.addObjectCreate(prefix + "Context/Parameter",
-                                 "org.apache.tomcat.util.descriptor.web.ApplicationParameter");
+                                 "org.apache.thundercat.util.descriptor.web.ApplicationParameter");
         digester.addSetProperties(prefix + "Context/Parameter");
         digester.addSetNext(prefix + "Context/Parameter",
                             "addApplicationParameter",
-                            "org.apache.tomcat.util.descriptor.web.ApplicationParameter");
+                            "org.apache.thundercat.util.descriptor.web.ApplicationParameter");
 
         digester.addRuleSet(new RealmRuleSet(prefix + "Context/"));
 
@@ -203,11 +203,11 @@ public class ContextRuleSet extends RuleSetBase {
 
 
         digester.addObjectCreate(prefix + "Context/ResourceLink",
-                "org.apache.tomcat.util.descriptor.web.ContextResourceLink");
+                "org.apache.thundercat.util.descriptor.web.ContextResourceLink");
         digester.addSetProperties(prefix + "Context/ResourceLink");
         digester.addRule(prefix + "Context/ResourceLink",
                 new SetNextNamingRule("addResourceLink",
-                        "org.apache.tomcat.util.descriptor.web.ContextResourceLink"));
+                        "org.apache.thundercat.util.descriptor.web.ContextResourceLink"));
 
         digester.addObjectCreate(prefix + "Context/Valve",
                                  null, // MUST be specified in the element
@@ -227,28 +227,28 @@ public class ContextRuleSet extends RuleSetBase {
                                "addWrapperListener", 0);
 
         digester.addObjectCreate(prefix + "Context/JarScanner",
-                                 "org.apache.tomcat.util.scan.StandardJarScanner",
+                                 "org.apache.thundercat.util.scan.StandardJarScanner",
                                  "className");
         digester.addSetProperties(prefix + "Context/JarScanner");
         digester.addSetNext(prefix + "Context/JarScanner",
                             "setJarScanner",
-                            "org.apache.tomcat.JarScanner");
+                            "org.apache.thundercat.JarScanner");
 
         digester.addObjectCreate(prefix + "Context/JarScanner/JarScanFilter",
-                                 "org.apache.tomcat.util.scan.StandardJarScanFilter",
+                                 "org.apache.thundercat.util.scan.StandardJarScanFilter",
                                  "className");
         digester.addSetProperties(prefix + "Context/JarScanner/JarScanFilter");
         digester.addSetNext(prefix + "Context/JarScanner/JarScanFilter",
                             "setJarScanFilter",
-                            "org.apache.tomcat.JarScanFilter");
+                            "org.apache.thundercat.JarScanFilter");
 
         digester.addObjectCreate(prefix + "Context/CookieProcessor",
-                                 "org.apache.tomcat.util.http.LegacyCookieProcessor",
+                                 "org.apache.thundercat.util.http.LegacyCookieProcessor",
                                  "className");
         digester.addSetProperties(prefix + "Context/CookieProcessor");
         digester.addSetNext(prefix + "Context/CookieProcessor",
                             "setCookieProcessor",
-                            "org.apache.tomcat.util.http.CookieProcessor");
+                            "org.apache.thundercat.util.http.CookieProcessor");
     }
 
 }

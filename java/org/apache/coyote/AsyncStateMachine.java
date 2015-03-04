@@ -19,10 +19,10 @@ package org.apache.coyote;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 
-import org.apache.tomcat.util.net.AbstractEndpoint.Handler.SocketState;
-import org.apache.tomcat.util.res.StringManager;
-import org.apache.tomcat.util.security.PrivilegedGetTccl;
-import org.apache.tomcat.util.security.PrivilegedSetTccl;
+import org.apache.thundercat.util.net.AbstractEndpoint.Handler.SocketState;
+import org.apache.thundercat.util.res.StringManager;
+import org.apache.thundercat.util.security.PrivilegedGetTccl;
+import org.apache.thundercat.util.security.PrivilegedSetTccl;
 
 /**
  * Manages the state transitions for async requests.

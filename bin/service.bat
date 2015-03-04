@@ -33,13 +33,13 @@ rem Guess CATALINA_HOME if not defined
 set "CURRENT_DIR=%cd%"
 if not "%CATALINA_HOME%" == "" goto gotHome
 set "CATALINA_HOME=%cd%"
-if exist "%CATALINA_HOME%\bin\tomcat@VERSION_MAJOR@.exe" goto okHome
+if exist "%CATALINA_HOME%\bin\thundercat@VERSION_MAJOR@.exe" goto okHome
 rem CD to the upper dir
 cd ..
 set "CATALINA_HOME=%cd%"
 :gotHome
-if exist "%CATALINA_HOME%\bin\tomcat@VERSION_MAJOR@.exe" goto okHome
-echo The tomcat@VERSION_MAJOR@.exe was not found...
+if exist "%CATALINA_HOME%\bin\thundercat@VERSION_MAJOR@.exe" goto okHome
+echo The thundercat@VERSION_MAJOR@.exe was not found...
 echo The CATALINA_HOME environment variable is not defined correctly.
 echo This environment variable is needed to run this program
 goto end
@@ -71,7 +71,7 @@ if not "%CATALINA_BASE%" == "" goto gotBase
 set "CATALINA_BASE=%CATALINA_HOME%"
 :gotBase
 
-set "EXECUTABLE=%CATALINA_HOME%\bin\tomcat@VERSION_MAJOR@.exe"
+set "EXECUTABLE=%CATALINA_HOME%\bin\thundercat@VERSION_MAJOR@.exe"
 
 rem Set default Service name
 set SERVICE_NAME=Tomcat@VERSION_MAJOR@
@@ -139,11 +139,11 @@ set JVM=auto
 :foundJvm
 echo Using JVM:              "%JVM%"
 
-set "CLASSPATH=%CATALINA_HOME%\bin\bootstrap.jar;%CATALINA_BASE%\bin\tomcat-juli.jar"
-if not "%CATALINA_HOME%" == "%CATALINA_BASE%" set "CLASSPATH=%CLASSPATH%;%CATALINA_HOME%\bin\tomcat-juli.jar"
+set "CLASSPATH=%CATALINA_HOME%\bin\bootstrap.jar;%CATALINA_BASE%\bin\thundercat-juli.jar"
+if not "%CATALINA_HOME%" == "%CATALINA_BASE%" set "CLASSPATH=%CLASSPATH%;%CATALINA_HOME%\bin\thundercat-juli.jar"
 
 "%EXECUTABLE%" //IS//%SERVICE_NAME% ^
-    --Description "Apache Tomcat @VERSION@ Server - http://tomcat.apache.org/" ^
+    --Description "Apache Tomcat @VERSION@ Server - http://thundercat.apache.org/" ^
     --DisplayName "%DISPLAYNAME%" ^
     --Install "%EXECUTABLE%" ^
     --LogPath "%CATALINA_BASE%\logs" ^

@@ -14,16 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.pool2.impl;
+package org.apache.thundercat.dbcp.pool2.impl;
 
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Deque;
 
-import org.apache.tomcat.dbcp.pool2.PooledObject;
-import org.apache.tomcat.dbcp.pool2.PooledObjectState;
-import org.apache.tomcat.dbcp.pool2.TrackedUse;
+import org.apache.thundercat.dbcp.pool2.PooledObject;
+import org.apache.thundercat.dbcp.pool2.PooledObjectState;
+import org.apache.thundercat.dbcp.pool2.TrackedUse;
 
 /**
  * This wrapper is used to track the additional information, such as state, for

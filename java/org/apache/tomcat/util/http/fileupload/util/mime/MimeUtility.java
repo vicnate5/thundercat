@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.http.fileupload.util.mime;
+package org.apache.thundercat.util.http.fileupload.util.mime;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import org.apache.tomcat.util.codec.binary.Base64;
+import org.apache.thundercat.util.codec.binary.Base64;
 
 /**
  * Utility class to decode MIME texts.

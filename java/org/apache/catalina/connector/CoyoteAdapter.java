@@ -40,16 +40,16 @@ import org.apache.coyote.ActionCode;
 import org.apache.coyote.Adapter;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.buf.B2CConverter;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.buf.CharChunk;
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.http.ServerCookie;
-import org.apache.tomcat.util.http.ServerCookies;
-import org.apache.tomcat.util.net.SSLSupport;
-import org.apache.tomcat.util.net.SocketStatus;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.buf.B2CConverter;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.CharChunk;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.http.ServerCookie;
+import org.apache.thundercat.util.http.ServerCookies;
+import org.apache.thundercat.util.net.SSLSupport;
+import org.apache.thundercat.util.net.SocketStatus;
+import org.apache.thundercat.util.res.StringManager;
 
 
 /**

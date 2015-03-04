@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.jni;
+package org.apache.thundercat.jni;
 
 /** Open SSL BIO Callback Interface
  *

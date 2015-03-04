@@ -22,7 +22,7 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestRewriteValve extends TomcatBaseTest {
 
@@ -47,10 +47,10 @@ public class TestRewriteValve extends TomcatBaseTest {
     }
 
     private void doTestRewrite(String config, String request, String expectedURI) throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         RewriteValve rewriteValve = new RewriteValve();
         ctx.getPipeline().addValve(rewriteValve);
@@ -62,7 +62,7 @@ public class TestRewriteValve extends TomcatBaseTest {
         Tomcat.addServlet(ctx, "snoop", new SnoopServlet());
         ctx.addServletMapping("/a/%255A", "snoop");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() + request);
 

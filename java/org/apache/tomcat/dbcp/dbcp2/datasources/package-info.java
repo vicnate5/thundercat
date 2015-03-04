@@ -30,7 +30,7 @@
  * J2EE containers will provide some way of deploying resources into JNDI.  The
  * method will vary among containers, but once the resource is available via
  * JNDI, the application can access the resource in a container independent
- * manner.  The following example shows deployment into tomcat (catalina).
+ * manner.  The following example shows deployment into thundercat (catalina).
  * </p>
  * <p>In server.xml, the following would be added to the &lt;Context&gt; for your
  * webapp:
@@ -38,11 +38,11 @@
  *
  * <code>
  *  &lt;Resource name="jdbc/bookstore" auth="Container"
- *             type="org.apache.tomcat.dbcp.dbcp2.datasources.PerUserPoolPoolDataSource"/&gt;
+ *             type="org.apache.thundercat.dbcp.dbcp2.datasources.PerUserPoolPoolDataSource"/&gt;
  *   &lt;ResourceParams name="jdbc/bookstore"&gt;
  *     &lt;parameter&gt;
  *       &lt;name&gt;factory&lt;/name&gt;
- *       &lt;value&gt;org.apache.tomcat.dbcp.dbcp2.datasources.PerUserPoolDataSourceFactory&lt;/value&gt;
+ *       &lt;value&gt;org.apache.thundercat.dbcp.dbcp2.datasources.PerUserPoolDataSourceFactory&lt;/value&gt;
  *     &lt;/parameter&gt;
  *     &lt;parameter&gt;
  *       &lt;name&gt;dataSourceName&lt;/name&gt;&lt;value&gt;java:comp/env/jdbc/bookstoreCPDS&lt;/value&gt;
@@ -69,7 +69,7 @@
  *     jdbc/bookstore
  *   &lt;/res-ref-name&gt;
  *   &lt;res-type&gt;
- *     org.apache.tomcat.dbcp.dbcp2.datasources.PerUserPoolDataSource
+ *     org.apache.thundercat.dbcp.dbcp2.datasources.PerUserPoolDataSource
  *   &lt;/res-type&gt;
  *   &lt;res-auth&gt;
  *     Container
@@ -180,4 +180,4 @@
  *     }
  * </code>
  */
-package org.apache.tomcat.dbcp.dbcp2.datasources;
+package org.apache.thundercat.dbcp.dbcp2.datasources;

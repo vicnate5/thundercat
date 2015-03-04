@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.scan;
+package org.apache.thundercat.util.scan;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,9 +23,9 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import org.apache.tomcat.JarScanFilter;
-import org.apache.tomcat.JarScanType;
-import org.apache.tomcat.util.file.Matcher;
+import org.apache.thundercat.JarScanFilter;
+import org.apache.thundercat.JarScanType;
+import org.apache.thundercat.util.file.Matcher;
 
 public class StandardJarScanFilter implements JarScanFilter {
 

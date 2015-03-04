@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -22,8 +22,8 @@ import java.sql.Statement;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.pool.interceptor.QueryTimeoutInterceptor;
-import org.apache.tomcat.jdbc.test.driver.Driver;
+import org.apache.thundercat.jdbc.pool.interceptor.QueryTimeoutInterceptor;
+import org.apache.thundercat.jdbc.test.driver.Driver;
 
 public class TestQueryTimeoutInterceptor extends DefaultTestCase {
 
@@ -35,7 +35,7 @@ public class TestQueryTimeoutInterceptor extends DefaultTestCase {
         this.datasource.setMaxActive(withuser+withoutuser);
         this.datasource.setJdbcInterceptors(QueryTimeoutInterceptor.class.getName()+"(queryTimeout="+timeout+")");
         this.datasource.setDriverClassName(Driver.class.getName());
-        this.datasource.setUrl("jdbc:tomcat:test");
+        this.datasource.setUrl("jdbc:thundercat:test");
         Connection con = this.datasource.getConnection();
         Statement st = con.createStatement();
         Assert.assertEquals(st.getClass().getName(),timeout,st.getQueryTimeout());

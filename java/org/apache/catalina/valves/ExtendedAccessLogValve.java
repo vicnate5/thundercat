@@ -38,7 +38,7 @@ import org.apache.catalina.connector.Response;
 import org.apache.catalina.util.ServerInfo;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
+import org.apache.thundercat.util.ExceptionUtils;
 
 /**
  * An implementation of the W3c Extended Log File Format. See

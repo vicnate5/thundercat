@@ -29,10 +29,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.catalina.Globals;
 import org.apache.coyote.ActionCode;
 import org.apache.coyote.Response;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.buf.C2BConverter;
-import org.apache.tomcat.util.buf.CharChunk;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.C2BConverter;
+import org.apache.thundercat.util.buf.CharChunk;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * The buffer used by Tomcat response. This is a derivative of the Tomcat 3.3

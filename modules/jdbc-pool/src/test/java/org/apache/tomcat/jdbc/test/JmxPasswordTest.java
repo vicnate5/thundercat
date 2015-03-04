@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.lang.management.ManagementFactory;
 import java.util.Hashtable;
@@ -28,10 +28,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.pool.ConnectionPool;
-import org.apache.tomcat.jdbc.pool.PoolUtilities;
-import org.apache.tomcat.jdbc.pool.jmx.ConnectionPoolMBean;
-import org.apache.tomcat.jdbc.test.driver.Driver;
+import org.apache.thundercat.jdbc.pool.ConnectionPool;
+import org.apache.thundercat.jdbc.pool.PoolUtilities;
+import org.apache.thundercat.jdbc.pool.jmx.ConnectionPoolMBean;
+import org.apache.thundercat.jdbc.test.driver.Driver;
 
 public class JmxPasswordTest extends DefaultTestCase{
     public static final String password = "password";
@@ -41,18 +41,18 @@ public class JmxPasswordTest extends DefaultTestCase{
     @Before
     public void setUp() throws Exception {
         this.datasource.setDriverClassName(Driver.class.getName());
-        this.datasource.setUrl("jdbc:tomcat:test");
+        this.datasource.setUrl("jdbc:thundercat:test");
         this.datasource.setPassword(password);
         this.datasource.setUsername(username);
         this.datasource.getConnection().close();
         MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
-        String domain = "tomcat.jdbc";
+        String domain = "thundercat.jdbc";
         Hashtable<String,String> properties = new Hashtable<>();
         properties.put("type", "ConnectionPool");
         properties.put("class", this.getClass().getName());
         oname = new ObjectName(domain,properties);
         ConnectionPool pool = datasource.createPool();
-        org.apache.tomcat.jdbc.pool.jmx.ConnectionPool jmxPool = new org.apache.tomcat.jdbc.pool.jmx.ConnectionPool(pool);
+        org.apache.thundercat.jdbc.pool.jmx.ConnectionPool jmxPool = new org.apache.thundercat.jdbc.pool.jmx.ConnectionPool(pool);
         mbs.registerMBean(jmxPool, oname);
 
     }

@@ -18,10 +18,10 @@
 package org.apache.coyote.http11;
 
 import org.apache.coyote.Adapter;
-import org.apache.tomcat.util.net.AbstractEndpoint;
-import org.apache.tomcat.util.net.AbstractEndpoint.Handler.SocketState;
-import org.apache.tomcat.util.net.SocketStatus;
-import org.apache.tomcat.util.net.SocketWrapperBase;
+import org.apache.thundercat.util.net.AbstractEndpoint;
+import org.apache.thundercat.util.net.AbstractEndpoint.Handler.SocketState;
+import org.apache.thundercat.util.net.SocketStatus;
+import org.apache.thundercat.util.net.SocketWrapperBase;
 
 /**
  * Interface specific for protocols that negotiate at NPN level, like

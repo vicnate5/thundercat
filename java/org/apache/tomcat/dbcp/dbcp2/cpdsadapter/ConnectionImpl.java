@@ -15,14 +15,14 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.dbcp.dbcp2.cpdsadapter;
+package org.apache.thundercat.dbcp.dbcp2.cpdsadapter;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import org.apache.tomcat.dbcp.dbcp2.DelegatingConnection;
-import org.apache.tomcat.dbcp.dbcp2.DelegatingPreparedStatement;
+import org.apache.thundercat.dbcp.dbcp2.DelegatingConnection;
+import org.apache.thundercat.dbcp.dbcp2.DelegatingPreparedStatement;
 
 /**
  * This class is the <code>Connection</code> that will be returned

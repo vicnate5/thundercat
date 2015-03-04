@@ -33,25 +33,25 @@ import org.apache.catalina.LifecycleException;
 import org.apache.catalina.core.StandardHost;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestReplicatedContext extends TomcatBaseTest {
 
     @Test
     public void testBug57425() throws LifecycleException, IOException {
-        Tomcat tomcat = getTomcatInstance();
-        Host host = tomcat.getHost();
+        Tomcat thundercat = getTomcatInstance();
+        Host host = thundercat.getHost();
         if (host instanceof StandardHost) {
             ((StandardHost) host).setContextClass(ReplicatedContext.class.getName());
         }
 
         File root = new File("test/webapp");
-        Context context = tomcat.addWebapp(host, "", "", root.getAbsolutePath());
+        Context context = thundercat.addWebapp(host, "", "", root.getAbsolutePath());
 
         Tomcat.addServlet(context, "test", new AccessContextServlet());
         context.addServletMapping("/access", "test");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk result = getUrl("http://localhost:" + getPort() + "/access");
 

@@ -41,7 +41,7 @@ import javax.naming.spi.ObjectFactory;
  * <li><strong>pathname</strong> - Absolute or relative (to the directory
  *     path specified by the <code>catalina.base</code> system property)
  *     pathname to the XML file from which our user information is loaded,
- *     and to which it is stored.  [conf/tomcat-users.xml]</li>
+ *     and to which it is stored.  [conf/thundercat-users.xml]</li>
  * </ul>
  *
  * @author Craig R. McClanahan

@@ -26,12 +26,12 @@ import javax.management.RuntimeOperationsException;
 import javax.management.modelmbean.InvalidTargetObjectTypeException;
 
 import org.apache.catalina.connector.Connector;
-import org.apache.tomcat.util.IntrospectionUtils;
+import org.apache.thundercat.util.IntrospectionUtils;
 
 
 /**
  * <p>A <strong>ModelMBean</strong> implementation for the
- * <code>org.apache.coyote.tomcat5.CoyoteConnector</code> component.</p>
+ * <code>org.apache.coyote.thundercat5.CoyoteConnector</code> component.</p>
  *
  * @author Amy Roh
  */

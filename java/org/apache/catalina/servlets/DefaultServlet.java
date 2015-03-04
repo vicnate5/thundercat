@@ -69,9 +69,9 @@ import org.apache.catalina.connector.ResponseFacade;
 import org.apache.catalina.util.RequestUtil;
 import org.apache.catalina.util.ServerInfo;
 import org.apache.catalina.util.URLEncoder;
-import org.apache.tomcat.util.res.StringManager;
-import org.apache.tomcat.util.security.PrivilegedGetTccl;
-import org.apache.tomcat.util.security.PrivilegedSetTccl;
+import org.apache.thundercat.util.res.StringManager;
+import org.apache.thundercat.util.security.PrivilegedGetTccl;
+import org.apache.thundercat.util.security.PrivilegedSetTccl;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -99,10 +99,10 @@ import org.xml.sax.ext.EntityResolver2;
  * <pre>
  * /context
  *   /images
- *     tomcat2.jpg
+ *     thundercat2.jpg
  *   /static
  *     /images
- *       tomcat.jpg
+ *       thundercat.jpg
  * </pre>
  * <p>
  * ... and a servlet mapping that maps only <code>/static/*</code> to the default servlet:
@@ -114,8 +114,8 @@ import org.xml.sax.ext.EntityResolver2;
  *   &lt;/servlet-mapping&gt;
  * </pre>
  * <p>
- * Then a request to <code>/context/static/images/tomcat.jpg</code> will succeed
- * while a request to <code>/context/images/tomcat2.jpg</code> will fail.
+ * Then a request to <code>/context/static/images/thundercat.jpg</code> will succeed
+ * while a request to <code>/context/images/thundercat2.jpg</code> will fail.
  * </p>
  * @author Craig R. McClanahan
  * @author Remy Maucherat

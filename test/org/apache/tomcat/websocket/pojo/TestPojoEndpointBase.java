@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket.pojo;
+package org.apache.thundercat.websocket.pojo;
 
 import java.net.URI;
 import java.util.concurrent.CountDownLatch;
@@ -37,9 +37,9 @@ import org.apache.catalina.Context;
 import org.apache.catalina.servlets.DefaultServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.websocket.TestUtil;
-import org.apache.tomcat.websocket.pojo.TesterUtil.ServerConfigListener;
-import org.apache.tomcat.websocket.pojo.TesterUtil.SingletonConfigurator;
+import org.apache.thundercat.websocket.TestUtil;
+import org.apache.thundercat.websocket.pojo.TesterUtil.ServerConfigListener;
+import org.apache.thundercat.websocket.pojo.TesterUtil.SingletonConfigurator;
 
 public class TestPojoEndpointBase extends TomcatBaseTest {
 
@@ -51,9 +51,9 @@ public class TestPojoEndpointBase extends TomcatBaseTest {
         SingletonConfigurator.setInstance(server);
         ServerConfigListener.setPojoClazz(Bug54716.class);
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(ServerConfigListener.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
@@ -62,7 +62,7 @@ public class TestPojoEndpointBase extends TomcatBaseTest {
                 ContainerProvider.getWebSocketContainer();
 
 
-        tomcat.start();
+        thundercat.start();
 
         Client client = new Client();
         URI uri = new URI("ws://localhost:" + getPort() + "/");
@@ -82,9 +82,9 @@ public class TestPojoEndpointBase extends TomcatBaseTest {
         SingletonConfigurator.setInstance(server);
         ServerConfigListener.setPojoClazz(OnOpenServerEndpoint.class);
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(ServerConfigListener.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
@@ -93,7 +93,7 @@ public class TestPojoEndpointBase extends TomcatBaseTest {
                 ContainerProvider.getWebSocketContainer();
 
 
-        tomcat.start();
+        thundercat.start();
 
         Client client = new Client();
         URI uri = new URI("ws://localhost:" + getPort() + "/");

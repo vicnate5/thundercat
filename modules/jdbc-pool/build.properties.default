@@ -79,17 +79,17 @@ mysql.home=${base.path}/mysql-connector-java-5.1.12
 mysql.jar=${mysql.home}/mysql-connector-java-5.1.12-bin.jar
 mysql.loc=http://mysql.mirrors.hoobly.com/Downloads/Connector-J/mysql-connector-java-5.1.12.zip
 
-tomcat.version=8.0.14
-tomcat.home=${base.path}/apache-tomcat-${tomcat.version}
-tomcat.dbcp.jar=${tomcat.home}/lib/tomcat-dbcp.jar
-tomcat.juli.jar=${tomcat.home}/bin/tomcat-juli.jar
-tomcat.loc=http://archive.apache.org/dist/tomcat/tomcat-8/v${tomcat.version}/bin/apache-tomcat-${tomcat.version}.zip
+thundercat.version=8.0.14
+thundercat.home=${base.path}/apache-thundercat-${thundercat.version}
+thundercat.dbcp.jar=${thundercat.home}/lib/thundercat-dbcp.jar
+thundercat.juli.jar=${thundercat.home}/bin/thundercat-juli.jar
+thundercat.loc=http://archive.apache.org/dist/thundercat/thundercat-8/v${thundercat.version}/bin/apache-thundercat-${thundercat.version}.zip
 
-tomcat.project.loc=http://svn.apache.org/repos/asf/tomcat/trunk/webapps/docs/project.xml
-tomcat.project.dest=${base.path}/project.xml
+thundercat.project.loc=http://svn.apache.org/repos/asf/thundercat/trunk/webapps/docs/project.xml
+thundercat.project.dest=${base.path}/project.xml
 
-tomcat.xsl.loc=http://svn.apache.org/repos/asf/tomcat/trunk/webapps/docs/tomcat-docs.xsl
-tomcat.xsl.dest=${base.path}/tomcat-docs.xsl
+thundercat.xsl.loc=http://svn.apache.org/repos/asf/thundercat/trunk/webapps/docs/thundercat-docs.xsl
+thundercat.xsl.dest=${base.path}/thundercat-docs.xsl
 
 derby.home=${base.path}/db-derby-10.5.1.1-bin
 derby.loc=http://archive.apache.org/dist/db/derby/db-derby-10.5.1.1/db-derby-10.5.1.1-bin.tar.gz

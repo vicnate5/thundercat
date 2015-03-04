@@ -20,8 +20,8 @@ package org.apache.catalina.startup;
 
 import java.util.HashMap;
 
-import org.apache.tomcat.util.IntrospectionUtils;
-import org.apache.tomcat.util.digester.Rule;
+import org.apache.thundercat.util.IntrospectionUtils;
+import org.apache.thundercat.util.digester.Rule;
 import org.xml.sax.Attributes;
 
 /**

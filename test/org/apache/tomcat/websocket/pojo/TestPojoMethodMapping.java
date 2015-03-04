@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket.pojo;
+package org.apache.thundercat.websocket.pojo;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -36,9 +36,9 @@ import org.apache.catalina.Context;
 import org.apache.catalina.servlets.DefaultServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.websocket.pojo.TesterUtil.ServerConfigListener;
-import org.apache.tomcat.websocket.pojo.TesterUtil.SimpleClient;
-import org.apache.tomcat.websocket.pojo.TesterUtil.SingletonConfigurator;
+import org.apache.thundercat.websocket.pojo.TesterUtil.ServerConfigListener;
+import org.apache.thundercat.websocket.pojo.TesterUtil.SimpleClient;
+import org.apache.thundercat.websocket.pojo.TesterUtil.SingletonConfigurator;
 
 public class TestPojoMethodMapping extends TomcatBaseTest {
 
@@ -54,9 +54,9 @@ public class TestPojoMethodMapping extends TomcatBaseTest {
         SingletonConfigurator.setInstance(server);
         ServerConfigListener.setPojoClazz(Server.class);
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(ServerConfigListener.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
@@ -65,7 +65,7 @@ public class TestPojoMethodMapping extends TomcatBaseTest {
                 ContainerProvider.getWebSocketContainer();
 
 
-        tomcat.start();
+        thundercat.start();
 
         SimpleClient client = new SimpleClient();
         URI uri = new URI("ws://localhost:" + getPort() + "/" + PARAM_ONE +

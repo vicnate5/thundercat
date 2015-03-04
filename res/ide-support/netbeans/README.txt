@@ -71,10 +71,10 @@ achieve a useful level of integration.
 
    Warning: The support for Tomcat in NetBeans will detect and use this
             property. However, if you have left it to default, you MUST
-            still define this path in the nb-tomcat-project.properties file!
+            still define this path in the nb-thundercat-project.properties file!
 
    Note: The current support for Tomcat in NetBeans does not include the
-         components in the modules directory (e.g. tomcate-lite).
+         components in the modules directory (e.g. thundercate-lite).
 
 4. Start NetBeans... once it has initialised and scanned your other open
    projects, just open an existing project and select the location of

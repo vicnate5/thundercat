@@ -32,7 +32,7 @@ import org.apache.catalina.WebResource;
 import org.apache.catalina.WebResourceRoot;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 
 /**

@@ -35,7 +35,7 @@ import org.apache.catalina.Context;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestCoyoteOutputStream extends TomcatBaseTest {
 
@@ -72,9 +72,9 @@ public class TestCoyoteOutputStream extends TomcatBaseTest {
     private void doNonBlockingTest(int asyncWriteTarget, int syncWriteTarget)
             throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
-        Context root = tomcat.addContext("", TEMP_DIR);
+        Context root = thundercat.addContext("", TEMP_DIR);
         Wrapper w = Tomcat.addServlet(root, "nbWrite",
                 new NonBlockingWriteServlet(asyncWriteTarget));
         w.setAsyncSupported(true);
@@ -84,7 +84,7 @@ public class TestCoyoteOutputStream extends TomcatBaseTest {
         w.setAsyncSupported(true);
         root.addServletMapping("/write", "write");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk bc = new ByteChunk();
         // Extend timeout to 5 mins for debugging

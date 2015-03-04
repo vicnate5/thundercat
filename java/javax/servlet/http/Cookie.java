@@ -57,7 +57,7 @@ public class Cookie implements Cloneable, Serializable {
     private static final CookieNameValidator validation;
     static {
         boolean strictNaming;
-        String prop = System.getProperty("org.apache.tomcat.util.http.ServerCookie.STRICT_NAMING");
+        String prop = System.getProperty("org.apache.thundercat.util.http.ServerCookie.STRICT_NAMING");
         if (prop != null) {
             strictNaming = Boolean.parseBoolean(prop);
         } else {
@@ -439,7 +439,7 @@ class RFC6265Validator extends CookieNameValidator {
 
         // special treatment to allow for FWD_SLASH_IS_SEPARATOR property
         boolean allowSlash;
-        String prop = System.getProperty("org.apache.tomcat.util.http.ServerCookie.FWD_SLASH_IS_SEPARATOR");
+        String prop = System.getProperty("org.apache.thundercat.util.http.ServerCookie.FWD_SLASH_IS_SEPARATOR");
         if (prop != null) {
             allowSlash = !Boolean.parseBoolean(prop);
         } else {

@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.jdbc.pool.interceptor;
+package org.apache.thundercat.jdbc.pool.interceptor;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;
@@ -29,7 +29,7 @@ import java.sql.Statement;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.jdbc.pool.JdbcInterceptor;
+import org.apache.thundercat.jdbc.pool.JdbcInterceptor;
 /**
  * Abstract class that wraps statements and intercepts query executions.
  *

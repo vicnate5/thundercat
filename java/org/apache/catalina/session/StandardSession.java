@@ -55,8 +55,8 @@ import org.apache.catalina.SessionEvent;
 import org.apache.catalina.SessionListener;
 import org.apache.catalina.TomcatPrincipal;
 import org.apache.catalina.security.SecurityUtil;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Standard implementation of the <b>Session</b> interface.  This object is

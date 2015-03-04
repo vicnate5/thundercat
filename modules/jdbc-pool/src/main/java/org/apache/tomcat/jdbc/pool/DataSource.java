@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool;
+package org.apache.thundercat.jdbc.pool;
 
 import java.lang.management.ManagementFactory;
 import java.util.Hashtable;
@@ -35,7 +35,7 @@ import org.apache.juli.logging.LogFactory;
  * The DataSource simply wraps a {@link ConnectionPool} in order to provide a standard interface to the user.
  * @version 1.0
  */
-public class DataSource extends DataSourceProxy implements javax.sql.DataSource,MBeanRegistration, org.apache.tomcat.jdbc.pool.jmx.ConnectionPoolMBean, javax.sql.ConnectionPoolDataSource {
+public class DataSource extends DataSourceProxy implements javax.sql.DataSource,MBeanRegistration, org.apache.thundercat.jdbc.pool.jmx.ConnectionPoolMBean, javax.sql.ConnectionPoolDataSource {
     private static final Log log = LogFactory.getLog(DataSource.class);
 
     /**
@@ -58,7 +58,7 @@ public class DataSource extends DataSourceProxy implements javax.sql.DataSource,
 
 
 //===============================================================================
-//  JMX Operations - Register the actual pool itself under the tomcat.jdbc domain
+//  JMX Operations - Register the actual pool itself under the thundercat.jdbc domain
 //===============================================================================
     protected volatile ObjectName oname = null;
 
@@ -120,7 +120,7 @@ public class DataSource extends DataSourceProxy implements javax.sql.DataSource,
         properties.put("type", "ConnectionPool");
         properties.put("class", this.getClass().getName());
         if (original.getKeyProperty("path")!=null || properties.get("context")!=null) {
-            //this ensures that if the registration came from tomcat, we're not losing
+            //this ensures that if the registration came from thundercat, we're not losing
             //the unique domain, but putting that into as an engine attribute
             properties.put("engine", origDomain);
         }

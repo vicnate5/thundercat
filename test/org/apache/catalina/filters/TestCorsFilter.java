@@ -1142,7 +1142,7 @@ public class TestCorsFilter {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         TesterHttpServletResponse response = new TesterHttpServletResponse();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                "http://tomcat.apache.org");
+                "http://thundercat.apache.org");
         request.setMethod("PUT");
         CorsFilter corsFilter = new CorsFilter();
         corsFilter.init(TesterFilterConfigs
@@ -1161,7 +1161,7 @@ public class TestCorsFilter {
     public void testCheckNullRequestMethod() throws ServletException {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                "http://tomcat.apache.org");
+                "http://thundercat.apache.org");
         request.setMethod(null);
         CorsFilter corsFilter = new CorsFilter();
         corsFilter.init(TesterFilterConfigs
@@ -1173,8 +1173,8 @@ public class TestCorsFilter {
     }
 
     /*
-     * "http://tomcat.apache.org" is an allowed origin and
-     * "https://tomcat.apache.org" is not, because scheme doesn't match
+     * "http://thundercat.apache.org" is an allowed origin and
+     * "https://thundercat.apache.org" is not, because scheme doesn't match
      *
      * @throws ServletException
      */
@@ -1182,7 +1182,7 @@ public class TestCorsFilter {
     public void testCheckForSchemeVariance() throws ServletException {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                "https://tomcat.apache.org");
+                "https://thundercat.apache.org");
         request.setMethod("POST");
         CorsFilter corsFilter = new CorsFilter();
         corsFilter.init(TesterFilterConfigs
@@ -1194,8 +1194,8 @@ public class TestCorsFilter {
     }
 
     /*
-     * "http://tomcat.apache.org" is an allowed origin and
-     * "http://tomcat.apache.org:8080" is not, because ports doesn't match
+     * "http://thundercat.apache.org" is an allowed origin and
+     * "http://thundercat.apache.org:8080" is not, because ports doesn't match
      *
      * @throws ServletException
      * @throws IOException
@@ -1205,7 +1205,7 @@ public class TestCorsFilter {
         TesterHttpServletRequest request = new TesterHttpServletRequest();
         TesterHttpServletResponse response = new TesterHttpServletResponse();
         request.setHeader(CorsFilter.REQUEST_HEADER_ORIGIN,
-                "http://tomcat.apache.org:8080");
+                "http://thundercat.apache.org:8080");
         request.setMethod("GET");
         CorsFilter corsFilter = new CorsFilter();
         corsFilter.init(TesterFilterConfigs

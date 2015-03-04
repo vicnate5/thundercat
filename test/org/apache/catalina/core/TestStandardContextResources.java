@@ -44,8 +44,8 @@ import org.apache.catalina.startup.Constants;
 import org.apache.catalina.startup.ContextConfig;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.descriptor.web.WebXml;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.descriptor.web.WebXml;
 
 public class TestStandardContextResources extends TomcatBaseTest {
 
@@ -53,25 +53,25 @@ public class TestStandardContextResources extends TomcatBaseTest {
     public void setUp() throws Exception {
         super.setUp();
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // BZ 49218: The test fails if JreMemoryLeakPreventionListener is not
         // present. The listener affects the JVM, and thus not only the current,
         // but also the subsequent tests that are run in the same JVM. So it is
         // fair to add it in every test.
-        tomcat.getServer().addLifecycleListener(
+        thundercat.getServer().addLifecycleListener(
                 new JreMemoryLeakPreventionListener());
     }
 
     @Test
     public void testResources() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp-fragments");
         // app dir is relative to server home
-        Context ctx = tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        Context ctx = thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         assertPageContains("/test/resourceA.jsp",
                 "<p>resourceA.jsp in the web application</p>");
@@ -102,17 +102,17 @@ public class TestStandardContextResources extends TomcatBaseTest {
 
     @Test
     public void testResourcesWebInfClasses() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // app dir is relative to server home
         File appDir = new File("test/webapp-fragments");
 
         // Need to cast to be able to set StandardContext specific attribute
         StandardContext ctxt = (StandardContext)
-            tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+            thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
         ctxt.setAddWebinfClassesResources(true);
 
-        tomcat.start();
+        thundercat.start();
 
         assertPageContains("/test/resourceA.jsp",
                 "<p>resourceA.jsp in the web application</p>");
@@ -130,11 +130,11 @@ public class TestStandardContextResources extends TomcatBaseTest {
 
     @Test
     public void testResourcesAbsoluteOrdering() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp-fragments");
         // app dir is relative to server home
-        StandardContext ctx = (StandardContext) tomcat.addWebapp(null, "/test",
+        StandardContext ctx = (StandardContext) thundercat.addWebapp(null, "/test",
                 appDir.getAbsolutePath());
         LifecycleListener[] listener = ctx.findLifecycleListeners();
         assertEquals(3,listener.length);
@@ -154,7 +154,7 @@ public class TestStandardContextResources extends TomcatBaseTest {
         Tomcat.addServlet(ctx, "getresource", new GetResourceServlet());
         ctx.addServletMapping("/getresource", "getresource");
 
-        tomcat.start();
+        thundercat.start();
         assertPageContains("/test/getresource?path=/resourceF.jsp",
         "<p>resourceF.jsp in resources2.jar</p>");
         assertPageContains("/test/getresource?path=/resourceB.jsp",
@@ -200,17 +200,17 @@ public class TestStandardContextResources extends TomcatBaseTest {
 
     @Test
     public void testResources2() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp-fragments");
         // app dir is relative to server home
-        StandardContext ctx = (StandardContext) tomcat.addWebapp(null, "/test",
+        StandardContext ctx = (StandardContext) thundercat.addWebapp(null, "/test",
                 appDir.getAbsolutePath());
 
         Tomcat.addServlet(ctx, "getresource", new GetResourceServlet());
         ctx.addServletMapping("/getresource", "getresource");
 
-        tomcat.start();
+        thundercat.start();
 
         assertPageContains("/test/getresource?path=/resourceF.jsp",
                 "<p>resourceF.jsp in resources2.jar</p>");

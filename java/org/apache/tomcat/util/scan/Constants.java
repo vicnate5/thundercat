@@ -15,20 +15,20 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.util.scan;
+package org.apache.thundercat.util.scan;
 
 /**
  * String constants for the scan package.
  */
 public final class Constants {
 
-    public static final String Package = "org.apache.tomcat.util.scan";
+    public static final String Package = "org.apache.thundercat.util.scan";
 
     /* System properties */
     public static final String SKIP_JARS_PROPERTY =
-            "tomcat.util.scan.StandardJarScanFilter.jarsToSkip";
+            "thundercat.util.scan.StandardJarScanFilter.jarsToSkip";
     public static final String SCAN_JARS_PROPERTY =
-            "tomcat.util.scan.StandardJarScanFilter.jarsToScan";
+            "thundercat.util.scan.StandardJarScanFilter.jarsToScan";
 
     /* Commons strings */
     public static final String JAR_EXT = ".jar";
@@ -36,5 +36,5 @@ public final class Constants {
 
     /* Context attributes - used to pass short-cuts to Jasper */
     public static final String MERGED_WEB_XML =
-        "org.apache.tomcat.util.scan.MergedWebXml";
+        "org.apache.thundercat.util.scan.MergedWebXml";
 }

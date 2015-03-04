@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket.pojo;
+package org.apache.thundercat.websocket.pojo;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -23,7 +23,7 @@ import javax.websocket.DecodeException;
 import javax.websocket.MessageHandler;
 import javax.websocket.Session;
 
-import org.apache.tomcat.websocket.WsSession;
+import org.apache.thundercat.websocket.WsSession;
 
 /**
  * Common implementation code for the POJO whole message handlers. All the real

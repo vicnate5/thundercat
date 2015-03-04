@@ -17,11 +17,11 @@
 -->
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.apache.tomcat.extras</groupId>
-  <artifactId>tomcat-extras-juli-adapters</artifactId>
+  <groupId>org.apache.thundercat.extras</groupId>
+  <artifactId>thundercat-extras-juli-adapters</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
   <description>Adapters to plug in other logging frameworks in Tomcat</description>
-  <url>http://tomcat.apache.org/</url>
+  <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -31,14 +31,14 @@
   </licenses>
   <dependencies>
     <dependency>
-      <groupId>org.apache.tomcat.extras</groupId>
-      <artifactId>tomcat-extras-juli</artifactId>
+      <groupId>org.apache.thundercat.extras</groupId>
+      <artifactId>thundercat-extras-juli</artifactId>
       <version>@MAVEN.DEPLOY.VERSION@</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>org.apache.tomcat</groupId>
-      <artifactId>tomcat-servlet-api</artifactId>
+      <groupId>org.apache.thundercat</groupId>
+      <artifactId>thundercat-servlet-api</artifactId>
       <version>@MAVEN.DEPLOY.VERSION@</version>
       <scope>compile</scope>
       <optional>true</optional>

@@ -212,7 +212,7 @@
                writeable="false" />
 
     <attribute name="privileged"
-               description="Access to tomcat internals"
+               description="Access to thundercat internals"
                type="boolean"/>
 
     <attribute name="processingTime"

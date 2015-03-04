@@ -21,7 +21,7 @@
       version="2.0">
   <tlib-version>1.0</tlib-version>
   <short-name>Tags20</short-name>
-  <uri>http://tomcat.apache.org/tags20</uri>
+  <uri>http://thundercat.apache.org/tags20</uri>
 
   <tag>
     <name>Echo</name>

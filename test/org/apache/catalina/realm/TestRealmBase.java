@@ -34,8 +34,8 @@ import org.apache.catalina.connector.TesterRequest;
 import org.apache.catalina.connector.TesterResponse;
 import org.apache.catalina.core.TesterContext;
 import org.apache.catalina.startup.TesterMapRealm;
-import org.apache.tomcat.util.descriptor.web.SecurityCollection;
-import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
+import org.apache.thundercat.util.descriptor.web.SecurityCollection;
+import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
 
 public class TestRealmBase {
 

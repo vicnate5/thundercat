@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.http.fileupload;
+package org.apache.thundercat.util.http.fileupload;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -22,9 +22,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 
-import org.apache.tomcat.util.http.fileupload.FileUploadBase.FileUploadIOException;
-import org.apache.tomcat.util.http.fileupload.util.Closeable;
-import org.apache.tomcat.util.http.fileupload.util.Streams;
+import org.apache.thundercat.util.http.fileupload.FileUploadBase.FileUploadIOException;
+import org.apache.thundercat.util.http.fileupload.util.Closeable;
+import org.apache.thundercat.util.http.fileupload.util.Streams;
 
 
 /**

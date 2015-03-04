@@ -28,7 +28,7 @@ import javax.security.auth.Subject;
 import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.Session;
-import org.apache.tomcat.util.ExceptionUtils;
+import org.apache.thundercat.util.ExceptionUtils;
 
 /**
  * Utility methods on HttpSessions...

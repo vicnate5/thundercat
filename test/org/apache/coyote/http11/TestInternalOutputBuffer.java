@@ -28,19 +28,19 @@ public class TestInternalOutputBuffer extends TomcatBaseTest {
 
     @Test
     public void testSendAck() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "echo", new EchoBodyServlet());
         ctx.addServletMapping("/echo", "echo");
 
-        tomcat.start();
+        thundercat.start();
 
         ExpectationClient client = new ExpectationClient();
 
-        client.setPort(tomcat.getConnector().getLocalPort());
+        client.setPort(thundercat.getConnector().getLocalPort());
         // Expected content doesn't end with a CR-LF so if it isn't chunked make
         // sure the content length is used as reading it line-by-line will fail
         // since there is no "line".

@@ -14,22 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool.interceptor;
+package org.apache.thundercat.jdbc.pool.interceptor;
 
 import java.lang.reflect.Method;
 import java.sql.SQLException;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.jdbc.pool.ConnectionPool;
-import org.apache.tomcat.jdbc.pool.DataSourceFactory;
-import org.apache.tomcat.jdbc.pool.JdbcInterceptor;
-import org.apache.tomcat.jdbc.pool.PoolConfiguration;
-import org.apache.tomcat.jdbc.pool.PooledConnection;
+import org.apache.thundercat.jdbc.pool.ConnectionPool;
+import org.apache.thundercat.jdbc.pool.DataSourceFactory;
+import org.apache.thundercat.jdbc.pool.JdbcInterceptor;
+import org.apache.thundercat.jdbc.pool.PoolConfiguration;
+import org.apache.thundercat.jdbc.pool.PooledConnection;
 
 /**
  * Interceptor that keep track of connection state to avoid roundtrips to the database.
- * The {@link org.apache.tomcat.jdbc.pool.ConnectionPool} is optimized to do as little work as possible.
+ * The {@link org.apache.thundercat.jdbc.pool.ConnectionPool} is optimized to do as little work as possible.
  * The pool itself doesn't remember settings like {@link java.sql.Connection#setAutoCommit(boolean)},
  * {@link java.sql.Connection#setReadOnly(boolean)}, {@link java.sql.Connection#setCatalog(String)} or
  * {@link java.sql.Connection#setTransactionIsolation(int)}. It relies on the application to remember how and when

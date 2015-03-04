@@ -46,9 +46,9 @@ import org.apache.catalina.util.LifecycleMBeanBase;
 import org.apache.catalina.util.ServerInfo;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.buf.StringCache;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.buf.StringCache;
+import org.apache.thundercat.util.res.StringManager;
 
 
 /**
@@ -394,7 +394,7 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
      */
     @Override
     public void await() {
-        // Negative values - don't wait on port - tomcat is embedded or we just don't like ports
+        // Negative values - don't wait on port - thundercat is embedded or we just don't like ports
         if( port == -2 ) {
             // undocumented yet - for embedding apps that are around, alive.
             return;

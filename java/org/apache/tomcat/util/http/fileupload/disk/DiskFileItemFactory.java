@@ -14,17 +14,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.http.fileupload.disk;
+package org.apache.thundercat.util.http.fileupload.disk;
 
 import java.io.File;
 
-import org.apache.tomcat.util.http.fileupload.FileItem;
-import org.apache.tomcat.util.http.fileupload.FileItemFactory;
+import org.apache.thundercat.util.http.fileupload.FileItem;
+import org.apache.thundercat.util.http.fileupload.FileItemFactory;
 
 /**
- * <p>The default {@link org.apache.tomcat.util.http.fileupload.FileItemFactory}
+ * <p>The default {@link org.apache.thundercat.util.http.fileupload.FileItemFactory}
  * implementation. This implementation creates
- * {@link org.apache.tomcat.util.http.fileupload.FileItem} instances which keep
+ * {@link org.apache.thundercat.util.http.fileupload.FileItem} instances which keep
  * their
  * content either in memory, for smaller items, or in a temporary file on disk,
  * for larger items. The size threshold, above which content will be stored on

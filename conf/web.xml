@@ -702,8 +702,8 @@
         <mime-type>application/atom+xml</mime-type>
     </mime-mapping>
     <mime-mapping>
-        <extension>atomcat</extension>
-        <mime-type>application/atomcat+xml</mime-type>
+        <extension>athundercat</extension>
+        <mime-type>application/athundercat+xml</mime-type>
     </mime-mapping>
     <mime-mapping>
         <extension>atomsvc</extension>

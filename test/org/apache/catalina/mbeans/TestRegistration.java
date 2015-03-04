@@ -42,7 +42,7 @@ import org.apache.catalina.realm.CombinedRealm;
 import org.apache.catalina.realm.NullRealm;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.modeler.Registry;
+import org.apache.thundercat.util.modeler.Registry;
 
 /**
  * General tests around the process of registration and de-registration that
@@ -157,20 +157,20 @@ public class TestRegistration extends TomcatBaseTest {
         log.info(MBeanDumper.dumpBeans(mbeanServer, onames));
         assertEquals("Unexpected: " + onames, 0, onames.size());
 
-        final Tomcat tomcat = getTomcatInstance();
+        final Tomcat thundercat = getTomcatInstance();
         final File contextDir = new File(getTemporaryDirectory(), "webappFoo");
         addDeleteOnTearDown(contextDir);
         if (!contextDir.mkdirs() && !contextDir.isDirectory()) {
             fail("Failed to create: [" + contextDir.toString() + "]");
         }
-        Context ctx = tomcat.addContext(contextName, contextDir.getAbsolutePath());
+        Context ctx = thundercat.addContext(contextName, contextDir.getAbsolutePath());
 
         CombinedRealm combinedRealm = new CombinedRealm();
         Realm nullRealm = new NullRealm();
         combinedRealm.addRealm(nullRealm);
         ctx.setRealm(combinedRealm);
 
-        tomcat.start();
+        thundercat.start();
 
         getUrl("http://localhost:" + getPort());
 
@@ -187,7 +187,7 @@ public class TestRegistration extends TomcatBaseTest {
         }
 
         // Create the list of expected MBean names
-        String protocol = tomcat.getConnector().getProtocolHandlerClassName();
+        String protocol = thundercat.getConnector().getProtocolHandlerClassName();
         if (protocol.indexOf("Nio2") > 0) {
             protocol = "nio2";
         } else if (protocol.indexOf("Apr") > 0) {
@@ -195,7 +195,7 @@ public class TestRegistration extends TomcatBaseTest {
         } else {
             protocol = "nio";
         }
-        String index = tomcat.getConnector().getProperty("nameIndex").toString();
+        String index = thundercat.getConnector().getProperty("nameIndex").toString();
         ArrayList<String> expected = new ArrayList<>(Arrays.asList(basicMBeanNames()));
         expected.addAll(Arrays.asList(hostMBeanNames("localhost")));
         expected.addAll(Arrays.asList(contextMBeanNames("localhost", contextName)));
@@ -214,7 +214,7 @@ public class TestRegistration extends TomcatBaseTest {
         additional.removeAll(expected);
         assertTrue("Unexpected Tomcat MBeans: " + additional, additional.isEmpty());
 
-        tomcat.stop();
+        thundercat.stop();
 
         // There should still be some Tomcat MBeans
         onames = mbeanServer.queryNames(new ObjectName("Tomcat:*"), null);
@@ -223,18 +223,18 @@ public class TestRegistration extends TomcatBaseTest {
         // add a new host
         StandardHost host = new StandardHost();
         host.setName("otherhost");
-        tomcat.getEngine().addChild(host);
+        thundercat.getEngine().addChild(host);
 
         final File contextDir2 = new File(getTemporaryDirectory(), "webappFoo2");
         addDeleteOnTearDown(contextDir2);
         if (!contextDir2.mkdirs() && !contextDir2.isDirectory()) {
             fail("Failed to create: [" + contextDir2.toString() + "]");
         }
-        tomcat.addContext(host, contextName + "2", contextDir2.getAbsolutePath());
+        thundercat.addContext(host, contextName + "2", contextDir2.getAbsolutePath());
 
-        tomcat.start();
-        tomcat.stop();
-        tomcat.destroy();
+        thundercat.start();
+        thundercat.stop();
+        thundercat.destroy();
 
         // There should be no Catalina MBeans and no Tomcat MBeans
         onames = mbeanServer.queryNames(new ObjectName("Catalina:*"), null);

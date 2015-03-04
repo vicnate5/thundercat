@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket.pojo;
+package org.apache.thundercat.websocket.pojo;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -29,8 +29,8 @@ import javax.websocket.Decoder.TextStream;
 import javax.websocket.EndpointConfig;
 import javax.websocket.Session;
 
-import org.apache.tomcat.util.res.StringManager;
-import org.apache.tomcat.websocket.Util;
+import org.apache.thundercat.util.res.StringManager;
+import org.apache.thundercat.websocket.Util;
 
 
 /**

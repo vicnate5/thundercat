@@ -42,8 +42,8 @@ import org.apache.catalina.filters.ExpiresFilter.ExpiresConfiguration;
 import org.apache.catalina.filters.ExpiresFilter.StartingPoint;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.descriptor.web.FilterDef;
-import org.apache.tomcat.util.descriptor.web.FilterMap;
+import org.apache.thundercat.util.descriptor.web.FilterDef;
+import org.apache.thundercat.util.descriptor.web.FilterMap;
 
 public class TestExpiresFilter extends TomcatBaseTest {
     public static final String TEMP_DIR = System.getProperty("java.io.tmpdir");
@@ -51,8 +51,8 @@ public class TestExpiresFilter extends TomcatBaseTest {
     @Test
     public void testConfiguration() throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
-        Context root = tomcat.addContext("", TEMP_DIR);
+        Tomcat thundercat = getTomcatInstance();
+        Context root = thundercat.addContext("", TEMP_DIR);
 
         FilterDef filterDef = new FilterDef();
         filterDef.addInitParameter("ExpiresDefault", "access plus 1 month");
@@ -77,7 +77,7 @@ public class TestExpiresFilter extends TomcatBaseTest {
         filterMap.setFilterName(ExpiresFilter.class.getName());
         filterMap.addURLPattern("*");
 
-        tomcat.start();
+        thundercat.start();
         try {
             // VERIFY EXCLUDED RESPONSE STATUS CODES
             int[] excludedResponseStatusCodes = expiresFilter.getExcludedResponseStatusCodesAsInts();
@@ -155,7 +155,7 @@ public class TestExpiresFilter extends TomcatBaseTest {
             Assert.assertEquals(DurationUnit.SECOND, twentyThousandSeconds.getUnit());
             Assert.assertEquals(20000, twentyThousandSeconds.getAmount());
         } finally {
-            tomcat.stop();
+            thundercat.stop();
         }
     }
 
@@ -375,8 +375,8 @@ public class TestExpiresFilter extends TomcatBaseTest {
             throws Exception {
         // SETUP
 
-        Tomcat tomcat = getTomcatInstance();
-        Context root = tomcat.addContext("", TEMP_DIR);
+        Tomcat thundercat = getTomcatInstance();
+        Context root = thundercat.addContext("", TEMP_DIR);
 
         FilterDef filterDef = new FilterDef();
         filterDef.addInitParameter("ExpiresDefault", "access plus 1 minute");
@@ -402,7 +402,7 @@ public class TestExpiresFilter extends TomcatBaseTest {
         Tomcat.addServlet(root, servlet.getClass().getName(), servlet);
         root.addServletMapping("/test", servlet.getClass().getName());
 
-        tomcat.start();
+        thundercat.start();
 
         try {
             Calendar.getInstance(TimeZone.getTimeZone("GMT"));
@@ -410,7 +410,7 @@ public class TestExpiresFilter extends TomcatBaseTest {
 
             // TEST
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(
-                    "http://localhost:" + tomcat.getConnector().getLocalPort() +
+                    "http://localhost:" + thundercat.getConnector().getLocalPort() +
                             "/test").openConnection();
 
             // VALIDATE
@@ -469,7 +469,7 @@ public class TestExpiresFilter extends TomcatBaseTest {
                     httpURLConnection.getContentType(), deltaInSeconds < 3);
 
         } finally {
-            tomcat.stop();
+            thundercat.stop();
         }
     }
 

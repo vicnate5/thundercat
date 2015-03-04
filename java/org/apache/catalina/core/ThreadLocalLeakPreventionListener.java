@@ -34,8 +34,8 @@ import org.apache.catalina.connector.Connector;
 import org.apache.coyote.ProtocolHandler;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
-import org.apache.tomcat.util.threads.ThreadPoolExecutor;
+import org.apache.thundercat.util.res.StringManager;
+import org.apache.thundercat.util.threads.ThreadPoolExecutor;
 
 /**
  * <p>
@@ -46,7 +46,7 @@ import org.apache.tomcat.util.threads.ThreadPoolExecutor;
  * <p>
  * Note : active threads will be renewed one by one when they come back to the
  * pool after executing their task, see
- * {@link org.apache.tomcat.util.threads.ThreadPoolExecutor}.afterExecute().
+ * {@link org.apache.thundercat.util.threads.ThreadPoolExecutor}.afterExecute().
  * </p>
  *
  * This listener must be declared in server.xml to be active.

@@ -27,7 +27,7 @@ import org.apache.catalina.LifecycleState;
 import org.apache.catalina.SessionIdGenerator;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 public abstract class SessionIdGeneratorBase extends LifecycleBase
         implements SessionIdGenerator {

@@ -16,7 +16,7 @@
  */
 
 
-package org.apache.tomcat.jdbc.pool.interceptor;
+package org.apache.thundercat.jdbc.pool.interceptor;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationHandler;

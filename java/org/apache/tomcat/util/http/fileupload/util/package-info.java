@@ -20,4 +20,4 @@
  * or methods, which are basically reusable and not necessarily
  * restricted to the scope of a file upload.
  */
-package org.apache.tomcat.util.http.fileupload.util;
+package org.apache.thundercat.util.http.fileupload.util;

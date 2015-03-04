@@ -61,15 +61,15 @@ public class TestInternalInputBuffer extends TomcatBaseTest {
 
         private Exception doRequest() {
 
-            Tomcat tomcat = getTomcatInstance();
+            Tomcat thundercat = getTomcatInstance();
 
-            Context root = tomcat.addContext("", TEMP_DIR);
+            Context root = thundercat.addContext("", TEMP_DIR);
             Tomcat.addServlet(root, "Bug48839", new Bug48839Servlet());
             root.addServletMapping("/test", "Bug48839");
 
             try {
-                tomcat.start();
-                setPort(tomcat.getConnector().getLocalPort());
+                thundercat.start();
+                setPort(thundercat.getConnector().getLocalPort());
 
                 // Open connection
                 connect();
@@ -235,16 +235,16 @@ public class TestInternalInputBuffer extends TomcatBaseTest {
 
         private Exception doRequest() {
 
-            Tomcat tomcat = getTomcatInstance();
+            Tomcat thundercat = getTomcatInstance();
 
-            Context root = tomcat.addContext("", TEMP_DIR);
+            Context root = thundercat.addContext("", TEMP_DIR);
             Tomcat.addServlet(root, "Bug51557",
                     new Bug51557Servlet(headerName));
             root.addServletMapping("/test", "Bug51557");
 
             try {
-                tomcat.start();
-                setPort(tomcat.getConnector().getLocalPort());
+                thundercat.start();
+                setPort(thundercat.getConnector().getLocalPort());
 
                 // Open connection
                 connect();
@@ -368,15 +368,15 @@ public class TestInternalInputBuffer extends TomcatBaseTest {
 
         private Exception doRequest() {
 
-            Tomcat tomcat = getTomcatInstance();
+            Tomcat thundercat = getTomcatInstance();
 
-            Context root = tomcat.addContext("", TEMP_DIR);
+            Context root = thundercat.addContext("", TEMP_DIR);
             Tomcat.addServlet(root, "test", new TesterServlet());
             root.addServletMapping("/test", "test");
 
             try {
-                tomcat.start();
-                setPort(tomcat.getConnector().getLocalPort());
+                thundercat.start();
+                setPort(thundercat.getConnector().getLocalPort());
 
                 // Open connection
                 connect();
@@ -436,15 +436,15 @@ public class TestInternalInputBuffer extends TomcatBaseTest {
 
         private Exception doRequest() {
 
-            Tomcat tomcat = getTomcatInstance();
+            Tomcat thundercat = getTomcatInstance();
 
-            Context root = tomcat.addContext("", TEMP_DIR);
+            Context root = thundercat.addContext("", TEMP_DIR);
             Tomcat.addServlet(root, "Bug54947", new TesterServlet());
             root.addServletMapping("/test", "Bug54947");
 
             try {
-                tomcat.start();
-                setPort(tomcat.getConnector().getLocalPort());
+                thundercat.start();
+                setPort(thundercat.getConnector().getLocalPort());
 
                 // Open connection
                 connect();

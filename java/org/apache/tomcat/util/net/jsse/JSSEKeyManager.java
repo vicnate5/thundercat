@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.util.net.jsse;
+package org.apache.thundercat.util.net.jsse;
 
 import java.net.Socket;
 import java.security.Principal;

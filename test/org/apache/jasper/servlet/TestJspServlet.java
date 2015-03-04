@@ -30,19 +30,19 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.descriptor.web.ErrorPage;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.descriptor.web.ErrorPage;
 
 public class TestJspServlet  extends TomcatBaseTest {
 
     @Test
     public void testBug56568a() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // Use the test web application so JSP support is available and the
         // default JSP error page can be used.
         File appDir = new File("test/webapp");
-        Context context = tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        Context context = thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
         // Create a servlet that always throws an exception for a PUT request
         Tomcat.addServlet(context, "Bug56568Servlet", new Bug56568aServlet());
@@ -56,7 +56,7 @@ public class TestJspServlet  extends TomcatBaseTest {
         ep.setLocation("/WEB-INF/jsp/error.jsp");
         context.addErrorPage(ep);
 
-        tomcat.start();
+        thundercat.start();
 
         int rc = methodUrl("http://localhost:" + getPort() + "/test/bug56568",
                 new ByteChunk(), 5000, null, null, "PUT");

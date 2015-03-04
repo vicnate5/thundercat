@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket;
+package org.apache.thundercat.websocket;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,7 +44,7 @@ public class Constants {
 
     // Buffers
     static final int DEFAULT_BUFFER_SIZE = Integer.getInteger(
-            "org.apache.tomcat.websocket.DEFAULT_BUFFER_SIZE", 8 * 1024)
+            "org.apache.thundercat.websocket.DEFAULT_BUFFER_SIZE", 8 * 1024)
             .intValue();
 
     // Client connection
@@ -64,11 +64,11 @@ public class Constants {
 
     // Configuration for Origin header in client
     static final String DEFAULT_ORIGIN_HEADER_VALUE =
-            System.getProperty("org.apache.tomcat.websocket.DEFAULT_ORIGIN_HEADER_VALUE");
+            System.getProperty("org.apache.thundercat.websocket.DEFAULT_ORIGIN_HEADER_VALUE");
 
     // Configuration for background processing checks intervals
     static final int DEFAULT_PROCESS_PERIOD = Integer.getInteger(
-            "org.apache.tomcat.websocket.DEFAULT_PROCESS_PERIOD", 10)
+            "org.apache.thundercat.websocket.DEFAULT_PROCESS_PERIOD", 10)
             .intValue();
 
     /* Configuration for extensions
@@ -78,17 +78,17 @@ public class Constants {
      *       and disabling built-in extensions.
      */
     static final boolean DISABLE_BUILTIN_EXTENSIONS =
-            Boolean.getBoolean("org.apache.tomcat.websocket.DISABLE_BUILTIN_EXTENSIONS");
+            Boolean.getBoolean("org.apache.thundercat.websocket.DISABLE_BUILTIN_EXTENSIONS");
     static final boolean ALLOW_UNSUPPORTED_EXTENSIONS =
-            Boolean.getBoolean("org.apache.tomcat.websocket.ALLOW_UNSUPPORTED_EXTENSIONS");
+            Boolean.getBoolean("org.apache.thundercat.websocket.ALLOW_UNSUPPORTED_EXTENSIONS");
 
     // Configuration for stream behavior
     static final boolean STREAMS_DROP_EMPTY_MESSAGES =
-            Boolean.getBoolean("org.apache.tomcat.websocket.STREAMS_DROP_EMPTY_MESSAGES");
+            Boolean.getBoolean("org.apache.thundercat.websocket.STREAMS_DROP_EMPTY_MESSAGES");
 
     public static final boolean STRICT_SPEC_COMPLIANCE =
             Boolean.getBoolean(
-                    "org.apache.tomcat.websocket.STRICT_SPEC_COMPLIANCE");
+                    "org.apache.thundercat.websocket.STRICT_SPEC_COMPLIANCE");
 
     public static final List<Extension> INSTALLED_EXTENSIONS;
 

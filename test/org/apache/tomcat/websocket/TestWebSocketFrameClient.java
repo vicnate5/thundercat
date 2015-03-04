@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket;
+package org.apache.thundercat.websocket;
 
 import java.net.URI;
 import java.util.Queue;
@@ -33,22 +33,22 @@ import org.apache.catalina.Context;
 import org.apache.catalina.servlets.DefaultServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.websocket.TesterMessageCountClient.BasicText;
-import org.apache.tomcat.websocket.TesterMessageCountClient.TesterProgrammaticEndpoint;
+import org.apache.thundercat.websocket.TesterMessageCountClient.BasicText;
+import org.apache.thundercat.websocket.TesterMessageCountClient.TesterProgrammaticEndpoint;
 
 public class TestWebSocketFrameClient extends TomcatBaseTest {
 
     @Test
     public void testConnectToServerEndpoint() throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterFirehoseServer.Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
-        tomcat.start();
+        thundercat.start();
 
         WebSocketContainer wsContainer =
                 ContainerProvider.getWebSocketContainer();

@@ -36,7 +36,7 @@ import org.apache.catalina.session.PersistentManager;
 import org.apache.catalina.valves.ValveBase;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Valve to handle Tomcat jvmRoute takeover using mod_jk module after node
@@ -108,7 +108,7 @@ public class JvmRouteBinderValve extends ValveBase implements ClusterValve {
     protected boolean enabled = true;
 
     /**
-     * number of session that no at this tomcat instanz hosted
+     * number of session that no at this thundercat instanz hosted
      */
     protected long numberOfSessions = 0;
 
@@ -162,9 +162,9 @@ public class JvmRouteBinderValve extends ValveBase implements ClusterValve {
      * Detect possible the JVMRoute change at cluster backup node..
      *
      * @param request
-     *            tomcat request being processed
+     *            thundercat request being processed
      * @param response
-     *            tomcat response being processed
+     *            thundercat response being processed
      * @exception IOException
      *                if an input/output error has occurred
      * @exception ServletException
@@ -270,7 +270,7 @@ public class JvmRouteBinderValve extends ValveBase implements ClusterValve {
     }
 
     /**
-     * Handle jvmRoute stickiness after tomcat instance failed. After this
+     * Handle jvmRoute stickiness after thundercat instance failed. After this
      * correction a new Cookie send to client with new jvmRoute and the
      * SessionID change propagate to the other cluster nodes.
      *

@@ -34,7 +34,7 @@ import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.Response;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * This valve allows to detect requests that take a long time to process, which

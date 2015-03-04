@@ -31,9 +31,9 @@ import org.apache.catalina.Realm;
 import org.apache.catalina.connector.Request;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.http.parser.Authorization;
-import org.apache.tomcat.util.security.ConcurrentMessageDigest;
-import org.apache.tomcat.util.security.MD5Encoder;
+import org.apache.thundercat.util.http.parser.Authorization;
+import org.apache.thundercat.util.security.ConcurrentMessageDigest;
+import org.apache.thundercat.util.security.MD5Encoder;
 
 
 /**

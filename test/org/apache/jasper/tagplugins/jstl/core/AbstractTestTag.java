@@ -33,10 +33,10 @@ public abstract class AbstractTestTag extends TomcatBaseTest {
     @Before
     public void setUp() throws Exception {
         super.setUp();
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp");
-        Context ctx = tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        Context ctx = thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
         ctx.setResources(new StandardRoot(ctx));
 
@@ -54,6 +54,6 @@ public abstract class AbstractTestTag extends TomcatBaseTest {
                 WebResourceRoot.ResourceSetType.POST, "/WEB-INF/tagPlugins.xml",
                 plugin.getAbsolutePath(), null, "/");
 
-        tomcat.start();
+        thundercat.start();
     }
 }

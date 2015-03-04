@@ -33,27 +33,27 @@ import org.apache.catalina.core.JreMemoryLeakPreventionListener;
 import org.apache.catalina.core.StandardHost;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestWebappClassLoaderThreadLocalMemoryLeak extends TomcatBaseTest {
 
     @Test
     public void testThreadLocalLeak1() throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // Need to make sure we see a leak for the right reasons
-        tomcat.getServer().addLifecycleListener(
+        thundercat.getServer().addLifecycleListener(
                 new JreMemoryLeakPreventionListener());
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "leakServlet1",
-                "org.apache.tomcat.unittest.TesterLeakingServlet1");
+                "org.apache.thundercat.unittest.TesterLeakingServlet1");
         ctx.addServletMapping("/leak1", "leakServlet1");
 
 
-        tomcat.start();
+        thundercat.start();
 
         // Configure logging filter to check leak message appears
         LogValidationFilter f = new LogValidationFilter(
@@ -77,11 +77,11 @@ public class TestWebappClassLoaderThreadLocalMemoryLeak extends TomcatBaseTest {
 
         // Destroy the context
         ctx.stop();
-        tomcat.getHost().removeChild(ctx);
+        thundercat.getHost().removeChild(ctx);
         ctx = null;
 
         // Make sure we have a memory leak
-        String[] leaks = ((StandardHost) tomcat.getHost())
+        String[] leaks = ((StandardHost) thundercat.getHost())
                 .findReloadedContextMemoryLeaks();
         Assert.assertNotNull(leaks);
         Assert.assertTrue(leaks.length > 0);
@@ -94,19 +94,19 @@ public class TestWebappClassLoaderThreadLocalMemoryLeak extends TomcatBaseTest {
     @Test
     public void testThreadLocalLeak2() throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // Need to make sure we see a leak for the right reasons
-        tomcat.getServer().addLifecycleListener(
+        thundercat.getServer().addLifecycleListener(
                 new JreMemoryLeakPreventionListener());
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "leakServlet2",
-                "org.apache.tomcat.unittest.TesterLeakingServlet2");
+                "org.apache.thundercat.unittest.TesterLeakingServlet2");
         ctx.addServletMapping("/leak2", "leakServlet2");
 
-        tomcat.start();
+        thundercat.start();
 
         // Configure logging filter to check leak message appears
         LogValidationFilter f = new LogValidationFilter(
@@ -132,11 +132,11 @@ public class TestWebappClassLoaderThreadLocalMemoryLeak extends TomcatBaseTest {
 
         // Destroy the context
         ctx.stop();
-        tomcat.getHost().removeChild(ctx);
+        thundercat.getHost().removeChild(ctx);
         ctx = null;
 
         // Make sure we have a memory leak
-        String[] leaks = ((StandardHost) tomcat.getHost())
+        String[] leaks = ((StandardHost) thundercat.getHost())
                 .findReloadedContextMemoryLeaks();
         Assert.assertNotNull(leaks);
         Assert.assertTrue(leaks.length > 0);
@@ -158,7 +158,7 @@ public class TestWebappClassLoaderThreadLocalMemoryLeak extends TomcatBaseTest {
      */
     private void loadClass(String name, WebappClassLoader cl) throws Exception {
         try (InputStream is = cl.getResourceAsStream(
-                "org/apache/tomcat/unittest/" + name + ".class")) {
+                "org/apache/thundercat/unittest/" + name + ".class")) {
             // We know roughly how big the class will be (~ 1K) so allow 2k as a
             // starting point
             byte[] classBytes = new byte[2048];
@@ -175,7 +175,7 @@ public class TestWebappClassLoaderThreadLocalMemoryLeak extends TomcatBaseTest {
                 read = is.read(classBytes, offset, classBytes.length-offset);
             }
             Class<?> lpClass = cl.doDefineClass(
-                    "org.apache.tomcat.unittest." + name, classBytes, 0,
+                    "org.apache.thundercat.unittest." + name, classBytes, 0,
                     offset, cl.getClass().getProtectionDomain());
             // Make sure we can create an instance
             Object obj = lpClass.newInstance();

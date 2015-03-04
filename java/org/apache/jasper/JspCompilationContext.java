@@ -39,8 +39,8 @@ import org.apache.jasper.servlet.JasperLoader;
 import org.apache.jasper.servlet.JspServletWrapper;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.descriptor.tld.TldResourcePath;
-import org.apache.tomcat.util.scan.Jar;
+import org.apache.thundercat.util.descriptor.tld.TldResourcePath;
+import org.apache.thundercat.util.scan.Jar;
 
 /**
  * A place holder for various things that are used through out the JSP

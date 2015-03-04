@@ -34,7 +34,7 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.core.StandardContext;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestContextConfig extends TomcatBaseTest {
 
@@ -51,10 +51,10 @@ public class TestContextConfig extends TomcatBaseTest {
     private void doTestOverrideDefaultServletWithSCI(String servletName)
             throws Exception{
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp");
-        StandardContext ctxt = (StandardContext) tomcat.addContext(null,
+        StandardContext ctxt = (StandardContext) thundercat.addContext(null,
                 "/test", appDir.getAbsolutePath());
         ctxt.setDefaultWebXml(new File("conf/web.xml").getAbsolutePath());
         ctxt.addLifecycleListener(new ContextConfig());
@@ -62,20 +62,20 @@ public class TestContextConfig extends TomcatBaseTest {
         ctxt.addServletContainerInitializer(
                 new CustomDefaultServletSCI(servletName), null);
 
-        tomcat.start();
+        thundercat.start();
 
         assertPageContains("/test", "OK - Custom default Servlet");
     }
 
     @Test
     public void testBug51396() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir =  new File("test/webapp-fragments");
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         assertPageContains("/test/bug51396.jsp", "<p>OK</p>");
     }
@@ -88,12 +88,12 @@ public class TestContextConfig extends TomcatBaseTest {
 
     @Test
     public void testBug54262() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp-fragments-empty-absolute-ordering");
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         assertPageContains("/test/resourceA.jsp",
                 "resourceA.jsp in resources.jar");
@@ -103,38 +103,38 @@ public class TestContextConfig extends TomcatBaseTest {
 
     @Test
     public void testBug54379() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp-fragments");
         Context context =
-                tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+                thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
         Tomcat.addServlet(context, "TestServlet",
                 "org.apache.catalina.startup.TesterServletWithLifeCycleMethods");
         context.addServletMapping("/testServlet", "TestServlet");
 
-        tomcat.enableNaming();
+        thundercat.enableNaming();
 
-        tomcat.start();
+        thundercat.start();
 
         assertPageContains("/test/testServlet", "postConstruct1()");
     }
 
     @Test
     public void testBug54448and54450() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp-fragments");
-        Context context = tomcat.addWebapp(null, "/test",
+        Context context = thundercat.addWebapp(null, "/test",
                 appDir.getAbsolutePath());
 
         Tomcat.addServlet(context, "TestServlet",
                 "org.apache.catalina.startup.TesterServletWithAnnotations");
         context.addServletMapping("/testServlet", "TestServlet");
 
-        tomcat.enableNaming();
+        thundercat.enableNaming();
 
-        tomcat.start();
+        thundercat.start();
 
         assertPageContains("/test/testServlet",
                 "envEntry1: 1 envEntry2: 2 envEntry3: 33 envEntry4: 4 envEntry5: 55 envEntry6: 66");
@@ -142,12 +142,12 @@ public class TestContextConfig extends TomcatBaseTest {
 
     @Test
     public void testBug55210() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp-fragments");
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         assertPageContains("/test/TesterServlet1", "OK");
         assertPageContains("/test/TesterServlet2", "OK");

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket;
+package org.apache.thundercat.websocket;
 
 import java.net.URI;
 import java.util.Arrays;
@@ -40,28 +40,28 @@ import org.apache.catalina.Context;
 import org.apache.catalina.servlets.DefaultServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.websocket.TesterMessageCountClient.TesterProgrammaticEndpoint;
-import org.apache.tomcat.websocket.server.Constants;
-import org.apache.tomcat.websocket.server.WsContextListener;
+import org.apache.thundercat.websocket.TesterMessageCountClient.TesterProgrammaticEndpoint;
+import org.apache.thundercat.websocket.server.Constants;
+import org.apache.thundercat.websocket.server.WsContextListener;
 
 public class TestWsSubprotocols extends TomcatBaseTest {
 
     @Test
     public void testWsSubprotocols() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(Config.class.getName());
 
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
-        tomcat.start();
+        thundercat.start();
 
         WebSocketContainer wsContainer = ContainerProvider
                 .getWebSocketContainer();
 
-        tomcat.start();
+        thundercat.start();
 
         Session wsSession = wsContainer.connectToServer(
                 TesterProgrammaticEndpoint.class, ClientEndpointConfig.Builder

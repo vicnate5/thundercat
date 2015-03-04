@@ -15,7 +15,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<!-- Basedir points at tomcat-trunk directory -->
+<!-- Basedir points at thundercat-trunk directory -->
 <project name="Tomcat JDBC Pool" default="simplebuild" basedir=".">
 
 
@@ -44,37 +44,37 @@
     <format property="TSTAMP" pattern="HH:mm:ss" locale="en" timezone="UTC" />
   </tstamp>
 
-  <property name="project"               value="apache-tomcat-jdbc-pool" />
+  <property name="project"               value="apache-thundercat-jdbc-pool" />
   <property name="final.name"            value="${project}-${version}" />
   <property name="final-src.name"        value="${project}-${version}-src" />
 
   <!-- Build Defaults -->
-  <property name="tomcat.pool" value="${basedir}/./output"/>
-  <property name="tomcat.build"      value="${tomcat.pool}/build"/>
-  <property name="tomcat.classes"    value="${tomcat.pool}/classes"/>
-  <property name="tomcat.api"    value="${tomcat.pool}/api"/>
-  <property name="tomcat.testclasses"    value="${tomcat.pool}/testclasses"/>
+  <property name="thundercat.pool" value="${basedir}/./output"/>
+  <property name="thundercat.build"      value="${thundercat.pool}/build"/>
+  <property name="thundercat.classes"    value="${thundercat.pool}/classes"/>
+  <property name="thundercat.api"    value="${thundercat.pool}/api"/>
+  <property name="thundercat.testclasses"    value="${thundercat.pool}/testclasses"/>
 
   <!-- JAR Artifacts -->
-  <property name="tomcat-jdbc.jar" value="${tomcat.pool}/tomcat-jdbc.jar"/>
-  <property name="tomcat-jdbc-src.jar" value="${tomcat.pool}/tomcat-jdbc-src.jar"/>
-  <property name="tomcat-jdbc-test.jar" value="${tomcat.pool}/tomcat-jdbc-test.jar"/>
-  <property name="tomcat-jdbc-test-src.jar" value="${tomcat.pool}/tomcat-jdbc-test-src.jar"/>
-  <property name="tomcat-jdbc-api.jar" value="${tomcat.pool}/tomcat-jdbc-api.jar"/>
+  <property name="thundercat-jdbc.jar" value="${thundercat.pool}/thundercat-jdbc.jar"/>
+  <property name="thundercat-jdbc-src.jar" value="${thundercat.pool}/thundercat-jdbc-src.jar"/>
+  <property name="thundercat-jdbc-test.jar" value="${thundercat.pool}/thundercat-jdbc-test.jar"/>
+  <property name="thundercat-jdbc-test-src.jar" value="${thundercat.pool}/thundercat-jdbc-test-src.jar"/>
+  <property name="thundercat-jdbc-api.jar" value="${thundercat.pool}/thundercat-jdbc-api.jar"/>
   <!-- Classpath -->
-  <path id="tomcat.jdbc.classpath">
-    <pathelement location="${tomcat.classes}"/>
-    <pathelement location="${tomcat.juli.jar}"/>
+  <path id="thundercat.jdbc.classpath">
+    <pathelement location="${thundercat.classes}"/>
+    <pathelement location="${thundercat.juli.jar}"/>
   </path>
 
   <path id="test.classpath">
-    <pathelement location="${tomcat-jdbc.jar}"/>
-    <pathelement location="${tomcat.testclasses}"/>
+    <pathelement location="${thundercat-jdbc.jar}"/>
+    <pathelement location="${thundercat.testclasses}"/>
     <pathelement location="${c3p0.jar}"/>
     <pathelement location="${mysql.jar}"/>
     <pathelement location="${junit.jar}"/>
     <pathelement location="${hamcrest.jar}"/>
-    <pathelement location="${tomcat.dbcp.jar}"/>
+    <pathelement location="${thundercat.dbcp.jar}"/>
     <pathelement location="${derby.jar}"/>
     <pathelement location="${h2.jar}"/>
   </path>
@@ -91,14 +91,14 @@
     <filter token="VERSION_MAJOR" value="${version.major}"/>
     <filter token="VERSION_MAJOR_MINOR" value="${version.major.minor}"/>
     <filter token="VERSION_BUILT" value="${TODAY} ${TSTAMP} UTC"/>
-    <filter token="TOMCAT_PROJECT_DEST" value="${tomcat.project.dest}"/>
+    <filter token="TOMCAT_PROJECT_DEST" value="${thundercat.project.dest}"/>
   </filterset>
 
   <target name="prepare">
-    <mkdir dir="${tomcat.build}"/>
-    <mkdir dir="${tomcat.classes}"/>
-    <mkdir dir="${tomcat.testclasses}"/>
-    <copy todir="${tomcat.pool}">
+    <mkdir dir="${thundercat.build}"/>
+    <mkdir dir="${thundercat.classes}"/>
+    <mkdir dir="${thundercat.testclasses}"/>
+    <copy todir="${thundercat.pool}">
       <fileset dir="${basedir}">
         <include name="LICENSE"/>
         <include name="NOTICE"/>
@@ -112,57 +112,57 @@
 
   <target name="javadoc" depends="prepare">
 
-     <xslt basedir="${tomcat.pool}/doc"
-          destdir="${basedir}/src/main/java/org/apache/tomcat/jdbc/pool"
+     <xslt basedir="${thundercat.pool}/doc"
+          destdir="${basedir}/src/main/java/org/apache/thundercat/jdbc/pool"
           extension=".html"
           style="${basedir}/doc/package.xsl"
           excludes="build.xml"
           includes="jdbc-pool.xml">
-      <param name="relative-path" expression="http://tomcat.apache.org/tomcat-6.0-doc"/>
+      <param name="relative-path" expression="http://thundercat.apache.org/thundercat-6.0-doc"/>
       <param name="apache-logo" expression="/images/asf-logo.gif"/>
     </xslt>
-    <move tofile="${basedir}/src/main/java/org/apache/tomcat/jdbc/pool/package.html"
-          file="${basedir}/src/main/java/org/apache/tomcat/jdbc/pool/jdbc-pool.html"/>
+    <move tofile="${basedir}/src/main/java/org/apache/thundercat/jdbc/pool/package.html"
+          file="${basedir}/src/main/java/org/apache/thundercat/jdbc/pool/jdbc-pool.html"/>
     <javadoc
-        destdir="${tomcat.api}"
+        destdir="${thundercat.api}"
         bottom="Copyright &amp;#169; 2000-${year} Apache Software Foundation. All Rights Reserved."
         encoding="UTF-8"
         docencoding="UTF-8"
         charset="UTF-8"
         additionalparam="-breakiterator -notimestamp"
         verbose="false">
-      <classpath refid="tomcat.jdbc.classpath"/>
+      <classpath refid="thundercat.jdbc.classpath"/>
       <link href="http://docs.oracle.com/javase/7/docs/api/"/>
       <sourcepath location="${basedir}/src/main/java"/>
     </javadoc>
     <!-- connection pool API  file-->
-    <jar jarfile="${tomcat-jdbc-api.jar}" update="true">
-      <fileset dir="${tomcat.api}"/>
+    <jar jarfile="${thundercat-jdbc-api.jar}" update="true">
+      <fileset dir="${thundercat.api}"/>
       <fileset refid="license.notice"/>
     </jar>
-    <delete file="${basedir}/src/main/java/org/apache/tomcat/jdbc/pool/package.html"/>
+    <delete file="${basedir}/src/main/java/org/apache/thundercat/jdbc/pool/package.html"/>
   </target>
 
   <target name="build" depends="prepare,download,build-src">
-    <!-- compile org.apache.tomcat.jdbc-->
-    <javac srcdir="${basedir}/src/main/java" destdir="${tomcat.classes}"
+    <!-- compile org.apache.thundercat.jdbc-->
+    <javac srcdir="${basedir}/src/main/java" destdir="${thundercat.classes}"
            debug="${compile.debug}"
            deprecation="${compile.deprecation}"
            source="${compile.source}"
            target="${compile.target}"
            encoding="ISO-8859-1"
            includeantruntime="false">
-      <classpath refid="tomcat.jdbc.classpath"/>
-      <include name="org/apache/tomcat/jdbc/**" />
+      <classpath refid="thundercat.jdbc.classpath"/>
+      <include name="org/apache/thundercat/jdbc/**" />
     </javac>
 
     <!-- connection pool JAR File -->
-    <jar jarfile="${tomcat-jdbc.jar}" update="true" manifest="${tomcat.pool}/resources/MANIFEST.MF">
-      <fileset dir="${tomcat.classes}">
-        <include name="org/apache/tomcat/jdbc/**" />
+    <jar jarfile="${thundercat-jdbc.jar}" update="true" manifest="${thundercat.pool}/resources/MANIFEST.MF">
+      <fileset dir="${thundercat.classes}">
+        <include name="org/apache/thundercat/jdbc/**" />
       </fileset>
       <fileset dir="${basedir}/src/main/java">
-        <include name="org/apache/tomcat/jdbc/**/*.xml" />
+        <include name="org/apache/thundercat/jdbc/**/*.xml" />
       </fileset>
       <fileset refid="license.notice"/>
     </jar>
@@ -170,41 +170,41 @@
 
   <target name="build-src">
     <!-- connection pool source file-->
-    <jar jarfile="${tomcat-jdbc-src.jar}" update="true">
+    <jar jarfile="${thundercat-jdbc-src.jar}" update="true">
       <fileset dir="${basedir}/src/main/java">
-        <include name="org/apache/tomcat/jdbc/**" />
+        <include name="org/apache/thundercat/jdbc/**" />
       </fileset>
       <fileset refid="license.notice"/>
     </jar>
   </target>
 
   <target name="build-test" depends="prepare, build, download-test">
-    <mkdir dir="${tomcat.pool}"/>
-    <!-- compile org.apache.tomcat.jdbc-->
-    <javac srcdir="${basedir}/src/test/java" destdir="${tomcat.testclasses}"
+    <mkdir dir="${thundercat.pool}"/>
+    <!-- compile org.apache.thundercat.jdbc-->
+    <javac srcdir="${basedir}/src/test/java" destdir="${thundercat.testclasses}"
            debug="${compile.debug}"
            deprecation="${compile.deprecation}"
            source="${compile.source}"
            target="${compile.target}"
            encoding="ISO-8859-1"
            includeantruntime="false">
-      <classpath refid="tomcat.jdbc.classpath"/>
+      <classpath refid="thundercat.jdbc.classpath"/>
       <classpath refid="test.classpath"/>
-      <include name="org/apache/tomcat/jdbc/**" />
+      <include name="org/apache/thundercat/jdbc/**" />
     </javac>
     <!-- connection pool JAR File -->
-    <jar jarfile="${tomcat-jdbc-test.jar}" update="true">
-      <fileset dir="${tomcat.testclasses}">
-        <include name="org/apache/tomcat/jdbc/**" />
+    <jar jarfile="${thundercat-jdbc-test.jar}" update="true">
+      <fileset dir="${thundercat.testclasses}">
+        <include name="org/apache/thundercat/jdbc/**" />
       </fileset>
       <fileset dir="${basedir}/src/test/java">
-        <include name="org/apache/tomcat/jdbc/**/*.xml" />
+        <include name="org/apache/thundercat/jdbc/**/*.xml" />
       </fileset>
       <fileset refid="license.notice"/>
     </jar>
-    <jar jarfile="${tomcat-jdbc-test-src.jar}" update="true">
+    <jar jarfile="${thundercat-jdbc-test-src.jar}" update="true">
       <fileset dir="${basedir}/src/test/java">
-        <include name="org/apache/tomcat/jdbc/**" />
+        <include name="org/apache/thundercat/jdbc/**" />
       </fileset>
       <fileset refid="license.notice"/>
     </jar>
@@ -212,79 +212,79 @@
 
 
   <target name="clean">
-      <mkdir dir="${tomcat.pool}"/>
-      <delete file="${tomcat-jdbc.jar}" />
-      <delete file="${tomcat-jdbc-src.jar}"/>
+      <mkdir dir="${thundercat.pool}"/>
+      <delete file="${thundercat-jdbc.jar}" />
+      <delete file="${thundercat-jdbc-src.jar}"/>
       <delete includeemptydirs="true" failonerror="false">
-          <fileset dir="${tomcat.classes}">
-            <include name="org/apache/tomcat/jdbc/**"/>
+          <fileset dir="${thundercat.classes}">
+            <include name="org/apache/thundercat/jdbc/**"/>
           </fileset>
-          <fileset dir="${tomcat.pool}">
+          <fileset dir="${thundercat.pool}">
             <include name="*.html"/>
             <include name="LICENSE"/>
             <include name="NOTICE"/>
           </fileset>
       </delete>
-      <delete dir="${tomcat.pool}/doc"/>
-      <delete dir="${tomcat.classes}"/>
-      <delete dir="${tomcat.testclasses}"/>
-      <delete file="${tomcat.pool}/build.xml"/>
-      <delete dir="${tomcat.pool}/build"/>
-      <delete dir="${tomcat.api}"/>
+      <delete dir="${thundercat.pool}/doc"/>
+      <delete dir="${thundercat.classes}"/>
+      <delete dir="${thundercat.testclasses}"/>
+      <delete file="${thundercat.pool}/build.xml"/>
+      <delete dir="${thundercat.pool}/build"/>
+      <delete dir="${thundercat.api}"/>
   </target>
 
   <target name="docs" depends="prepare">
-    <xslt basedir="${tomcat.pool}/doc"
-          destdir="${tomcat.pool}/"
+    <xslt basedir="${thundercat.pool}/doc"
+          destdir="${thundercat.pool}/"
           extension=".html"
-          style="${tomcat.xsl.dest}"
+          style="${thundercat.xsl.dest}"
           excludes="build.xml project.xml"
           includes="*.xml">
-      <param name="relative-path" expression="http://tomcat.apache.org/tomcat-6.0-doc"/>
+      <param name="relative-path" expression="http://thundercat.apache.org/thundercat-6.0-doc"/>
       <param name="apache-logo" expression="/images/asf-logo.gif"/>
     </xslt>
   </target>
 
   <target name="dist" depends="clean, build, build-test, docs, javadoc">
-    <property name="destdir" value="${tomcat.pool}/release/v${version}"/>
+    <property name="destdir" value="${thundercat.pool}/release/v${version}"/>
     <mkdir dir="${destdir}"/>
-    <zip destfile="${destdir}/apache-tomcat-jdbc-${version}-bin.zip">
-      <fileset dir="${tomcat.pool}">
+    <zip destfile="${destdir}/apache-thundercat-jdbc-${version}-bin.zip">
+      <fileset dir="${thundercat.pool}">
         <include name="jdbc-pool.html"/>
         <include name="changelog.html"/>
         <include name="LICENSE"/>
         <include name="NOTICE"/>
-        <include name="tomcat-jdbc.jar"/>
-        <include name="tomcat-jdbc-test.jar"/>
-        <include name="tomcat-jdbc-src.jar"/>
-        <include name="tomcat-jdbc-test-src.jar"/>
+        <include name="thundercat-jdbc.jar"/>
+        <include name="thundercat-jdbc-test.jar"/>
+        <include name="thundercat-jdbc-src.jar"/>
+        <include name="thundercat-jdbc-test-src.jar"/>
       </fileset>
-      <fileset dir="${tomcat.home}/bin">
-        <include name="tomcat-juli.jar"/>
+      <fileset dir="${thundercat.home}/bin">
+        <include name="thundercat-juli.jar"/>
       </fileset>
     </zip>
-    <tar destfile="${destdir}/apache-tomcat-jdbc-${version}-bin.tar">
-      <fileset dir="${tomcat.pool}">
+    <tar destfile="${destdir}/apache-thundercat-jdbc-${version}-bin.tar">
+      <fileset dir="${thundercat.pool}">
         <include name="jdbc-pool.html"/>
         <include name="changelog.html"/>
         <include name="LICENSE"/>
         <include name="NOTICE"/>
-        <include name="tomcat-jdbc.jar"/>
-        <include name="tomcat-jdbc-test.jar"/>
-        <include name="tomcat-jdbc-src.jar"/>
-        <include name="tomcat-jdbc-test-src.jar"/>
+        <include name="thundercat-jdbc.jar"/>
+        <include name="thundercat-jdbc-test.jar"/>
+        <include name="thundercat-jdbc-src.jar"/>
+        <include name="thundercat-jdbc-test-src.jar"/>
       </fileset>
-      <fileset dir="${tomcat.home}/bin">
-        <include name="tomcat-juli.jar"/>
+      <fileset dir="${thundercat.home}/bin">
+        <include name="thundercat-juli.jar"/>
       </fileset>
     </tar>
-    <gzip src="${destdir}/apache-tomcat-jdbc-${version}-bin.tar"
-          destfile="${destdir}/apache-tomcat-jdbc-${version}-bin.tar.gz"/>
-    <delete file="${destdir}/apache-tomcat-jdbc-${version}-bin.tar"/>
+    <gzip src="${destdir}/apache-thundercat-jdbc-${version}-bin.tar"
+          destfile="${destdir}/apache-thundercat-jdbc-${version}-bin.tar.gz"/>
+    <delete file="${destdir}/apache-thundercat-jdbc-${version}-bin.tar"/>
 
-    <zip destfile="${destdir}/apache-tomcat-jdbc-${version}-src.zip">
-      <zipfileset src="${tomcat-jdbc-src.jar}" prefix="java"/>
-      <zipfileset src="${tomcat-jdbc-test-src.jar}" prefix="test"/>
+    <zip destfile="${destdir}/apache-thundercat-jdbc-${version}-src.zip">
+      <zipfileset src="${thundercat-jdbc-src.jar}" prefix="java"/>
+      <zipfileset src="${thundercat-jdbc-test-src.jar}" prefix="test"/>
       <fileset dir="${basedir}">
         <include name="build.xml"/>
         <include name="build.properties.default"/>
@@ -295,9 +295,9 @@
         <include name="NOTICE"/>
       </fileset>
     </zip>
-    <tar destfile="${destdir}/apache-tomcat-jdbc-${version}-src.tar">
-      <zipfileset src="${tomcat-jdbc-src.jar}" prefix="java"/>
-      <zipfileset src="${tomcat-jdbc-test-src.jar}" prefix="test"/>
+    <tar destfile="${destdir}/apache-thundercat-jdbc-${version}-src.tar">
+      <zipfileset src="${thundercat-jdbc-src.jar}" prefix="java"/>
+      <zipfileset src="${thundercat-jdbc-test-src.jar}" prefix="test"/>
       <fileset dir="${basedir}">
         <include name="build.xml"/>
         <include name="build.properties.default"/>
@@ -308,16 +308,16 @@
         <include name="NOTICE"/>
       </fileset>
     </tar>
-    <gzip src="${destdir}/apache-tomcat-jdbc-${version}-src.tar"
-          destfile="${destdir}/apache-tomcat-jdbc-${version}-src.tar.gz"/>
+    <gzip src="${destdir}/apache-thundercat-jdbc-${version}-src.tar"
+          destfile="${destdir}/apache-thundercat-jdbc-${version}-src.tar.gz"/>
 
-    <delete file="${destdir}/apache-tomcat-jdbc-${version}-src.tar"/>
+    <delete file="${destdir}/apache-thundercat-jdbc-${version}-src.tar"/>
     <echo message="Options +Indexes" file="${destdir}/.htaccess"/>
 
-    <checksum file="${destdir}/apache-tomcat-jdbc-${version}-bin.tar.gz" forceOverwrite="yes" fileext=".md5" />
-    <checksum file="${destdir}/apache-tomcat-jdbc-${version}-bin.zip" forceOverwrite="yes" fileext=".md5" />
-    <checksum file="${destdir}/apache-tomcat-jdbc-${version}-src.tar.gz" forceOverwrite="yes" fileext=".md5" />
-    <checksum file="${destdir}/apache-tomcat-jdbc-${version}-src.zip" forceOverwrite="yes" fileext=".md5" />
+    <checksum file="${destdir}/apache-thundercat-jdbc-${version}-bin.tar.gz" forceOverwrite="yes" fileext=".md5" />
+    <checksum file="${destdir}/apache-thundercat-jdbc-${version}-bin.zip" forceOverwrite="yes" fileext=".md5" />
+    <checksum file="${destdir}/apache-thundercat-jdbc-${version}-src.tar.gz" forceOverwrite="yes" fileext=".md5" />
+    <checksum file="${destdir}/apache-thundercat-jdbc-${version}-src.zip" forceOverwrite="yes" fileext=".md5" />
 
 
   </target>
@@ -376,18 +376,18 @@
     </antcall>
  -->
     <antcall target="downloadzip">
-      <param name="sourcefile" value="${tomcat.loc}"/>
-      <param name="destfile" value="${tomcat.juli.jar}"/>
+      <param name="sourcefile" value="${thundercat.loc}"/>
+      <param name="destfile" value="${thundercat.juli.jar}"/>
       <param name="destdir" value="${base.path}"/>
     </antcall>
     <antcall target="downloadfile">
-      <param name="sourcefile" value="${tomcat.xsl.loc}"/>
-      <param name="destfile" value="${tomcat.xsl.dest}"/>
+      <param name="sourcefile" value="${thundercat.xsl.loc}"/>
+      <param name="destfile" value="${thundercat.xsl.dest}"/>
       <param name="destdir" value="${base.path}"/>
     </antcall>
     <antcall target="downloadfile">
-      <param name="sourcefile" value="${tomcat.project.loc}"/>
-      <param name="destfile" value="${tomcat.project.dest}"/>
+      <param name="sourcefile" value="${thundercat.project.loc}"/>
+      <param name="destfile" value="${thundercat.project.dest}"/>
       <param name="destdir" value="${base.path}"/>
     </antcall>
     <!-- Derby database
@@ -454,9 +454,9 @@
     <junit printsummary="withOutAndErr" showoutput="on">
       <syspropertyset refid="testdb"/>
       <formatter type="brief" usefile="no"/>
-      <classpath refid="tomcat.jdbc.classpath"/>
+      <classpath refid="thundercat.jdbc.classpath"/>
       <classpath refid="test.classpath"/>
-      <batchtest fork="yes" todir="${tomcat.testclasses}">
+      <batchtest fork="yes" todir="${thundercat.testclasses}">
         <fileset dir="${basedir}/src/test/java">
           <include name="**/CreateTestTable*"/>
         </fileset>
@@ -468,12 +468,12 @@
     <junit printsummary="withOutAndErr" showoutput="on">
       <syspropertyset refid="testdb"/>
       <formatter type="brief" usefile="no"/>
-      <classpath refid="tomcat.jdbc.classpath"/>
+      <classpath refid="thundercat.jdbc.classpath"/>
       <classpath refid="test.classpath"/>
-      <batchtest fork="yes" todir="${tomcat.testclasses}">
+      <batchtest fork="yes" todir="${thundercat.testclasses}">
         <fileset dir="${basedir}/src/test/java">
-          <include name="org/apache/tomcat/jdbc/test/*CheckOutThreadTest*.java"/>
-          <include name="org/apache/tomcat/jdbc/test/FairnessTest*.java"/>
+          <include name="org/apache/thundercat/jdbc/test/*CheckOutThreadTest*.java"/>
+          <include name="org/apache/thundercat/jdbc/test/FairnessTest*.java"/>
           <exclude name="**/CreateTestTable*"/>
           <exclude name="**/DefaultTestCase*"/>
         </fileset>
@@ -485,12 +485,12 @@
     <junit printsummary="yes">
       <syspropertyset refid="testdb"/>
       <formatter type="brief" usefile="no"/>
-      <classpath refid="tomcat.jdbc.classpath"/>
+      <classpath refid="thundercat.jdbc.classpath"/>
       <classpath refid="test.classpath"/>
-      <batchtest fork="yes" todir="${tomcat.testclasses}">
+      <batchtest fork="yes" todir="${thundercat.testclasses}">
         <fileset dir="${basedir}/src/test/java">
-          <include name="org/apache/tomcat/jdbc/test/*Test*.java"/>
-          <exclude name="org/apache/tomcat/jdbc/test/*CheckOutThreadTest*.java"/>
+          <include name="org/apache/thundercat/jdbc/test/*Test*.java"/>
+          <exclude name="org/apache/thundercat/jdbc/test/*CheckOutThreadTest*.java"/>
           <exclude name="**/CreateTestTable*"/>
           <exclude name="**/DefaultTestCase*"/>
           <exclude name="**/CheckOutThread*"/>
@@ -510,11 +510,11 @@
     <junit printsummary="withOutAndErr" showoutput="on">
       <syspropertyset refid="testdb"/>
       <formatter type="brief" usefile="no"/>
-      <classpath refid="tomcat.jdbc.classpath"/>
+      <classpath refid="thundercat.jdbc.classpath"/>
       <classpath refid="test.classpath"/>
-      <batchtest fork="yes" todir="${tomcat.testclasses}">
+      <batchtest fork="yes" todir="${thundercat.testclasses}">
         <fileset dir="${basedir}/src/test/java">
-          <include name="org/apache/tomcat/jdbc/test/*${test}*.java"/>
+          <include name="org/apache/thundercat/jdbc/test/*${test}*.java"/>
           <exclude name="**/CreateTestTable*"/>
           <exclude name="**/DefaultTestCase*"/>
         </fileset>

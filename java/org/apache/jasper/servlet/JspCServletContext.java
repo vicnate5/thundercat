@@ -49,12 +49,12 @@ import org.apache.jasper.Constants;
 import org.apache.jasper.JasperException;
 import org.apache.jasper.compiler.Localizer;
 import org.apache.jasper.util.ExceptionUtils;
-import org.apache.tomcat.JarScanType;
-import org.apache.tomcat.util.descriptor.web.FragmentJarScannerCallback;
-import org.apache.tomcat.util.descriptor.web.WebXml;
-import org.apache.tomcat.util.descriptor.web.WebXmlParser;
-import org.apache.tomcat.util.scan.StandardJarScanFilter;
-import org.apache.tomcat.util.scan.StandardJarScanner;
+import org.apache.thundercat.JarScanType;
+import org.apache.thundercat.util.descriptor.web.FragmentJarScannerCallback;
+import org.apache.thundercat.util.descriptor.web.WebXml;
+import org.apache.thundercat.util.descriptor.web.WebXmlParser;
+import org.apache.thundercat.util.scan.StandardJarScanFilter;
+import org.apache.thundercat.util.scan.StandardJarScanner;
 
 
 /**
@@ -145,7 +145,7 @@ public class JspCServletContext implements ServletContext {
 
         try {
             URL url = getResource(
-                    org.apache.tomcat.util.descriptor.web.Constants.WEB_XML_LOCATION);
+                    org.apache.thundercat.util.descriptor.web.Constants.WEB_XML_LOCATION);
             if (!webXmlParser.parseWebXml(url, webXml, false)) {
                 throw new JasperException(Localizer.getMessage("jspc.error.invalidWebXml"));
             }

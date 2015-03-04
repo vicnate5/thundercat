@@ -198,12 +198,12 @@ if [ -z "$CATALINA_TMPDIR" ] ; then
   CATALINA_TMPDIR="$CATALINA_BASE"/temp
 fi
 
-# Add tomcat-juli.jar to classpath
-# tomcat-juli.jar can be over-ridden per instance
-if [ -r "$CATALINA_BASE/bin/tomcat-juli.jar" ] ; then
-  CLASSPATH=$CLASSPATH:$CATALINA_BASE/bin/tomcat-juli.jar
+# Add thundercat-juli.jar to classpath
+# thundercat-juli.jar can be over-ridden per instance
+if [ -r "$CATALINA_BASE/bin/thundercat-juli.jar" ] ; then
+  CLASSPATH=$CLASSPATH:$CATALINA_BASE/bin/thundercat-juli.jar
 else
-  CLASSPATH=$CLASSPATH:$CATALINA_HOME/bin/tomcat-juli.jar
+  CLASSPATH=$CLASSPATH:$CATALINA_HOME/bin/thundercat-juli.jar
 fi
 
 # Bugzilla 37848: When no TTY is available, don't output to console
@@ -566,7 +566,7 @@ else
   echo "  stop -force       Stop Catalina, wait up to 5 seconds and then use kill -KILL if still running"
   echo "  stop n -force     Stop Catalina, wait up to n seconds and then use kill -KILL if still running"
   echo "  configtest        Run a basic syntax check on server.xml - check exit code for result"
-  echo "  version           What version of tomcat are you running?"
+  echo "  version           What version of thundercat are you running?"
   echo "Note: Waiting for the process to end and use of the -force option require that \$CATALINA_PID is defined"
   exit 1
 

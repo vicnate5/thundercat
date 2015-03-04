@@ -14,11 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool;
+package org.apache.thundercat.jdbc.pool;
 
 import java.util.Properties;
 
-import org.apache.tomcat.jdbc.pool.PoolProperties.InterceptorDefinition;
+import org.apache.thundercat.jdbc.pool.PoolProperties.InterceptorDefinition;
 
 /**
  * A list of properties that are configurable for a connection pool.
@@ -32,7 +32,7 @@ public interface PoolConfiguration {
     /**
      * JMX prefix for interceptors that register themselves with JMX
      */
-    public static final String PKG_PREFIX = "org.apache.tomcat.jdbc.pool.interceptor.";
+    public static final String PKG_PREFIX = "org.apache.thundercat.jdbc.pool.interceptor.";
 
     /**
      * Connections that have been abandoned (timed out) wont get closed and reported up unless the number of connections in use are
@@ -183,13 +183,13 @@ public interface PoolConfiguration {
     public void setDefaultTransactionIsolation(int defaultTransactionIsolation);
 
     /**
-     * The fully qualified Java class name of the JDBC driver to be used. The driver has to be accessible from the same classloader as tomcat-jdbc.jar
+     * The fully qualified Java class name of the JDBC driver to be used. The driver has to be accessible from the same classloader as thundercat-jdbc.jar
      * @return fully qualified JDBC driver name.
      */
     public String getDriverClassName();
 
     /**
-     * The fully qualified Java class name of the JDBC driver to be used. The driver has to be accessible from the same classloader as tomcat-jdbc.jar
+     * The fully qualified Java class name of the JDBC driver to be used. The driver has to be accessible from the same classloader as thundercat-jdbc.jar
      * @param driverClassName a fully qualified Java class name of a {@link java.sql.Driver} implementation.
      */
     public void setDriverClassName(String driverClassName);
@@ -393,14 +393,14 @@ public interface PoolConfiguration {
      * The time in seconds before a connection can be considered abandoned.
      * The timer can be reset upon queries using an interceptor.
      * @param removeAbandonedTimeout the time in seconds before a used connection can be considered abandoned
-     * @see org.apache.tomcat.jdbc.pool.interceptor.ResetAbandonedTimer
+     * @see org.apache.thundercat.jdbc.pool.interceptor.ResetAbandonedTimer
      */
     public void setRemoveAbandonedTimeout(int removeAbandonedTimeout);
 
     /**
      * The time in seconds before a connection can be considered abandoned.
      * The timer can be reset upon queries using an interceptor.
-     * @see org.apache.tomcat.jdbc.pool.interceptor.ResetAbandonedTimer
+     * @see org.apache.thundercat.jdbc.pool.interceptor.ResetAbandonedTimer
      * @return the time in seconds before a used connection can be considered abandoned
      */
     public int getRemoveAbandonedTimeout();
@@ -612,13 +612,13 @@ public interface PoolConfiguration {
     public void setTestOnConnect(boolean testOnConnect);
 
     /**
-     * A semicolon separated list of classnames extending {@link org.apache.tomcat.jdbc.pool.JdbcInterceptor} class.
+     * A semicolon separated list of classnames extending {@link org.apache.thundercat.jdbc.pool.JdbcInterceptor} class.
      * These interceptors will be inserted as an interceptor into the chain of operations on a java.sql.Connection object.
-     * Example interceptors are {@link org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer StatementFinalizer} to close all
+     * Example interceptors are {@link org.apache.thundercat.jdbc.pool.interceptor.StatementFinalizer StatementFinalizer} to close all
      * used statements during the session.
-     * {@link org.apache.tomcat.jdbc.pool.interceptor.ResetAbandonedTimer ResetAbandonedTimer} resets the timer upon every operation
+     * {@link org.apache.thundercat.jdbc.pool.interceptor.ResetAbandonedTimer ResetAbandonedTimer} resets the timer upon every operation
      * on the connection or a statement.
-     * {@link org.apache.tomcat.jdbc.pool.interceptor.ConnectionState ConnectionState} caches the auto commit, read only and catalog settings to avoid round trips to the DB.
+     * {@link org.apache.thundercat.jdbc.pool.interceptor.ConnectionState ConnectionState} caches the auto commit, read only and catalog settings to avoid round trips to the DB.
      * The default value is null.
      * @return the interceptors that are used for connections.
      * Example format: 'ConnectionState(useEquals=true,fast=yes);ResetAbandonedTimer'
@@ -626,13 +626,13 @@ public interface PoolConfiguration {
     public String getJdbcInterceptors();
 
     /**
-     * A semicolon separated list of classnames extending {@link org.apache.tomcat.jdbc.pool.JdbcInterceptor} class.
+     * A semicolon separated list of classnames extending {@link org.apache.thundercat.jdbc.pool.JdbcInterceptor} class.
      * These interceptors will be inserted as an interceptor into the chain of operations on a java.sql.Connection object.
-     * Example interceptors are {@link org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer StatementFinalizer} to close all
+     * Example interceptors are {@link org.apache.thundercat.jdbc.pool.interceptor.StatementFinalizer StatementFinalizer} to close all
      * used statements during the session.
-     * {@link org.apache.tomcat.jdbc.pool.interceptor.ResetAbandonedTimer ResetAbandonedTimer} resets the timer upon every operation
+     * {@link org.apache.thundercat.jdbc.pool.interceptor.ResetAbandonedTimer ResetAbandonedTimer} resets the timer upon every operation
      * on the connection or a statement.
-     * {@link org.apache.tomcat.jdbc.pool.interceptor.ConnectionState ConnectionState} caches the auto commit, read only and catalog settings to avoid round trips to the DB.
+     * {@link org.apache.thundercat.jdbc.pool.interceptor.ConnectionState ConnectionState} caches the auto commit, read only and catalog settings to avoid round trips to the DB.
      * The default value is null.
      * @param jdbcInterceptors the interceptors that are used for connections.
      * Example format: 'ConnectionState(useEquals=true,fast=yes);ResetAbandonedTimer'
@@ -647,7 +647,7 @@ public interface PoolConfiguration {
 
 
     /**
-     * If set to true, the connection pool creates a {@link org.apache.tomcat.jdbc.pool.jmx.ConnectionPoolMBean} object
+     * If set to true, the connection pool creates a {@link org.apache.thundercat.jdbc.pool.jmx.ConnectionPoolMBean} object
      * that can be registered with JMX to receive notifications and state about the pool.
      * The ConnectionPool object doesn't register itself, as there is no way to keep a static non changing ObjectName across JVM restarts.
      * @return true if the mbean object will be created upon startup.
@@ -655,7 +655,7 @@ public interface PoolConfiguration {
     public boolean isJmxEnabled();
 
     /**
-     * If set to true, the connection pool creates a {@link org.apache.tomcat.jdbc.pool.jmx.ConnectionPoolMBean} object
+     * If set to true, the connection pool creates a {@link org.apache.thundercat.jdbc.pool.jmx.ConnectionPoolMBean} object
      * that can be registered with JMX to receive notifications and state about the pool.
      * The ConnectionPool object doesn't register itself, as there is no way to keep a static non changing ObjectName across JVM restarts.
      * @param jmxEnabled set to to if the mbean object should be created upon startup.

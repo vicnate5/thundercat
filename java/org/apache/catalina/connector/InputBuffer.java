@@ -29,10 +29,10 @@ import org.apache.catalina.security.SecurityUtil;
 import org.apache.coyote.ActionCode;
 import org.apache.coyote.ContainerThreadMarker;
 import org.apache.coyote.Request;
-import org.apache.tomcat.util.buf.B2CConverter;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.buf.CharChunk;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.buf.B2CConverter;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.CharChunk;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * The buffer used by Tomcat request. This is a derivative of the Tomcat 3.3

@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.descriptor.web;
+package org.apache.thundercat.util.descriptor.web;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,10 +26,10 @@ import java.util.Set;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.tomcat.util.descriptor.DigesterFactory;
-import org.apache.tomcat.util.descriptor.XmlErrorHandler;
-import org.apache.tomcat.util.descriptor.XmlIdentifiers;
-import org.apache.tomcat.util.digester.Digester;
+import org.apache.thundercat.util.descriptor.DigesterFactory;
+import org.apache.thundercat.util.descriptor.XmlErrorHandler;
+import org.apache.thundercat.util.descriptor.XmlIdentifiers;
+import org.apache.thundercat.util.digester.Digester;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
@@ -224,7 +224,7 @@ public class TestWebXml {
 
         // Filters were added in 2.3 so should be excluded in 2.2
         FilterDef filterDef = new FilterDef();
-        filterDef.setFilterClass("org.apache.tomcat.DummyFilter");
+        filterDef.setFilterClass("org.apache.thundercat.DummyFilter");
         filterDef.setFilterName("Dummy");
         webXmlDefaultFragment.addFilter(filterDef);
 
@@ -234,7 +234,7 @@ public class TestWebXml {
         webXmlDefaultFragment.addFilterMapping(filterMap);
 
         // Listeners were added in 2.3 so should be excluded in 2.2
-        webXmlDefaultFragment.addListener("org.apache.tomcat.DummyListener");
+        webXmlDefaultFragment.addListener("org.apache.thundercat.DummyListener");
 
         // resource-env-ref was added in 2.3 so should be excluded in 2.2
         ContextResourceEnvRef resourceEnvRef = new ContextResourceEnvRef();
@@ -254,7 +254,7 @@ public class TestWebXml {
         // Servlet/run-as was added in 2.3 so should be excluded in 2.2
         ServletDef servletDef = new ServletDef();
         servletDef.setServletName("Dummy");
-        servletDef.setServletClass("org.apache.tomcat.DummyServlet");
+        servletDef.setServletClass("org.apache.thundercat.DummyServlet");
         servletDef.setRunAs("dummy");
         webXmlDefaultFragment.addServlet(servletDef);
 

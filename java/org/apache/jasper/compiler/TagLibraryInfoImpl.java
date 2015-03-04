@@ -44,12 +44,12 @@ import javax.servlet.jsp.tagext.ValidationMessage;
 
 import org.apache.jasper.JasperException;
 import org.apache.jasper.JspCompilationContext;
-import org.apache.tomcat.util.descriptor.tld.TagFileXml;
-import org.apache.tomcat.util.descriptor.tld.TagXml;
-import org.apache.tomcat.util.descriptor.tld.TaglibXml;
-import org.apache.tomcat.util.descriptor.tld.TldResourcePath;
-import org.apache.tomcat.util.descriptor.tld.ValidatorXml;
-import org.apache.tomcat.util.scan.Jar;
+import org.apache.thundercat.util.descriptor.tld.TagFileXml;
+import org.apache.thundercat.util.descriptor.tld.TagXml;
+import org.apache.thundercat.util.descriptor.tld.TaglibXml;
+import org.apache.thundercat.util.descriptor.tld.TldResourcePath;
+import org.apache.thundercat.util.descriptor.tld.ValidatorXml;
+import org.apache.thundercat.util.scan.Jar;
 
 /**
  * Implementation of the TagLibraryInfo class from the JSP spec.

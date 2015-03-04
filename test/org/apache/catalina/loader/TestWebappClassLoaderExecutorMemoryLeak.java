@@ -39,10 +39,10 @@ public class TestWebappClassLoaderExecutorMemoryLeak extends TomcatBaseTest {
 
     @Test
     public void testTimerThreadLeak() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         if (ctx instanceof StandardContext) {
             ((StandardContext) ctx).setClearReferencesStopThreads(true);
@@ -52,7 +52,7 @@ public class TestWebappClassLoaderExecutorMemoryLeak extends TomcatBaseTest {
         Tomcat.addServlet(ctx, "taskServlet", executorServlet);
         ctx.addServletMapping("/", "taskServlet");
 
-        tomcat.start();
+        thundercat.start();
 
         // This will trigger the timer & thread creation
         getUrl("http://localhost:" + getPort() + "/");

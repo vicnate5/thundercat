@@ -176,7 +176,7 @@
         tag="Parameter"
         standard="true"
         default="false"
-        tagClass="org.apache.tomcat.util.descriptor.web.ApplicationParameter"
+        tagClass="org.apache.thundercat.util.descriptor.web.ApplicationParameter"
         storeFactoryClass="org.apache.catalina.storeconfig.StoreFactoryBase">
      </Description>
      <Description
@@ -231,28 +231,28 @@
         tag="Environment"
         standard="true"
         default="false"
-        tagClass="org.apache.tomcat.util.descriptor.web.ContextEnvironment"
+        tagClass="org.apache.thundercat.util.descriptor.web.ContextEnvironment"
         storeFactoryClass="org.apache.catalina.storeconfig.StoreFactoryBase">
      </Description>
      <Description
         tag="EJB"
         standard="true"
         default="false"
-        tagClass="org.apache.tomcat.util.descriptor.web.ContextEjb"
+        tagClass="org.apache.thundercat.util.descriptor.web.ContextEjb"
         storeFactoryClass="org.apache.catalina.storeconfig.StoreFactoryBase">
      </Description>
      <Description
         tag="LocalEjb"
         standard="true"
         default="false"
-        tagClass="org.apache.tomcat.util.descriptor.web.ContextLocalEjb"
+        tagClass="org.apache.thundercat.util.descriptor.web.ContextLocalEjb"
         storeFactoryClass="org.apache.catalina.storeconfig.StoreFactoryBase">
      </Description>
      <Description
         tag="Resource"
         standard="true"
         default="false"
-        tagClass="org.apache.tomcat.util.descriptor.web.ContextResource"
+        tagClass="org.apache.thundercat.util.descriptor.web.ContextResource"
         storeFactoryClass="org.apache.catalina.storeconfig.StoreFactoryBase">
      </Description>
     <Description
@@ -299,21 +299,21 @@
         tag="ResourceEnvRef"
         standard="true"
         default="false"
-        tagClass="org.apache.tomcat.util.descriptor.web.ContextResourceEnvRef"
+        tagClass="org.apache.thundercat.util.descriptor.web.ContextResourceEnvRef"
         storeFactoryClass="org.apache.catalina.storeconfig.StoreFactoryBase">
      </Description>
      <Description
         tag="ResourceLink"
         standard="true"
         default="false"
-        tagClass="org.apache.tomcat.util.descriptor.web.ContextResourceLink"
+        tagClass="org.apache.thundercat.util.descriptor.web.ContextResourceLink"
         storeFactoryClass="org.apache.catalina.storeconfig.StoreFactoryBase">
      </Description>
      <Description
         tag="Transaction"
         standard="true"
         default="false"
-        tagClass="org.apache.tomcat.util.descriptor.web.ContextTransaction"
+        tagClass="org.apache.thundercat.util.descriptor.web.ContextTransaction"
         storeFactoryClass="org.apache.catalina.storeconfig.StoreFactoryBase">
      </Description>
      <Description
@@ -426,21 +426,21 @@
         standard="true"
         default="false"
         children="true"
-        tagClass="org.apache.tomcat.util.scan.StandardJarScanner"
+        tagClass="org.apache.thundercat.util.scan.StandardJarScanner"
         storeFactoryClass="org.apache.catalina.storeconfig.JarScannerSF">
      </Description>
      <Description
         tag="JarScanFilter"
         standard="true"
         default="false"
-        tagClass="org.apache.tomcat.util.scan.StandardJarScanFilter"
+        tagClass="org.apache.thundercat.util.scan.StandardJarScanFilter"
         storeFactoryClass="org.apache.catalina.storeconfig.StoreFactoryBase">
      </Description>
      <Description
         tag="CookieProcessor"
         standard="true"
         default="false"
-        tagClass="org.apache.tomcat.util.http.LegacyCookieProcessor"
+        tagClass="org.apache.thundercat.util.http.LegacyCookieProcessor"
         storeFactoryClass="org.apache.catalina.storeconfig.StoreFactoryBase">
      </Description>
      <Description

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.descriptor.web;
+package org.apache.thundercat.util.descriptor.web;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,7 +27,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import org.apache.tomcat.util.digester.Digester;
+import org.apache.thundercat.util.digester.Digester;
 
 public class TestWebRuleSet {
 

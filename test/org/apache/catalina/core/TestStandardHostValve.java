@@ -34,18 +34,18 @@ import org.apache.catalina.Context;
 import org.apache.catalina.connector.Response;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.descriptor.web.ErrorPage;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.descriptor.web.ErrorPage;
 
 public class TestStandardHostValve extends TomcatBaseTest {
 
     @Test
     public void testErrorPageHandling() throws Exception {
         // Set up a container
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         // Add the error page
         Tomcat.addServlet(ctx, "error", new ErrorServlet());
@@ -66,7 +66,7 @@ public class TestStandardHostValve extends TomcatBaseTest {
         errorPageDefault.setLocation("/report/default");
         ctx.addErrorPage(errorPageDefault);
 
-        tomcat.start();
+        thundercat.start();
 
         doTestErrorPageHandling(500, "/500");
         doTestErrorPageHandling(501, "/default");
@@ -76,10 +76,10 @@ public class TestStandardHostValve extends TomcatBaseTest {
     @Test
     public void testSRLAfterError() throws Exception {
         // Set up a container
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         // Add the error page
         Tomcat.addServlet(ctx, "error", new ErrorServlet());
@@ -103,7 +103,7 @@ public class TestStandardHostValve extends TomcatBaseTest {
         };
         ((StandardContext) ctx).addApplicationEventListener(servletRequestListener);
 
-        tomcat.start();
+        thundercat.start();
 
         // Request a page that triggers an error
         ByteChunk bc = new ByteChunk();

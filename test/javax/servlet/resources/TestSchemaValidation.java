@@ -21,12 +21,12 @@ import java.io.File;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.tomcat.util.descriptor.DigesterFactory;
-import org.apache.tomcat.util.descriptor.XmlErrorHandler;
-import org.apache.tomcat.util.descriptor.XmlIdentifiers;
-import org.apache.tomcat.util.descriptor.web.WebRuleSet;
-import org.apache.tomcat.util.descriptor.web.WebXml;
-import org.apache.tomcat.util.digester.Digester;
+import org.apache.thundercat.util.descriptor.DigesterFactory;
+import org.apache.thundercat.util.descriptor.XmlErrorHandler;
+import org.apache.thundercat.util.descriptor.XmlIdentifiers;
+import org.apache.thundercat.util.descriptor.web.WebRuleSet;
+import org.apache.thundercat.util.descriptor.web.WebXml;
+import org.apache.thundercat.util.digester.Digester;
 
 public class TestSchemaValidation {
 

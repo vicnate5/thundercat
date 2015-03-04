@@ -30,12 +30,12 @@ import org.apache.catalina.Context;
 import org.apache.catalina.startup.TesterServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.descriptor.web.LoginConfig;
-import org.apache.tomcat.util.descriptor.web.SecurityCollection;
-import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
-import org.apache.tomcat.util.security.ConcurrentMessageDigest;
-import org.apache.tomcat.util.security.MD5Encoder;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.descriptor.web.LoginConfig;
+import org.apache.thundercat.util.descriptor.web.SecurityCollection;
+import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
+import org.apache.thundercat.util.security.ConcurrentMessageDigest;
+import org.apache.thundercat.util.security.MD5Encoder;
 
 /**
  * Test DigestAuthenticator and NonLoginAuthenticator when a
@@ -303,28 +303,28 @@ public class TestSSOnonLoginAndDigestAuthenticator extends TomcatBaseTest {
     public void setUp() throws Exception {
         super.setUp();
 
-        // create a tomcat server using the default in-memory Realm
-        Tomcat tomcat = getTomcatInstance();
+        // create a thundercat server using the default in-memory Realm
+        Tomcat thundercat = getTomcatInstance();
 
         // associate the SingeSignOn Valve before the Contexts
         SingleSignOn sso = new SingleSignOn();
-        tomcat.getHost().getPipeline().addValve(sso);
+        thundercat.getHost().getPipeline().addValve(sso);
 
         // add the test user and role to the Realm
-        tomcat.addUser(USER, PWD);
-        tomcat.addRole(USER, ROLE);
+        thundercat.addUser(USER, PWD);
+        thundercat.addRole(USER, ROLE);
 
         // setup both NonLogin, Login and digest webapps
-        setUpNonLogin(tomcat);
-        setUpDigest(tomcat);
+        setUpNonLogin(thundercat);
+        setUpDigest(thundercat);
 
-        tomcat.start();
+        thundercat.start();
     }
 
-    private void setUpNonLogin(Tomcat tomcat) throws Exception {
+    private void setUpNonLogin(Tomcat thundercat) throws Exception {
 
         // Must have a real docBase for webapps - just use temp
-        Context ctxt = tomcat.addContext(CONTEXT_PATH_NOLOGIN,
+        Context ctxt = thundercat.addContext(CONTEXT_PATH_NOLOGIN,
                 System.getProperty("java.io.tmpdir"));
         ctxt.setSessionTimeout(LONG_TIMEOUT_SECS);
 
@@ -355,10 +355,10 @@ public class TestSSOnonLoginAndDigestAuthenticator extends TomcatBaseTest {
         ctxt.getPipeline().addValve(new NonLoginAuthenticator());
     }
 
-    private void setUpDigest(Tomcat tomcat) throws Exception {
+    private void setUpDigest(Tomcat thundercat) throws Exception {
 
         // Must have a real docBase for webapps - just use temp
-        Context ctxt = tomcat.addContext(CONTEXT_PATH_DIGEST,
+        Context ctxt = thundercat.addContext(CONTEXT_PATH_DIGEST,
                 System.getProperty("java.io.tmpdir"));
         ctxt.setSessionTimeout(SHORT_TIMEOUT_SECS);
 

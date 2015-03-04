@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket.server;
+package org.apache.thundercat.websocket.server;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -31,9 +31,9 @@ import javax.websocket.SendResult;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
-import org.apache.tomcat.websocket.Transformation;
-import org.apache.tomcat.websocket.WsRemoteEndpointImplBase;
+import org.apache.thundercat.util.res.StringManager;
+import org.apache.thundercat.websocket.Transformation;
+import org.apache.thundercat.websocket.WsRemoteEndpointImplBase;
 
 /**
  * This is the server side {@link javax.websocket.RemoteEndpoint} implementation

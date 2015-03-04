@@ -16,7 +16,7 @@
  */
 
 
-package org.apache.tomcat.util.modeler;
+package org.apache.thundercat.util.modeler;
 
 
 import java.io.File;
@@ -41,13 +41,13 @@ import javax.management.ObjectName;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.modeler.modules.ModelerSource;
+import org.apache.thundercat.util.modeler.modules.ModelerSource;
 
 /*
    Issues:
    - exceptions - too many "throws Exception"
    - double check the interfaces
-   - start removing the use of the experimental methods in tomcat, then remove
+   - start removing the use of the experimental methods in thundercat, then remove
      the methods ( before 1.1 final )
    - is the security enough to prevent Registry beeing used to avoid the permission
     checks in the mbean server ?
@@ -700,7 +700,7 @@ public class Registry implements RegistryMBean, MBeanRegistration  {
     {
         if( type==null ) type="MbeansDescriptorsDigesterSource";
         if( type.indexOf( ".") < 0 ) {
-            type="org.apache.tomcat.util.modeler.modules." + type;
+            type="org.apache.thundercat.util.modeler.modules." + type;
         }
 
         Class<?> c = Class.forName(type);

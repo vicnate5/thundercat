@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import java.nio.charset.StandardCharsets;
 
@@ -24,7 +24,7 @@ import javax.servlet.http.Cookie;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.tomcat.util.buf.MessageBytes;
+import org.apache.thundercat.util.buf.MessageBytes;
 
 public class TestCookies {
     private final Cookie FOO = new Cookie("foo", "bar");
@@ -492,7 +492,7 @@ public class TestCookies {
             Assert.assertEquals(cookie.getName(), actual.getName().toString());
             actual.getValue().getByteChunk().setCharset(StandardCharsets.UTF_8);
             Assert.assertEquals(cookie.getValue(),
-                    org.apache.tomcat.util.http.parser.Cookie.unescapeCookieValueRfc2109(
+                    org.apache.thundercat.util.http.parser.Cookie.unescapeCookieValueRfc2109(
                             actual.getValue().toString()));
             if (cookie.getVersion() == 1) {
                 Assert.assertEquals(cookie.getDomain(), actual.getDomain().toString());

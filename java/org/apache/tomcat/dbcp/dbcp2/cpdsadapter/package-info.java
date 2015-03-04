@@ -29,11 +29,11 @@
  *
  * <pre>
  *  &lt;Resource name="jdbc/bookstoreCPDS" auth="Container"
- *             type="org.apache.tomcat.dbcp.dbcp2.cpdsadapter.DriverAdapterCPDS"/&gt;
+ *             type="org.apache.thundercat.dbcp.dbcp2.cpdsadapter.DriverAdapterCPDS"/&gt;
  *   &lt;ResourceParams name="jdbc/bookstoreCPDS"&gt;
  *     &lt;parameter&gt;
  *       &lt;name&gt;factory&lt;/name&gt;
- *       &lt;value&gt;org.apache.tomcat.dbcp.dbcp2.cpdsadapter.DriverAdapterCPDS&lt;/value&gt;
+ *       &lt;value&gt;org.apache.thundercat.dbcp.dbcp2.cpdsadapter.DriverAdapterCPDS&lt;/value&gt;
  *     &lt;/parameter&gt;
  *         &lt;parameter&gt;&lt;name&gt;user&lt;/name&gt;&lt;value&gt;root&lt;/value&gt;&lt;/parameter&gt;
  *         &lt;parameter&gt;&lt;name&gt;password&lt;/name&gt;&lt;value&gt;&lt;/value&gt;&lt;/parameter&gt;
@@ -63,7 +63,7 @@
  *     jdbc/bookstoreCPDS
  *   &lt;/res-ref-name&gt;
  *   &lt;res-type&gt;
- *     org.apache.tomcat.dbcp.dbcp2.cpdsadapter.DriverAdapterCPDS
+ *     org.apache.thundercat.dbcp.dbcp2.cpdsadapter.DriverAdapterCPDS
  *   &lt;/res-type&gt;
  *   &lt;res-auth&gt;
  *     Container
@@ -76,4 +76,4 @@
  * <strong>java:comp/env</strong> namespace.
  * </p>
  */
-package org.apache.tomcat.dbcp.dbcp2.cpdsadapter;
+package org.apache.thundercat.dbcp.dbcp2.cpdsadapter;

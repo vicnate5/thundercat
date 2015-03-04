@@ -52,7 +52,7 @@ import org.apache.catalina.startup.TomcatBaseTest;
 import org.apache.catalina.valves.TesterAccessLogValve;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestNonBlockingAPI extends TomcatBaseTest {
 
@@ -95,10 +95,10 @@ public class TestNonBlockingAPI extends TomcatBaseTest {
 
 
     private void doTestNonBlockingRead(boolean ignoreIsReady) throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // Must have a real docBase - just use temp
-        StandardContext ctx = (StandardContext) tomcat.addContext("",
+        StandardContext ctx = (StandardContext) thundercat.addContext("",
                 System.getProperty("java.io.tmpdir"));
 
         NBReadServlet servlet = new NBReadServlet(ignoreIsReady);
@@ -106,7 +106,7 @@ public class TestNonBlockingAPI extends TomcatBaseTest {
         Tomcat.addServlet(ctx, servletName, servlet);
         ctx.addServletMapping("/", servletName);
 
-        tomcat.start();
+        thundercat.start();
 
         Map<String, List<String>> resHeaders = new HashMap<>();
         int rc = postUrl(true, new DataWriter(500), "http://localhost:" +
@@ -118,16 +118,16 @@ public class TestNonBlockingAPI extends TomcatBaseTest {
 
     @Test
     public void testNonBlockingWrite() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         NBWriteServlet servlet = new NBWriteServlet();
         String servletName = NBWriteServlet.class.getName();
         Tomcat.addServlet(ctx, servletName, servlet);
         ctx.addServletMapping("/", servletName);
-        tomcat.getConnector().setProperty("socket.txBufSize", "1024");
-        tomcat.start();
+        thundercat.getConnector().setProperty("socket.txBufSize", "1024");
+        thundercat.start();
 
         SocketFactory factory = SocketFactory.getDefault();
         Socket s = factory.createSocket("localhost", getPort());
@@ -262,10 +262,10 @@ public class TestNonBlockingAPI extends TomcatBaseTest {
 
     @Test
     public void testNonBlockingWriteError() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
@@ -274,8 +274,8 @@ public class TestNonBlockingAPI extends TomcatBaseTest {
         String servletName = NBWriteServlet.class.getName();
         Tomcat.addServlet(ctx, servletName, servlet);
         ctx.addServletMapping("/", servletName);
-        tomcat.getConnector().setProperty("socket.txBufSize", "1024");
-        tomcat.start();
+        thundercat.getConnector().setProperty("socket.txBufSize", "1024");
+        thundercat.start();
 
         SocketFactory factory = SocketFactory.getDefault();
         Socket s = factory.createSocket("localhost", getPort());
@@ -348,17 +348,17 @@ public class TestNonBlockingAPI extends TomcatBaseTest {
 
     @Test
     public void testBug55438NonBlockingReadWriteEmptyRead() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         NBReadWriteServlet servlet = new NBReadWriteServlet();
         String servletName = NBReadWriteServlet.class.getName();
         Tomcat.addServlet(ctx, servletName, servlet);
         ctx.addServletMapping("/", servletName);
 
-        tomcat.start();
+        thundercat.start();
 
         Map<String, List<String>> resHeaders = new HashMap<>();
         int rc = postUrl(false, new BytesStreamer() {

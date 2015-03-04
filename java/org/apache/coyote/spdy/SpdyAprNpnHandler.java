@@ -22,17 +22,17 @@ import org.apache.coyote.Adapter;
 import org.apache.coyote.http11.NpnHandler;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.jni.SSLExt;
-import org.apache.tomcat.spdy.NetSupportOpenSSL;
-import org.apache.tomcat.spdy.SpdyConnection;
-import org.apache.tomcat.spdy.SpdyContext;
-import org.apache.tomcat.spdy.SpdyContext.SpdyHandler;
-import org.apache.tomcat.spdy.SpdyStream;
-import org.apache.tomcat.util.net.AbstractEndpoint;
-import org.apache.tomcat.util.net.AbstractEndpoint.Handler.SocketState;
-import org.apache.tomcat.util.net.AprEndpoint;
-import org.apache.tomcat.util.net.SocketStatus;
-import org.apache.tomcat.util.net.SocketWrapperBase;
+import org.apache.thundercat.jni.SSLExt;
+import org.apache.thundercat.spdy.NetSupportOpenSSL;
+import org.apache.thundercat.spdy.SpdyConnection;
+import org.apache.thundercat.spdy.SpdyContext;
+import org.apache.thundercat.spdy.SpdyContext.SpdyHandler;
+import org.apache.thundercat.spdy.SpdyStream;
+import org.apache.thundercat.util.net.AbstractEndpoint;
+import org.apache.thundercat.util.net.AbstractEndpoint.Handler.SocketState;
+import org.apache.thundercat.util.net.AprEndpoint;
+import org.apache.thundercat.util.net.SocketStatus;
+import org.apache.thundercat.util.net.SocketWrapperBase;
 
 /**
  * Plugin for APR connector providing SPDY support via NPN negotiation.
@@ -53,7 +53,7 @@ import org.apache.tomcat.util.net.SocketWrapperBase;
  * with a recent openssl or a openssl patched with npn support.
  *
  * Because we need to auto-detect SPDY and fallback to HTTP ( based on SSL next
- * proto ) this is implemented in tomcat a special way:
+ * proto ) this is implemented in thundercat a special way:
  * Http11AprProtocol will delegate to Spdy.process if spdy is
  * negotiated by TLS.
  *
@@ -101,7 +101,7 @@ public class SpdyAprNpnHandler implements NpnHandler<Long> {
 
         ((NetSupportOpenSSL) spdyContext.getNetSupport()).onAcceptLong(socket);
 
-        // No need to keep tomcat thread busy - but socket will be handled by apr socket context.
+        // No need to keep thundercat thread busy - but socket will be handled by apr socket context.
         return SocketState.LONG;
     }
 }

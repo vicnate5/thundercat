@@ -27,17 +27,17 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.scan.StandardJarScanner;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.scan.StandardJarScanner;
 
 public class TestTldScanner extends TomcatBaseTest {
 
     @Test
     public void testWithWebapp() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         File appDir = new File("test/webapp-3.0");
-        Context context = tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
-        tomcat.start();
+        Context context = thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.start();
 
         TldScanner scanner =
                 new TldScanner(context.getServletContext(), true, true, true);
@@ -49,12 +49,12 @@ public class TestTldScanner extends TomcatBaseTest {
 
     @Test
     public void testBug55807() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp");
-        Context context = tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        Context context = thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
         ((StandardJarScanner) context.getJarScanner()).setScanAllDirectories(true);
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = new ByteChunk();
         Map<String,List<String>> headers = new HashMap<>();

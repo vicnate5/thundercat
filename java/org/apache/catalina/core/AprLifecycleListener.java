@@ -28,11 +28,11 @@ import org.apache.catalina.LifecycleEvent;
 import org.apache.catalina.LifecycleListener;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.jni.Library;
-import org.apache.tomcat.jni.LibraryNotFoundError;
-import org.apache.tomcat.jni.SSL;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.jni.Library;
+import org.apache.thundercat.jni.LibraryNotFoundError;
+import org.apache.thundercat.jni.SSL;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.res.StringManager;
 
 
 
@@ -170,7 +170,7 @@ public class AprLifecycleListener
                IllegalAccessException, InvocationTargetException
     {
         String methodName = "terminate";
-        Method method = Class.forName("org.apache.tomcat.jni.Library")
+        Method method = Class.forName("org.apache.thundercat.jni.Library")
             .getMethod(methodName, (Class [])null);
         method.invoke(null, (Object []) null);
         aprAvailable = false;
@@ -272,7 +272,7 @@ public class AprLifecycleListener
         paramTypes[0] = String.class;
         Object paramValues[] = new Object[1];
         paramValues[0] = SSLRandomSeed;
-        Class<?> clazz = Class.forName("org.apache.tomcat.jni.SSL");
+        Class<?> clazz = Class.forName("org.apache.thundercat.jni.SSL");
         Method method = clazz.getMethod(methodName, paramTypes);
         method.invoke(null, paramValues);
 

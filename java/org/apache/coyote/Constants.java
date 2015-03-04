@@ -68,7 +68,7 @@ public final class Constants {
      * if connector processing this request supports use of sendfile.
      */
     public static final String SENDFILE_SUPPORTED_ATTR =
-        "org.apache.tomcat.sendfile.support";
+        "org.apache.thundercat.sendfile.support";
 
 
     /**
@@ -78,7 +78,7 @@ public final class Constants {
      * that is {@code File.getCanonicalPath()} of the file to be served.
      */
     public static final String SENDFILE_FILENAME_ATTR =
-        "org.apache.tomcat.sendfile.filename";
+        "org.apache.thundercat.sendfile.filename";
 
 
     /**
@@ -89,7 +89,7 @@ public final class Constants {
      * the value should be {@code Long.valueOf(0)}.
      */
     public static final String SENDFILE_FILE_START_ATTR =
-        "org.apache.tomcat.sendfile.start";
+        "org.apache.thundercat.sendfile.start";
 
 
     /**
@@ -100,7 +100,7 @@ public final class Constants {
      * the value should be equal to the length of the file.
      */
     public static final String SENDFILE_FILE_END_ATTR =
-        "org.apache.tomcat.sendfile.end";
+        "org.apache.thundercat.sendfile.end";
 
 
     /**
@@ -111,5 +111,5 @@ public final class Constants {
      * the X-Forwarded-For HTTP header.
      */
     public static final String REMOTE_ADDR_ATTRIBUTE =
-            "org.apache.tomcat.remoteAddr";
+            "org.apache.thundercat.remoteAddr";
 }

@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.util.net.jsse.openssl;
+package org.apache.thundercat.util.net.jsse.openssl;
 
 enum EncryptionLevel {
     STRONG_NONE, EXP40, EXP56, LOW, MEDIUM, HIGH, FIPS;

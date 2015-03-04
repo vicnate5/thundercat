@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket.pojo;
+package org.apache.thundercat.websocket.pojo;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -29,8 +29,8 @@ import javax.websocket.Session;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Base implementation (client and server have different concrete

@@ -33,7 +33,7 @@
   <property file="build.properties.default"/>
 
   <!-- Project Name -->
-  <property name="project"               value="apache-tomcat" />
+  <property name="project"               value="apache-thundercat" />
 
   <!-- Version numbers -->
   <property name="version"               value="${version.major}.${version.minor}.${version.build}${version.suffix}" />
@@ -54,28 +54,28 @@
   <property name="final-src.name"        value="${project}-${version}-src" />
 
   <!-- Locations to create build artifacts -->
-  <property name="tomcat.home"           value="${basedir}"/>
-  <property name="tomcat-nb.home"        value="${basedir}/nbproject" />
-  <property name="tomcat.output"         value="${basedir}/output"/>
-  <property name="tomcat.build"          value="${tomcat.output}/build"/>
-  <property name="tomcat.classes"        value="${tomcat.output}/classes"/>
-  <property name="tomcat.deployer"       value="${tomcat.output}/deployer"/>
-  <property name="tomcat.dist"           value="${tomcat.output}/dist"/>
-  <property name="tomcat.embed"          value="${tomcat.output}/embed"/>
-  <property name="tomcat.embed.sources"  value="${tomcat.output}/embed-src-jars"/>
-  <property name="tomcat.extras"         value="${tomcat.output}/extras"/>
-  <property name="tomcat.extras.sources" value="${tomcat.output}/extras-src-jars"/>
-  <property name="tomcat.manifests"      value="${tomcat.output}/manifests"/>
-  <property name="tomcat.release"        value="${tomcat.output}/release"/>
-  <property name="tomcat.src.jars"       value="${tomcat.output}/src-jars"/>
-  <property name="test.classes"          value="${tomcat.output}/testclasses"/>
-  <property name="test.temp"             value="${tomcat.output}/test-tmp"/>
-  <property name="test.reports"          value="${tomcat.build}/logs"/>
-  <property name="test.apr.loc"          value="${tomcat.build}/bin/native"/>
+  <property name="thundercat.home"           value="${basedir}"/>
+  <property name="thundercat-nb.home"        value="${basedir}/nbproject" />
+  <property name="thundercat.output"         value="${basedir}/output"/>
+  <property name="thundercat.build"          value="${thundercat.output}/build"/>
+  <property name="thundercat.classes"        value="${thundercat.output}/classes"/>
+  <property name="thundercat.deployer"       value="${thundercat.output}/deployer"/>
+  <property name="thundercat.dist"           value="${thundercat.output}/dist"/>
+  <property name="thundercat.embed"          value="${thundercat.output}/embed"/>
+  <property name="thundercat.embed.sources"  value="${thundercat.output}/embed-src-jars"/>
+  <property name="thundercat.extras"         value="${thundercat.output}/extras"/>
+  <property name="thundercat.extras.sources" value="${thundercat.output}/extras-src-jars"/>
+  <property name="thundercat.manifests"      value="${thundercat.output}/manifests"/>
+  <property name="thundercat.release"        value="${thundercat.output}/release"/>
+  <property name="thundercat.src.jars"       value="${thundercat.output}/src-jars"/>
+  <property name="test.classes"          value="${thundercat.output}/testclasses"/>
+  <property name="test.temp"             value="${thundercat.output}/test-tmp"/>
+  <property name="test.reports"          value="${thundercat.build}/logs"/>
+  <property name="test.apr.loc"          value="${thundercat.build}/bin/native"/>
   <!-- base directory for jdbc-pool -->
-  <property name="tomcat.jdbc.dir"       value="${basedir}/modules/jdbc-pool"/>
+  <property name="thundercat.jdbc.dir"       value="${basedir}/modules/jdbc-pool"/>
   <!-- build output directory for jdbc-pool -->
-  <property name="tomcat.pool"           value="${tomcat.output}/jdbc-pool"/>
+  <property name="thundercat.pool"           value="${thundercat.output}/jdbc-pool"/>
 
   <!-- Servlet 4.0 spec requires 1.8+ -->
   <property name="compile.source" value="1.8"/>
@@ -83,87 +83,87 @@
 
   <!-- Locations to create the JAR artifacts -->
   <!-- Standard JARs -->
-  <property name="bootstrap.jar" value="${tomcat.build}/bin/bootstrap.jar"/>
-  <property name="tomcat-juli.jar" value="${tomcat.build}/bin/tomcat-juli.jar"/>
+  <property name="bootstrap.jar" value="${thundercat.build}/bin/bootstrap.jar"/>
+  <property name="thundercat-juli.jar" value="${thundercat.build}/bin/thundercat-juli.jar"/>
 
-  <property name="annotations-api.jar" value="${tomcat.build}/lib/annotations-api.jar"/>
-  <property name="servlet-api.jar" value="${tomcat.build}/lib/servlet-api.jar"/>
-  <property name="jsp-api.jar" value="${tomcat.build}/lib/jsp-api.jar"/>
-  <property name="el-api.jar" value="${tomcat.build}/lib/el-api.jar"/>
-  <property name="websocket-api.jar" value="${tomcat.build}/lib/websocket-api.jar"/>
-  <property name="tomcat-websocket.jar" value="${tomcat.build}/lib/tomcat-websocket.jar"/>
-  <property name="catalina.jar" value="${tomcat.build}/lib/catalina.jar"/>
-  <property name="catalina-tribes.jar" value="${tomcat.build}/lib/catalina-tribes.jar"/>
-  <property name="catalina-ha.jar" value="${tomcat.build}/lib/catalina-ha.jar"/>
-  <property name="catalina-ant.jar" value="${tomcat.build}/lib/catalina-ant.jar"/>
-  <property name="catalina-storeconfig.jar" value="${tomcat.build}/lib/catalina-storeconfig.jar"/>
-  <property name="tomcat-coyote.jar" value="${tomcat.build}/lib/tomcat-coyote.jar"/>
-  <property name="tomcat-dbcp.jar" value="${tomcat.build}/lib/tomcat-dbcp.jar"/>
-  <property name="tomcat-jni.jar" value="${tomcat.build}/lib/tomcat-jni.jar"/>
-  <property name="tomcat-spdy.jar" value="${tomcat.build}/lib/tomcat-spdy.jar"/>
-  <property name="tomcat-api.jar" value="${tomcat.build}/lib/tomcat-api.jar"/>
-  <property name="tomcat-util.jar" value="${tomcat.build}/lib/tomcat-util.jar"/>
-  <property name="tomcat-util-scan.jar" value="${tomcat.build}/lib/tomcat-util-scan.jar"/>
+  <property name="annotations-api.jar" value="${thundercat.build}/lib/annotations-api.jar"/>
+  <property name="servlet-api.jar" value="${thundercat.build}/lib/servlet-api.jar"/>
+  <property name="jsp-api.jar" value="${thundercat.build}/lib/jsp-api.jar"/>
+  <property name="el-api.jar" value="${thundercat.build}/lib/el-api.jar"/>
+  <property name="websocket-api.jar" value="${thundercat.build}/lib/websocket-api.jar"/>
+  <property name="thundercat-websocket.jar" value="${thundercat.build}/lib/thundercat-websocket.jar"/>
+  <property name="catalina.jar" value="${thundercat.build}/lib/catalina.jar"/>
+  <property name="catalina-tribes.jar" value="${thundercat.build}/lib/catalina-tribes.jar"/>
+  <property name="catalina-ha.jar" value="${thundercat.build}/lib/catalina-ha.jar"/>
+  <property name="catalina-ant.jar" value="${thundercat.build}/lib/catalina-ant.jar"/>
+  <property name="catalina-storeconfig.jar" value="${thundercat.build}/lib/catalina-storeconfig.jar"/>
+  <property name="thundercat-coyote.jar" value="${thundercat.build}/lib/thundercat-coyote.jar"/>
+  <property name="thundercat-dbcp.jar" value="${thundercat.build}/lib/thundercat-dbcp.jar"/>
+  <property name="thundercat-jni.jar" value="${thundercat.build}/lib/thundercat-jni.jar"/>
+  <property name="thundercat-spdy.jar" value="${thundercat.build}/lib/thundercat-spdy.jar"/>
+  <property name="thundercat-api.jar" value="${thundercat.build}/lib/thundercat-api.jar"/>
+  <property name="thundercat-util.jar" value="${thundercat.build}/lib/thundercat-util.jar"/>
+  <property name="thundercat-util-scan.jar" value="${thundercat.build}/lib/thundercat-util-scan.jar"/>
 
-  <property name="jasper.jar" value="${tomcat.build}/lib/jasper.jar"/>
-  <property name="jasper-el.jar" value="${tomcat.build}/lib/jasper-el.jar"/>
+  <property name="jasper.jar" value="${thundercat.build}/lib/jasper.jar"/>
+  <property name="jasper-el.jar" value="${thundercat.build}/lib/jasper-el.jar"/>
 
   <!-- Standard Source JARs -->
-  <property name="bootstrap-src.jar" value="${tomcat.src.jars}/bootstrap-src.jar"/>
-  <property name="tomcat-juli-src.jar" value="${tomcat.src.jars}/tomcat-juli-src.jar"/>
+  <property name="bootstrap-src.jar" value="${thundercat.src.jars}/bootstrap-src.jar"/>
+  <property name="thundercat-juli-src.jar" value="${thundercat.src.jars}/thundercat-juli-src.jar"/>
 
-  <property name="annotations-api-src.jar" value="${tomcat.src.jars}/annotations-api-src.jar"/>
-  <property name="servlet-api-src.jar" value="${tomcat.src.jars}/servlet-api-src.jar"/>
-  <property name="jsp-api-src.jar" value="${tomcat.src.jars}/jsp-api-src.jar"/>
-  <property name="el-api-src.jar" value="${tomcat.src.jars}/el-api-src.jar"/>
-  <property name="websocket-api-src.jar" value="${tomcat.src.jars}/websocket-api-src.jar"/>
-  <property name="tomcat-websocket-src.jar" value="${tomcat.src.jars}/tomcat-websocket-src.jar"/>
-  <property name="catalina-src.jar" value="${tomcat.src.jars}/catalina-src.jar"/>
-  <property name="catalina-tribes-src.jar" value="${tomcat.src.jars}/catalina-tribes-src.jar"/>
-  <property name="catalina-ha-src.jar" value="${tomcat.src.jars}/catalina-ha-src.jar"/>
-  <property name="catalina-ant-src.jar" value="${tomcat.src.jars}/catalina-ant-src.jar"/>
-  <property name="catalina-storeconfig-src.jar" value="${tomcat.src.jars}/catalina-storeconfig-src.jar"/>
-  <property name="tomcat-jni-src.jar" value="${tomcat.src.jars}/tomcat-jni-src.jar"/>
-  <property name="tomcat-spdy-src.jar" value="${tomcat.src.jars}/tomcat-spdy-src.jar"/>
-  <property name="tomcat-coyote-src.jar" value="${tomcat.src.jars}/tomcat-coyote-src.jar"/>
-  <property name="tomcat-dbcp-src.jar" value="${tomcat.src.jars}/tomcat-dbcp-src.jar"/>
-  <property name="tomcat-api-src.jar" value="${tomcat.src.jars}/tomcat-api-src.jar"/>
-  <property name="tomcat-util-src.jar" value="${tomcat.src.jars}/tomcat-util-src.jar"/>
-  <property name="tomcat-util-scan-src.jar" value="${tomcat.src.jars}/tomcat-util-scan-src.jar"/>
+  <property name="annotations-api-src.jar" value="${thundercat.src.jars}/annotations-api-src.jar"/>
+  <property name="servlet-api-src.jar" value="${thundercat.src.jars}/servlet-api-src.jar"/>
+  <property name="jsp-api-src.jar" value="${thundercat.src.jars}/jsp-api-src.jar"/>
+  <property name="el-api-src.jar" value="${thundercat.src.jars}/el-api-src.jar"/>
+  <property name="websocket-api-src.jar" value="${thundercat.src.jars}/websocket-api-src.jar"/>
+  <property name="thundercat-websocket-src.jar" value="${thundercat.src.jars}/thundercat-websocket-src.jar"/>
+  <property name="catalina-src.jar" value="${thundercat.src.jars}/catalina-src.jar"/>
+  <property name="catalina-tribes-src.jar" value="${thundercat.src.jars}/catalina-tribes-src.jar"/>
+  <property name="catalina-ha-src.jar" value="${thundercat.src.jars}/catalina-ha-src.jar"/>
+  <property name="catalina-ant-src.jar" value="${thundercat.src.jars}/catalina-ant-src.jar"/>
+  <property name="catalina-storeconfig-src.jar" value="${thundercat.src.jars}/catalina-storeconfig-src.jar"/>
+  <property name="thundercat-jni-src.jar" value="${thundercat.src.jars}/thundercat-jni-src.jar"/>
+  <property name="thundercat-spdy-src.jar" value="${thundercat.src.jars}/thundercat-spdy-src.jar"/>
+  <property name="thundercat-coyote-src.jar" value="${thundercat.src.jars}/thundercat-coyote-src.jar"/>
+  <property name="thundercat-dbcp-src.jar" value="${thundercat.src.jars}/thundercat-dbcp-src.jar"/>
+  <property name="thundercat-api-src.jar" value="${thundercat.src.jars}/thundercat-api-src.jar"/>
+  <property name="thundercat-util-src.jar" value="${thundercat.src.jars}/thundercat-util-src.jar"/>
+  <property name="thundercat-util-scan-src.jar" value="${thundercat.src.jars}/thundercat-util-scan-src.jar"/>
 
-  <property name="jasper-src.jar" value="${tomcat.src.jars}/jasper-src.jar"/>
-  <property name="jasper-el-src.jar" value="${tomcat.src.jars}/jasper-el-src.jar"/>
+  <property name="jasper-src.jar" value="${thundercat.src.jars}/jasper-src.jar"/>
+  <property name="jasper-el-src.jar" value="${thundercat.src.jars}/jasper-el-src.jar"/>
 
   <!-- Embedded JARs & source JARs -->
-  <property name="tomcat-embed-core.jar" value="${tomcat.embed}/tomcat-embed-core.jar"/>
-  <property name="tomcat-embed-jasper.jar" value="${tomcat.embed}/tomcat-embed-jasper.jar"/>
-  <property name="tomcat-embed-el.jar" value="${tomcat.embed}/tomcat-embed-el.jar"/>
-  <property name="tomcat-embed-websocket.jar" value="${tomcat.embed}/tomcat-embed-websocket.jar"/>
-  <property name="tomcat-embed-juli.jar" value="${tomcat.embed}/tomcat-embed-logging-juli.jar"/>
+  <property name="thundercat-embed-core.jar" value="${thundercat.embed}/thundercat-embed-core.jar"/>
+  <property name="thundercat-embed-jasper.jar" value="${thundercat.embed}/thundercat-embed-jasper.jar"/>
+  <property name="thundercat-embed-el.jar" value="${thundercat.embed}/thundercat-embed-el.jar"/>
+  <property name="thundercat-embed-websocket.jar" value="${thundercat.embed}/thundercat-embed-websocket.jar"/>
+  <property name="thundercat-embed-juli.jar" value="${thundercat.embed}/thundercat-embed-logging-juli.jar"/>
 
-  <property name="tomcat-embed-core-sources.jar" value="${tomcat.embed.sources}/tomcat-embed-core-src.jar"/>
-  <property name="tomcat-embed-jasper-sources.jar" value="${tomcat.embed.sources}/tomcat-embed-jasper-src.jar"/>
-  <property name="tomcat-embed-el-sources.jar" value="${tomcat.embed.sources}/tomcat-embed-el-src.jar"/>
-  <property name="tomcat-embed-websocket-sources.jar" value="${tomcat.embed.sources}/tomcat-embed-websocket-src.jar"/>
-  <property name="tomcat-embed-juli-sources.jar" value="${tomcat.embed.sources}/tomcat-embed-logging-juli-src.jar"/>
-  <property name="tomcat-embed-dbcp-sources.jar" value="${tomcat.embed.sources}/tomcat-dbcp-src.jar"/>
+  <property name="thundercat-embed-core-sources.jar" value="${thundercat.embed.sources}/thundercat-embed-core-src.jar"/>
+  <property name="thundercat-embed-jasper-sources.jar" value="${thundercat.embed.sources}/thundercat-embed-jasper-src.jar"/>
+  <property name="thundercat-embed-el-sources.jar" value="${thundercat.embed.sources}/thundercat-embed-el-src.jar"/>
+  <property name="thundercat-embed-websocket-sources.jar" value="${thundercat.embed.sources}/thundercat-embed-websocket-src.jar"/>
+  <property name="thundercat-embed-juli-sources.jar" value="${thundercat.embed.sources}/thundercat-embed-logging-juli-src.jar"/>
+  <property name="thundercat-embed-dbcp-sources.jar" value="${thundercat.embed.sources}/thundercat-dbcp-src.jar"/>
 
   <!-- Extras JARs & source JARs -->
-  <property name="tomcat-juli-extras.jar" value="${tomcat.extras}/tomcat-juli.jar"/>
-  <property name="tomcat-juli-adapters.jar" value="${tomcat.extras}/tomcat-juli-adapters.jar"/>
-  <property name="catalina-ws.jar" value="${tomcat.extras}/catalina-ws.jar"/>
-  <property name="catalina-jmx-remote.jar" value="${tomcat.extras}/catalina-jmx-remote.jar"/>
-  <property name="tomcat-embed-log4j.jar" value="${tomcat.embed}/tomcat-embed-logging-log4j.jar"/>
+  <property name="thundercat-juli-extras.jar" value="${thundercat.extras}/thundercat-juli.jar"/>
+  <property name="thundercat-juli-adapters.jar" value="${thundercat.extras}/thundercat-juli-adapters.jar"/>
+  <property name="catalina-ws.jar" value="${thundercat.extras}/catalina-ws.jar"/>
+  <property name="catalina-jmx-remote.jar" value="${thundercat.extras}/catalina-jmx-remote.jar"/>
+  <property name="thundercat-embed-log4j.jar" value="${thundercat.embed}/thundercat-embed-logging-log4j.jar"/>
 
-  <property name="tomcat-juli-extras-src.jar" value="${tomcat.extras.sources}/tomcat-juli-src.jar"/>
-  <property name="tomcat-juli-adapters-src.jar" value="${tomcat.extras.sources}/tomcat-juli-adapters-src.jar"/>
-  <property name="catalina-ws-src.jar" value="${tomcat.extras.sources}/catalina-ws-src.jar"/>
-  <property name="catalina-jmx-remote-src.jar" value="${tomcat.extras.sources}/catalina-jmx-remote-src.jar"/>
-  <property name="tomcat-embed-log4j-src.jar" value="${tomcat.embed.sources}/tomcat-embed-logging-log4j-src.jar"/>
+  <property name="thundercat-juli-extras-src.jar" value="${thundercat.extras.sources}/thundercat-juli-src.jar"/>
+  <property name="thundercat-juli-adapters-src.jar" value="${thundercat.extras.sources}/thundercat-juli-adapters-src.jar"/>
+  <property name="catalina-ws-src.jar" value="${thundercat.extras.sources}/catalina-ws-src.jar"/>
+  <property name="catalina-jmx-remote-src.jar" value="${thundercat.extras.sources}/catalina-jmx-remote-src.jar"/>
+  <property name="thundercat-embed-log4j-src.jar" value="${thundercat.embed.sources}/thundercat-embed-logging-log4j-src.jar"/>
 
   <!-- jdbc-pool JARs & source JARs -->
-  <property name="tomcat-jdbc.jar" value="${tomcat.pool}/tomcat-jdbc.jar"/>
-  <property name="tomcat-jdbc-src.jar" value="${tomcat.pool}/tomcat-jdbc-src.jar"/>
+  <property name="thundercat-jdbc.jar" value="${thundercat.pool}/thundercat-jdbc.jar"/>
+  <property name="thundercat-jdbc-src.jar" value="${thundercat.pool}/thundercat-jdbc-src.jar"/>
 
   <!-- Tests To Run -->
   <property name="test.name" value="**/Test*.java"/>
@@ -171,9 +171,9 @@
   <property name="test.relaxTiming" value="false"/>
 
   <!-- Cobertura code coverage settings -->
-  <property name="cobertura.out" value="${tomcat.output}/coverage"/>
+  <property name="cobertura.out" value="${thundercat.output}/coverage"/>
   <property name="cobertura.datafile" value="${cobertura.out}/cobertura.ser"/>
-  <property name="tomcat.classes.cobertura" value="${tomcat.classes}-cobertura"/>
+  <property name="thundercat.classes.cobertura" value="${thundercat.classes}-cobertura"/>
   <property name="cobertura.report.format" value="html"/>
 
   <!-- Workaround against http://bugs.sun.com/view_bug.do?bug_id=6202721 -->
@@ -202,12 +202,12 @@
     <pathelement location="${npn.jar}"/>
   </path>
 
-  <path id="tomcat.classpath">
-    <pathelement location="${tomcat.classes}"/>
+  <path id="thundercat.classpath">
+    <pathelement location="${thundercat.classes}"/>
   </path>
 
-  <path id="tomcat.test.classpath">
-    <pathelement location="${tomcat.build}/webapps/examples/WEB-INF/classes"/>
+  <path id="thundercat.test.classpath">
+    <pathelement location="${thundercat.build}/webapps/examples/WEB-INF/classes"/>
     <pathelement location="${test.classes}"/>
     <pathelement location="${junit.jar}"/>
     <pathelement location="${hamcrest.jar}"/>
@@ -215,12 +215,12 @@
     <pathelement location="${cglib.jar}"/>
     <pathelement location="${objenesis.jar}"/>
     <path refid="compile.classpath" />
-    <path refid="tomcat.classpath" />
+    <path refid="thundercat.classpath" />
   </path>
 
-  <path id="tomcat.webservices.classpath">
-    <path refid="tomcat.classpath" />
-    <fileset dir="${tomcat.extras}/webservices">
+  <path id="thundercat.webservices.classpath">
+    <path refid="thundercat.classpath" />
+    <fileset dir="${thundercat.extras}/webservices">
       <include name="jaxrpc.jar"/>
       <include name="wsdl4j.jar"/>
     </fileset>
@@ -322,8 +322,8 @@
     <include name="javax/websocket/**" />
   </patternset>
 
-  <patternset id="files.tomcat-websocket">
-    <include name="org/apache/tomcat/websocket/**" />
+  <patternset id="files.thundercat-websocket">
+    <include name="org/apache/thundercat/websocket/**" />
   </patternset>
 
   <patternset id="files.bootstrap">
@@ -337,44 +337,44 @@
     <include name="org/apache/naming/JndiPermission.*" />
   </patternset>
 
-  <patternset id="files.tomcat-juli">
+  <patternset id="files.thundercat-juli">
     <include name="org/apache/juli/**" />
   </patternset>
 
-  <patternset id="files.tomcat-api">
-    <include name="org/apache/tomcat/*" />
-    <exclude name="org/apache/tomcat/buildutil" />
-    <exclude name="org/apache/tomcat/dbcp" />
-    <exclude name="org/apache/tomcat/jni" />
-    <exclude name="org/apache/tomcat/spdy" />
-    <exclude name="org/apache/tomcat/util" />
-    <exclude name="org/apache/tomcat/websocket" />
+  <patternset id="files.thundercat-api">
+    <include name="org/apache/thundercat/*" />
+    <exclude name="org/apache/thundercat/buildutil" />
+    <exclude name="org/apache/thundercat/dbcp" />
+    <exclude name="org/apache/thundercat/jni" />
+    <exclude name="org/apache/thundercat/spdy" />
+    <exclude name="org/apache/thundercat/util" />
+    <exclude name="org/apache/thundercat/websocket" />
   </patternset>
 
-  <patternset id="files.tomcat-util">
-    <include name="org/apache/tomcat/util/buf/**" />
-    <include name="org/apache/tomcat/util/codec/**" />
-    <include name="org/apache/tomcat/util/file/**" />
-    <include name="org/apache/tomcat/util/res/**" />
-    <include name="org/apache/tomcat/util/security/**" />
-    <include name="org/apache/tomcat/util/threads/**" />
-    <include name="org/apache/tomcat/util/*" />
-    <exclude name="org/apache/tomcat/util/bcel" />
-    <exclude name="org/apache/tomcat/util/collections" />
-    <exclude name="org/apache/tomcat/util/descriptor" />
-    <exclude name="org/apache/tomcat/util/digester" />
-    <exclude name="org/apache/tomcat/util/http" />
-    <exclude name="org/apache/tomcat/util/log" />
-    <exclude name="org/apache/tomcat/util/modeler" />
-    <exclude name="org/apache/tomcat/util/net" />
-    <exclude name="org/apache/tomcat/util/scan" />
+  <patternset id="files.thundercat-util">
+    <include name="org/apache/thundercat/util/buf/**" />
+    <include name="org/apache/thundercat/util/codec/**" />
+    <include name="org/apache/thundercat/util/file/**" />
+    <include name="org/apache/thundercat/util/res/**" />
+    <include name="org/apache/thundercat/util/security/**" />
+    <include name="org/apache/thundercat/util/threads/**" />
+    <include name="org/apache/thundercat/util/*" />
+    <exclude name="org/apache/thundercat/util/bcel" />
+    <exclude name="org/apache/thundercat/util/collections" />
+    <exclude name="org/apache/thundercat/util/descriptor" />
+    <exclude name="org/apache/thundercat/util/digester" />
+    <exclude name="org/apache/thundercat/util/http" />
+    <exclude name="org/apache/thundercat/util/log" />
+    <exclude name="org/apache/thundercat/util/modeler" />
+    <exclude name="org/apache/thundercat/util/net" />
+    <exclude name="org/apache/thundercat/util/scan" />
   </patternset>
 
-  <patternset id="files.tomcat-util-scan">
-    <include name="org/apache/tomcat/util/descriptor/**" />
-    <include name="org/apache/tomcat/util/digester/**" />
-    <include name="org/apache/tomcat/util/file/**" />
-    <include name="org/apache/tomcat/util/scan/**" />
+  <patternset id="files.thundercat-util-scan">
+    <include name="org/apache/thundercat/util/descriptor/**" />
+    <include name="org/apache/thundercat/util/digester/**" />
+    <include name="org/apache/thundercat/util/file/**" />
+    <include name="org/apache/thundercat/util/scan/**" />
   </patternset>
 
   <patternset id="files.catalina">
@@ -405,26 +405,26 @@
     <include name="org/apache/catalina/storeconfig/**" />
   </patternset>
 
-  <patternset id="files.tomcat-jni">
-    <include name="org/apache/tomcat/jni/**" />
+  <patternset id="files.thundercat-jni">
+    <include name="org/apache/thundercat/jni/**" />
   </patternset>
 
-  <patternset id="files.tomcat-coyote">
+  <patternset id="files.thundercat-coyote">
     <include name="org/apache/coyote/**" />
-    <!-- Included in tomcat-spdy -->
+    <!-- Included in thundercat-spdy -->
     <exclude name="org/apache/coyote/spdy/**" />
-    <!-- Remaining tomcat-util packages -->
-    <include name="org/apache/tomcat/util/bcel/**" />
-    <include name="org/apache/tomcat/util/collections/**" />
-    <include name="org/apache/tomcat/util/http/**" />
-    <include name="org/apache/tomcat/util/log/**" />
-    <include name="org/apache/tomcat/util/modeler/**" />
-    <include name="org/apache/tomcat/util/net/**" />
+    <!-- Remaining thundercat-util packages -->
+    <include name="org/apache/thundercat/util/bcel/**" />
+    <include name="org/apache/thundercat/util/collections/**" />
+    <include name="org/apache/thundercat/util/http/**" />
+    <include name="org/apache/thundercat/util/log/**" />
+    <include name="org/apache/thundercat/util/modeler/**" />
+    <include name="org/apache/thundercat/util/net/**" />
   </patternset>
 
-  <patternset id="files.tomcat-spdy">
+  <patternset id="files.thundercat-spdy">
     <include name="org/apache/coyote/spdy/**" />
-    <include name="org/apache/tomcat/spdy/**" />
+    <include name="org/apache/thundercat/spdy/**" />
   </patternset>
 
   <patternset id="files.jasper">
@@ -435,47 +435,47 @@
     <include name="org/apache/el/**" />
   </patternset>
 
-  <patternset id="files.tomcat-dbcp">
-    <include name="org/apache/tomcat/dbcp/**"/>
+  <patternset id="files.thundercat-dbcp">
+    <include name="org/apache/thundercat/dbcp/**"/>
   </patternset>
 
   <!-- Pattern sets for embedded JARs -->
   <!-- Every standard pattern set above should be included in an embedded JAR -->
-  <patternset id="files.tomcat-embed-core" >
+  <patternset id="files.thundercat-embed-core" >
     <patternset refid="files.annotations-api" />
     <patternset refid="files.bootstrap" />
     <patternset refid="files.catalina" />
     <patternset refid="files.servlet-api" />
-    <patternset refid="files.tomcat-api" />
+    <patternset refid="files.thundercat-api" />
     <!-- These pattern sets conflict so include files directly
-      <patternset refid="files.tomcat-coyote" />
-      <patternset refid="files.tomcat-util" />
-      <patternset refid="files.tomcat-util-scan" />
+      <patternset refid="files.thundercat-coyote" />
+      <patternset refid="files.thundercat-util" />
+      <patternset refid="files.thundercat-util-scan" />
     -->
     <include name="org/apache/coyote/**" />
-    <include name="org/apache/tomcat/jni/**" />
+    <include name="org/apache/thundercat/jni/**" />
     <include name="org/apache/jk/**" />
-    <include name="org/apache/tomcat/util/**" />
+    <include name="org/apache/thundercat/util/**" />
 
   </patternset>
 
-  <patternset id="files.tomcat-embed-jasper" >
+  <patternset id="files.thundercat-embed-jasper" >
     <patternset refid="files.jasper" />
     <patternset refid="files.jsp-api" />
   </patternset>
 
-  <patternset id="files.tomcat-embed-el" >
+  <patternset id="files.thundercat-embed-el" >
     <patternset refid="files.el-api" />
     <patternset refid="files.jasper-el" />
   </patternset>
 
-  <patternset id="files.tomcat-embed-websocket" >
+  <patternset id="files.thundercat-embed-websocket" >
     <patternset refid="files.websocket-api" />
-    <patternset refid="files.tomcat-websocket" />
+    <patternset refid="files.thundercat-websocket" />
   </patternset>
 
   <!-- Pattern sets used directly -->
-    <!--<patternset refid="files.tomcat-juli" />-->
+    <!--<patternset refid="files.thundercat-juli" />-->
 
   <!-- Pattern sets not included in embedded -->
     <!-- Cluster support not included in embedded -->
@@ -485,15 +485,15 @@
     <!--<patternset refid="files.catalina-ant" />-->
 
   <!-- Pattern sets for extras JARs -->
-  <patternset id="files.tomcat-extras-ws">
+  <patternset id="files.thundercat-extras-ws">
     <include name="org/apache/naming/factory/webservices/**" />
   </patternset>
 
-  <patternset id="files.tomcat-extras-jmxremote">
+  <patternset id="files.thundercat-extras-jmxremote">
     <include name="org/apache/catalina/mbeans/JmxRemote*" />
   </patternset>
 
-  <patternset id="files.tomcat-extras-juli-adapters">
+  <patternset id="files.thundercat-extras-juli-adapters">
     <include name="org/apache/juli/logging/impl/**" />
     <exclude name="org/apache/juli/logging/impl/WeakHashtable*" />
     <exclude name="org/apache/juli/logging/impl/LogFactoryImpl" />
@@ -507,29 +507,29 @@
   <target name="build-prepare">
 
     <!-- Required so we can compile -->
-    <mkdir dir="${tomcat.classes}"/>
+    <mkdir dir="${thundercat.classes}"/>
 
     <!-- Ensure these directories are removed every time we re-build -->
-    <delete dir="${tomcat.build}/temp" />
-    <delete dir="${tomcat.build}/work" />
+    <delete dir="${thundercat.build}/temp" />
+    <delete dir="${thundercat.build}/work" />
 
     <!-- Minimum dirs needed for a working Tomcat instance -->
-    <mkdir dir="${tomcat.build}"/>
-    <mkdir dir="${tomcat.build}/bin"/>
-    <mkdir dir="${tomcat.build}/conf"/>
-    <mkdir dir="${tomcat.build}/lib"/>
-    <mkdir dir="${tomcat.build}/logs"/>
-    <mkdir dir="${tomcat.build}/temp"/>
-    <mkdir dir="${tomcat.build}/webapps"/>
+    <mkdir dir="${thundercat.build}"/>
+    <mkdir dir="${thundercat.build}/bin"/>
+    <mkdir dir="${thundercat.build}/conf"/>
+    <mkdir dir="${thundercat.build}/lib"/>
+    <mkdir dir="${thundercat.build}/logs"/>
+    <mkdir dir="${thundercat.build}/temp"/>
+    <mkdir dir="${thundercat.build}/webapps"/>
 
     <!-- Property that determines if manifests need updating -->
     <uptodate property="manifests.uptodate"
-        targetfile="${tomcat.manifests}/default.manifest" >
+        targetfile="${thundercat.manifests}/default.manifest" >
       <srcfiles file="${user.home}/build.properties" />
       <srcfiles file="${basedir}/build.properties" />
       <srcfiles file="${basedir}/build.properties.default" />
       <srcfiles file="${basedir}/build.xml" />
-      <srcfiles dir="${tomcat.home}/res/META-INF" >
+      <srcfiles dir="${thundercat.home}/res/META-INF" >
         <include name="*.manifest" />
         <include name="*.license" />
         <include name="*.notice" />
@@ -542,7 +542,7 @@
     depends="build-prepare,compile-prepare,download-validate"
     description="Uses Checkstyle tool to perform style check for the source code">
     <!-- Required so we can cache checkstyle results -->
-    <mkdir dir="${tomcat.output}/res/checkstyle"/>
+    <mkdir dir="${thundercat.output}/res/checkstyle"/>
 
     <taskdef resource="checkstyletask.properties"
              classpath="${checkstyle.jar}" />
@@ -597,7 +597,7 @@
     Ant only. There is no need to download additional dependencies nor
     add them to the class path. The rest should be the same as in "compile"
     target.-->
-    <javac srcdir="java" destdir="${tomcat.classes}"
+    <javac srcdir="java" destdir="${thundercat.classes}"
            debug="${compile.debug}"
            deprecation="${compile.deprecation}"
            source="${compile.source}"
@@ -608,12 +608,12 @@
       <!-- Uncomment this to show unchecked warnings:
       <compilerarg value="-Xlint:unchecked"/>
       -->
-      <include name="org/apache/tomcat/buildutil/CheckEol*" />
+      <include name="org/apache/thundercat/buildutil/CheckEol*" />
     </javac>
 
     <taskdef name="checkeol"
-             classname="org.apache.tomcat.buildutil.CheckEol"
-             classpath="${tomcat.classes}" />
+             classname="org.apache.thundercat.buildutil.CheckEol"
+             classpath="${thundercat.classes}" />
 
     <checkeol>
       <fileset dir="." >
@@ -639,7 +639,7 @@
     </copy>
     <!-- Copy jdbc-pool documentation -->
     <copy tofile="webapps/docs/jdbc-pool.xml"
-          file="${tomcat.jdbc.dir}/doc/jdbc-pool.xml" encoding="UTF-8">
+          file="${thundercat.jdbc.dir}/doc/jdbc-pool.xml" encoding="UTF-8">
       <filterset>
         <filter token="TOMCAT_PROJECT_DEST" value="project.xml"/>
       </filterset>
@@ -648,7 +648,7 @@
 
   <target name="compile" depends="download-compile,validate">
     <!-- Compile internal server components -->
-    <javac srcdir="java" destdir="${tomcat.classes}"
+    <javac srcdir="java" destdir="${thundercat.classes}"
            debug="${compile.debug}"
            deprecation="${compile.deprecation}"
            source="${compile.source}"
@@ -661,12 +661,12 @@
       -->
       <classpath refid="compile.classpath" />
         <exclude name="org/apache/naming/factory/webservices/**" />
-        <exclude name="org/apache/tomcat/spdy/NetSupportJava7*" unless="npn.exists"/>
+        <exclude name="org/apache/thundercat/spdy/NetSupportJava7*" unless="npn.exists"/>
         <exclude name="org/apache/coyote/spdy/*Nio*" unless="npn.exists"/>
         <exclude name="org/apache/coyote/spdy/SpdyNpnHandler*" unless="npn.exists"/>
     </javac>
     <!-- Copy static resource files -->
-    <copy todir="${tomcat.classes}" encoding="ISO-8859-1">
+    <copy todir="${thundercat.classes}" encoding="ISO-8859-1">
       <filterset refid="version.filters"/>
       <fileset dir="java">
         <include name="**/*.properties"/>
@@ -691,11 +691,11 @@
     <filter token="el.revision" value="${el.revision}"/>
     <filter token="websocket.revision" value="${websocket.revision}"/>
 
-    <mkdir dir="${tomcat.manifests}" />
-    <copy todir="${tomcat.manifests}" overwrite="yes" filtering="yes"
+    <mkdir dir="${thundercat.manifests}" />
+    <copy todir="${thundercat.manifests}" overwrite="yes" filtering="yes"
       encoding="ISO-8859-1">
       <filterset refid="version.filters"/>
-      <fileset dir="${tomcat.home}/res/META-INF" />
+      <fileset dir="${thundercat.home}/res/META-INF" />
     </copy>
 
   </target>
@@ -703,151 +703,151 @@
   <target name="package" depends="compile,build-manifests" >
     <!-- Common Annotations 1.0 JAR File -->
     <jarIt jarfile="${annotations-api.jar}"
-      filesDir="${tomcat.classes}"
+      filesDir="${thundercat.classes}"
       filesId="files.annotations-api"
-      manifest="${tomcat.manifests}/annotations-api.jar.manifest" />
+      manifest="${thundercat.manifests}/annotations-api.jar.manifest" />
 
     <!-- Servlet 3.1 Implementation JAR File -->
     <jarIt jarfile="${servlet-api.jar}"
-      filesDir="${tomcat.classes}"
+      filesDir="${thundercat.classes}"
       filesId="files.servlet-api"
-      manifest="${tomcat.manifests}/servlet-api.jar.manifest"
-      notice="${tomcat.manifests}/servlet-api.jar.notice"
-      license="${tomcat.manifests}/servlet-api.jar.license" />
+      manifest="${thundercat.manifests}/servlet-api.jar.manifest"
+      notice="${thundercat.manifests}/servlet-api.jar.notice"
+      license="${thundercat.manifests}/servlet-api.jar.license" />
 
     <!-- JSP 2.3 Implementation JAR File -->
     <jarIt jarfile="${jsp-api.jar}"
-      filesDir="${tomcat.classes}"
+      filesDir="${thundercat.classes}"
       filesId="files.jsp-api"
-      manifest="${tomcat.manifests}/jsp-api.jar.manifest" />
+      manifest="${thundercat.manifests}/jsp-api.jar.manifest" />
 
     <!-- EL 3.0 Implementation JAR File -->
     <jarIt jarfile="${el-api.jar}"
-      filesDir="${tomcat.classes}"
+      filesDir="${thundercat.classes}"
       filesId="files.el-api"
-      manifest="${tomcat.manifests}/el-api.jar.manifest" />
+      manifest="${thundercat.manifests}/el-api.jar.manifest" />
 
     <!-- WebSocket 1.1 API JAR File -->
     <jarIt jarfile="${websocket-api.jar}"
-      filesDir="${tomcat.classes}"
+      filesDir="${thundercat.classes}"
       filesId="files.websocket-api"
-      manifest="${tomcat.manifests}/websocket-api.jar.manifest" />
+      manifest="${thundercat.manifests}/websocket-api.jar.manifest" />
 
     <!-- WebSocket 1.1 implementation JAR File -->
-    <jarIt jarfile="${tomcat-websocket.jar}"
-      filesDir="${tomcat.classes}"
-      filesId="files.tomcat-websocket"
-      meta-inf="${tomcat.manifests}/tomcat-websocket.jar"/>
+    <jarIt jarfile="${thundercat-websocket.jar}"
+      filesDir="${thundercat.classes}"
+      filesId="files.thundercat-websocket"
+      meta-inf="${thundercat.manifests}/thundercat-websocket.jar"/>
 
     <!-- Bootstrap JAR File -->
     <jarIt jarfile="${bootstrap.jar}"
-      filesDir="${tomcat.classes}"
+      filesDir="${thundercat.classes}"
       filesId="files.bootstrap"
-      manifest="${tomcat.manifests}/bootstrap.jar.manifest" />
+      manifest="${thundercat.manifests}/bootstrap.jar.manifest" />
 
     <!-- Tomcat-juli JAR File -->
-    <jarIt jarfile="${tomcat-juli.jar}"
-      filesDir="${tomcat.classes}"
-      filesId="files.tomcat-juli" />
+    <jarIt jarfile="${thundercat-juli.jar}"
+      filesDir="${thundercat.classes}"
+      filesId="files.thundercat-juli" />
 
     <!-- Catalina Main JAR File -->
     <jarIt jarfile="${catalina.jar}"
-      filesDir="${tomcat.classes}"
+      filesDir="${thundercat.classes}"
       filesId="files.catalina" />
 
     <!-- Catalina GroupCom/Tribes JAR File -->
     <jarIt jarfile="${catalina-tribes.jar}"
-      filesDir="${tomcat.classes}"
+      filesDir="${thundercat.classes}"
       filesId="files.catalina-tribes" />
 
     <!-- Catalina Cluster/HA JAR File -->
     <jarIt jarfile="${catalina-ha.jar}"
-      filesDir="${tomcat.classes}"
+      filesDir="${thundercat.classes}"
       filesId="files.catalina-ha" />
 
     <!-- Catalina Ant Tasks JAR File -->
     <jarIt jarfile="${catalina-ant.jar}"
-      filesDir="${tomcat.classes}"
+      filesDir="${thundercat.classes}"
       filesId="files.catalina-ant" />
 
     <!-- Catalina Storeconfig JAR File -->
     <jarIt jarfile="${catalina-storeconfig.jar}"
-      filesDir="${tomcat.classes}"
+      filesDir="${thundercat.classes}"
       filesId="files.catalina-storeconfig" />
 
     <!-- Tomcat API JAR File -->
-    <jarIt jarfile="${tomcat-api.jar}"
-      filesDir="${tomcat.classes}"
-      filesId="files.tomcat-api" />
+    <jarIt jarfile="${thundercat-api.jar}"
+      filesDir="${thundercat.classes}"
+      filesId="files.thundercat-api" />
 
     <!-- Tomcat Util JAR File -->
-    <jarIt jarfile="${tomcat-util.jar}"
-      filesDir="${tomcat.classes}"
-      filesId="files.tomcat-util" />
+    <jarIt jarfile="${thundercat-util.jar}"
+      filesDir="${thundercat.classes}"
+      filesId="files.thundercat-util" />
 
     <!-- Tomcat Util Scan JAR File -->
-    <jarIt jarfile="${tomcat-util-scan.jar}"
-      filesDir="${tomcat.classes}"
-      filesId="files.tomcat-util-scan" />
+    <jarIt jarfile="${thundercat-util-scan.jar}"
+      filesDir="${thundercat.classes}"
+      filesId="files.thundercat-util-scan" />
 
     <!-- Protocol handlers - Coyote -->
-    <jarIt jarfile="${tomcat-coyote.jar}"
-      filesDir="${tomcat.classes}"
-      filesId="files.tomcat-coyote" />
+    <jarIt jarfile="${thundercat-coyote.jar}"
+      filesDir="${thundercat.classes}"
+      filesId="files.thundercat-coyote" />
 
-    <jarIt jarfile="${tomcat-spdy.jar}"
-      filesDir="${tomcat.classes}"
-      filesId="files.tomcat-spdy" />
+    <jarIt jarfile="${thundercat-spdy.jar}"
+      filesDir="${thundercat.classes}"
+      filesId="files.thundercat-spdy" />
 
-    <jarIt jarfile="${tomcat-jni.jar}"
-      filesDir="${tomcat.classes}"
-      filesId="files.tomcat-jni" />
+    <jarIt jarfile="${thundercat-jni.jar}"
+      filesDir="${thundercat.classes}"
+      filesId="files.thundercat-jni" />
 
     <!-- Jasper Implementation JAR File -->
     <jarIt jarfile="${jasper.jar}"
-      filesDir="${tomcat.classes}"
+      filesDir="${thundercat.classes}"
       filesId="files.jasper"
-      meta-inf="${tomcat.manifests}/jasper.jar"/>
+      meta-inf="${thundercat.manifests}/jasper.jar"/>
 
     <!-- Jasper EL Implementation JAR File -->
     <jarIt jarfile="${jasper-el.jar}"
-      filesDir="${tomcat.classes}"
+      filesDir="${thundercat.classes}"
       filesId="files.jasper-el" />
 
     <!-- Re-packaged Apache Commons DBCP-->
-    <jarIt jarfile="${tomcat-dbcp.jar}"
-      filesDir="${tomcat.classes}"
-      filesId="files.tomcat-dbcp" />
+    <jarIt jarfile="${thundercat-dbcp.jar}"
+      filesDir="${thundercat.classes}"
+      filesId="files.thundercat-dbcp" />
 
     <!-- i18n JARs -->
-    <jar jarfile="${tomcat.build}/lib/tomcat-i18n-es.jar"
-      manifest="${tomcat.manifests}/default.manifest">
-      <fileset dir="${tomcat.classes}">
+    <jar jarfile="${thundercat.build}/lib/thundercat-i18n-es.jar"
+      manifest="${thundercat.manifests}/default.manifest">
+      <fileset dir="${thundercat.classes}">
         <include name="**/LocalStrings_es.properties" />
       </fileset>
-      <zipfileset file="${tomcat.manifests}/default.notice"
+      <zipfileset file="${thundercat.manifests}/default.notice"
         fullpath="META-INF/NOTICE" />
-      <zipfileset file="${tomcat.manifests}/default.license"
+      <zipfileset file="${thundercat.manifests}/default.license"
         fullpath="META-INF/LICENSE" />
     </jar>
-    <jar jarfile="${tomcat.build}/lib/tomcat-i18n-fr.jar"
-      manifest="${tomcat.manifests}/default.manifest">
-      <fileset dir="${tomcat.classes}">
+    <jar jarfile="${thundercat.build}/lib/thundercat-i18n-fr.jar"
+      manifest="${thundercat.manifests}/default.manifest">
+      <fileset dir="${thundercat.classes}">
         <include name="**/LocalStrings_fr.properties" />
       </fileset>
-      <zipfileset file="${tomcat.manifests}/default.notice"
+      <zipfileset file="${thundercat.manifests}/default.notice"
         fullpath="META-INF/NOTICE" />
-      <zipfileset file="${tomcat.manifests}/default.license"
+      <zipfileset file="${thundercat.manifests}/default.license"
         fullpath="META-INF/LICENSE" />
     </jar>
-    <jar jarfile="${tomcat.build}/lib/tomcat-i18n-ja.jar"
-      manifest="${tomcat.manifests}/default.manifest">
-      <fileset dir="${tomcat.classes}">
+    <jar jarfile="${thundercat.build}/lib/thundercat-i18n-ja.jar"
+      manifest="${thundercat.manifests}/default.manifest">
+      <fileset dir="${thundercat.classes}">
         <include name="**/LocalStrings_ja.properties" />
       </fileset>
-      <zipfileset file="${tomcat.manifests}/default.notice"
+      <zipfileset file="${thundercat.manifests}/default.notice"
         fullpath="META-INF/NOTICE" />
-      <zipfileset file="${tomcat.manifests}/default.license"
+      <zipfileset file="${thundercat.manifests}/default.license"
         fullpath="META-INF/LICENSE" />
     </jar>
 
@@ -855,7 +855,7 @@
 
   <target name="build-docs" depends="compile-prepare" description="Builds all documentation from XML sources">
 
-    <copy todir="${tomcat.build}/webapps">
+    <copy todir="${thundercat.build}/webapps">
       <fileset dir="webapps">
         <include name="docs/images/**"/>
         <include name="docs/WEB-INF/**"/>
@@ -867,37 +867,37 @@
         <exclude name="docs/architecture/*.xml"/>
       </fileset>
     </copy>
-    <copy todir="${tomcat.build}/webapps" encoding="UTF-8">
+    <copy todir="${thundercat.build}/webapps" encoding="UTF-8">
       <filterset refid="version.filters"/>
       <fileset dir="webapps">
         <include name="docs/**/*.html"/>
       </fileset>
     </copy>
-    <copy todir="${tomcat.build}/webapps/docs" encoding="ISO-8859-1">
+    <copy todir="${thundercat.build}/webapps/docs" encoding="ISO-8859-1">
       <filterset refid="version.filters"/>
       <fileset dir=".">
         <include name="BUILDING.txt"/>
         <include name="RUNNING.txt"/>
       </fileset>
     </copy>
-    <copy tofile="${tomcat.build}/webapps/docs/RELEASE-NOTES.txt" file="RELEASE-NOTES" encoding="ISO-8859-1">
+    <copy tofile="${thundercat.build}/webapps/docs/RELEASE-NOTES.txt" file="RELEASE-NOTES" encoding="ISO-8859-1">
       <filterset refid="version.filters"/>
     </copy>
 
-    <copy   tofile="${tomcat.build}/webapps/docs/appdev/sample/build.xml"
+    <copy   tofile="${thundercat.build}/webapps/docs/appdev/sample/build.xml"
               file="webapps/docs/appdev/build.xml.txt"/>
 
-    <mkdir dir="${tomcat.build}/webapps/docs/funcspecs" />
+    <mkdir dir="${thundercat.build}/webapps/docs/funcspecs" />
 
     <!-- XSL processing -->
     <xslt basedir="webapps/docs"
-           destdir="${tomcat.build}/webapps/docs"
+           destdir="${thundercat.build}/webapps/docs"
          extension=".html"
-             style="webapps/docs/tomcat-docs.xsl"
+             style="webapps/docs/thundercat-docs.xsl"
  filenameparameter="filename"
           excludes="build.xml project.xml"
           includes="*.xml">
-      <param name="sitedir" expression="tomcat-${version.major.minor}-doc/"/>
+      <param name="sitedir" expression="thundercat-${version.major.minor}-doc/"/>
       <param name="subdir" expression=""/>
       <param name="relative-path" expression="."/>
       <param name="version" expression="${version}"/>
@@ -908,13 +908,13 @@
       <param name="year" expression="${year}"/>
     </xslt>
     <xslt basedir="webapps/docs/appdev"
-           destdir="${tomcat.build}/webapps/docs/appdev"
+           destdir="${thundercat.build}/webapps/docs/appdev"
          extension=".html"
-             style="webapps/docs/tomcat-docs.xsl"
+             style="webapps/docs/thundercat-docs.xsl"
  filenameparameter="filename"
           excludes="project.xml"
           includes="*.xml">
-      <param name="sitedir" expression="tomcat-${version.major.minor}-doc/"/>
+      <param name="sitedir" expression="thundercat-${version.major.minor}-doc/"/>
       <param name="subdir" expression="appdev/"/>
       <param name="relative-path" expression=".."/>
       <param name="version" expression="${version}"/>
@@ -925,13 +925,13 @@
       <param name="year" expression="${year}"/>
     </xslt>
     <xslt basedir="webapps/docs/funcspecs"
-           destdir="${tomcat.build}/webapps/docs/funcspecs"
+           destdir="${thundercat.build}/webapps/docs/funcspecs"
          extension=".html"
-             style="webapps/docs/tomcat-docs.xsl"
+             style="webapps/docs/thundercat-docs.xsl"
  filenameparameter="filename"
           excludes="project.xml"
           includes="*.xml">
-      <param name="sitedir" expression="tomcat-${version.major.minor}-doc/"/>
+      <param name="sitedir" expression="thundercat-${version.major.minor}-doc/"/>
       <param name="subdir" expression="funcspecs/"/>
       <param name="relative-path" expression=".."/>
       <param name="version" expression="${version}"/>
@@ -942,13 +942,13 @@
       <param name="year" expression="${year}"/>
     </xslt>
     <xslt basedir="webapps/docs/config"
-           destdir="${tomcat.build}/webapps/docs/config"
+           destdir="${thundercat.build}/webapps/docs/config"
          extension=".html"
-             style="webapps/docs/tomcat-docs.xsl"
+             style="webapps/docs/thundercat-docs.xsl"
  filenameparameter="filename"
           excludes="project.xml"
           includes="*.xml">
-      <param name="sitedir" expression="tomcat-${version.major.minor}-doc/"/>
+      <param name="sitedir" expression="thundercat-${version.major.minor}-doc/"/>
       <param name="subdir" expression="config/"/>
       <param name="relative-path" expression=".."/>
       <param name="version" expression="${version}"/>
@@ -959,13 +959,13 @@
       <param name="year" expression="${year}"/>
     </xslt>
     <xslt basedir="webapps/docs/architecture"
-           destdir="${tomcat.build}/webapps/docs/architecture"
+           destdir="${thundercat.build}/webapps/docs/architecture"
          extension=".html"
-             style="webapps/docs/tomcat-docs.xsl"
+             style="webapps/docs/thundercat-docs.xsl"
  filenameparameter="filename"
           excludes="project.xml"
           includes="*.xml">
-      <param name="sitedir" expression="tomcat-${version.major.minor}-doc/"/>
+      <param name="sitedir" expression="thundercat-${version.major.minor}-doc/"/>
       <param name="subdir" expression="architecture/"/>
       <param name="relative-path" expression=".."/>
       <param name="version" expression="${version}"/>
@@ -977,13 +977,13 @@
     </xslt>
 
     <xslt basedir="webapps/docs/tribes"
-               destdir="${tomcat.build}/webapps/docs/tribes"
+               destdir="${thundercat.build}/webapps/docs/tribes"
              extension=".html"
-                 style="webapps/docs/tomcat-docs.xsl"
+                 style="webapps/docs/thundercat-docs.xsl"
      filenameparameter="filename"
               excludes="project.xml"
               includes="*.xml">
-      <param name="sitedir" expression="tomcat-${version.major.minor}-doc/"/>
+      <param name="sitedir" expression="thundercat-${version.major.minor}-doc/"/>
       <param name="subdir" expression="tribes/"/>
       <param name="relative-path" expression=".."/>
       <param name="version" expression="${version}"/>
@@ -995,25 +995,25 @@
     </xslt>
   </target>
 
-  <target name="deploy" depends="package,build-docs,build-tomcat-jdbc,compile-webapp-examples"
+  <target name="deploy" depends="package,build-docs,build-thundercat-jdbc,compile-webapp-examples"
           description="Default. Builds a working Tomcat instance">
 
-    <copy tofile="${tomcat.build}/bin/tomcat-native.tar.gz"
-            file="${tomcat-native.tar.gz}" />
-    <copy tofile="${tomcat.build}/bin/commons-daemon-native.tar.gz"
+    <copy tofile="${thundercat.build}/bin/thundercat-native.tar.gz"
+            file="${thundercat-native.tar.gz}" />
+    <copy tofile="${thundercat.build}/bin/commons-daemon-native.tar.gz"
             file="${commons-daemon.native.src.tgz}" />
 
-    <copy tofile="${tomcat.build}/bin/commons-daemon.jar" file="${commons-daemon.jar}" />
+    <copy tofile="${thundercat.build}/bin/commons-daemon.jar" file="${commons-daemon.jar}" />
 
     <!-- Copy scripts -->
-    <copy todir="${tomcat.build}/bin">
+    <copy todir="${thundercat.build}/bin">
       <fileset dir="bin">
          <exclude name="**/*.launch"/>
          <exclude name="**/*.sh"/>
          <exclude name="**/*.bat"/>
       </fileset>
     </copy>
-    <copy todir="${tomcat.build}/bin" encoding="ISO-8859-1">
+    <copy todir="${thundercat.build}/bin" encoding="ISO-8859-1">
       <filterset refid="version.filters"/>
       <fileset dir="bin">
          <include name="**/*.sh"/>
@@ -1021,10 +1021,10 @@
       </fileset>
     </copy>
     <!-- Copy doesn't retain permissions -->
-    <chmod dir="${tomcat.build}/bin" includes="*.sh" perm="+x"/>
+    <chmod dir="${thundercat.build}/bin" includes="*.sh" perm="+x"/>
 
     <!-- Copy static resource files -->
-    <copy todir="${tomcat.build}/conf" encoding="ISO-8859-1">
+    <copy todir="${thundercat.build}/conf" encoding="ISO-8859-1">
       <filterset refid="version.filters"/>
       <fileset dir="conf">
         <include name="**/*.policy"/>
@@ -1035,7 +1035,7 @@
     </copy>
 
     <!-- Copy other regular webapps -->
-    <copy todir="${tomcat.build}/webapps">
+    <copy todir="${thundercat.build}/webapps">
       <fileset dir="webapps">
         <include name="ROOT/**"/>
         <exclude name="ROOT/index.jsp"/>
@@ -1044,14 +1044,14 @@
         <include name="host-manager/**"/>
       </fileset>
     </copy>
-    <copy todir="${tomcat.build}/webapps" encoding="UTF-8">
+    <copy todir="${thundercat.build}/webapps" encoding="UTF-8">
       <filterset refid="version.filters" />
       <fileset dir="webapps">
         <include name="ROOT/index.jsp"/>
       </fileset>
     </copy>
 
-    <copy tofile="${tomcat.build}/webapps/ROOT/RELEASE-NOTES.txt" file="RELEASE-NOTES" encoding="ISO-8859-1">
+    <copy tofile="${thundercat.build}/webapps/ROOT/RELEASE-NOTES.txt" file="RELEASE-NOTES" encoding="ISO-8859-1">
       <filterset refid="version.filters"/>
     </copy>
 
@@ -1059,12 +1059,12 @@
     <local name="jdt.jar.filename" />
     <basename property="jdt.jar.filename" file="${jdt.jar}"/>
     <delete verbose="true">
-      <fileset dir="${tomcat.build}/lib">
+      <fileset dir="${thundercat.build}/lib">
         <include name="ecj-*.jar"/>
         <exclude name="${jdt.jar.filename}"/>
       </fileset>
     </delete>
-    <copy file="${jdt.jar}" todir="${tomcat.build}/lib"/>
+    <copy file="${jdt.jar}" todir="${thundercat.build}/lib"/>
 
     <!-- Add sources for examples -->
     <antcall target="examples-sources" />
@@ -1073,53 +1073,53 @@
   <target name="compile-webapp-examples" >
 
     <!-- Build classes for examples webapp -->
-    <mkdir dir="${tomcat.build}/webapps/examples/WEB-INF/classes"/>
+    <mkdir dir="${thundercat.build}/webapps/examples/WEB-INF/classes"/>
     <javac   srcdir="webapps/examples/WEB-INF/classes"
-             destdir="${tomcat.build}/webapps/examples/WEB-INF/classes"
+             destdir="${thundercat.build}/webapps/examples/WEB-INF/classes"
              debug="${compile.debug}" deprecation="${compile.deprecation}"
              source="${compile.source}"
              target="${compile.target}"
-             classpath="${tomcat.classes}"
+             classpath="${thundercat.classes}"
              excludes="**/CVS/**,**/.svn/**"
              encoding="ISO-8859-1"
              includeantruntime="false">
     </javac>
 
-    <mkdir dir="${tomcat.build}/webapps/examples/jsp/plugin/applet"/>
+    <mkdir dir="${thundercat.build}/webapps/examples/jsp/plugin/applet"/>
     <javac   srcdir="webapps/examples/jsp/plugin/applet"
-             destdir="${tomcat.build}/webapps/examples/jsp/plugin/applet"
+             destdir="${thundercat.build}/webapps/examples/jsp/plugin/applet"
              debug="${compile.debug}" deprecation="${compile.deprecation}"
              source="${compile.source}"
              target="${compile.target}"
-             classpath="$tomcat.lcasses}"
+             classpath="$thundercat.lcasses}"
              excludes="**/CVS/**,**/.svn/**"
              encoding="ISO-8859-1"
              includeantruntime="false">
     </javac>
   </target>
 
-  <target name="build-tomcat-jdbc" depends="package">
+  <target name="build-thundercat-jdbc" depends="package">
     <!-- build the jdbc-pool jar and source jar-->
     <echo message="Building Tomcat JDBC pool libraries"/>
-    <ant antfile="${tomcat.jdbc.dir}/build.xml" dir="${tomcat.jdbc.dir}"
+    <ant antfile="${thundercat.jdbc.dir}/build.xml" dir="${thundercat.jdbc.dir}"
          inheritAll="false" target="build">
-      <property name="tomcat.pool" value="${tomcat.pool}" />
-      <property name="tomcat.juli.jar" value="${tomcat-juli.jar}" />
+      <property name="thundercat.pool" value="${thundercat.pool}" />
+      <property name="thundercat.juli.jar" value="${thundercat-juli.jar}" />
       <property name="skip.download" value="set"/>
       <property name="version" value="${version}"/>
       <property name="version.major" value="${version.major}"/>
       <property name="version.major.minor" value="${version.major.minor}"/>
     </ant>
-    <copy file="${tomcat-jdbc.jar}" todir="${tomcat.build}/lib"/>
+    <copy file="${thundercat-jdbc.jar}" todir="${thundercat.build}/lib"/>
   </target>
 
-  <target name="build-tomcat-jdbc-src">
+  <target name="build-thundercat-jdbc-src">
     <!-- build the jdbc-pool source jar-->
     <echo message="Building Tomcat JDBC pool src JAR"/>
-    <ant antfile="${tomcat.jdbc.dir}/build.xml" dir="${tomcat.jdbc.dir}"
+    <ant antfile="${thundercat.jdbc.dir}/build.xml" dir="${thundercat.jdbc.dir}"
          inheritAll="false" target="build-src">
-      <property name="tomcat.pool" value="${tomcat.pool}" />
-      <property name="tomcat.juli.jar" value="${tomcat-juli.jar}" />
+      <property name="thundercat.pool" value="${thundercat.pool}" />
+      <property name="thundercat.juli.jar" value="${thundercat-juli.jar}" />
       <property name="skip.download" value="set"/>
     </ant>
   </target>
@@ -1127,10 +1127,10 @@
   <target name="examples-sources" description="Create examples sources"
           unless="examples.sources.skip" >
     <taskdef name="txt2html"
-             classname="org.apache.tomcat.buildutil.Txt2Html"
-             classpath="${tomcat.classes}" />
+             classname="org.apache.thundercat.buildutil.Txt2Html"
+             classpath="${thundercat.classes}" />
 
-    <txt2html todir="${tomcat.build}/webapps/examples/jsp/jsp2/simpletag">
+    <txt2html todir="${thundercat.build}/webapps/examples/jsp/jsp2/simpletag">
       <fileset dir="webapps/examples/WEB-INF/classes/jsp2/examples">
         <include name="BookBean.java"/>
       </fileset>
@@ -1144,7 +1144,7 @@
       </fileset>
     </txt2html>
 
-    <txt2html todir="${tomcat.build}/webapps/examples/jsp/jsp2/jspattribute">
+    <txt2html todir="${thundercat.build}/webapps/examples/jsp/jsp2/jspattribute">
       <fileset dir="webapps/examples/WEB-INF/classes/jsp2/examples">
         <include name="FooBean.java"/>
       </fileset>
@@ -1155,7 +1155,7 @@
       </fileset>
     </txt2html>
 
-    <txt2html todir="${tomcat.build}/webapps/examples/jsp/cal">
+    <txt2html todir="${thundercat.build}/webapps/examples/jsp/cal">
       <fileset dir="webapps/examples/WEB-INF/classes/cal">
         <include name="Entries.java"/>
         <include name="Entry.java"/>
@@ -1164,13 +1164,13 @@
       </fileset>
     </txt2html>
 
-    <txt2html todir="${tomcat.build}/webapps/examples/jsp/jsptoserv">
+    <txt2html todir="${thundercat.build}/webapps/examples/jsp/jsptoserv">
       <fileset dir="webapps/examples/WEB-INF/classes">
         <include name="ServletToJsp.java"/>
       </fileset>
     </txt2html>
 
-    <txt2html todir="${tomcat.build}/webapps/examples/jsp/jsp2/el">
+    <txt2html todir="${thundercat.build}/webapps/examples/jsp/jsp2/el">
       <fileset dir="webapps/examples/WEB-INF/classes/examples">
         <include name="ValuesTag.java"/>
       </fileset>
@@ -1182,19 +1182,19 @@
       </fileset>
     </txt2html>
 
-    <txt2html todir="${tomcat.build}/webapps/examples/jsp/jsp2/misc">
+    <txt2html todir="${thundercat.build}/webapps/examples/jsp/jsp2/misc">
       <fileset dir="webapps/examples/WEB-INF/classes/jsp2/examples/simpletag">
         <include name="EchoAttributesTag.java"/>
       </fileset>
     </txt2html>
 
-    <txt2html todir="${tomcat.build}/webapps/examples/jsp/jsp2/tagfiles">
+    <txt2html todir="${thundercat.build}/webapps/examples/jsp/jsp2/tagfiles">
       <fileset dir="webapps/examples/WEB-INF/tags">
         <include name="**/*.tag" />
       </fileset>
     </txt2html>
 
-    <txt2html todir="${tomcat.build}/webapps/examples">
+    <txt2html todir="${thundercat.build}/webapps/examples">
       <fileset dir="webapps/examples">
         <include name="**/*.jsp" />
         <include name="**/*.jspx" />
@@ -1213,36 +1213,36 @@
   <target name="embed-jars" description="Create experimental embedded jars"
     depends="build-manifests,compile" >
 
-    <mkdir dir="${tomcat.embed}" />
+    <mkdir dir="${thundercat.embed}" />
 
-    <copy file="${basedir}/LICENSE" todir="${tomcat.embed}" />
-    <copy file="${basedir}/NOTICE" todir="${tomcat.embed}" />
-    <copy file="${tomcat-dbcp.jar}" todir="${tomcat.embed}"
+    <copy file="${basedir}/LICENSE" todir="${thundercat.embed}" />
+    <copy file="${basedir}/NOTICE" todir="${thundercat.embed}" />
+    <copy file="${thundercat-dbcp.jar}" todir="${thundercat.embed}"
       failonerror="false"/>
-    <copy file="${jdt.jar}" todir="${tomcat.embed}" />
+    <copy file="${jdt.jar}" todir="${thundercat.embed}" />
 
     <!-- Note the meta-inf below will work as long as there is only one JAR
          that needs to add entries. If there is more than one a more complex
          solution will be required. -->
-    <jarIt jarfile="${tomcat-embed-core.jar}"
-           filesDir="${tomcat.classes}"
-           filesId="files.tomcat-embed-core"
-           notice="${tomcat.manifests}/servlet-api.jar.notice"
-           license="${tomcat.manifests}/servlet-api.jar.license"/>
-    <jarIt jarfile="${tomcat-embed-jasper.jar}"
-           filesDir="${tomcat.classes}"
-           filesId="files.tomcat-embed-jasper"
-           meta-inf="${tomcat.manifests}/jasper.jar"/>
-    <jarIt jarfile="${tomcat-embed-el.jar}"
-           filesDir="${tomcat.classes}"
-           filesId="files.tomcat-embed-el"/>
-    <jarIt jarfile="${tomcat-embed-websocket.jar}"
-           filesDir="${tomcat.classes}"
-           filesId="files.tomcat-embed-websocket"
-           meta-inf="${tomcat.manifests}/tomcat-websocket.jar"/>
-    <jarIt jarfile="${tomcat-embed-juli.jar}"
-           filesDir="${tomcat.classes}"
-           filesId="files.tomcat-juli"/>
+    <jarIt jarfile="${thundercat-embed-core.jar}"
+           filesDir="${thundercat.classes}"
+           filesId="files.thundercat-embed-core"
+           notice="${thundercat.manifests}/servlet-api.jar.notice"
+           license="${thundercat.manifests}/servlet-api.jar.license"/>
+    <jarIt jarfile="${thundercat-embed-jasper.jar}"
+           filesDir="${thundercat.classes}"
+           filesId="files.thundercat-embed-jasper"
+           meta-inf="${thundercat.manifests}/jasper.jar"/>
+    <jarIt jarfile="${thundercat-embed-el.jar}"
+           filesDir="${thundercat.classes}"
+           filesId="files.thundercat-embed-el"/>
+    <jarIt jarfile="${thundercat-embed-websocket.jar}"
+           filesDir="${thundercat.classes}"
+           filesId="files.thundercat-embed-websocket"
+           meta-inf="${thundercat.manifests}/thundercat-websocket.jar"/>
+    <jarIt jarfile="${thundercat-embed-juli.jar}"
+           filesDir="${thundercat.classes}"
+           filesId="files.thundercat-juli"/>
 
   </target>
 
@@ -1250,27 +1250,27 @@
           description="Create source jars for embedded jars"
           depends="build-manifests,package-src-jar" >
 
-    <mkdir dir="${tomcat.embed.sources}" />
+    <mkdir dir="${thundercat.embed.sources}" />
 
-    <jarIt jarfile="${tomcat-embed-core-sources.jar}"
+    <jarIt jarfile="${thundercat-embed-core-sources.jar}"
            filesDir="java"
-           filesId="files.tomcat-embed-core"
-            notice="${tomcat.manifests}/servlet-api.jar.notice"
-            license="${tomcat.manifests}/servlet-api.jar.license"/>
-    <jarIt jarfile="${tomcat-embed-jasper-sources.jar}"
+           filesId="files.thundercat-embed-core"
+            notice="${thundercat.manifests}/servlet-api.jar.notice"
+            license="${thundercat.manifests}/servlet-api.jar.license"/>
+    <jarIt jarfile="${thundercat-embed-jasper-sources.jar}"
            filesDir="java"
-           filesId="files.tomcat-embed-jasper"/>
-    <jarIt jarfile="${tomcat-embed-el-sources.jar}"
+           filesId="files.thundercat-embed-jasper"/>
+    <jarIt jarfile="${thundercat-embed-el-sources.jar}"
            filesDir="java"
-           filesId="files.tomcat-embed-el"/>
-    <jarIt jarfile="${tomcat-embed-websocket-sources.jar}"
+           filesId="files.thundercat-embed-el"/>
+    <jarIt jarfile="${thundercat-embed-websocket-sources.jar}"
            filesDir="java"
-           filesId="files.tomcat-embed-websocket"/>
-    <jarIt jarfile="${tomcat-embed-juli-sources.jar}"
+           filesId="files.thundercat-embed-websocket"/>
+    <jarIt jarfile="${thundercat-embed-juli-sources.jar}"
            filesDir="java"
-           filesId="files.tomcat-juli"/>
+           filesId="files.thundercat-juli"/>
 
-    <copy file="${tomcat-dbcp-src.jar}" todir="${tomcat.embed.sources}" />
+    <copy file="${thundercat-dbcp-src.jar}" todir="${thundercat.embed.sources}" />
 
     <!--No sources for ${jdt.jar} -->
 
@@ -1280,12 +1280,12 @@
           description="Creates the experimental embedded release"
           depends="embed-jars,embed-sources,embed-extras" >
 
-    <fixcrlf srcdir="${tomcat.embed}" eol="crlf"
+    <fixcrlf srcdir="${thundercat.embed}" eol="crlf"
         encoding="ISO-8859-1" fixlast="false" >
       <patternset refid="text.files" />
     </fixcrlf>
-    <zip destfile="${tomcat.embed}/${final.name}-embed.zip">
-      <fileset dir="${tomcat.embed}">
+    <zip destfile="${thundercat.embed}/${final.name}-embed.zip">
+      <fileset dir="${thundercat.embed}">
         <include name="**" />
         <exclude name="*.asc" />
         <exclude name="*.md5" />
@@ -1294,15 +1294,15 @@
         <exclude name="*.tar.gz" />
       </fileset>
     </zip>
-    <hashAndSign file="${tomcat.embed}/${final.name}-embed.zip" />
+    <hashAndSign file="${thundercat.embed}/${final.name}-embed.zip" />
 
-    <fixcrlf srcdir="${tomcat.embed}" eol="lf"
+    <fixcrlf srcdir="${thundercat.embed}" eol="lf"
         encoding="ISO-8859-1" fixlast="false" >
       <patternset refid="text.files" />
     </fixcrlf>
     <tar longfile="gnu" compression="gzip"
-         tarfile="${tomcat.embed}/${final.name}-embed.tar.gz">
-      <tarfileset dir="${tomcat.embed}" prefix="${final.name}-embed">
+         tarfile="${thundercat.embed}/${final.name}-embed.tar.gz">
+      <tarfileset dir="${thundercat.embed}" prefix="${final.name}-embed">
         <include name="**" />
         <exclude name="*.asc" />
         <exclude name="*.md5" />
@@ -1311,7 +1311,7 @@
         <exclude name="*.tar.gz" />
       </tarfileset>
     </tar>
-    <hashAndSign file="${tomcat.embed}/${final.name}-embed.tar.gz" />
+    <hashAndSign file="${thundercat.embed}/${final.name}-embed.tar.gz" />
 
   </target>
 
@@ -1325,7 +1325,7 @@
            target="${compile.target}"
            encoding="ISO-8859-1"
            includeantruntime="true">
-      <classpath refid="tomcat.test.classpath" />
+      <classpath refid="thundercat.test.classpath" />
       <include name="org/apache/**" />
       <include name="javax/**" />
       <include name="util/**" />
@@ -1374,8 +1374,8 @@
       </filterchain>
     </concat>
 
-    <fail if="test.result.error" message='Some tests completed with an Error. See ${tomcat.build}/logs for details, search for "ERROR".' />
-    <fail if="test.result.failure" message='Some tests completed with a Failure. See ${tomcat.build}/logs for details, search for "FAILED".' />
+    <fail if="test.result.error" message='Some tests completed with an Error. See ${thundercat.build}/logs for details, search for "ERROR".' />
+    <fail if="test.result.failure" message='Some tests completed with a Failure. See ${thundercat.build}/logs for details, search for "FAILED".' />
   </target>
 
   <target name="test-nio" description="Runs the JUnit test cases for NIO. Does not stop on errors."
@@ -1437,18 +1437,18 @@
         <jvmarg value="-Djava.library.path=${test.apr.loc}"/>
         <jvmarg value="${test.formatter}"/>
         <jvmarg value="-Djava.net.preferIPv4Stack=${java.net.preferIPv4Stack}"/>
-        <jvmarg value="-Dorg.apache.tomcat.util.net.NioSelectorShared=${org.apache.tomcat.util.net.NioSelectorShared}"/>
+        <jvmarg value="-Dorg.apache.thundercat.util.net.NioSelectorShared=${org.apache.thundercat.util.net.NioSelectorShared}"/>
 
-        <classpath refid="tomcat.test.run.classpath" />
+        <classpath refid="thundercat.test.run.classpath" />
 
-        <sysproperty key="tomcat.test.temp" value="${test.temp}" />
-        <sysproperty key="tomcat.test.tomcatbuild" value="${tomcat.build}" />
-        <sysproperty key="tomcat.test.protocol" value="@{protocol}" />
-        <sysproperty key="tomcat.test.accesslog" value="${test.accesslog}" />
-        <sysproperty key="tomcat.test.reports" value="${test.reports}" />
-        <sysproperty key="tomcat.test.openssl.path" value="${test.openssl.path}" />
-        <sysproperty key="tomcat.test.openssl.version" value="${test.openssl.version}" />
-        <sysproperty key="tomcat.test.relaxTiming" value="${test.relaxTiming}" />
+        <sysproperty key="thundercat.test.temp" value="${test.temp}" />
+        <sysproperty key="thundercat.test.thundercatbuild" value="${thundercat.build}" />
+        <sysproperty key="thundercat.test.protocol" value="@{protocol}" />
+        <sysproperty key="thundercat.test.accesslog" value="${test.accesslog}" />
+        <sysproperty key="thundercat.test.reports" value="${test.reports}" />
+        <sysproperty key="thundercat.test.openssl.path" value="${test.openssl.path}" />
+        <sysproperty key="thundercat.test.openssl.version" value="${test.openssl.version}" />
+        <sysproperty key="thundercat.test.relaxTiming" value="${test.relaxTiming}" />
         <!-- File for Cobertura to write coverage results to -->
         <sysproperty key="net.sourceforge.cobertura.datafile" file="${cobertura.datafile}" />
 
@@ -1472,7 +1472,7 @@
             <!-- Exclude the tests known to fail -->
             <exclude name="org/apache/catalina/tribes/test/**" />
             <!-- Exclude the OpenSSL tests unless OpenSSL is available -->
-            <exclude name="org/apache/tomcat/util/net/jsse/openssl/**" unless="${test.openssl.exists}" />
+            <exclude name="org/apache/thundercat/util/net/jsse/openssl/**" unless="${test.openssl.exists}" />
             <!-- Exclude performance tests. E.g. on systems with slow/inconsistent timing -->
             <exclude name="**/*Performance.java" if="${test.excludePerformance}" />
           </fileset>
@@ -1483,8 +1483,8 @@
 
   <target name="cobertura-disabled" unless="${test.cobertura}">
     <!-- Define classpath used to run tests when Cobertura is turned off. -->
-    <path id="tomcat.test.run.classpath">
-      <path refid="tomcat.test.classpath" />
+    <path id="thundercat.test.run.classpath">
+      <path refid="thundercat.test.classpath" />
     </path>
   </target>
 
@@ -1505,8 +1505,8 @@
     <taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
 
     <cobertura-instrument datafile="${cobertura.datafile}"
-                          todir="${tomcat.classes.cobertura}">
-      <fileset dir="${tomcat.classes}">
+                          todir="${thundercat.classes.cobertura}">
+      <fileset dir="${thundercat.classes}">
         <include name="**/*.class"/>
         <exclude name="**/ClassLoaderLogManager.class"/>
         <exclude name="**/ClassLoaderLogManager*.class"/>
@@ -1525,9 +1525,9 @@
 
     <!-- Define classpath used to run tests -->
     <!-- The Cobertura instrumented classes must appear first on the classpath -->
-    <path id="tomcat.test.run.classpath">
-      <path location="${tomcat.classes.cobertura}" />
-      <path refid="tomcat.test.classpath" />
+    <path id="thundercat.test.run.classpath">
+      <path location="${thundercat.classes.cobertura}" />
+      <path refid="thundercat.test.classpath" />
       <path refid="cobertura.classpath"/>
     </path>
   </target>
@@ -1542,12 +1542,12 @@
   </target>
 
   <target name="extras-prepare" >
-    <mkdir dir="${tomcat.extras}"/>
-    <mkdir dir="${tomcat.extras.sources}"/>
-    <mkdir dir="${tomcat.embed}"/>
-    <mkdir dir="${tomcat.embed.sources}"/>
-    <mkdir dir="${tomcat.extras}/logging"/>
-    <mkdir dir="${tomcat.extras}/webservices"/>
+    <mkdir dir="${thundercat.extras}"/>
+    <mkdir dir="${thundercat.extras.sources}"/>
+    <mkdir dir="${thundercat.embed}"/>
+    <mkdir dir="${thundercat.embed.sources}"/>
+    <mkdir dir="${thundercat.extras}/logging"/>
+    <mkdir dir="${thundercat.extras}/webservices"/>
   </target>
 
   <target name="extras-commons-logging-prepare"
@@ -1592,44 +1592,44 @@
           description="Build JULI for log4j extras package">
 
     <gunzip src="${commons-logging-src.tar.gz}"
-      dest="${tomcat.extras}/logging/commons-logging-src.tar"/>
-    <untar src="${tomcat.extras}/logging/commons-logging-src.tar"
-      dest="${tomcat.extras}/logging/"/>
+      dest="${thundercat.extras}/logging/commons-logging-src.tar"/>
+    <untar src="${thundercat.extras}/logging/commons-logging-src.tar"
+      dest="${thundercat.extras}/logging/"/>
 
-    <replace dir="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src/src/main/java/org/apache/commons"
+    <replace dir="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src/src/main/java/org/apache/commons"
         encoding="ISO-8859-1">
       <replacefilter token="org.apache.commons"
             value="org.apache.juli" />
     </replace>
-    <mkdir dir="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src/src/main/java/org/apache/juli" />
-    <move todir="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src/src/main/java/org/apache/juli">
-      <fileset dir="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src/src/main/java/org/apache/commons" />
+    <mkdir dir="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src/src/main/java/org/apache/juli" />
+    <move todir="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src/src/main/java/org/apache/juli">
+      <fileset dir="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src/src/main/java/org/apache/commons" />
     </move>
 
-    <replace dir="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src"
+    <replace dir="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src"
       encoding="ISO-8859-1">
       <replacefilter token="org.apache.commons"
         value="org.apache.juli" />
       <replacefilter token="org/apache/commons/"
         value="org/apache/juli/" />
     </replace>
-    <copy tofile="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src/build2.xml"
-      file="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src/build.xml" />
+    <copy tofile="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src/build2.xml"
+      file="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src/build.xml" />
 
-    <copy todir="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src">
+    <copy todir="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src">
       <fileset file="${avalon-framework.jar}" />
       <fileset file="${log4j.jar}" />
       <fileset file="${logkit.jar}" />
       <fileset file="${servletapi.jar}" />
     </copy>
 
-    <ant antfile="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src/build2.xml"
-         dir="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src"
+    <ant antfile="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src/build2.xml"
+         dir="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src"
          inheritAll="false" target="compile" />
 
-    <jar jarfile="${tomcat-juli-extras.jar}"
-         manifest="${tomcat.manifests}/default.manifest">
-      <fileset dir="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src/target/classes">
+    <jar jarfile="${thundercat-juli-extras.jar}"
+         manifest="${thundercat.manifests}/default.manifest">
+      <fileset dir="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src/target/classes">
         <include name="org/apache/juli/logging/*" />
         <include name="org/apache/juli/logging/impl/LogFactoryImpl*.class" />
         <include name="org/apache/juli/logging/impl/WeakHashtable*.class" />
@@ -1640,28 +1640,28 @@
         <exclude name="**/package.html" />
         <exclude name="**/LocalStrings_*" />
       </fileset>
-      <fileset dir="${tomcat.classes}">
+      <fileset dir="${thundercat.classes}">
         <include name="org/apache/juli/*" />
         <!-- Javadoc and i18n exclusions -->
         <exclude name="**/package.html" />
         <exclude name="**/LocalStrings_*" />
       </fileset>
-      <zipfileset file="${tomcat.manifests}/default.notice"
+      <zipfileset file="${thundercat.manifests}/default.notice"
         fullpath="META-INF/NOTICE" />
-      <zipfileset file="${tomcat.manifests}/default.license"
+      <zipfileset file="${thundercat.manifests}/default.license"
         fullpath="META-INF/LICENSE" />
     </jar>
-    <hashAndSign file="${tomcat-juli-extras.jar}" />
+    <hashAndSign file="${thundercat-juli-extras.jar}" />
 
-    <jarIt jarfile="${tomcat-juli-adapters.jar}"
-      filesDir="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src/target/classes"
-      filesId="files.tomcat-extras-juli-adapters" />
-    <hashAndSign file="${tomcat-juli-adapters.jar}" />
+    <jarIt jarfile="${thundercat-juli-adapters.jar}"
+      filesDir="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src/target/classes"
+      filesId="files.thundercat-extras-juli-adapters" />
+    <hashAndSign file="${thundercat-juli-adapters.jar}" />
 
     <!-- Source JARs -->
-    <jar jarfile="${tomcat-juli-extras-src.jar}"
-         manifest="${tomcat.manifests}/default.manifest">
-      <fileset dir="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src/src/main/java">
+    <jar jarfile="${thundercat-juli-extras-src.jar}"
+         manifest="${thundercat.manifests}/default.manifest">
+      <fileset dir="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src/src/main/java">
         <include name="org/apache/juli/logging/*.java" />
         <include name="org/apache/juli/logging/impl/LogFactoryImpl*.java" />
         <include name="org/apache/juli/logging/impl/WeakHashtable*.java" />
@@ -1678,14 +1678,14 @@
         <exclude name="**/package.html" />
         <exclude name="**/LocalStrings_*" />
       </fileset>
-      <zipfileset file="${tomcat.manifests}/default.notice"
+      <zipfileset file="${thundercat.manifests}/default.notice"
         fullpath="META-INF/NOTICE" />
-      <zipfileset file="${tomcat.manifests}/default.license"
+      <zipfileset file="${thundercat.manifests}/default.license"
         fullpath="META-INF/LICENSE" />
     </jar>
-    <jarIt jarfile="${tomcat-juli-adapters-src.jar}"
-      filesDir="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src/src/main/java"
-      filesId="files.tomcat-extras-juli-adapters" />
+    <jarIt jarfile="${thundercat-juli-adapters-src.jar}"
+      filesDir="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src/src/main/java"
+      filesId="files.thundercat-extras-juli-adapters" />
 
   </target>
 
@@ -1706,9 +1706,9 @@
     </antcall>
 
     <copy file="${jaxrpc-lib.jar}"
-          tofile="${tomcat.extras}/webservices/jaxrpc.jar" />
+          tofile="${thundercat.extras}/webservices/jaxrpc.jar" />
     <copy file="${wsdl4j-lib.jar}"
-          tofile="${tomcat.extras}/webservices/wsdl4j.jar" />
+          tofile="${thundercat.extras}/webservices/wsdl4j.jar" />
   </target>
 
   <target name="extras-webservices"
@@ -1716,25 +1716,25 @@
           description="Build web services extras package">
 
     <!-- Compile web services classes components -->
-    <javac srcdir="java" destdir="${tomcat.classes}"
+    <javac srcdir="java" destdir="${thundercat.classes}"
            debug="${compile.debug}"
            deprecation="${compile.deprecation}"
            source="${compile.source}"
            encoding="ISO-8859-1"
            includeantruntime="false">
-      <classpath refid="tomcat.webservices.classpath" />
+      <classpath refid="thundercat.webservices.classpath" />
       <include name="org/apache/naming/factory/webservices/**" />
     </javac>
 
     <jarIt jarfile="${catalina-ws.jar}"
-      filesDir="${tomcat.classes}"
-      filesId="files.tomcat-extras-ws" />
+      filesDir="${thundercat.classes}"
+      filesId="files.thundercat-extras-ws" />
 
     <hashAndSign file="${catalina-ws.jar}" />
 
     <jarIt jarfile="${catalina-ws-src.jar}"
       filesDir="java"
-      filesId="files.tomcat-extras-ws" />
+      filesId="files.thundercat-extras-ws" />
 
   </target>
 
@@ -1743,14 +1743,14 @@
           description="Build JMX remote extras package">
 
     <jarIt jarfile="${catalina-jmx-remote.jar}"
-      filesDir="${tomcat.classes}"
-      filesId="files.tomcat-extras-jmxremote" />
+      filesDir="${thundercat.classes}"
+      filesId="files.thundercat-extras-jmxremote" />
 
     <hashAndSign file="${catalina-jmx-remote.jar}" />
 
     <jarIt jarfile="${catalina-jmx-remote-src.jar}"
       filesDir="java"
-      filesId="files.tomcat-extras-jmxremote" />
+      filesId="files.thundercat-extras-jmxremote" />
 
   </target>
 
@@ -1762,30 +1762,30 @@
   <target name="embed-extras" depends="extras"
           description="Embedded packaging for those extras that can use it">
 
-    <jar jarfile="${tomcat-embed-log4j.jar}"
-         manifest="${tomcat.manifests}/default.manifest">
-      <fileset dir="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src/target/classes">
+    <jar jarfile="${thundercat-embed-log4j.jar}"
+         manifest="${thundercat.manifests}/default.manifest">
+      <fileset dir="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src/target/classes">
         <include name="org/apache/juli/logging/*" />
         <include name="org/apache/juli/logging/impl/*" />
         <!-- Javadoc and i18n exclusions -->
         <exclude name="**/package.html" />
         <exclude name="**/LocalStrings_*" />
       </fileset>
-      <fileset dir="${tomcat.classes}">
+      <fileset dir="${thundercat.classes}">
         <include name="org/apache/juli/*" />
         <!-- Javadoc and i18n exclusions -->
         <exclude name="**/package.html" />
         <exclude name="**/LocalStrings_*" />
       </fileset>
-      <zipfileset file="${tomcat.manifests}/default.notice"
+      <zipfileset file="${thundercat.manifests}/default.notice"
         fullpath="META-INF/NOTICE" />
-      <zipfileset file="${tomcat.manifests}/default.license"
+      <zipfileset file="${thundercat.manifests}/default.license"
         fullpath="META-INF/LICENSE" />
     </jar>
 
-    <jar jarfile="${tomcat-embed-log4j-src.jar}"
-         manifest="${tomcat.manifests}/default.manifest">
-      <fileset dir="${tomcat.extras}/logging/commons-logging-${commons-logging.version}-src/src/main/java">
+    <jar jarfile="${thundercat-embed-log4j-src.jar}"
+         manifest="${thundercat.manifests}/default.manifest">
+      <fileset dir="${thundercat.extras}/logging/commons-logging-${commons-logging.version}-src/src/main/java">
         <include name="org/apache/juli/logging/*.java" />
         <include name="org/apache/juli/logging/impl/*.java" />
         <!-- Javadoc and i18n exclusions -->
@@ -1798,31 +1798,31 @@
         <exclude name="**/package.html" />
         <exclude name="**/LocalStrings_*" />
       </fileset>
-      <zipfileset file="${tomcat.manifests}/default.notice"
+      <zipfileset file="${thundercat.manifests}/default.notice"
         fullpath="META-INF/NOTICE" />
-      <zipfileset file="${tomcat.manifests}/default.license"
+      <zipfileset file="${thundercat.manifests}/default.license"
         fullpath="META-INF/LICENSE" />
     </jar>
 
   </target>
 
   <target name="dist-prepare" depends="download-dist">
-    <mkdir dir="${tomcat.dist}"/>
-    <mkdir dir="${tomcat.dist}/bin"/>
-    <mkdir dir="${tomcat.dist}/conf"/>
-    <mkdir dir="${tomcat.dist}/lib"/>
-    <mkdir dir="${tomcat.dist}/logs"/>
-    <mkdir dir="${tomcat.dist}/temp"/>
-    <mkdir dir="${tomcat.dist}/webapps"/>
-    <mkdir dir="${tomcat.dist}/work"/>
-    <mkdir dir="${tomcat.release}/v${version}/bin" />
-    <mkdir dir="${tomcat.release}/v${version}/src" />
+    <mkdir dir="${thundercat.dist}"/>
+    <mkdir dir="${thundercat.dist}/bin"/>
+    <mkdir dir="${thundercat.dist}/conf"/>
+    <mkdir dir="${thundercat.dist}/lib"/>
+    <mkdir dir="${thundercat.dist}/logs"/>
+    <mkdir dir="${thundercat.dist}/temp"/>
+    <mkdir dir="${thundercat.dist}/webapps"/>
+    <mkdir dir="${thundercat.dist}/work"/>
+    <mkdir dir="${thundercat.release}/v${version}/bin" />
+    <mkdir dir="${thundercat.release}/v${version}/src" />
   </target>
 
   <target name="dist-static" depends="dist-prepare, deploy, extras, embed">
 
     <!-- Copy the top-level documentation files -->
-    <copy todir="${tomcat.dist}" encoding="ISO-8859-1">
+    <copy todir="${thundercat.dist}" encoding="ISO-8859-1">
       <filterset refid="version.filters"/>
       <fileset dir=".">
         <include name="INSTALLING.txt"/>
@@ -1834,57 +1834,57 @@
     </copy>
 
     <!-- Copy the contents of each "build" directory -->
-    <copy todir="${tomcat.dist}/bin">
-      <fileset dir="${tomcat.build}/bin">
+    <copy todir="${thundercat.dist}/bin">
+      <fileset dir="${thundercat.build}/bin">
       </fileset>
     </copy>
-    <copy todir="${tomcat.dist}/lib">
-      <fileset dir="${tomcat.build}/lib" />
+    <copy todir="${thundercat.dist}/lib">
+      <fileset dir="${thundercat.build}/lib" />
     </copy>
-    <copy todir="${tomcat.dist}/conf">
-      <fileset dir="${tomcat.build}/conf">
+    <copy todir="${thundercat.dist}/conf">
+      <fileset dir="${thundercat.build}/conf">
       </fileset>
     </copy>
 
-    <copy todir="${tomcat.dist}/webapps">
-      <fileset dir="${tomcat.build}/webapps">
+    <copy todir="${thundercat.dist}/webapps">
+      <fileset dir="${thundercat.build}/webapps">
         <exclude name="**/ROOT/WEB-INF/classes/**" />
         <exclude name="**/WEB-INF/src/**" />
       </fileset>
     </copy>
 
-    <touch file="${tomcat.dist}/temp/safeToDelete.tmp" />
+    <touch file="${thundercat.dist}/temp/safeToDelete.tmp" />
 
     <!-- Correct permissions and line endings on "bin" scripts -->
-    <fixcrlf srcdir="${tomcat.dist}/bin" includes="*.sh"  eol="lf"   encoding="ISO-8859-1" fixlast="false" />
-    <fixcrlf srcdir="${tomcat.dist}/bin" includes="*.bat" eol="crlf" encoding="ISO-8859-1" fixlast="false" />
-    <chmod      dir="${tomcat.dist}/bin" includes="*.sh"  perm="+x"/>
+    <fixcrlf srcdir="${thundercat.dist}/bin" includes="*.sh"  eol="lf"   encoding="ISO-8859-1" fixlast="false" />
+    <fixcrlf srcdir="${thundercat.dist}/bin" includes="*.bat" eol="crlf" encoding="ISO-8859-1" fixlast="false" />
+    <chmod      dir="${thundercat.dist}/bin" includes="*.sh"  perm="+x"/>
 
     <!-- Windows binaries -->
     <!-- 32 bit -->
     <copy file="${commons-daemon.home}/windows/prunsrv.exe"
-        tofile="${tomcat.dist}/bin/tomcat${version.major}.exe" />
+        tofile="${thundercat.dist}/bin/thundercat${version.major}.exe" />
     <copy file="${commons-daemon.home}/windows/prunmgr.exe"
-        tofile="${tomcat.dist}/bin/tomcat${version.major}w.exe" />
+        tofile="${thundercat.dist}/bin/thundercat${version.major}w.exe" />
     <!-- 64 bit amd -->
     <copy file="${commons-daemon.home}/windows/amd64/prunsrv.exe"
-        tofile="${tomcat.dist}/bin/x64/tomcat${version.major}.exe" />
+        tofile="${thundercat.dist}/bin/x64/thundercat${version.major}.exe" />
     <!-- 64 bit ia -->
     <copy file="${commons-daemon.home}/windows/ia64/prunsrv.exe"
-        tofile="${tomcat.dist}/bin/i64/tomcat${version.major}.exe" />
+        tofile="${thundercat.dist}/bin/i64/thundercat${version.major}.exe" />
     <!-- tc native -->
-    <copy todir="${tomcat.dist}/bin">
-      <fileset dir="${tomcat-native.home}/bin">
+    <copy todir="${thundercat.dist}/bin">
+      <fileset dir="${thundercat-native.home}/bin">
         <include name="*.dll"/>
         <include name="**/*.dll"/>
       </fileset>
     </copy>
 
     <!-- platform README files -->
-    <echo append="false" file="${tomcat.dist}/bin/i64/README">
+    <echo append="false" file="${thundercat.dist}/bin/i64/README">
 Apache Tomcat ${version} native binaries for Win64 IA64 platform.
     </echo>
-    <echo append="false" file="${tomcat.dist}/bin/x64/README">
+    <echo append="false" file="${thundercat.dist}/bin/x64/README">
 Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
     </echo>
 
@@ -1894,8 +1894,8 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
     description="Create the Tomcat javadoc" >
     <javadoc packagenames="javax.servlet.*"
       excludepackagenames="javax.servlet.jsp.*"
-      sourcepath="${tomcat.dist}/src/java"
-      destdir="${tomcat.dist}/webapps/docs/servletapi"
+      sourcepath="${thundercat.dist}/src/java"
+      destdir="${thundercat.dist}/webapps/docs/servletapi"
       version="true"
       windowtitle="Servlet 3.1 API Documentation - Apache Tomcat ${version}"
       doctitle="Servlet 3.1 API - Apache Tomcat ${version}"
@@ -1908,13 +1908,13 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       maxmemory="256m" >
       <classpath>
         <path refid="compile.classpath"/>
-        <path refid="tomcat.webservices.classpath"/>
+        <path refid="thundercat.webservices.classpath"/>
         <path location="${ant.core.lib}"/>
       </classpath>
     </javadoc>
     <javadoc packagenames="javax.servlet.jsp.*"
-      sourcepath="${tomcat.dist}/src/java"
-      destdir="${tomcat.dist}/webapps/docs/jspapi"
+      sourcepath="${thundercat.dist}/src/java"
+      destdir="${thundercat.dist}/webapps/docs/jspapi"
       version="true"
       windowtitle="JSP 2.3 API Documentation - Apache Tomcat ${version}"
       doctitle="JSP 2.3 API - Apache Tomcat ${version}"
@@ -1927,13 +1927,13 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       maxmemory="256m" >
       <classpath>
         <path refid="compile.classpath"/>
-        <path refid="tomcat.webservices.classpath"/>
+        <path refid="thundercat.webservices.classpath"/>
         <path location="${ant.core.lib}"/>
       </classpath>
     </javadoc>
     <javadoc packagenames="javax.el.*"
-      sourcepath="${tomcat.dist}/src/java"
-      destdir="${tomcat.dist}/webapps/docs/elapi"
+      sourcepath="${thundercat.dist}/src/java"
+      destdir="${thundercat.dist}/webapps/docs/elapi"
       version="true"
       windowtitle="EL 3.0 API Documentation - Apache Tomcat ${version}"
       doctitle="EL 3.0 API - Apache Tomcat ${version}"
@@ -1946,13 +1946,13 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       maxmemory="256m" >
       <classpath>
         <path refid="compile.classpath"/>
-        <path refid="tomcat.webservices.classpath"/>
+        <path refid="thundercat.webservices.classpath"/>
         <path location="${ant.core.lib}"/>
       </classpath>
     </javadoc>
     <javadoc packagenames="javax.websocket.*"
-      sourcepath="${tomcat.dist}/src/java"
-      destdir="${tomcat.dist}/webapps/docs/websocketapi"
+      sourcepath="${thundercat.dist}/src/java"
+      destdir="${thundercat.dist}/webapps/docs/websocketapi"
       version="true"
       windowtitle="WebSocket 1.1 API Documentation - Apache Tomcat ${version}"
       doctitle="WebSocket 1.1 API - Apache Tomcat ${version}"
@@ -1965,12 +1965,12 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       maxmemory="256m" >
       <classpath>
         <path refid="compile.classpath"/>
-        <path refid="tomcat.webservices.classpath"/>
+        <path refid="thundercat.webservices.classpath"/>
         <path location="${ant.core.lib}"/>
       </classpath>
     </javadoc>
     <javadoc packagenames="org.apache.*"
-      destdir="${tomcat.dist}/webapps/docs/api"
+      destdir="${thundercat.dist}/webapps/docs/api"
       version="true"
       windowtitle="Apache Tomcat ${version} API Documentation"
       doctitle="Apache Tomcat ${version} API"
@@ -1983,7 +1983,7 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       maxmemory="256m" >
       <classpath>
         <path refid="compile.classpath"/>
-        <path refid="tomcat.webservices.classpath"/>
+        <path refid="thundercat.webservices.classpath"/>
         <path location="${ant.core.lib}"/>
       </classpath>
       <link href="../servletapi"/>
@@ -1994,9 +1994,9 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       <link href="http://commons.apache.org/proper/commons-io/javadocs/api-release/"/>
       <link href="http://docs.oracle.com/javaee/7/api/"/>
       <sourcepath>
-        <path location="${tomcat.dist}/src/java"/>
+        <path location="${thundercat.dist}/src/java"/>
         <!--jdbc-pool src files for javadoc-->
-        <path location="${tomcat.dist}/src/modules/jdbc-pool/src/main/java"/>
+        <path location="${thundercat.dist}/src/modules/jdbc-pool/src/main/java"/>
       </sourcepath>
     </javadoc>
   </target>
@@ -2005,8 +2005,8 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
     description="Create the Tomcat deployer binary">
 
     <!-- Servlet and JSP -->
-    <copy todir="${tomcat.deployer}/lib">
-      <fileset dir="${tomcat.build}/lib">
+    <copy todir="${thundercat.deployer}/lib">
+      <fileset dir="${thundercat.build}/lib">
         <include name="catalina-ant.jar"/>
         <include name="el-api.jar"/>
         <include name="jsp-api.jar"/>
@@ -2014,66 +2014,66 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
         <include name="jasper-el.jar"/>
         <include name="servlet-api.jar"/>
         <include name="websocket-api.jar"/>
-        <include name="tomcat-websocket.jar"/>
-        <include name="tomcat-coyote.jar"/>
-        <include name="tomcat-util.jar"/>
-        <include name="tomcat-util-scan.jar"/>
+        <include name="thundercat-websocket.jar"/>
+        <include name="thundercat-coyote.jar"/>
+        <include name="thundercat-util.jar"/>
+        <include name="thundercat-util-scan.jar"/>
       </fileset>
-      <fileset dir="${tomcat.build}/bin">
-        <include name="tomcat-juli.jar"/>
+      <fileset dir="${thundercat.build}/bin">
+        <include name="thundercat-juli.jar"/>
       </fileset>
     </copy>
 
     <!-- Digester and dependencies -->
-    <jar jarfile="${tomcat.deployer}/lib/catalina-deployer.jar">
-       <fileset dir="${tomcat.classes}">
+    <jar jarfile="${thundercat.deployer}/lib/catalina-deployer.jar">
+       <fileset dir="${thundercat.classes}">
           <include name="org/apache/catalina/startup/DigesterFactory.class" />
           <include name="org/apache/catalina/util/SchemaResolver.class" />
           <include name="org/apache/catalina/util/StringManager.class" />
-          <include name="org/apache/tomcat/util/*" />
-          <include name="org/apache/tomcat/util/digester/**" />
-          <exclude name="org/apache/tomcat/util/bcel" />
-          <exclude name="org/apache/tomcat/util/buf" />
-          <exclude name="org/apache/tomcat/util/codec" />
-          <exclude name="org/apache/tomcat/util/collections" />
-          <exclude name="org/apache/tomcat/util/descriptor" />
-          <exclude name="org/apache/tomcat/util/file" />
-          <exclude name="org/apache/tomcat/util/http" />
-          <exclude name="org/apache/tomcat/util/log" />
-          <exclude name="org/apache/tomcat/util/modeler" />
-          <exclude name="org/apache/tomcat/util/net" />
-          <exclude name="org/apache/tomcat/util/res" />
-          <exclude name="org/apache/tomcat/util/scan" />
-          <exclude name="org/apache/tomcat/util/security" />
-          <exclude name="org/apache/tomcat/util/threads" />
+          <include name="org/apache/thundercat/util/*" />
+          <include name="org/apache/thundercat/util/digester/**" />
+          <exclude name="org/apache/thundercat/util/bcel" />
+          <exclude name="org/apache/thundercat/util/buf" />
+          <exclude name="org/apache/thundercat/util/codec" />
+          <exclude name="org/apache/thundercat/util/collections" />
+          <exclude name="org/apache/thundercat/util/descriptor" />
+          <exclude name="org/apache/thundercat/util/file" />
+          <exclude name="org/apache/thundercat/util/http" />
+          <exclude name="org/apache/thundercat/util/log" />
+          <exclude name="org/apache/thundercat/util/modeler" />
+          <exclude name="org/apache/thundercat/util/net" />
+          <exclude name="org/apache/thundercat/util/res" />
+          <exclude name="org/apache/thundercat/util/scan" />
+          <exclude name="org/apache/thundercat/util/security" />
+          <exclude name="org/apache/thundercat/util/threads" />
           <exclude name="**/package.html" />
           <exclude name="**/LocalStrings_*" />
        </fileset>
     </jar>
 
     <!-- Main build script -->
-    <copy todir="${tomcat.deployer}">
+    <copy todir="${thundercat.deployer}">
       <fileset dir="${basedir}/res/deployer" />
     </copy>
 
     <!-- Copy deployer documentation -->
-    <copy todir="${tomcat.deployer}">
-      <fileset dir="${tomcat.build}/webapps/docs">
+    <copy todir="${thundercat.deployer}">
+      <fileset dir="${thundercat.build}/webapps/docs">
         <include name="images/asf-logo.gif" />
-        <include name="images/tomcat.gif" />
+        <include name="images/thundercat.gif" />
       </fileset>
     </copy>
-    <copy tofile="${tomcat.deployer}/deployer-howto.html"
-      file="${tomcat.build}/webapps/docs/deployer-howto.html"/>
+    <copy tofile="${thundercat.deployer}/deployer-howto.html"
+      file="${thundercat.build}/webapps/docs/deployer-howto.html"/>
 
   </target>
 
   <target name="dist-source" depends="compile-prepare">
 
-    <mkdir dir="${tomcat.dist}/src"/>
+    <mkdir dir="${thundercat.dist}/src"/>
 
     <!-- Tomcat source -->
-    <copy todir="${tomcat.dist}/src">
+    <copy todir="${thundercat.dist}/src">
       <fileset dir="${basedir}" defaultexcludes="true">
         <not>
           <or>
@@ -2121,7 +2121,7 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
   <target name="-installer-prep"
       description="Prepares file structure required to build installer"
       unless="skip.installer" depends="dist-static">
-    <copy todir="${tomcat.dist}">
+    <copy todir="${thundercat.dist}">
       <fileset dir="res">
         <include name="INSTALLLICENSE" />
         <include name="*.bmp" />
@@ -2129,13 +2129,13 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
         <include name="confinstall/**" />
       </fileset>
     </copy>
-    <copy file="${nsis.installoptions.dll}" todir="${tomcat.dist}" />
-    <copy file="${nsis.nsexec.dll}" todir="${tomcat.dist}" />
-    <copy file="${nsis.nsisdl.dll}" todir="${tomcat.dist}" />
-    <copy file="res/tomcat.nsi" tofile="${tomcat.dist}/tomcat.nsi" overwrite="true" encoding="ISO-8859-1">
+    <copy file="${nsis.installoptions.dll}" todir="${thundercat.dist}" />
+    <copy file="${nsis.nsexec.dll}" todir="${thundercat.dist}" />
+    <copy file="${nsis.nsisdl.dll}" todir="${thundercat.dist}" />
+    <copy file="res/thundercat.nsi" tofile="${thundercat.dist}/thundercat.nsi" overwrite="true" encoding="ISO-8859-1">
       <filterset refid="version.filters"/>
     </copy>
-    <fixcrlf srcdir="${tomcat.dist}" eol="crlf"
+    <fixcrlf srcdir="${thundercat.dist}" eol="crlf"
         encoding="ISO-8859-1" fixlast="false" >
       <patternset refid="text.files" />
     </fixcrlf>
@@ -2144,18 +2144,18 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
   <target name="-installer-create-tempinstaller"
       description="Creates the temporary installer"
       unless="skip.installer" depends="-installer-prep">
-    <exec dir="${tomcat.dist}" executable="${nsis.exe}" osfamily="windows">
+    <exec dir="${thundercat.dist}" executable="${nsis.exe}" osfamily="windows">
       <arg value="/DUNINSTALLONLY" />
       <arg value="/DNSISDIR=${nsis.home}" />
       <arg value="/V2" />
-      <arg value="tomcat.nsi" />
+      <arg value="thundercat.nsi" />
     </exec>
-    <exec dir="${tomcat.dist}" executable="wine" osfamily="unix">
+    <exec dir="${thundercat.dist}" executable="wine" osfamily="unix">
       <arg value="${nsis.exe}" />
       <arg value="/DUNINSTALLONLY" />
       <arg value="/DNSISDIR=${nsis.home}" />
       <arg value="/V2" />
-      <arg value="tomcat.nsi" />
+      <arg value="thundercat.nsi" />
     </exec>
   </target>
 
@@ -2163,10 +2163,10 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       description="Execute the temporary installer to create the uninstaller"
       unless="skip.installer" depends="-installer-create-tempinstaller">
     <!-- Execute the temporary installer to create the uninstaller -->
-    <exec dir="${tomcat.dist}" executable="${tomcat.dist}/tempinstaller.exe"
+    <exec dir="${thundercat.dist}" executable="${thundercat.dist}/tempinstaller.exe"
         osfamily="windows"  />
-    <exec dir="${tomcat.dist}" executable="wine" osfamily="unix">
-      <arg value="${tomcat.dist}/tempinstaller.exe" />
+    <exec dir="${thundercat.dist}" executable="wine" osfamily="unix">
+      <arg value="${thundercat.dist}/tempinstaller.exe" />
     </exec>
 
   </target>
@@ -2176,14 +2176,14 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       unless="skip.installer" depends="-installer-create-uninstaller"
       if="${do.codesigning}">
     <taskdef name="signcode"
-        classname="org.apache.tomcat.buildutil.SignCode"
-        classpath="${tomcat.classes}" />
+        classname="org.apache.thundercat.buildutil.SignCode"
+        classpath="${thundercat.classes}" />
     <signcode userName="${codesigning.user}" password="${codesigning.pwd}"
         partnerCode="${codesigning.partnercode}"
         applicationName="Apache Tomcat ${version.major.minor} Uninstaller"
         applicationversion="${version}"
         signingService="${codesigning.service}">
-      <fileset dir="${tomcat.dist}">
+      <fileset dir="${thundercat.dist}">
         <filename name="Uninstall.exe"/>
       </fileset>
     </signcode>
@@ -2191,39 +2191,39 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
 
   <target name="-installer" description="Builds Windows installer"
       unless="skip.installer" depends="-installer-sign-uninstaller">
-    <exec dir="${tomcat.dist}" executable="${nsis.exe}" osfamily="windows">
+    <exec dir="${thundercat.dist}" executable="${nsis.exe}" osfamily="windows">
       <arg value="/DNSISDIR=${nsis.home}" />
       <arg value="/V2" />
-      <arg value="tomcat.nsi" />
+      <arg value="thundercat.nsi" />
     </exec>
-    <exec dir="${tomcat.dist}" executable="wine" osfamily="unix">
+    <exec dir="${thundercat.dist}" executable="wine" osfamily="unix">
       <arg value="${nsis.exe}" />
       <arg value="/DNSISDIR=${nsis.home}" />
       <arg value="/V2" />
-      <arg value="tomcat.nsi" />
+      <arg value="thundercat.nsi" />
     </exec>
-    <move file="${tomcat.dist}/tomcat-installer.exe" tofile="${tomcat.release}/v${version}/bin/${final.name}.exe" />
-    <hashAndSign file="${tomcat.release}/v${version}/bin/${final.name}.exe" />
+    <move file="${thundercat.dist}/thundercat-installer.exe" tofile="${thundercat.release}/v${version}/bin/${final.name}.exe" />
+    <hashAndSign file="${thundercat.release}/v${version}/bin/${final.name}.exe" />
   </target>
 
   <target name="installer-sign" depends="-installer" if="${do.codesigning}" >
     <taskdef name="signcode"
-        classname="org.apache.tomcat.buildutil.SignCode"
-        classpath="${tomcat.classes}" />
+        classname="org.apache.thundercat.buildutil.SignCode"
+        classpath="${thundercat.classes}" />
     <signcode userName="${codesigning.user}" password="${codesigning.pwd}"
               partnerCode="${codesigning.partnercode}"
               applicationName="Apache Tomcat ${version.major.minor}"
               applicationversion="${version}"
               signingService="${codesigning.service}">
-      <fileset dir="${tomcat.release}">
+      <fileset dir="${thundercat.release}">
         <filename name="v${version}/bin/${final.name}.exe"/>
       </fileset>
     </signcode>
     <!-- .exe has changed so need to redo checksums and OpenPGP signature -->
-    <delete file="${tomcat.release}/v${version}/bin/${final.name}.exe.asc" />
-    <delete file="${tomcat.release}/v${version}/bin/${final.name}.exe.md5" />
-    <delete file="${tomcat.release}/v${version}/bin/${final.name}.exe.sha1" />
-    <hashAndSign file="${tomcat.release}/v${version}/bin/${final.name}.exe" />
+    <delete file="${thundercat.release}/v${version}/bin/${final.name}.exe.asc" />
+    <delete file="${thundercat.release}/v${version}/bin/${final.name}.exe.md5" />
+    <delete file="${thundercat.release}/v${version}/bin/${final.name}.exe.sha1" />
+    <hashAndSign file="${thundercat.release}/v${version}/bin/${final.name}.exe" />
   </target>
 
   <target name="release"
@@ -2231,33 +2231,33 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
     description="Create a Tomcat packaged distribution">
 
     <copy file="KEYS"
-         todir="${tomcat.release}/v${version}"/>
+         todir="${thundercat.release}/v${version}"/>
     <copy file="RELEASE-NOTES"
-         todir="${tomcat.release}/v${version}"
+         todir="${thundercat.release}/v${version}"
          encoding="ISO-8859-1">
       <filterset refid="version.filters"/>
     </copy>
     <copy file="res/welcome.main.html"
-        tofile="${tomcat.release}/v${version}/README.html"
+        tofile="${thundercat.release}/v${version}/README.html"
         encoding="UTF-8">
       <filterset refid="version.filters"/>
     </copy>
     <copy file="res/welcome.bin.html"
-        tofile="${tomcat.release}/v${version}/bin/README.html"
+        tofile="${thundercat.release}/v${version}/bin/README.html"
         encoding="UTF-8">
       <filterset refid="version.filters"/>
     </copy>
 
-    <mkdir dir="${tomcat.release}/v${version}/bin/extras" />
-    <copy todir="${tomcat.release}/v${version}/bin/extras">
-      <fileset dir="${tomcat.extras}">
+    <mkdir dir="${thundercat.release}/v${version}/bin/extras" />
+    <copy todir="${thundercat.release}/v${version}/bin/extras">
+      <fileset dir="${thundercat.extras}">
         <include name="*.*"/>
       </fileset>
     </copy>
 
-    <mkdir dir="${tomcat.release}/v${version}/bin/embed" />
-    <copy todir="${tomcat.release}/v${version}/bin/embed">
-      <fileset dir="${tomcat.embed}">
+    <mkdir dir="${thundercat.release}/v${version}/bin/embed" />
+    <copy todir="${thundercat.release}/v${version}/bin/embed">
+      <fileset dir="${thundercat.embed}">
         <include name="*.zip"/>
         <include name="*.tar.gz"/>
         <include name="*.asc"/>
@@ -2283,13 +2283,13 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
 
   <!-- Packages the core zip distro -->
   <target name="package-zip" depends="dist-static">
-    <fixcrlf srcdir="${tomcat.dist}" eol="crlf"
+    <fixcrlf srcdir="${thundercat.dist}" eol="crlf"
         encoding="ISO-8859-1" fixlast="false" >
       <patternset refid="text.files" />
     </fixcrlf>
 
-    <zip zipfile="${tomcat.release}/v${version}/bin/${final.name}.zip">
-      <zipfileset dir="${tomcat.dist}" prefix="${final.name}">
+    <zip zipfile="${thundercat.release}/v${version}/bin/${final.name}.zip">
+      <zipfileset dir="${thundercat.dist}" prefix="${final.name}">
         <include name="bin/**"/>
         <include name="conf/**"/>
         <include name="logs/**"/>
@@ -2311,19 +2311,19 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       </zipfileset>
     </zip>
 
-    <hashAndSign file="${tomcat.release}/v${version}/bin/${final.name}.zip" />
+    <hashAndSign file="${thundercat.release}/v${version}/bin/${final.name}.zip" />
   </target>
 
   <!-- Packages the core windows zip distros -->
   <target name="package-winzip" depends="dist-static">
-    <fixcrlf srcdir="${tomcat.dist}" eol="crlf"
+    <fixcrlf srcdir="${thundercat.dist}" eol="crlf"
         encoding="ISO-8859-1" fixlast="false" >
       <patternset refid="text.files" />
     </fixcrlf>
 
     <!-- Windows x86 package -->
-    <zip zipfile="${tomcat.release}/v${version}/bin/${final.name}-windows-x86.zip">
-      <zipfileset dir="${tomcat.dist}" prefix="${final.name}">
+    <zip zipfile="${thundercat.release}/v${version}/bin/${final.name}-windows-x86.zip">
+      <zipfileset dir="${thundercat.dist}" prefix="${final.name}">
         <include name="bin/**"/>
         <include name="conf/**"/>
         <include name="logs/**"/>
@@ -2342,11 +2342,11 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       </zipfileset>
 
     </zip>
-    <hashAndSign file="${tomcat.release}/v${version}/bin/${final.name}-windows-x86.zip" />
+    <hashAndSign file="${thundercat.release}/v${version}/bin/${final.name}-windows-x86.zip" />
 
     <!-- Windows x64 package -->
-    <zip zipfile="${tomcat.release}/v${version}/bin/${final.name}-windows-x64.zip">
-      <zipfileset dir="${tomcat.dist}" prefix="${final.name}">
+    <zip zipfile="${thundercat.release}/v${version}/bin/${final.name}-windows-x64.zip">
+      <zipfileset dir="${thundercat.dist}" prefix="${final.name}">
         <include name="bin/**"/>
         <include name="conf/**"/>
         <include name="logs/**"/>
@@ -2363,18 +2363,18 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
         <exclude name="bin/x64/"/>
         <exclude name="bin/i64/"/>
         <exclude name="bin/*.dll"/>
-        <exclude name="bin/tomcat${version.major}.exe"/>
+        <exclude name="bin/thundercat${version.major}.exe"/>
       </zipfileset>
-      <zipfileset dir="${tomcat.dist}/bin/x64" prefix="${final.name}/bin">
+      <zipfileset dir="${thundercat.dist}/bin/x64" prefix="${final.name}/bin">
         <include name="*.dll"/>
         <include name="*.exe"/>
       </zipfileset>
     </zip>
-    <hashAndSign file="${tomcat.release}/v${version}/bin/${final.name}-windows-x64.zip" />
+    <hashAndSign file="${thundercat.release}/v${version}/bin/${final.name}-windows-x64.zip" />
 
     <!-- Windows i64 package -->
-    <zip zipfile="${tomcat.release}/v${version}/bin/${final.name}-windows-i64.zip">
-      <zipfileset dir="${tomcat.dist}" prefix="${final.name}">
+    <zip zipfile="${thundercat.release}/v${version}/bin/${final.name}-windows-i64.zip">
+      <zipfileset dir="${thundercat.dist}" prefix="${final.name}">
         <include name="bin/**"/>
         <include name="conf/**"/>
         <include name="logs/**"/>
@@ -2391,50 +2391,50 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
         <exclude name="bin/x64/"/>
         <exclude name="bin/i64/"/>
         <exclude name="bin/*.dll"/>
-        <exclude name="bin/tomcat${version.major}.exe"/>
+        <exclude name="bin/thundercat${version.major}.exe"/>
       </zipfileset>
-      <zipfileset dir="${tomcat.dist}/bin/i64" prefix="${final.name}/bin">
+      <zipfileset dir="${thundercat.dist}/bin/i64" prefix="${final.name}/bin">
         <include name="*.dll"/>
         <include name="*.exe"/>
       </zipfileset>
     </zip>
 
-    <hashAndSign file="${tomcat.release}/v${version}/bin/${final.name}-windows-i64.zip" />
+    <hashAndSign file="${thundercat.release}/v${version}/bin/${final.name}-windows-i64.zip" />
 
   </target>
 
   <!-- Packages the deployer distribution in zip format -->
   <target name="package-deployer-zip">
-    <fixcrlf srcdir="${tomcat.dist}" eol="crlf"
+    <fixcrlf srcdir="${thundercat.dist}" eol="crlf"
         encoding="ISO-8859-1" fixlast="false" >
       <patternset refid="text.files" />
     </fixcrlf>
-    <fixcrlf srcdir="${tomcat.deployer}" eol="crlf"
+    <fixcrlf srcdir="${thundercat.deployer}" eol="crlf"
         encoding="ISO-8859-1" fixlast="false" >
       <patternset refid="text.files" />
     </fixcrlf>
 
-    <zip zipfile="${tomcat.release}/v${version}/bin/${final.name}-deployer.zip">
-      <zipfileset dir="${tomcat.deployer}" prefix="${final.name}-deployer" includes="**" />
-      <zipfileset dir="${tomcat.dist}" prefix="${final.name}-deployer" includes="LICENSE" />
-      <zipfileset dir="${tomcat.dist}" prefix="${final.name}-deployer" includes="NOTICE" />
-      <zipfileset dir="${tomcat.dist}" prefix="${final.name}-deployer" includes="README.txt" />
-      <zipfileset dir="${tomcat.dist}" prefix="${final.name}-deployer" includes="RELEASE-NOTES" />
+    <zip zipfile="${thundercat.release}/v${version}/bin/${final.name}-deployer.zip">
+      <zipfileset dir="${thundercat.deployer}" prefix="${final.name}-deployer" includes="**" />
+      <zipfileset dir="${thundercat.dist}" prefix="${final.name}-deployer" includes="LICENSE" />
+      <zipfileset dir="${thundercat.dist}" prefix="${final.name}-deployer" includes="NOTICE" />
+      <zipfileset dir="${thundercat.dist}" prefix="${final.name}-deployer" includes="README.txt" />
+      <zipfileset dir="${thundercat.dist}" prefix="${final.name}-deployer" includes="RELEASE-NOTES" />
     </zip>
 
-    <hashAndSign file="${tomcat.release}/v${version}/bin/${final.name}-deployer.zip" />
+    <hashAndSign file="${thundercat.release}/v${version}/bin/${final.name}-deployer.zip" />
   </target>
 
   <!-- Packages the core tar.gz distro -->
   <target name="package-tgz" depends="dist-static">
-    <fixcrlf srcdir="${tomcat.dist}" eol="lf"
+    <fixcrlf srcdir="${thundercat.dist}" eol="lf"
         encoding="ISO-8859-1" fixlast="false" >
       <patternset refid="text.files" />
     </fixcrlf>
 
     <tar longfile="gnu" compression="gzip"
-         tarfile="${tomcat.release}/v${version}/bin/${final.name}.tar.gz">
-      <tarfileset dir="${tomcat.dist}" mode="755" prefix="${final.name}">
+         tarfile="${thundercat.release}/v${version}/bin/${final.name}.tar.gz">
+      <tarfileset dir="${thundercat.dist}" mode="755" prefix="${final.name}">
         <include name="bin/catalina.sh" />
         <include name="bin/configtest.sh" />
         <include name="bin/daemon.sh" />
@@ -2450,10 +2450,10 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
         <include name="bin/startup-using-launcher.sh" />
         <include name="bin/version.sh" />
       </tarfileset>
-      <tarfileset dir="${tomcat.dist}" mode="600" prefix="${final.name}">
+      <tarfileset dir="${thundercat.dist}" mode="600" prefix="${final.name}">
         <include name="conf/**" />
       </tarfileset>
-      <tarfileset dir="${tomcat.dist}" prefix="${final.name}">
+      <tarfileset dir="${thundercat.dist}" prefix="${final.name}">
         <include name="bin/**" />
         <include name="lib/**" />
         <include name="logs/**" />
@@ -2490,77 +2490,77 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       </tarfileset>
     </tar>
 
-    <hashAndSign file="${tomcat.release}/v${version}/bin/${final.name}.tar.gz" />
+    <hashAndSign file="${thundercat.release}/v${version}/bin/${final.name}.tar.gz" />
   </target>
 
   <!-- Packages the deployer Tomcat distro in tar.gz format -->
   <target name="package-deployer-tgz">
-    <fixcrlf srcdir="${tomcat.dist}" eol="lf"
+    <fixcrlf srcdir="${thundercat.dist}" eol="lf"
         encoding="ISO-8859-1" fixlast="false" >
       <patternset refid="text.files" />
     </fixcrlf>
-    <fixcrlf srcdir="${tomcat.deployer}" eol="lf"
+    <fixcrlf srcdir="${thundercat.deployer}" eol="lf"
         encoding="ISO-8859-1" fixlast="false" >
       <patternset refid="text.files" />
     </fixcrlf>
 
     <tar longfile="gnu" compression="gzip"
-         tarfile="${tomcat.release}/v${version}/bin/${final.name}-deployer.tar.gz">
-      <tarfileset dir="${tomcat.dist}" prefix="${final.name}-deployer">
+         tarfile="${thundercat.release}/v${version}/bin/${final.name}-deployer.tar.gz">
+      <tarfileset dir="${thundercat.dist}" prefix="${final.name}-deployer">
         <include name="LICENSE" />
         <include name="NOTICE" />
         <include name="README.txt" />
         <include name="RELEASE-NOTES" />
       </tarfileset>
-      <tarfileset dir="${tomcat.deployer}" prefix="${final.name}-deployer">
+      <tarfileset dir="${thundercat.deployer}" prefix="${final.name}-deployer">
         <include name="**" />
       </tarfileset>
     </tar>
 
-    <hashAndSign file="${tomcat.release}/v${version}/bin/${final.name}-deployer.tar.gz" />
+    <hashAndSign file="${thundercat.release}/v${version}/bin/${final.name}-deployer.tar.gz" />
   </target>
 
   <!-- Packages the documentation distro in tar.gz format -->
   <target name="package-docs-tgz" depends="dist-static">
-    <fixcrlf srcdir="${tomcat.dist}" eol="lf"
+    <fixcrlf srcdir="${thundercat.dist}" eol="lf"
         encoding="ISO-8859-1" fixlast="false" >
       <patternset refid="text.files" />
     </fixcrlf>
 
     <tar longfile="gnu" compression="gzip"
-         tarfile="${tomcat.release}/v${version}/bin/${final.name}-fulldocs.tar.gz">
-      <tarfileset dir="${tomcat.dist}" prefix="tomcat-${version.major.minor}-doc">
+         tarfile="${thundercat.release}/v${version}/bin/${final.name}-fulldocs.tar.gz">
+      <tarfileset dir="${thundercat.dist}" prefix="thundercat-${version.major.minor}-doc">
         <include name="LICENSE" />
         <include name="NOTICE" />
         <include name="README.txt" />
       </tarfileset>
-      <tarfileset dir="${tomcat.dist}/webapps/docs" prefix="tomcat-${version.major.minor}-doc">
+      <tarfileset dir="${thundercat.dist}/webapps/docs" prefix="thundercat-${version.major.minor}-doc">
         <include name="**" />
       </tarfileset>
     </tar>
 
-    <hashAndSign file="${tomcat.release}/v${version}/bin/${final.name}-fulldocs.tar.gz" />
+    <hashAndSign file="${thundercat.release}/v${version}/bin/${final.name}-fulldocs.tar.gz" />
   </target>
 
   <!-- Packages the source code distribution in zip format -->
   <target name="package-src-zip" depends="dist-source">
-    <fixcrlf srcdir="${tomcat.dist}/src" eol="crlf"
+    <fixcrlf srcdir="${thundercat.dist}/src" eol="crlf"
         encoding="ISO-8859-1" fixlast="false" >
       <patternset refid="text.files"/>
       <include name="bin/*.bat" />
       <include name="bin/*.sh" />
     </fixcrlf>
 
-    <zip zipfile="${tomcat.release}/v${version}/src/${final-src.name}.zip">
-      <zipfileset dir="${tomcat.dist}/src" prefix="${final-src.name}" />
+    <zip zipfile="${thundercat.release}/v${version}/src/${final-src.name}.zip">
+      <zipfileset dir="${thundercat.dist}/src" prefix="${final-src.name}" />
     </zip>
 
-    <hashAndSign file="${tomcat.release}/v${version}/src/${final-src.name}.zip" />
+    <hashAndSign file="${thundercat.release}/v${version}/src/${final-src.name}.zip" />
   </target>
 
   <!-- Packages the source code distribution in tar.gz format -->
   <target name="package-src-tgz" depends="dist-source">
-    <fixcrlf srcdir="${tomcat.dist}/src" eol="lf"
+    <fixcrlf srcdir="${thundercat.dist}/src" eol="lf"
         encoding="ISO-8859-1" fixlast="false" >
       <patternset refid="text.files"/>
       <include name="bin/*.bat" />
@@ -2568,67 +2568,67 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
     </fixcrlf>
 
     <tar longfile="gnu" compression="gzip"
-         tarfile="${tomcat.release}/v${version}/src/${final-src.name}.tar.gz">
-      <tarfileset dir="${tomcat.dist}/src" prefix="${final-src.name}" />
+         tarfile="${thundercat.release}/v${version}/src/${final-src.name}.tar.gz">
+      <tarfileset dir="${thundercat.dist}/src" prefix="${final-src.name}" />
     </tar>
-    <hashAndSign file="${tomcat.release}/v${version}/src/${final-src.name}.tar.gz" />
+    <hashAndSign file="${thundercat.release}/v${version}/src/${final-src.name}.tar.gz" />
   </target>
 
   <!-- Packages the source code in JARs to match the binary JARs -->
   <target name="package-src-jar"
-          depends="build-manifests,build-tomcat-jdbc-src">
+          depends="build-manifests,build-thundercat-jdbc-src">
 
-    <mkdir dir="${tomcat.src.jars}" />
+    <mkdir dir="${thundercat.src.jars}" />
 
     <!-- Common Annotations 1.0 JAR File -->
     <jarIt jarfile="${annotations-api-src.jar}"
       filesDir="java"
       filesId="files.annotations-api"
-      manifest="${tomcat.manifests}/annotations-api.jar.manifest" />
+      manifest="${thundercat.manifests}/annotations-api.jar.manifest" />
 
     <!-- Servlet 3.1 Implementation JAR File -->
     <jarIt jarfile="${servlet-api-src.jar}"
       filesDir="java"
       filesId="files.servlet-api"
-      manifest="${tomcat.manifests}/servlet-api.jar.manifest"
-      notice="${tomcat.manifests}/servlet-api.jar.notice"
-      license="${tomcat.manifests}/servlet-api.jar.license" />
+      manifest="${thundercat.manifests}/servlet-api.jar.manifest"
+      notice="${thundercat.manifests}/servlet-api.jar.notice"
+      license="${thundercat.manifests}/servlet-api.jar.license" />
 
     <!-- JSP 2.3 Implementation JAR File -->
     <jarIt jarfile="${jsp-api-src.jar}"
       filesDir="java"
       filesId="files.jsp-api"
-      manifest="${tomcat.manifests}/jsp-api.jar.manifest"
-      notice="${tomcat.manifests}/jsp-api.jar.notice"
-      license="${tomcat.manifests}/jsp-api.jar.license" />
+      manifest="${thundercat.manifests}/jsp-api.jar.manifest"
+      notice="${thundercat.manifests}/jsp-api.jar.notice"
+      license="${thundercat.manifests}/jsp-api.jar.license" />
 
     <!-- JSP EL 3.0 Implementation JAR File -->
     <jarIt jarfile="${el-api-src.jar}"
       filesDir="java"
       filesId="files.el-api"
-      manifest="${tomcat.manifests}/el-api.jar.manifest" />
+      manifest="${thundercat.manifests}/el-api.jar.manifest" />
 
     <!-- WebSocket 1.1 API JAR File -->
     <jarIt jarfile="${websocket-api-src.jar}"
       filesDir="java"
       filesId="files.websocket-api"
-      manifest="${tomcat.manifests}/websocket-api.jar.manifest" />
+      manifest="${thundercat.manifests}/websocket-api.jar.manifest" />
 
     <!-- WebSocket 1.1 implementation JAR File -->
-    <jarIt jarfile="${tomcat-websocket-src.jar}"
+    <jarIt jarfile="${thundercat-websocket-src.jar}"
       filesDir="java"
-      filesId="files.tomcat-websocket" />
+      filesId="files.thundercat-websocket" />
 
     <!-- Bootstrap JAR File -->
     <jarIt jarfile="${bootstrap-src.jar}"
       filesDir="java"
       filesId="files.bootstrap"
-      manifest="${tomcat.manifests}/bootstrap.jar.manifest" />
+      manifest="${thundercat.manifests}/bootstrap.jar.manifest" />
 
     <!-- Tomcat-juli JAR File -->
-    <jarIt jarfile="${tomcat-juli-src.jar}"
+    <jarIt jarfile="${thundercat-juli-src.jar}"
       filesDir="java"
-      filesId="files.tomcat-juli" />
+      filesId="files.thundercat-juli" />
 
     <!-- Catalina Main JAR File -->
     <jarIt jarfile="${catalina-src.jar}"
@@ -2656,36 +2656,36 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       filesId="files.catalina-storeconfig" />
 
     <!-- Tomcat API JAR File -->
-    <jarIt jarfile="${tomcat-api-src.jar}"
+    <jarIt jarfile="${thundercat-api-src.jar}"
       filesDir="java"
-      filesId="files.tomcat-api" />
+      filesId="files.thundercat-api" />
 
     <!-- Tomcat Util JAR File -->
-    <jarIt jarfile="${tomcat-util-src.jar}"
+    <jarIt jarfile="${thundercat-util-src.jar}"
       filesDir="java"
-      filesId="files.tomcat-util" />
+      filesId="files.thundercat-util" />
 
     <!-- Tomcat Util Scan JAR File -->
-    <jarIt jarfile="${tomcat-util-scan-src.jar}"
+    <jarIt jarfile="${thundercat-util-scan-src.jar}"
       filesDir="java"
-      filesId="files.tomcat-util-scan" />
+      filesId="files.thundercat-util-scan" />
 
     <!-- Protocol handlers - Coyote -->
-    <jarIt jarfile="${tomcat-coyote-src.jar}"
+    <jarIt jarfile="${thundercat-coyote-src.jar}"
       filesDir="java"
-      filesId="files.tomcat-coyote"
-      notice="${tomcat.manifests}/tomcat-coyote.jar.notice"
-      license="${tomcat.manifests}/tomcat-coyote.license" />
+      filesId="files.thundercat-coyote"
+      notice="${thundercat.manifests}/thundercat-coyote.jar.notice"
+      license="${thundercat.manifests}/thundercat-coyote.license" />
 
     <!-- SPDY -->
-    <jarIt jarfile="${tomcat-spdy-src.jar}"
+    <jarIt jarfile="${thundercat-spdy-src.jar}"
       filesDir="java"
-      filesId="files.tomcat-spdy" />
+      filesId="files.thundercat-spdy" />
 
     <!-- JNI -->
-    <jarIt jarfile="${tomcat-jni-src.jar}"
+    <jarIt jarfile="${thundercat-jni-src.jar}"
       filesDir="java"
-      filesId="files.tomcat-jni" />
+      filesId="files.thundercat-jni" />
 
     <!-- Jasper Implementation JAR File -->
     <jarIt jarfile="${jasper-src.jar}"
@@ -2698,23 +2698,23 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
       filesId="files.jasper-el" />
 
     <!-- Repackaged DBCP -->
-    <jarIt jarfile="${tomcat-dbcp-src.jar}"
+    <jarIt jarfile="${thundercat-dbcp-src.jar}"
       filesDir="java"
-      filesId="files.tomcat-dbcp" />
+      filesId="files.thundercat-dbcp" />
 
     <!-- jdbc-pool JAR File -->
-    <copy file="${tomcat-jdbc-src.jar}" todir="${tomcat.src.jars}" />
+    <copy file="${thundercat-jdbc-src.jar}" todir="${thundercat.src.jars}" />
   </target>
 
   <!-- ========================= Cleaning Targets ========================== -->
 
   <target name="clean"
           description="Delete the default output folders">
-    <delete dir="${tomcat.output}" />
+    <delete dir="${thundercat.output}" />
     <!-- Remove the copied catalina.properties -->
     <delete file="java/org/apache/catalina/startup/catalina.properties" />
-    <ant antfile="${tomcat.jdbc.dir}/build.xml" dir="${tomcat.jdbc.dir}" inheritAll="false" target="clean">
-      <property name="tomcat.pool" value="${tomcat.pool}" />
+    <ant antfile="${thundercat.jdbc.dir}/build.xml" dir="${thundercat.jdbc.dir}" inheritAll="false" target="clean">
+      <property name="thundercat.pool" value="${thundercat.pool}" />
     </ant>
     <!-- remove jdbc-pool documentation -->
     <delete file="webapps/docs/jdbc-pool.xml"/>
@@ -2739,10 +2739,10 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
           description="Download (and build) components necessary to compile" >
 
     <antcall target="downloadfile-2">
-      <param name="sourcefile.1" value="${tomcat-native.loc.1}"/>
-      <param name="sourcefile.2" value="${tomcat-native.loc.2}"/>
-      <param name="destfile" value="${tomcat-native.tar.gz}"/>
-      <param name="destdir" value="${tomcat-native.home}"/>
+      <param name="sourcefile.1" value="${thundercat-native.loc.1}"/>
+      <param name="sourcefile.2" value="${thundercat-native.loc.2}"/>
+      <param name="destfile" value="${thundercat-native.tar.gz}"/>
+      <param name="destdir" value="${thundercat-native.home}"/>
     </antcall>
 
     <!-- Download Commons Daemon -->
@@ -2828,10 +2828,10 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
           description="Download additional components for a distribution" >
 
     <antcall target="downloadzip-2">
-      <param name="sourcefile.1" value="${tomcat-native.win.1}"/>
-      <param name="sourcefile.2" value="${tomcat-native.win.2}"/>
-      <param name="destfile" value="${tomcat-native.home}/LICENSE"/>
-      <param name="destdir" value="${tomcat-native.home}"/>
+      <param name="sourcefile.1" value="${thundercat-native.win.1}"/>
+      <param name="sourcefile.2" value="${thundercat-native.win.2}"/>
+      <param name="destfile" value="${thundercat-native.home}/LICENSE"/>
+      <param name="destdir" value="${thundercat-native.home}"/>
     </antcall>
 
     <antcall target="downloadzip-2">
@@ -2980,12 +2980,12 @@ Apache Tomcat ${version} native binaries for Win64 AMD64/EMT64 platform.
           description="Prepares the source tree to be built in Eclipse">
 
     <!-- Copy the sample project files into the root directory -->
-    <copy file="${tomcat.home}/res/ide-support/eclipse/eclipse.project" tofile="${tomcat.home}/.project"/>
-    <copy file="${tomcat.home}/res/ide-support/eclipse/eclipse.classpath" tofile="${tomcat.home}/.classpath"/>
+    <copy file="${thundercat.home}/res/ide-support/eclipse/eclipse.project" tofile="${thundercat.home}/.project"/>
+    <copy file="${thundercat.home}/res/ide-support/eclipse/eclipse.classpath" tofile="${thundercat.home}/.classpath"/>
 
     <!-- Copy compiler settings file -->
-    <mkdir dir="${tomcat.home}/.settings" />
-    <copy file="${tomcat.home}/res/ide-support/eclipse/org.eclipse.jdt.core.prefs.properties" tofile="${tomcat.home}/.settings/org.eclipse.jdt.core.prefs"/>
+    <mkdir dir="${thundercat.home}/.settings" />
+    <copy file="${thundercat.home}/res/ide-support/eclipse/org.eclipse.jdt.core.prefs.properties" tofile="${thundercat.home}/.settings/org.eclipse.jdt.core.prefs"/>
 
     <echo>Eclipse project files created.
 Read the Building page on the Apache Tomcat documentation site for details on how to configure your Eclipse workplace.</echo>
@@ -2999,7 +2999,7 @@ Read the Building page on the Apache Tomcat documentation site for details on ho
   </target>
 
   <target name="-ide-netbeans-protect"
-          if="tomcat-nb.home.exists"
+          if="thundercat-nb.home.exists"
           depends="-ide-netbeans-check">
     <!-- Protect existing NetBeans project files -->
     <echo>NetBeans project files already exist and have been protected!
@@ -3008,8 +3008,8 @@ Use the "ide-netbeans-replace" target if you wish to overwrite them.</echo>
 
   <target name="-ide-netbeans-check">
     <!-- protect existing files if the NetBeans project directory exists  -->
-    <condition property="tomcat-nb.home.exists">
-        <available file="${tomcat-nb.home}" type="dir"/>
+    <condition property="thundercat-nb.home.exists">
+        <available file="${thundercat-nb.home}" type="dir"/>
     </condition>
   </target>
 
@@ -3018,12 +3018,12 @@ Use the "ide-netbeans-replace" target if you wish to overwrite them.</echo>
   </target>
 
   <target name="-ide-netbeans-create"
-          unless="tomcat-nb.home.exists">
+          unless="thundercat-nb.home.exists">
     <!-- Unconditionally create or ovverwrite default NetBeans project files -->
-    <property name="tomcat-nb.dist" value="${tomcat.home}/res/ide-support/netbeans" />
-    <mkdir dir="${tomcat-nb.home}/"/>
-    <copy todir="${tomcat-nb.home}" overwrite="true">
-      <fileset dir="${tomcat-nb.dist}"/>
+    <property name="thundercat-nb.dist" value="${thundercat.home}/res/ide-support/netbeans" />
+    <mkdir dir="${thundercat-nb.home}/"/>
+    <copy todir="${thundercat-nb.home}" overwrite="true">
+      <fileset dir="${thundercat-nb.dist}"/>
     </copy>
     <echo>NetBeans project files created.
 Read the Building page on the Apache Tomcat documentation site for details on how to customise your NetBeans project.</echo>
@@ -3040,13 +3040,13 @@ Read the Building page on the Apache Tomcat documentation site for details on ho
     <attribute name="filesId"
                description="the patternset id of the files to use"/>
     <attribute name="manifest" description="the manifest file use"
-               default="${tomcat.manifests}/default.manifest" />
+               default="${thundercat.manifests}/default.manifest" />
     <attribute name="notice" description="the LICENSE file to use"
-               default="${tomcat.manifests}/default.notice" />
+               default="${thundercat.manifests}/default.notice" />
     <attribute name="license" description="the NOTICE file to use"
-               default="${tomcat.manifests}/default.license" />
+               default="${thundercat.manifests}/default.license" />
     <attribute name="meta-inf" description="additional contents for META-INF"
-               default="${tomcat.manifests}/default" />
+               default="${thundercat.manifests}/default" />
     <sequential>
       <jar jarfile="@{jarfile}" manifest="@{manifest}">
         <fileset dir="@{filesDir}">

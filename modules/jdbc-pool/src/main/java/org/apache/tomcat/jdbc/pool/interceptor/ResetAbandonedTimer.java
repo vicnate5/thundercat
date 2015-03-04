@@ -15,18 +15,18 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.jdbc.pool.interceptor;
+package org.apache.thundercat.jdbc.pool.interceptor;
 
 import java.lang.reflect.Method;
 
-import org.apache.tomcat.jdbc.pool.JdbcInterceptor;
-import org.apache.tomcat.jdbc.pool.PooledConnection;
-import org.apache.tomcat.jdbc.pool.ProxyConnection;
+import org.apache.thundercat.jdbc.pool.JdbcInterceptor;
+import org.apache.thundercat.jdbc.pool.PooledConnection;
+import org.apache.thundercat.jdbc.pool.ProxyConnection;
 
 /**
  * Class that resets the abandoned timer on any activity on the
  * Connection or any successful query executions.
- * This interceptor is useful for when you have a {@link org.apache.tomcat.jdbc.pool.PoolConfiguration#setRemoveAbandonedTimeout(int)}
+ * This interceptor is useful for when you have a {@link org.apache.thundercat.jdbc.pool.PoolConfiguration#setRemoveAbandonedTimeout(int)}
  * that is fairly low, and you want to reset the abandoned time each time any operation on the connection is performed
  * This is useful for batch processing programs that use connections for extensive amount of times.
  *

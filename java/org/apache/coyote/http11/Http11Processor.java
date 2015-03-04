@@ -44,22 +44,22 @@ import org.apache.coyote.http11.filters.VoidInputFilter;
 import org.apache.coyote.http11.filters.VoidOutputFilter;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.buf.Ascii;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.buf.HexUtils;
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.http.FastHttpDateFormat;
-import org.apache.tomcat.util.http.MimeHeaders;
-import org.apache.tomcat.util.log.UserDataHelper;
-import org.apache.tomcat.util.net.AbstractEndpoint;
-import org.apache.tomcat.util.net.AbstractEndpoint.Handler.SocketState;
-import org.apache.tomcat.util.net.DispatchType;
-import org.apache.tomcat.util.net.SSLSupport;
-import org.apache.tomcat.util.net.SendfileDataBase;
-import org.apache.tomcat.util.net.SocketStatus;
-import org.apache.tomcat.util.net.SocketWrapperBase;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.buf.Ascii;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.HexUtils;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.http.FastHttpDateFormat;
+import org.apache.thundercat.util.http.MimeHeaders;
+import org.apache.thundercat.util.log.UserDataHelper;
+import org.apache.thundercat.util.net.AbstractEndpoint;
+import org.apache.thundercat.util.net.AbstractEndpoint.Handler.SocketState;
+import org.apache.thundercat.util.net.DispatchType;
+import org.apache.thundercat.util.net.SSLSupport;
+import org.apache.thundercat.util.net.SendfileDataBase;
+import org.apache.thundercat.util.net.SocketStatus;
+import org.apache.thundercat.util.net.SocketWrapperBase;
+import org.apache.thundercat.util.res.StringManager;
 
 public class Http11Processor extends AbstractProcessor {
 

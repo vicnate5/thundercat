@@ -40,7 +40,7 @@
               <property-file>./build.properties</property-file>
               <!-- prime some NetBeans build properties for Tomcat, which will   -->
               <!-- also be defined in the standard properties.                   -->
-              <property-file>./nbproject/nb-tomcat-project.properties</property-file>
+              <property-file>./nbproject/nb-thundercat-project.properties</property-file>
             </properties>
             <folders>
                 <source-folder>
@@ -54,9 +54,9 @@
                     <location>webapps/docs/appdev/sample/src</location>
                 </source-folder>
                 <source-folder>
-                    <label>modules/tomcat-lite/test</label>
+                    <label>modules/thundercat-lite/test</label>
                     <type>java</type>
-                    <location>modules/tomcat-lite/test</location>
+                    <location>modules/thundercat-lite/test</location>
                 </source-folder>
                 <source-folder>
                     <label>test</label>
@@ -71,32 +71,32 @@
                            with the standard Tomcat build.
                  -->
                 <action name="build">
-                    <script>nbproject/nb-tomcat.xml</script>
+                    <script>nbproject/nb-thundercat.xml</script>
                     <target>deploy</target>
                 </action>
                 <action name="clean">
-                    <script>nbproject/nb-tomcat.xml</script>
+                    <script>nbproject/nb-thundercat.xml</script>
                     <target>clean</target>
                 </action>
                 <action name="javadoc">
-                    <script>nbproject/nb-tomcat.xml</script>
+                    <script>nbproject/nb-thundercat.xml</script>
                     <target>javadoc</target>
                 </action>
                 <action name="test">
-                    <script>nbproject/nb-tomcat.xml</script>
+                    <script>nbproject/nb-thundercat.xml</script>
                     <target>test</target>
                 </action>
                 <action name="rebuild">
-                    <script>nbproject/nb-tomcat.xml</script>
+                    <script>nbproject/nb-thundercat.xml</script>
                     <target>clean</target>
                     <target>deploy</target>
                 </action>
                 <action name="compileAllTests">
-                    <script>nbproject/nb-tomcat.xml</script>
+                    <script>nbproject/nb-thundercat.xml</script>
                     <target>-compile-all-tests</target>
                 </action>
                 <action name="compile.single">
-                    <script>nbproject/nb-tomcat.xml</script>
+                    <script>nbproject/nb-thundercat.xml</script>
                     <target>compile-selected-files-in-test</target>
                     <context>
                         <property>files</property>
@@ -109,7 +109,7 @@
                     </context>
                 </action>
                 <action name="run.single">
-                    <script>nbproject/nb-tomcat.xml</script>
+                    <script>nbproject/nb-thundercat.xml</script>
                     <target>test-selected-file</target>
                     <context>
                         <property>test.entry</property>
@@ -122,7 +122,7 @@
                     </context>
                 </action>
                 <action name="debug.single">
-                    <script>nbproject/nb-tomcat.xml</script>
+                    <script>nbproject/nb-thundercat.xml</script>
                     <target>debug-selected-file-in-test</target>
                     <context>
                         <property>test.entry</property>

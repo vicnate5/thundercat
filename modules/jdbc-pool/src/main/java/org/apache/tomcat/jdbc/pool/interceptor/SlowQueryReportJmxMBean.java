@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool.interceptor;
+package org.apache.thundercat.jdbc.pool.interceptor;
 
 import javax.management.openmbean.CompositeData;
 import javax.management.openmbean.OpenDataException;

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.dbcp2.datasources;
+package org.apache.thundercat.dbcp.dbcp2.datasources;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -105,7 +105,7 @@ abstract class InstanceKeyDataSourceFactory implements ObjectFactory {
                 }
                 else
                 {
-                    // tomcat jndi creates a Reference out of server.xml
+                    // thundercat jndi creates a Reference out of server.xml
                     // <ResourceParam> configuration and passes it to an
                     // instance of the factory given in server.xml.
                     String key = null;

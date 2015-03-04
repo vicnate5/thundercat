@@ -22,10 +22,10 @@ import java.util.Iterator;
 import org.apache.coyote.Processor;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.net.NioChannel;
-import org.apache.tomcat.util.net.NioEndpoint;
-import org.apache.tomcat.util.net.NioEndpoint.Handler;
-import org.apache.tomcat.util.net.SocketWrapperBase;
+import org.apache.thundercat.util.net.NioChannel;
+import org.apache.thundercat.util.net.NioEndpoint;
+import org.apache.thundercat.util.net.NioEndpoint.Handler;
+import org.apache.thundercat.util.net.SocketWrapperBase;
 
 /**
  * This the NIO based protocol handler implementation for AJP.

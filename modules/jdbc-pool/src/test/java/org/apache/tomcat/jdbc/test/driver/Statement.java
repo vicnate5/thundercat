@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.jdbc.test.driver;
+package org.apache.thundercat.jdbc.test.driver;
 
 import java.io.InputStream;
 import java.io.Reader;
@@ -729,7 +729,7 @@ public class Statement implements CallableStatement {
     @Override
     public ResultSet executeQuery() throws SQLException {
         // TODO Auto-generated method stub
-        return new org.apache.tomcat.jdbc.test.driver.ResultSet();
+        return new org.apache.thundercat.jdbc.test.driver.ResultSet();
     }
 
     @Override
@@ -1101,7 +1101,7 @@ public class Statement implements CallableStatement {
     @Override
     public ResultSet executeQuery(String sql) throws SQLException {
         // TODO Auto-generated method stub
-        return new org.apache.tomcat.jdbc.test.driver.ResultSet();
+        return new org.apache.thundercat.jdbc.test.driver.ResultSet();
     }
 
     @Override
@@ -1149,7 +1149,7 @@ public class Statement implements CallableStatement {
     @Override
     public ResultSet getGeneratedKeys() throws SQLException {
         // TODO Auto-generated method stub
-        return new org.apache.tomcat.jdbc.test.driver.ResultSet();
+        return new org.apache.thundercat.jdbc.test.driver.ResultSet();
     }
 
     @Override

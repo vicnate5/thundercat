@@ -40,9 +40,9 @@ import org.junit.Test;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.descriptor.web.ContextEnvironment;
-import org.apache.tomcat.util.descriptor.web.ContextResource;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.descriptor.web.ContextEnvironment;
+import org.apache.thundercat.util.descriptor.web.ContextResource;
 
 public class TestNamingContext extends TomcatBaseTest {
 
@@ -57,11 +57,11 @@ public class TestNamingContext extends TomcatBaseTest {
     }
 
     public void doTestLookup(boolean useSingletonResource) throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        tomcat.enableNaming();
+        Tomcat thundercat = getTomcatInstance();
+        thundercat.enableNaming();
 
         // No file system docBase required
-        org.apache.catalina.Context ctx = tomcat.addContext("", null);
+        org.apache.catalina.Context ctx = thundercat.addContext("", null);
 
         // Create the resource
         ContextResource cr = new ContextResource();
@@ -76,7 +76,7 @@ public class TestNamingContext extends TomcatBaseTest {
         Tomcat.addServlet(ctx, "bug49994Servlet", bug49994Servlet);
         ctx.addServletMapping("/", "bug49994Servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk bc = getUrl("http://localhost:" + getPort() + "/");
 
@@ -118,11 +118,11 @@ public class TestNamingContext extends TomcatBaseTest {
 
     @Test
     public void testListBindings() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        tomcat.enableNaming();
+        Tomcat thundercat = getTomcatInstance();
+        thundercat.enableNaming();
 
         // No file system docBase required
-        org.apache.catalina.Context ctx = tomcat.addContext("", null);
+        org.apache.catalina.Context ctx = thundercat.addContext("", null);
 
         // Create the resource
         ContextResource cr = new ContextResource();
@@ -136,7 +136,7 @@ public class TestNamingContext extends TomcatBaseTest {
         Tomcat.addServlet(ctx, "bug23950Servlet", bug23950Servlet);
         ctx.addServletMapping("/", "bug23950Servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk bc = getUrl("http://localhost:" + getPort() + "/");
         assertEquals("org.apache.naming.resources.TesterObject", bc.toString());
@@ -169,11 +169,11 @@ public class TestNamingContext extends TomcatBaseTest {
 
     @Test
     public void testBeanFactory() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        tomcat.enableNaming();
+        Tomcat thundercat = getTomcatInstance();
+        thundercat.enableNaming();
 
         // No file system docBase required
-        org.apache.catalina.Context ctx = tomcat.addContext("", null);
+        org.apache.catalina.Context ctx = thundercat.addContext("", null);
 
         // Create the resource
         ContextResource cr = new ContextResource();
@@ -188,7 +188,7 @@ public class TestNamingContext extends TomcatBaseTest {
         Tomcat.addServlet(ctx, "bug50351Servlet", bug50351Servlet);
         ctx.addServletMapping("/", "bug50351Servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk bc = getUrl("http://localhost:" + getPort() + "/");
         assertEquals("value", bc.toString());
@@ -228,11 +228,11 @@ public class TestNamingContext extends TomcatBaseTest {
 
     private void doTestBug51744(boolean exceptionOnFailedWrite)
             throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        tomcat.enableNaming();
+        Tomcat thundercat = getTomcatInstance();
+        thundercat.enableNaming();
 
         // No file system docBase required
-        StandardContext ctx = (StandardContext) tomcat.addContext("", null);
+        StandardContext ctx = (StandardContext) thundercat.addContext("", null);
 
         ctx.setJndiExceptionOnFailedWrite(exceptionOnFailedWrite);
 
@@ -241,7 +241,7 @@ public class TestNamingContext extends TomcatBaseTest {
         Tomcat.addServlet(ctx, "bug51744Servlet", bug51744Servlet);
         ctx.addServletMapping("/", "bug51744Servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk bc = new ByteChunk();
         int rc = getUrl("http://localhost:" + getPort() + "/", bc, null);
@@ -286,11 +286,11 @@ public class TestNamingContext extends TomcatBaseTest {
 
     @Test
     public void testBug52830() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        tomcat.enableNaming();
+        Tomcat thundercat = getTomcatInstance();
+        thundercat.enableNaming();
 
         // No file system docBase required
-        org.apache.catalina.Context ctx = tomcat.addContext("", null);
+        org.apache.catalina.Context ctx = thundercat.addContext("", null);
 
         // Create the resource
         ContextEnvironment env = new ContextEnvironment();
@@ -304,7 +304,7 @@ public class TestNamingContext extends TomcatBaseTest {
         Tomcat.addServlet(ctx, "bug52830Servlet", bug52830Servlet);
         ctx.addServletMapping("/", "bug52830Servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk bc = new ByteChunk();
         int rc = getUrl("http://localhost:" + getPort() + "/", bc, null);
@@ -343,16 +343,16 @@ public class TestNamingContext extends TomcatBaseTest {
 
     @Test
     public void testBug53465() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        tomcat.enableNaming();
+        Tomcat thundercat = getTomcatInstance();
+        thundercat.enableNaming();
 
         File appDir =
             new File("test/webapp");
         // app dir is relative to server home
         org.apache.catalina.Context ctxt =
-                tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+                thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk bc = new ByteChunk();
         int rc = getUrl("http://localhost:" + getPort() +

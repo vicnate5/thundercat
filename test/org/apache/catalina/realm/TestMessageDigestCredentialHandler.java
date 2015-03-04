@@ -21,7 +21,7 @@ import java.security.NoSuchAlgorithmException;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.tomcat.util.security.ConcurrentMessageDigest;
+import org.apache.thundercat.util.security.ConcurrentMessageDigest;
 
 public class TestMessageDigestCredentialHandler {
 

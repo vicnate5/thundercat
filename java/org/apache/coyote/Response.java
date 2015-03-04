@@ -24,11 +24,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.servlet.WriteListener;
 
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.http.MimeHeaders;
-import org.apache.tomcat.util.http.parser.MediaType;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.http.MimeHeaders;
+import org.apache.thundercat.util.http.parser.MediaType;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Response object.

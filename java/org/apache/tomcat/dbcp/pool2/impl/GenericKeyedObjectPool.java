@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.pool2.impl;
+package org.apache.thundercat.dbcp.pool2.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,11 +32,11 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import org.apache.tomcat.dbcp.pool2.KeyedObjectPool;
-import org.apache.tomcat.dbcp.pool2.KeyedPooledObjectFactory;
-import org.apache.tomcat.dbcp.pool2.PoolUtils;
-import org.apache.tomcat.dbcp.pool2.PooledObject;
-import org.apache.tomcat.dbcp.pool2.PooledObjectState;
+import org.apache.thundercat.dbcp.pool2.KeyedObjectPool;
+import org.apache.thundercat.dbcp.pool2.KeyedPooledObjectFactory;
+import org.apache.thundercat.dbcp.pool2.PoolUtils;
+import org.apache.thundercat.dbcp.pool2.PooledObject;
+import org.apache.thundercat.dbcp.pool2.PooledObjectState;
 
 /**
  * A configurable <code>KeyedObjectPool</code> implementation.
@@ -454,7 +454,7 @@ public class GenericKeyedObjectPool<K,T> extends BaseGenericObjectPool<T>
      * <p>
      * Exceptions encountered destroying objects for any reason are swallowed
      * but notified via a
-     * {@link org.apache.tomcat.dbcp.pool2.SwallowedExceptionListener}.
+     * {@link org.apache.thundercat.dbcp.pool2.SwallowedExceptionListener}.
      *
      * @param key pool key
      * @param obj instance to return to the keyed pool
@@ -604,7 +604,7 @@ public class GenericKeyedObjectPool<K,T> extends BaseGenericObjectPool<T>
      * be returned while removed items are being destroyed.</li>
      * <li>Exceptions encountered destroying idle instances are swallowed
      * but notified via a
-     * {@link org.apache.tomcat.dbcp.pool2.SwallowedExceptionListener}.</li>
+     * {@link org.apache.thundercat.dbcp.pool2.SwallowedExceptionListener}.</li>
      * </ul>
      */
     @Override
@@ -621,7 +621,7 @@ public class GenericKeyedObjectPool<K,T> extends BaseGenericObjectPool<T>
      * Clears the specified sub-pool, removing all pooled instances
      * corresponding to the given <code>key</code>. Exceptions encountered
      * destroying idle instances are swallowed but notified via a
-     * {@link org.apache.tomcat.dbcp.pool2.SwallowedExceptionListener}.
+     * {@link org.apache.thundercat.dbcp.pool2.SwallowedExceptionListener}.
      *
      * @param key the key to clear
      */
@@ -1534,5 +1534,5 @@ public class GenericKeyedObjectPool<K,T> extends BaseGenericObjectPool<T>
 
     // JMX specific attributes
     private static final String ONAME_BASE =
-        "org.apache.tomcat.dbcp.pool2:type=GenericKeyedObjectPool,name=";
+        "org.apache.thundercat.dbcp.pool2:type=GenericKeyedObjectPool,name=";
 }

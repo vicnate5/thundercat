@@ -14,10 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.net.jsse;
+package org.apache.thundercat.util.net.jsse;
 
-import org.apache.tomcat.util.net.AbstractEndpoint;
-import org.apache.tomcat.util.net.SSLUtil;
+import org.apache.thundercat.util.net.AbstractEndpoint;
+import org.apache.thundercat.util.net.SSLUtil;
 
 public class TesterBug50640SslImpl extends JSSEImplementation {
 

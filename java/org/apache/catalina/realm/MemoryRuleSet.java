@@ -19,9 +19,9 @@
 package org.apache.catalina.realm;
 
 
-import org.apache.tomcat.util.digester.Digester;
-import org.apache.tomcat.util.digester.Rule;
-import org.apache.tomcat.util.digester.RuleSetBase;
+import org.apache.thundercat.util.digester.Digester;
+import org.apache.thundercat.util.digester.Rule;
+import org.apache.thundercat.util.digester.RuleSetBase;
 import org.xml.sax.Attributes;
 
 
@@ -52,7 +52,7 @@ public class MemoryRuleSet extends RuleSetBase {
      */
     public MemoryRuleSet() {
 
-        this("tomcat-users/");
+        this("thundercat-users/");
 
     }
 

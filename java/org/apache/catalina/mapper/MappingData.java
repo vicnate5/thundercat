@@ -20,7 +20,7 @@ package org.apache.catalina.mapper;
 import org.apache.catalina.Context;
 import org.apache.catalina.Host;
 import org.apache.catalina.Wrapper;
-import org.apache.tomcat.util.buf.MessageBytes;
+import org.apache.thundercat.util.buf.MessageBytes;
 
 /**
  * Mapping data.

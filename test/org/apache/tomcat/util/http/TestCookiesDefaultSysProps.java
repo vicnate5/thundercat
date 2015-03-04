@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +25,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import org.apache.catalina.startup.Tomcat;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Test case for {@link LegacyCookieProcessor}. <b>Note</b> because of the use
@@ -40,11 +40,11 @@ public class TestCookiesDefaultSysProps extends CookiesBaseTest {
     @Test
     public void testCookiesInstance() throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
-        addServlets(tomcat);
+        addServlets(thundercat);
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() + "/invalid");
         assertEquals("Cookie name fail", res.toString());

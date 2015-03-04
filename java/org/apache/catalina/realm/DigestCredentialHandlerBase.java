@@ -22,8 +22,8 @@ import java.util.Random;
 
 import org.apache.catalina.CredentialHandler;
 import org.apache.juli.logging.Log;
-import org.apache.tomcat.util.buf.HexUtils;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.buf.HexUtils;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Base implementation for the Tomcat provided {@link CredentialHandler}s.

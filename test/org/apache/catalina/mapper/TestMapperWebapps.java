@@ -33,8 +33,8 @@ import org.apache.catalina.Context;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.websocket.server.WsContextListener;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.websocket.server.WsContextListener;
 
 /**
  * Mapper tests that use real web applications on a running Tomcat.
@@ -43,16 +43,16 @@ public class TestMapperWebapps extends TomcatBaseTest{
 
     @Test
     public void testContextRoot_Bug53339() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        tomcat.enableNaming();
+        Tomcat thundercat = getTomcatInstance();
+        thundercat.enableNaming();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "Bug53356", new Bug53356Servlet());
         ctx.addServletMapping("", "Bug53356");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk body = getUrl("http://localhost:" + getPort());
 
@@ -86,14 +86,14 @@ public class TestMapperWebapps extends TomcatBaseTest{
 
     @Test
     public void testContextReload_Bug56658_Bug56882() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File(getBuildDirectory(), "webapps/examples");
         // app dir is relative to server home
-        org.apache.catalina.Context ctxt  = tomcat.addWebapp(
+        org.apache.catalina.Context ctxt  = thundercat.addWebapp(
                 null, "/examples", appDir.getAbsolutePath());
         ctxt.addApplicationListener(WsContextListener.class.getName());
-        tomcat.start();
+        thundercat.start();
 
         // The tests are from TestTomcat#testSingleWebapp(), #testJsps()
         // We reload the context and verify that the pages are still accessible
@@ -170,18 +170,18 @@ public class TestMapperWebapps extends TomcatBaseTest{
     @Test
     public void testWelcomeFileNotStrict() throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp");
 
-        StandardContext ctxt = (StandardContext) tomcat.addWebapp(null, "/test",
+        StandardContext ctxt = (StandardContext) thundercat.addWebapp(null, "/test",
                 appDir.getAbsolutePath());
         ctxt.setReplaceWelcomeFiles(true);
         ctxt.addWelcomeFile("index.jsp");
         // Mapping for *.do is defined in web.xml
         ctxt.addWelcomeFile("index.do");
 
-        tomcat.start();
+        thundercat.start();
         ByteChunk bc = new ByteChunk();
         int rc = getUrl("http://localhost:" + getPort() +
                 "/test/welcome-files", bc, new HashMap<String,List<String>>());
@@ -198,11 +198,11 @@ public class TestMapperWebapps extends TomcatBaseTest{
     @Test
     public void testWelcomeFileStrict() throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp");
 
-        StandardContext ctxt = (StandardContext) tomcat.addWebapp(null, "/test",
+        StandardContext ctxt = (StandardContext) thundercat.addWebapp(null, "/test",
                 appDir.getAbsolutePath());
         ctxt.setReplaceWelcomeFiles(true);
         ctxt.addWelcomeFile("index.jsp");
@@ -212,7 +212,7 @@ public class TestMapperWebapps extends TomcatBaseTest{
         // Simulate STRICT_SERVLET_COMPLIANCE
         ctxt.setResourceOnlyServlets("");
 
-        tomcat.start();
+        thundercat.start();
         ByteChunk bc = new ByteChunk();
         int rc = getUrl("http://localhost:" + getPort() +
                 "/test/welcome-files", bc, new HashMap<String,List<String>>());

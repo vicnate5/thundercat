@@ -26,7 +26,7 @@ import java.util.Locale;
 
 import javax.servlet.http.Cookie;
 
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 
 /**

@@ -14,11 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.descriptor.web;
+package org.apache.thundercat.util.descriptor.web;
 
 import java.io.Serializable;
 
-import org.apache.tomcat.util.buf.UDecoder;
+import org.apache.thundercat.util.buf.UDecoder;
 
 /**
  * Representation of an error page element for a web application,

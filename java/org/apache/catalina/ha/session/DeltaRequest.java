@@ -35,7 +35,7 @@ import org.apache.catalina.SessionListener;
 import org.apache.catalina.realm.GenericPrincipal;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 
 public class DeltaRequest implements Externalizable {

@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -28,12 +28,12 @@ import java.util.Map;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.buf.B2CConverter;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.buf.UDecoder;
-import org.apache.tomcat.util.log.UserDataHelper;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.buf.B2CConverter;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.buf.UDecoder;
+import org.apache.thundercat.util.log.UserDataHelper;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  *
@@ -48,7 +48,7 @@ public final class Parameters {
     private static final UserDataHelper maxParamCountLog = new UserDataHelper(log);
 
     private static final StringManager sm =
-        StringManager.getManager("org.apache.tomcat.util.http");
+        StringManager.getManager("org.apache.thundercat.util.http");
 
     private final Map<String,ArrayList<String>> paramHashValues =
             new LinkedHashMap<>();

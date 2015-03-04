@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.jdbc.test.driver;
+package org.apache.thundercat.jdbc.test.driver;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,7 +26,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
 public class Driver implements java.sql.Driver {
-    public static final String url = "jdbc:tomcat:test";
+    public static final String url = "jdbc:thundercat:test";
     public static final AtomicInteger connectCount = new AtomicInteger(0);
     public static final AtomicInteger disconnectCount = new AtomicInteger(0);
 
@@ -55,7 +55,7 @@ public class Driver implements java.sql.Driver {
     @Override
     public Connection connect(String url, Properties info) throws SQLException {
         connectCount.addAndGet(1);
-        return new org.apache.tomcat.jdbc.test.driver.Connection(info);
+        return new org.apache.thundercat.jdbc.test.driver.Connection(info);
     }
 
     @Override

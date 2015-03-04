@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -24,10 +24,10 @@ import java.util.Properties;
 import org.junit.After;
 import org.junit.Before;
 
-import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
-import org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory;
-import org.apache.tomcat.jdbc.pool.PoolConfiguration;
-import org.apache.tomcat.jdbc.pool.PoolProperties;
+import org.apache.thundercat.dbcp.dbcp2.BasicDataSource;
+import org.apache.thundercat.dbcp.dbcp2.BasicDataSourceFactory;
+import org.apache.thundercat.jdbc.pool.PoolConfiguration;
+import org.apache.thundercat.jdbc.pool.PoolProperties;
 
 
 /**
@@ -35,14 +35,14 @@ import org.apache.tomcat.jdbc.pool.PoolProperties;
  */
 public abstract class DefaultTestCase {
 
-    protected org.apache.tomcat.jdbc.pool.DataSource datasource;
+    protected org.apache.thundercat.jdbc.pool.DataSource datasource;
     protected BasicDataSource tDatasource;
 //    protected ComboPooledDataSource c3p0Datasource;
     protected int threadcount = 10;
     protected int iterations = 100000;
 
-    public org.apache.tomcat.jdbc.pool.DataSource createDefaultDataSource() {
-        org.apache.tomcat.jdbc.pool.DataSource datasource = null;
+    public org.apache.thundercat.jdbc.pool.DataSource createDefaultDataSource() {
+        org.apache.thundercat.jdbc.pool.DataSource datasource = null;
         PoolConfiguration p = new DefaultProperties();
         p.setFairQueue(false);
         p.setJmxEnabled(false);
@@ -59,7 +59,7 @@ public abstract class DefaultTestCase {
         p.setMinIdle(threadcount);
         p.setLogAbandoned(false);
         p.setRemoveAbandoned(false);
-        datasource = new org.apache.tomcat.jdbc.pool.DataSource();
+        datasource = new org.apache.thundercat.jdbc.pool.DataSource();
         datasource.setPoolProperties(p);
         return datasource;
     }
@@ -199,7 +199,7 @@ public abstract class DefaultTestCase {
         tDatasource = null;
         //c3p0Datasource = null;
         System.gc();
-        org.apache.tomcat.jdbc.test.driver.Driver.reset();
+        org.apache.thundercat.jdbc.test.driver.Driver.reset();
     }
 
     private static final String PROP_DEFAULTAUTOCOMMIT = "defaultAutoCommit";

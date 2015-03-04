@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool;
+package org.apache.thundercat.jdbc.pool;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

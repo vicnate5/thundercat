@@ -80,26 +80,26 @@ import org.apache.catalina.util.ParameterMap;
 import org.apache.coyote.ActionCode;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.buf.B2CConverter;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.buf.UDecoder;
-import org.apache.tomcat.util.http.CookieProcessor;
-import org.apache.tomcat.util.http.FastHttpDateFormat;
-import org.apache.tomcat.util.http.Parameters;
-import org.apache.tomcat.util.http.ServerCookie;
-import org.apache.tomcat.util.http.ServerCookies;
-import org.apache.tomcat.util.http.fileupload.FileItem;
-import org.apache.tomcat.util.http.fileupload.FileUploadBase;
-import org.apache.tomcat.util.http.fileupload.FileUploadBase.InvalidContentTypeException;
-import org.apache.tomcat.util.http.fileupload.FileUploadException;
-import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
-import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
-import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
-import org.apache.tomcat.util.http.parser.AcceptLanguage;
-import org.apache.tomcat.util.net.SSLSupport;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.buf.B2CConverter;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.buf.UDecoder;
+import org.apache.thundercat.util.http.CookieProcessor;
+import org.apache.thundercat.util.http.FastHttpDateFormat;
+import org.apache.thundercat.util.http.Parameters;
+import org.apache.thundercat.util.http.ServerCookie;
+import org.apache.thundercat.util.http.ServerCookies;
+import org.apache.thundercat.util.http.fileupload.FileItem;
+import org.apache.thundercat.util.http.fileupload.FileUploadBase;
+import org.apache.thundercat.util.http.fileupload.FileUploadBase.InvalidContentTypeException;
+import org.apache.thundercat.util.http.fileupload.FileUploadException;
+import org.apache.thundercat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.thundercat.util.http.fileupload.servlet.ServletFileUpload;
+import org.apache.thundercat.util.http.fileupload.servlet.ServletRequestContext;
+import org.apache.thundercat.util.http.parser.AcceptLanguage;
+import org.apache.thundercat.util.net.SSLSupport;
+import org.apache.thundercat.util.res.StringManager;
 import org.ietf.jgss.GSSCredential;
 import org.ietf.jgss.GSSException;
 
@@ -923,7 +923,7 @@ public class Request
      * <li>{@link Globals#PARAMETER_PARSE_FAILED_ATTR}</li>
      * </ul>
      * The underlying connector may also expose request attributes. These all
-     * have names starting with "org.apache.tomcat" and include:
+     * have names starting with "org.apache.thundercat" and include:
      * <ul>
      * <li>{@link Globals#SENDFILE_SUPPORTED_ATTR}</li>
      * </ul>
@@ -1380,7 +1380,7 @@ public class Request
     public void removeAttribute(String name) {
         // Remove the specified attribute
         // Pass special attributes to the native layer
-        if (name.startsWith("org.apache.tomcat.")) {
+        if (name.startsWith("org.apache.thundercat.")) {
             coyoteRequest.getAttributes().remove(name);
         }
 
@@ -1449,7 +1449,7 @@ public class Request
         Object oldValue = attributes.put(name, value);
 
         // Pass special attributes to the native layer
-        if (name.startsWith("org.apache.tomcat.")) {
+        if (name.startsWith("org.apache.thundercat.")) {
             coyoteRequest.setAttribute(name, value);
         }
 
@@ -1908,7 +1908,7 @@ public class Request
             candidate = uri.substring(0, pos);
         }
         candidate = UDecoder.URLDecode(candidate, connector.getURIEncoding());
-        candidate = org.apache.tomcat.util.http.RequestUtil.normalize(candidate);
+        candidate = org.apache.thundercat.util.http.RequestUtil.normalize(candidate);
         boolean match = canonicalContextPath.equals(candidate);
         while (!match && pos != -1) {
             pos = nextSlash(uriChars, pos + 1);
@@ -1918,7 +1918,7 @@ public class Request
                 candidate = uri.substring(0, pos);
             }
             candidate = UDecoder.URLDecode(candidate, connector.getURIEncoding());
-            candidate = org.apache.tomcat.util.http.RequestUtil.normalize(candidate);
+            candidate = org.apache.thundercat.util.http.RequestUtil.normalize(candidate);
             match = canonicalContextPath.equals(candidate);
         }
         if (match) {

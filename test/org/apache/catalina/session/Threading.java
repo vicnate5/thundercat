@@ -61,7 +61,7 @@ public class Threading {
         // Assumes "ant release" has been run
         // Will need to be updated as new releases are made
         File file = new File(
-                "./output/release/v8.0.15-dev/bin/apache-tomcat-8.0.15-dev.zip");
+                "./output/release/v8.0.15-dev/bin/apache-thundercat-8.0.15-dev.zip");
 
         FileInputStream fis = new FileInputStream(file);
 

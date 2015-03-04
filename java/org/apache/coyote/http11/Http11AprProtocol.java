@@ -19,10 +19,10 @@ package org.apache.coyote.http11;
 import org.apache.coyote.Processor;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.net.AprEndpoint;
-import org.apache.tomcat.util.net.AprEndpoint.Poller;
-import org.apache.tomcat.util.net.SocketStatus;
-import org.apache.tomcat.util.net.SocketWrapperBase;
+import org.apache.thundercat.util.net.AprEndpoint;
+import org.apache.thundercat.util.net.AprEndpoint.Poller;
+import org.apache.thundercat.util.net.SocketStatus;
+import org.apache.thundercat.util.net.SocketWrapperBase;
 
 
 /**

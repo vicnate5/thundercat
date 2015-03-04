@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.dbcp.dbcp2.datasources;
+package org.apache.thundercat.dbcp.dbcp2.datasources;
 
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -35,8 +35,8 @@ import javax.sql.ConnectionPoolDataSource;
 import javax.sql.DataSource;
 import javax.sql.PooledConnection;
 
-import org.apache.tomcat.dbcp.pool2.impl.BaseObjectPoolConfig;
-import org.apache.tomcat.dbcp.pool2.impl.GenericKeyedObjectPoolConfig;
+import org.apache.thundercat.dbcp.pool2.impl.BaseObjectPoolConfig;
+import org.apache.thundercat.dbcp.pool2.impl.GenericKeyedObjectPoolConfig;
 
 /**
  * <p>The base class for <code>SharedPoolDataSource</code> and
@@ -68,7 +68,7 @@ import org.apache.tomcat.dbcp.pool2.impl.GenericKeyedObjectPoolConfig;
  *
  * <p>
  * The dbcp package contains an adapter,
- * {@link org.apache.tomcat.dbcp.dbcp2.cpdsadapter.DriverAdapterCPDS},
+ * {@link org.apache.thundercat.dbcp.dbcp2.cpdsadapter.DriverAdapterCPDS},
  * that can be used to allow the use of <code>DataSource</code>'s based on this
  * class with jdbc driver implementations that do not supply a
  * <code>ConnectionPoolDataSource</code>, but still
@@ -393,7 +393,7 @@ public abstract class InstanceKeyDataSource
 
     /**
      * Gets the default value for
-     * {@link org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getSoftMinEvictableIdleTimeMillis()} for each
+     * {@link org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getSoftMinEvictableIdleTimeMillis()} for each
      * per user pool.
      */
     public long getDefaultSoftMinEvictableIdleTimeMillis() {
@@ -402,7 +402,7 @@ public abstract class InstanceKeyDataSource
 
     /**
      * Sets the default value for
-     * {@link org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getSoftMinEvictableIdleTimeMillis()} for each per user pool.
+     * {@link org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getSoftMinEvictableIdleTimeMillis()} for each per user pool.
      */
     public void setDefaultSoftMinEvictableIdleTimeMillis(
             long softMinEvictableIdleTimeMillis) {
@@ -413,7 +413,7 @@ public abstract class InstanceKeyDataSource
 
     /**
      * Gets the default value for
-     * {@link org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestOnCreate()} for each per user pool.
+     * {@link org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestOnCreate()} for each per user pool.
      */
     public boolean getDefaultTestOnCreate() {
         return this.defaultTestOnCreate;
@@ -421,7 +421,7 @@ public abstract class InstanceKeyDataSource
 
     /**
      * Sets the default value for
-     * {@link org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestOnCreate()} for each per user pool.
+     * {@link org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestOnCreate()} for each per user pool.
      */
     public void setDefaultTestOnCreate(boolean testOnCreate) {
         assertInitializationAllowed();
@@ -431,7 +431,7 @@ public abstract class InstanceKeyDataSource
 
     /**
      * Gets the default value for
-     * {@link org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestOnBorrow()} for each per user pool.
+     * {@link org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestOnBorrow()} for each per user pool.
      */
     public boolean getDefaultTestOnBorrow() {
         return this.defaultTestOnBorrow;
@@ -439,7 +439,7 @@ public abstract class InstanceKeyDataSource
 
     /**
      * Sets the default value for
-     * {@link org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestOnBorrow()} for each per user pool.
+     * {@link org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestOnBorrow()} for each per user pool.
      */
     public void setDefaultTestOnBorrow(boolean testOnBorrow) {
         assertInitializationAllowed();
@@ -449,7 +449,7 @@ public abstract class InstanceKeyDataSource
 
     /**
      * Gets the default value for
-     * {@link org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestOnReturn()} for each per user pool.
+     * {@link org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestOnReturn()} for each per user pool.
      */
     public boolean getDefaultTestOnReturn() {
         return this.defaultTestOnReturn;
@@ -457,7 +457,7 @@ public abstract class InstanceKeyDataSource
 
     /**
      * Sets the default value for
-     * {@link org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestOnReturn()} for each per user pool.
+     * {@link org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestOnReturn()} for each per user pool.
      */
     public void setDefaultTestOnReturn(boolean testOnReturn) {
         assertInitializationAllowed();
@@ -467,7 +467,7 @@ public abstract class InstanceKeyDataSource
 
     /**
      * Gets the default value for
-     * {@link org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestWhileIdle()} for each per user pool.
+     * {@link org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestWhileIdle()} for each per user pool.
      */
     public boolean getDefaultTestWhileIdle() {
         return this.defaultTestWhileIdle;
@@ -475,7 +475,7 @@ public abstract class InstanceKeyDataSource
 
     /**
      * Sets the default value for
-     * {@link org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestWhileIdle()} for each per user pool.
+     * {@link org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTestWhileIdle()} for each per user pool.
      */
     public void setDefaultTestWhileIdle(boolean testWhileIdle) {
         assertInitializationAllowed();
@@ -485,7 +485,7 @@ public abstract class InstanceKeyDataSource
 
     /**
      * Gets the default value for
-     * {@link org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTimeBetweenEvictionRunsMillis ()} for each
+     * {@link org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTimeBetweenEvictionRunsMillis ()} for each
      * per user pool.
      */
     public long getDefaultTimeBetweenEvictionRunsMillis () {
@@ -494,7 +494,7 @@ public abstract class InstanceKeyDataSource
 
     /**
      * Sets the default value for
-     * {@link org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTimeBetweenEvictionRunsMillis ()} for each
+     * {@link org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool GenericObjectPool#getTimeBetweenEvictionRunsMillis ()} for each
      * per user pool.
      */
     public void setDefaultTimeBetweenEvictionRunsMillis (

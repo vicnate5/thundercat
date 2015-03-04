@@ -44,8 +44,8 @@ import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.SimpleHttpClient;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.websocket.server.WsContextListener;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.websocket.server.WsContextListener;
 
 public class TestDefaultServlet extends TomcatBaseTest {
 
@@ -55,15 +55,15 @@ public class TestDefaultServlet extends TomcatBaseTest {
      */
     @Test
     public void testGetSpecials() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         String contextPath = "/examples";
 
         File appDir = new File(getBuildDirectory(), "webapps" + contextPath);
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/examples", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/examples", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         final ByteChunk res = new ByteChunk();
 
@@ -95,7 +95,7 @@ public class TestDefaultServlet extends TomcatBaseTest {
     @Test
     public void testGzippedFile() throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp");
 
@@ -106,7 +106,7 @@ public class TestDefaultServlet extends TomcatBaseTest {
         long indexSize = index.length();
 
         // app dir is relative to server home
-        Context ctxt = tomcat.addContext("", appDir.getAbsolutePath());
+        Context ctxt = thundercat.addContext("", appDir.getAbsolutePath());
         Wrapper defaultServlet = Tomcat.addServlet(ctxt, "default",
                 "org.apache.catalina.servlets.DefaultServlet");
         defaultServlet.addInitParameter("gzip", "true");
@@ -114,7 +114,7 @@ public class TestDefaultServlet extends TomcatBaseTest {
 
         ctxt.addMimeMapping("html", "text/html");
 
-        tomcat.start();
+        thundercat.start();
 
         TestGzipClient gzipClient = new TestGzipClient(getPort());
 
@@ -150,14 +150,14 @@ public class TestDefaultServlet extends TomcatBaseTest {
      */
     @Test
     public void testGetWithSubpathmount() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         String contextPath = "/examples";
 
         File appDir = new File(getBuildDirectory(), "webapps" + contextPath);
         // app dir is relative to server home
         org.apache.catalina.Context ctx =
-            tomcat.addWebapp(null, "/examples", appDir.getAbsolutePath());
+            thundercat.addWebapp(null, "/examples", appDir.getAbsolutePath());
         ctx.addApplicationListener(WsContextListener.class.getName());
 
         // Override the default servlet with our own mappings
@@ -166,7 +166,7 @@ public class TestDefaultServlet extends TomcatBaseTest {
         ctx.addServletMapping("/servlets/*", "default2");
         ctx.addServletMapping("/static/*", "default2");
 
-        tomcat.start();
+        thundercat.start();
 
         final ByteChunk res = new ByteChunk();
 
@@ -248,13 +248,13 @@ public class TestDefaultServlet extends TomcatBaseTest {
             w.write("It is 404.html");
         }
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         String contextPath = "/MyApp";
-        tomcat.addWebapp(null, contextPath, appDir.getAbsolutePath());
-        tomcat.start();
+        thundercat.addWebapp(null, contextPath, appDir.getAbsolutePath());
+        thundercat.start();
 
         TestCustomErrorClient client =
-                new TestCustomErrorClient(tomcat.getConnector().getLocalPort());
+                new TestCustomErrorClient(thundercat.getConnector().getLocalPort());
 
         client.reset();
         client.setRequest(new String[] {
@@ -324,13 +324,13 @@ public class TestDefaultServlet extends TomcatBaseTest {
                     + "</web-app>\n");
         }
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         String contextPath = "/MyApp";
-        tomcat.addWebapp(null, contextPath, appDir.getAbsolutePath());
-        tomcat.start();
+        thundercat.addWebapp(null, contextPath, appDir.getAbsolutePath());
+        thundercat.start();
 
         TestCustomErrorClient client =
-                new TestCustomErrorClient(tomcat.getConnector().getLocalPort());
+                new TestCustomErrorClient(thundercat.getConnector().getLocalPort());
 
         client.reset();
         client.setRequest(new String[] {

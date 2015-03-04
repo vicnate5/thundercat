@@ -47,7 +47,7 @@ import javax.servlet.descriptor.JspConfigDescriptor;
 
 import org.apache.catalina.Globals;
 import org.apache.catalina.security.SecurityUtil;
-import org.apache.tomcat.util.ExceptionUtils;
+import org.apache.thundercat.util.ExceptionUtils;
 
 
 /**

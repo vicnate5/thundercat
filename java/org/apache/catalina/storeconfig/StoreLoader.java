@@ -24,7 +24,7 @@ import java.net.URL;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.digester.Digester;
+import org.apache.thundercat.util.digester.Digester;
 import org.xml.sax.SAXException;
 
 /**

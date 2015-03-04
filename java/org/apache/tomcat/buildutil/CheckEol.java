@@ -15,7 +15,7 @@
 * limitations under the License.
 */
 
-package org.apache.tomcat.buildutil;
+package org.apache.thundercat.buildutil;
 
 import java.io.BufferedInputStream;
 import java.io.File;

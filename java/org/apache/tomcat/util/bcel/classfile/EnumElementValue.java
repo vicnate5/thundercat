@@ -15,9 +15,9 @@
  *  limitations under the License.
  *
  */
-package org.apache.tomcat.util.bcel.classfile;
+package org.apache.thundercat.util.bcel.classfile;
 
-import org.apache.tomcat.util.bcel.Constants;
+import org.apache.thundercat.util.bcel.Constants;
 
 public class EnumElementValue extends ElementValue
 {

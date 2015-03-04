@@ -48,14 +48,14 @@ import org.apache.catalina.security.SecurityUtil;
 import org.apache.catalina.util.RequestUtil;
 import org.apache.catalina.util.SessionConfig;
 import org.apache.coyote.ActionCode;
-import org.apache.tomcat.util.buf.CharChunk;
-import org.apache.tomcat.util.buf.UEncoder;
-import org.apache.tomcat.util.buf.UEncoder.SafeCharsSet;
-import org.apache.tomcat.util.http.FastHttpDateFormat;
-import org.apache.tomcat.util.http.MimeHeaders;
-import org.apache.tomcat.util.http.parser.MediaTypeCache;
-import org.apache.tomcat.util.net.URL;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.buf.CharChunk;
+import org.apache.thundercat.util.buf.UEncoder;
+import org.apache.thundercat.util.buf.UEncoder.SafeCharsSet;
+import org.apache.thundercat.util.http.FastHttpDateFormat;
+import org.apache.thundercat.util.http.MimeHeaders;
+import org.apache.thundercat.util.http.parser.MediaTypeCache;
+import org.apache.thundercat.util.net.URL;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Wrapper object for the Coyote response.

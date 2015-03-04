@@ -37,8 +37,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.catalina.Globals;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.res.StringManager;
 /**
  * This utility class associates a <code>Subject</code> to the current
  * <code>AccessControlContext</code>. When a <code>SecurityManager</code> is

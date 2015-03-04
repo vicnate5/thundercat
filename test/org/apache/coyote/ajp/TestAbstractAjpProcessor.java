@@ -48,7 +48,7 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
          * values to AJP.
          */
         // Has a protocol been specified
-        String protocol = System.getProperty("tomcat.test.protocol");
+        String protocol = System.getProperty("thundercat.test.protocol");
 
         // Use NIO by default
         if (protocol == null) {
@@ -73,10 +73,10 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
         Map<String, String> attributes = desc.getAttributes();
         Map<String, String> params = desc.getParams();
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "snoop", new SnoopServlet());
         ctx.addServletMapping("/", "snoop");
@@ -107,7 +107,7 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
                 case "REQUEST-REMOTE-HOST":
                     /* request.getRemoteHost() will default to
                      * request.getRemoteAddr() unless enableLookups is set. */
-                    tomcat.getConnector().setEnableLookups(true);
+                    thundercat.getConnector().setEnableLookups(true);
                     ajpClient.setRemoteHost(value);
                     break;
                 case "REQUEST-REMOTE-ADDR":
@@ -184,14 +184,14 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
                     break;
                 case "REQUEST-REMOTE-USER":
                     /* request.getRemoteUser() will not trust the AJP
-                     * info if tomcatAuthentication is set. */
-                    tomcat.getConnector().setProperty("tomcatAuthentication", "false");
+                     * info if thundercatAuthentication is set. */
+                    thundercat.getConnector().setProperty("thundercatAuthentication", "false");
                     forwardMessage.addAttribute(0x03, value);
                     break;
                 case "REQUEST-AUTH-TYPE":
                     /* request.getAuthType() will not trust the AJP
-                     * info if tomcatAuthentication is set. */
-                    tomcat.getConnector().setProperty("tomcatAuthentication", "false");
+                     * info if thundercatAuthentication is set. */
+                    thundercat.getConnector().setProperty("thundercatAuthentication", "false");
                     forwardMessage.addAttribute(0x04, value);
                     break;
                 case "REQUEST-QUERY-STRING":
@@ -282,7 +282,7 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
         // Complete the message
         forwardMessage.end();
 
-        tomcat.start();
+        thundercat.start();
         ajpClient.setPort(getPort());
         ajpClient.connect();
 
@@ -447,12 +447,12 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
 
     @Test
     public void testSecret() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        tomcat.getConnector().setProperty("requiredSecret", "RIGHTSECRET");
-        tomcat.start();
+        Tomcat thundercat = getTomcatInstance();
+        thundercat.getConnector().setProperty("requiredSecret", "RIGHTSECRET");
+        thundercat.start();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "helloWorld", new HelloWorldServlet());
         ctx.addServletMapping("/", "helloWorld");
@@ -507,12 +507,12 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
 
     @Test
     public void testKeepAlive() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        tomcat.getConnector().setProperty("connectionTimeout", "-1");
-        tomcat.start();
+        Tomcat thundercat = getTomcatInstance();
+        thundercat.getConnector().setProperty("connectionTimeout", "-1");
+        thundercat.start();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "helloWorld", new HelloWorldServlet());
         ctx.addServletMapping("/", "helloWorld");
@@ -614,15 +614,15 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
     @Test
     public void test304WithBody() throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "bug55453", new Tester304WithBodyServlet());
         ctx.addServletMapping("/", "bug55453");
 
-        tomcat.start();
+        thundercat.start();
 
         SimpleAjpClient ajpClient = new SimpleAjpClient();
         ajpClient.setPort(getPort());
@@ -670,16 +670,16 @@ public class TestAbstractAjpProcessor extends TomcatBaseTest {
     private void doTestZeroLengthRequestBody(String method, boolean callAvailable)
             throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         ReadBodyServlet servlet = new ReadBodyServlet(callAvailable);
         Tomcat.addServlet(ctx, "ReadBody", servlet);
         ctx.addServletMapping("/", "ReadBody");
 
-        tomcat.start();
+        thundercat.start();
 
         SimpleAjpClient ajpClient = new SimpleAjpClient();
         ajpClient.setPort(getPort());

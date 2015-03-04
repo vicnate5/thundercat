@@ -17,11 +17,11 @@
 -->
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.apache.tomcat</groupId>
-  <artifactId>tomcat-jasper-el</artifactId>
+  <groupId>org.apache.thundercat</groupId>
+  <artifactId>thundercat-jasper-el</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
   <description>Jasper Expression Language Impl</description>
-  <url>http://tomcat.apache.org/</url>
+  <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -31,8 +31,8 @@
   </licenses>
   <dependencies>
     <dependency>
-      <groupId>org.apache.tomcat</groupId>
-      <artifactId>tomcat-el-api</artifactId>
+      <groupId>org.apache.thundercat</groupId>
+      <artifactId>thundercat-el-api</artifactId>
       <version>@MAVEN.DEPLOY.VERSION@</version>
       <scope>compile</scope>
     </dependency>

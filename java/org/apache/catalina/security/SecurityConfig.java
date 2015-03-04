@@ -37,14 +37,14 @@ public final class SecurityConfig{
                                                 + "org.apache.catalina."
                                                 + ",org.apache.jasper."
                                                 + ",org.apache.coyote."
-                                                + ",org.apache.tomcat.";
+                                                + ",org.apache.thundercat.";
 
     // FIX ME package "javax." was removed to prevent HotSpot
     // fatal internal errors
     private static final String PACKAGE_DEFINITION= "java.,sun."
                                                 + ",org.apache.catalina."
                                                 + ",org.apache.coyote."
-                                                + ",org.apache.tomcat."
+                                                + ",org.apache.thundercat."
                                                 + ",org.apache.jasper.";
     /**
      * List of protected package from conf/catalina.properties

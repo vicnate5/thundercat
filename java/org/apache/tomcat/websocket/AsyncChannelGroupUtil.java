@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket;
+package org.apache.thundercat.websocket;
 
 import java.io.IOException;
 import java.nio.channels.AsynchronousChannelGroup;
@@ -26,8 +26,8 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.apache.tomcat.util.res.StringManager;
-import org.apache.tomcat.util.threads.ThreadPoolExecutor;
+import org.apache.thundercat.util.res.StringManager;
+import org.apache.thundercat.util.threads.ThreadPoolExecutor;
 
 /**
  * This is a utility class that enables multiple {@link WsWebSocketContainer}

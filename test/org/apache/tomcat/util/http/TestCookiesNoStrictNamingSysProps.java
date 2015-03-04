@@ -14,14 +14,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 import org.apache.catalina.startup.Tomcat;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Test case for {@link LegacyCookieProcessor}. <b>Note</b> because of the use
@@ -38,14 +38,14 @@ public class TestCookiesNoStrictNamingSysProps extends CookiesBaseTest {
 
         System.setProperty("org.apache.catalina.STRICT_SERVLET_COMPLIANCE",
                 "true");
-        System.setProperty("org.apache.tomcat.util.http.ServerCookie.STRICT_NAMING",
+        System.setProperty("org.apache.thundercat.util.http.ServerCookie.STRICT_NAMING",
                 "false");
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
-        addServlets(tomcat);
+        addServlets(thundercat);
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() + "/invalid");
         assertEquals("Cookie name fail", res.toString());

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket;
+package org.apache.thundercat.websocket;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
@@ -51,14 +51,14 @@ import org.apache.catalina.Context;
 import org.apache.catalina.servlets.DefaultServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.net.TesterSupport;
-import org.apache.tomcat.websocket.TesterMessageCountClient.BasicBinary;
-import org.apache.tomcat.websocket.TesterMessageCountClient.BasicHandler;
-import org.apache.tomcat.websocket.TesterMessageCountClient.BasicText;
-import org.apache.tomcat.websocket.TesterMessageCountClient.TesterEndpoint;
-import org.apache.tomcat.websocket.TesterMessageCountClient.TesterProgrammaticEndpoint;
-import org.apache.tomcat.websocket.server.Constants;
-import org.apache.tomcat.websocket.server.WsContextListener;
+import org.apache.thundercat.util.net.TesterSupport;
+import org.apache.thundercat.websocket.TesterMessageCountClient.BasicBinary;
+import org.apache.thundercat.websocket.TesterMessageCountClient.BasicHandler;
+import org.apache.thundercat.websocket.TesterMessageCountClient.BasicText;
+import org.apache.thundercat.websocket.TesterMessageCountClient.TesterEndpoint;
+import org.apache.thundercat.websocket.TesterMessageCountClient.TesterProgrammaticEndpoint;
+import org.apache.thundercat.websocket.server.Constants;
+import org.apache.thundercat.websocket.server.WsContextListener;
 
 public class TestWsWebSocketContainer extends TomcatBaseTest {
 
@@ -80,14 +80,14 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
 
     @Test
     public void testConnectToServerEndpoint() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterEchoServer.Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
-        tomcat.start();
+        thundercat.start();
 
         WebSocketContainer wsContainer =
                 ContainerProvider.getWebSocketContainer();
@@ -118,12 +118,12 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
 
     @Test(expected=javax.websocket.DeploymentException.class)
     public void testConnectToServerEndpointInvalidScheme() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterEchoServer.Config.class.getName());
 
-        tomcat.start();
+        thundercat.start();
 
         WebSocketContainer wsContainer =
                 ContainerProvider.getWebSocketContainer();
@@ -136,12 +136,12 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
 
     @Test(expected=javax.websocket.DeploymentException.class)
     public void testConnectToServerEndpointNoHost() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterEchoServer.Config.class.getName());
 
-        tomcat.start();
+        thundercat.start();
 
         WebSocketContainer wsContainer =
                 ContainerProvider.getWebSocketContainer();
@@ -202,9 +202,9 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
     private void doBufferTest(boolean isTextBuffer, boolean isServerBuffer,
             boolean isTextMessage, boolean pass) throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterEchoServer.Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
@@ -215,12 +215,12 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
         if (isServerBuffer) {
             if (isTextBuffer) {
                 ctx.addParameter(
-                        org.apache.tomcat.websocket.server.Constants.
+                        org.apache.thundercat.websocket.server.Constants.
                                 TEXT_BUFFER_SIZE_SERVLET_CONTEXT_INIT_PARAM,
                         "1024");
             } else {
                 ctx.addParameter(
-                        org.apache.tomcat.websocket.server.Constants.
+                        org.apache.thundercat.websocket.server.Constants.
                                 BINARY_BUFFER_SIZE_SERVLET_CONTEXT_INIT_PARAM,
                         "1024");
             }
@@ -232,7 +232,7 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
             }
         }
 
-        tomcat.start();
+        thundercat.start();
 
         Session wsSession = wsContainer.connectToServer(
                 TesterProgrammaticEndpoint.class,
@@ -310,9 +310,9 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
     private void doTestWriteTimeoutClient(boolean setTimeoutOnContainer)
             throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(BlockingConfig.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
@@ -325,7 +325,7 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
             wsContainer.setAsyncSendTimeout(TIMEOUT_MS);
         }
 
-        tomcat.start();
+        thundercat.start();
 
         Session wsSession = wsContainer.connectToServer(
                 TesterProgrammaticEndpoint.class,
@@ -394,10 +394,10 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
          */
         timeoutOnContainer = setTimeoutOnContainer;
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(ConstantTxConfig.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
@@ -405,7 +405,7 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
         WebSocketContainer wsContainer =
                 ContainerProvider.getWebSocketContainer();
 
-        tomcat.start();
+        thundercat.start();
 
         Session wsSession = wsContainer.connectToServer(
                 TesterProgrammaticEndpoint.class,
@@ -606,14 +606,14 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
 
     @Test
     public void testGetOpenSessions() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterEchoServer.Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
-        tomcat.start();
+        thundercat.start();
 
         WebSocketContainer wsContainer =
                 ContainerProvider.getWebSocketContainer();
@@ -654,14 +654,14 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
     @Test
     public void testSessionExpiryContainer() throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterEchoServer.Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
-        tomcat.start();
+        thundercat.start();
 
         // Need access to implementation methods for configuring unit tests
         WsWebSocketContainer wsContainer = (WsWebSocketContainer)
@@ -711,14 +711,14 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
     @Test
     public void testSessionExpirySession() throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterEchoServer.Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
-        tomcat.start();
+        thundercat.start();
 
         // Need access to implementation methods for configuring unit tests
         WsWebSocketContainer wsContainer = (WsWebSocketContainer)
@@ -796,16 +796,16 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
     @Test
     public void testConnectToServerEndpointSSL() throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterEchoServer.Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
-        TesterSupport.initSsl(tomcat);
+        TesterSupport.initSsl(thundercat);
 
-        tomcat.start();
+        thundercat.start();
 
         WebSocketContainer wsContainer =
                 ContainerProvider.getWebSocketContainer();
@@ -813,7 +813,7 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
                 ClientEndpointConfig.Builder.create().build();
         clientEndpointConfig.getUserProperties().put(
                 WsWebSocketContainer.SSL_TRUSTSTORE_PROPERTY,
-                "test/org/apache/tomcat/util/net/ca.jks");
+                "test/org/apache/thundercat/util/net/ca.jks");
         Session wsSession = wsContainer.connectToServer(
                 TesterProgrammaticEndpoint.class,
                 clientEndpointConfig,
@@ -879,14 +879,14 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
     private void doMaxMessageSize(String path, long size, boolean expectOpen)
             throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterEchoServer.Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
-        tomcat.start();
+        thundercat.start();
 
         WebSocketContainer wsContainer =
                 ContainerProvider.getWebSocketContainer();
@@ -934,14 +934,14 @@ public class TestWsWebSocketContainer extends TomcatBaseTest {
 
     @Test
     public void testPerMessageDefalteClient() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterEchoServer.Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
-        tomcat.start();
+        thundercat.start();
 
         Extension perMessageDeflate = new WsExtension(PerMessageDeflate.NAME);
         List<Extension> extensions = new ArrayList<>(1);

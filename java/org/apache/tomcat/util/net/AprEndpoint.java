@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -32,22 +32,22 @@ import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.jni.Address;
-import org.apache.tomcat.jni.Error;
-import org.apache.tomcat.jni.File;
-import org.apache.tomcat.jni.Library;
-import org.apache.tomcat.jni.OS;
-import org.apache.tomcat.jni.Poll;
-import org.apache.tomcat.jni.Pool;
-import org.apache.tomcat.jni.SSL;
-import org.apache.tomcat.jni.SSLContext;
-import org.apache.tomcat.jni.SSLSocket;
-import org.apache.tomcat.jni.Sockaddr;
-import org.apache.tomcat.jni.Socket;
-import org.apache.tomcat.jni.Status;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.net.AbstractEndpoint.Acceptor.AcceptorState;
-import org.apache.tomcat.util.net.AbstractEndpoint.Handler.SocketState;
+import org.apache.thundercat.jni.Address;
+import org.apache.thundercat.jni.Error;
+import org.apache.thundercat.jni.File;
+import org.apache.thundercat.jni.Library;
+import org.apache.thundercat.jni.OS;
+import org.apache.thundercat.jni.Poll;
+import org.apache.thundercat.jni.Pool;
+import org.apache.thundercat.jni.SSL;
+import org.apache.thundercat.jni.SSLContext;
+import org.apache.thundercat.jni.SSLSocket;
+import org.apache.thundercat.jni.Sockaddr;
+import org.apache.thundercat.jni.Socket;
+import org.apache.thundercat.jni.Status;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.net.AbstractEndpoint.Acceptor.AcceptorState;
+import org.apache.thundercat.util.net.AbstractEndpoint.Handler.SocketState;
 
 
 /**

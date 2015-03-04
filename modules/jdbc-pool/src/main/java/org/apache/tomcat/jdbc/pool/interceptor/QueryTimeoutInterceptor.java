@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.jdbc.pool.interceptor;
+package org.apache.thundercat.jdbc.pool.interceptor;
 
 import java.lang.reflect.Method;
 import java.sql.SQLException;
@@ -24,7 +24,7 @@ import java.util.Map;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.jdbc.pool.PoolProperties.InterceptorProperty;
+import org.apache.thundercat.jdbc.pool.PoolProperties.InterceptorProperty;
 
 public class QueryTimeoutInterceptor extends AbstractCreateStatementInterceptor {
     private static Log log = LogFactory.getLog(QueryTimeoutInterceptor.class);

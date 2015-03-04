@@ -55,21 +55,21 @@ public class TestKeepAliveCount extends TomcatBaseTest {
         private synchronized void init() {
             if (init) return;
 
-            Tomcat tomcat = getTomcatInstance();
-            Context root = tomcat.addContext("", TEMP_DIR);
+            Tomcat thundercat = getTomcatInstance();
+            Context root = thundercat.addContext("", TEMP_DIR);
             Tomcat.addServlet(root, "Simple", new SimpleServlet());
             root.addServletMapping("/test", "Simple");
-            tomcat.getConnector().setProperty("maxKeepAliveRequests", "5");
-            tomcat.getConnector().setProperty("soTimeout", "20000");
-            tomcat.getConnector().setProperty("keepAliveTimeout", "50000");
+            thundercat.getConnector().setProperty("maxKeepAliveRequests", "5");
+            thundercat.getConnector().setProperty("soTimeout", "20000");
+            thundercat.getConnector().setProperty("keepAliveTimeout", "50000");
             init = true;
         }
 
         private void doHttp10Request() throws Exception {
-            Tomcat tomcat = getTomcatInstance();
+            Tomcat thundercat = getTomcatInstance();
             init();
-            tomcat.start();
-            setPort(tomcat.getConnector().getLocalPort());
+            thundercat.start();
+            setPort(thundercat.getConnector().getLocalPort());
 
             // Open connection
             connect();
@@ -84,15 +84,15 @@ public class TestKeepAliveCount extends TomcatBaseTest {
             // Close the connection
             disconnect();
             reset();
-            tomcat.stop();
+            thundercat.stop();
             assertTrue(passed);
         }
 
         private void doHttp11Request() throws Exception {
-            Tomcat tomcat = getTomcatInstance();
+            Tomcat thundercat = getTomcatInstance();
             init();
-            tomcat.start();
-            setPort(tomcat.getConnector().getLocalPort());
+            thundercat.start();
+            setPort(thundercat.getConnector().getLocalPort());
 
             // Open connection
             connect();
@@ -115,7 +115,7 @@ public class TestKeepAliveCount extends TomcatBaseTest {
             // Close the connection
             disconnect();
             reset();
-            tomcat.stop();
+            thundercat.stop();
             assertTrue(passed);
         }
 

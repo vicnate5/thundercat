@@ -238,8 +238,8 @@ public class TestSwallowAbortedUploads extends TomcatBaseTest {
         private synchronized void init(boolean limited, boolean swallow)
                 throws Exception {
 
-            Tomcat tomcat = getTomcatInstance();
-            context = tomcat.addContext("", TEMP_DIR);
+            Tomcat thundercat = getTomcatInstance();
+            context = thundercat.addContext("", TEMP_DIR);
             Wrapper w;
             w = Tomcat.addServlet(context, servletName,
                                   new AbortedUploadServlet());
@@ -255,8 +255,8 @@ public class TestSwallowAbortedUploads extends TomcatBaseTest {
             context.addServletMapping(URI, servletName);
             context.setSwallowAbortedUploads(swallow);
 
-            tomcat.start();
-            setPort(tomcat.getConnector().getLocalPort());
+            thundercat.start();
+            setPort(thundercat.getConnector().getLocalPort());
         }
 
         private Exception doRequest(boolean limited, boolean swallow) {
@@ -354,8 +354,8 @@ public class TestSwallowAbortedUploads extends TomcatBaseTest {
         private synchronized void init(int status, boolean swallow)
                 throws Exception {
 
-            Tomcat tomcat = getTomcatInstance();
-            context = tomcat.addContext("", TEMP_DIR);
+            Tomcat thundercat = getTomcatInstance();
+            context = thundercat.addContext("", TEMP_DIR);
             AbortedPOSTServlet servlet = new AbortedPOSTServlet();
             servlet.setStatus(status);
             Tomcat.addServlet(context, servletName,
@@ -363,9 +363,9 @@ public class TestSwallowAbortedUploads extends TomcatBaseTest {
             context.addServletMapping(URI, servletName);
             context.setSwallowAbortedUploads(swallow);
 
-            tomcat.start();
+            thundercat.start();
 
-            setPort(tomcat.getConnector().getLocalPort());
+            setPort(thundercat.getConnector().getLocalPort());
         }
 
         private Exception doRequest(int status, boolean swallow) {
@@ -422,15 +422,15 @@ public class TestSwallowAbortedUploads extends TomcatBaseTest {
 
     public void doTestChunkedPUT(boolean limit) throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
-        tomcat.addContext("", TEMP_DIR);
+        Tomcat thundercat = getTomcatInstance();
+        thundercat.addContext("", TEMP_DIR);
         // No need for target to exist.
 
         if (!limit) {
-            tomcat.getConnector().setAttribute("maxSwallowSize", "-1");
+            thundercat.getConnector().setAttribute("maxSwallowSize", "-1");
         }
 
-        tomcat.start();
+        thundercat.start();
 
         Exception writeEx = null;
         Exception readEx = null;

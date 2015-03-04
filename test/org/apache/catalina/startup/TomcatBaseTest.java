@@ -59,7 +59,7 @@ import org.apache.catalina.session.StandardManager;
 import org.apache.catalina.valves.AccessLogValve;
 import org.apache.catalina.webresources.StandardRoot;
 import org.apache.coyote.http11.Http11NioProtocol;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Base test case that provides a Tomcat instance for each test - mainly so we
@@ -67,7 +67,7 @@ import org.apache.tomcat.util.buf.ByteChunk;
  */
 public abstract class TomcatBaseTest extends LoggingBaseTest {
     private static final int DEFAULT_CLIENT_TIMEOUT_MS = 300_000;
-    private Tomcat tomcat;
+    private Tomcat thundercat;
     private boolean accessLogEnabled = false;
 
     public static final String TEMP_DIR = System.getProperty("java.io.tmpdir");
@@ -78,7 +78,7 @@ public abstract class TomcatBaseTest extends LoggingBaseTest {
      * @return A Tomcat instance without any pre-configured web applications
      */
     public Tomcat getTomcatInstance() {
-        return tomcat;
+        return thundercat;
     }
 
     /**
@@ -96,7 +96,7 @@ public abstract class TomcatBaseTest extends LoggingBaseTest {
     public Tomcat getTomcatInstanceTestWebapp(boolean addJstl, boolean start)
             throws LifecycleException {
         File appDir = new File("test/webapp");
-        Context ctx = tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        Context ctx = thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
         if (addJstl) {
             File lib = new File("webapps/examples/WEB-INF/lib");
@@ -107,16 +107,16 @@ public abstract class TomcatBaseTest extends LoggingBaseTest {
         }
 
         if (start) {
-            tomcat.start();
+            thundercat.start();
         }
-        return tomcat;
+        return thundercat;
     }
 
     /*
      * Sub-classes need to know port so they can connect
      */
     public int getPort() {
-        return tomcat.getConnector().getLocalPort();
+        return thundercat.getConnector().getLocalPort();
     }
 
     /*
@@ -139,7 +139,7 @@ public abstract class TomcatBaseTest extends LoggingBaseTest {
             fail("Unable to create appBase for test");
         }
 
-        tomcat = new TomcatWithFastSessionIDs();
+        thundercat = new TomcatWithFastSessionIDs();
 
         String protocol = getProtocol();
         Connector connector = new Connector(protocol);
@@ -150,12 +150,12 @@ public abstract class TomcatBaseTest extends LoggingBaseTest {
         connector.setPort(0);
         // Mainly set to reduce timeouts during async tests
         connector.setAttribute("connectionTimeout", "3000");
-        tomcat.getService().addConnector(connector);
-        tomcat.setConnector(connector);
+        thundercat.getService().addConnector(connector);
+        thundercat.setConnector(connector);
 
         // Add AprLifecycleListener if we are using the Apr connector
         if (protocol.contains("Apr")) {
-            StandardServer server = (StandardServer) tomcat.getServer();
+            StandardServer server = (StandardServer) thundercat.getServer();
             AprLifecycleListener listener = new AprLifecycleListener();
             listener.setSSLRandomSeed("/dev/urandom");
             server.addLifecycleListener(listener);
@@ -163,14 +163,14 @@ public abstract class TomcatBaseTest extends LoggingBaseTest {
         }
 
         File catalinaBase = getTemporaryDirectory();
-        tomcat.setBaseDir(catalinaBase.getAbsolutePath());
-        tomcat.getHost().setAppBase(appBase.getAbsolutePath());
+        thundercat.setBaseDir(catalinaBase.getAbsolutePath());
+        thundercat.getHost().setAppBase(appBase.getAbsolutePath());
 
         accessLogEnabled = Boolean.parseBoolean(
-            System.getProperty("tomcat.test.accesslog", "false"));
+            System.getProperty("thundercat.test.accesslog", "false"));
         if (accessLogEnabled) {
             String accessLogDirectory = System
-                    .getProperty("tomcat.test.reports");
+                    .getProperty("thundercat.test.reports");
             if (accessLogDirectory == null) {
                 accessLogDirectory = new File(getBuildDirectory(), "logs")
                         .toString();
@@ -178,7 +178,7 @@ public abstract class TomcatBaseTest extends LoggingBaseTest {
             AccessLogValve alv = new AccessLogValve();
             alv.setDirectory(accessLogDirectory);
             alv.setPattern("%h %l %u %t \"%r\" %s %b %I %D");
-            tomcat.getHost().getPipeline().addValve(alv);
+            thundercat.getHost().getPipeline().addValve(alv);
         }
 
         // Cannot delete the whole tempDir, because logs are there,
@@ -189,7 +189,7 @@ public abstract class TomcatBaseTest extends LoggingBaseTest {
 
     protected String getProtocol() {
         // Has a protocol been specified
-        String protocol = System.getProperty("tomcat.test.protocol");
+        String protocol = System.getProperty("thundercat.test.protocol");
 
         // Use NIO by default starting with Tomcat 8
         if (protocol == null) {
@@ -203,15 +203,15 @@ public abstract class TomcatBaseTest extends LoggingBaseTest {
     @Override
     public void tearDown() throws Exception {
         try {
-            // Some tests may call tomcat.destroy(), some tests may just call
-            // tomcat.stop(), some not call either method. Make sure that stop()
+            // Some tests may call thundercat.destroy(), some tests may just call
+            // thundercat.stop(), some not call either method. Make sure that stop()
             // & destroy() are called as necessary.
-            if (tomcat.server != null
-                    && tomcat.server.getState() != LifecycleState.DESTROYED) {
-                if (tomcat.server.getState() != LifecycleState.STOPPED) {
-                    tomcat.stop();
+            if (thundercat.server != null
+                    && thundercat.server.getState() != LifecycleState.DESTROYED) {
+                if (thundercat.server.getState() != LifecycleState.STOPPED) {
+                    thundercat.stop();
                 }
-                tomcat.destroy();
+                thundercat.destroy();
             }
         } finally {
             super.tearDown();

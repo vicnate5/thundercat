@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.dbcp2;
+package org.apache.thundercat.dbcp.dbcp2;
 
 import java.lang.management.ManagementFactory;
 import java.sql.Connection;
@@ -29,7 +29,7 @@ import javax.management.MBeanServer;
 import javax.management.NotCompliantMBeanException;
 import javax.management.ObjectName;
 
-import org.apache.tomcat.dbcp.pool2.ObjectPool;
+import org.apache.thundercat.dbcp.pool2.ObjectPool;
 
 /**
  * A delegating connection that, rather than closing the underlying

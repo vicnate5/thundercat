@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.dbcp2;
+package org.apache.thundercat.dbcp.dbcp2;
 
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -47,12 +47,12 @@ import javax.sql.DataSource;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.dbcp.pool2.PooledObject;
-import org.apache.tomcat.dbcp.pool2.impl.AbandonedConfig;
-import org.apache.tomcat.dbcp.pool2.impl.BaseObjectPoolConfig;
-import org.apache.tomcat.dbcp.pool2.impl.GenericKeyedObjectPoolConfig;
-import org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool;
-import org.apache.tomcat.dbcp.pool2.impl.GenericObjectPoolConfig;
+import org.apache.thundercat.dbcp.pool2.PooledObject;
+import org.apache.thundercat.dbcp.pool2.impl.AbandonedConfig;
+import org.apache.thundercat.dbcp.pool2.impl.BaseObjectPoolConfig;
+import org.apache.thundercat.dbcp.pool2.impl.GenericKeyedObjectPoolConfig;
+import org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool;
+import org.apache.thundercat.dbcp.pool2.impl.GenericObjectPoolConfig;
 
 /**
  * <p>Basic implementation of <code>javax.sql.DataSource</code> that is
@@ -1706,7 +1706,7 @@ public class BasicDataSource implements DataSource, BasicDataSourceMXBean, MBean
     }
 
     /**
-     * If the connection pool implements {@link org.apache.tomcat.dbcp.pool2.UsageTracking UsageTracking}, should the
+     * If the connection pool implements {@link org.apache.thundercat.dbcp.pool2.UsageTracking UsageTracking}, should the
      * connection pool record a stack trace every time a method is called on a
      * pooled connection and retain the most recent stack trace to aid debugging
      * of abandoned connections?
@@ -1722,7 +1722,7 @@ public class BasicDataSource implements DataSource, BasicDataSourceMXBean, MBean
     }
 
     /**
-     * If the connection pool implements {@link org.apache.tomcat.dbcp.pool2.UsageTracking UsageTracking}, configure
+     * If the connection pool implements {@link org.apache.thundercat.dbcp.pool2.UsageTracking UsageTracking}, configure
      * whether the connection pool should record a stack trace every time a
      * method is called on a pooled connection and retain the most recent stack
      * trace to aid debugging of abandoned connections.

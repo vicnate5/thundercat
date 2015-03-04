@@ -54,7 +54,7 @@ import org.apache.tools.ant.BuildException;
  *               /&gt;
  *               &lt;jmxCondition
  *                   operation="&amp;lt;"
- *                   name="Catalina:j2eeType=WebModule,name=//${tomcat.application.host}${tomcat.application.path},J2EEApplication=none,J2EEServer=none"
+ *                   name="Catalina:j2eeType=WebModule,name=//${thundercat.application.host}${thundercat.application.path},J2EEApplication=none,J2EEServer=none"
  *                   attribute="startupTime" value="250"
  *               /&gt;
  *           &lt;/and&gt;

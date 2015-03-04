@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.descriptor.web;
+package org.apache.thundercat.util.descriptor.web;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -39,8 +39,8 @@ import javax.servlet.descriptor.TaglibDescriptor;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.descriptor.XmlIdentifiers;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.descriptor.XmlIdentifiers;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Representation of common elements of web.xml and web-fragment.xml. Provides

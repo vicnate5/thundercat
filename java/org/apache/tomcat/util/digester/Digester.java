@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.digester;
+package org.apache.thundercat.util.digester;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -35,8 +35,8 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.IntrospectionUtils;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.IntrospectionUtils;
 import org.xml.sax.Attributes;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.ErrorHandler;
@@ -86,7 +86,7 @@ public class Digester extends DefaultHandler2 {
         new IntrospectionUtils.PropertySource[] { new SystemPropertySource() };
 
     static {
-        String className = System.getProperty("org.apache.tomcat.util.digester.PROPERTY_SOURCE");
+        String className = System.getProperty("org.apache.thundercat.util.digester.PROPERTY_SOURCE");
         if (className!=null) {
             IntrospectionUtils.PropertySource[] sources = new IntrospectionUtils.PropertySource[2];
             sources[1] = source[0];
@@ -100,7 +100,7 @@ public class Digester extends DefaultHandler2 {
                     initialized = true;
                 } catch (Throwable t) {
                     ExceptionUtils.handleThrowable(t);
-                    LogFactory.getLog("org.apache.tomcat.util.digester.Digester").
+                    LogFactory.getLog("org.apache.thundercat.util.digester.Digester").
                         error("Unable to load property source["+className+"].",t);
                 }
             }
@@ -279,14 +279,14 @@ public class Digester extends DefaultHandler2 {
      * The Log to which most logging calls will be made.
      */
     protected Log log =
-        LogFactory.getLog("org.apache.tomcat.util.digester.Digester");
+        LogFactory.getLog("org.apache.thundercat.util.digester.Digester");
 
 
     /**
      * The Log to which all SAX event related logging calls will be made.
      */
     protected Log saxLog =
-        LogFactory.getLog("org.apache.tomcat.util.digester.Digester.sax");
+        LogFactory.getLog("org.apache.thundercat.util.digester.Digester.sax");
 
 
     // ------------------------------------------------------------- Properties
@@ -1822,8 +1822,8 @@ public class Digester extends DefaultHandler2 {
             return;
         }
 
-        log = LogFactory.getLog("org.apache.tomcat.util.digester.Digester");
-        saxLog = LogFactory.getLog("org.apache.tomcat.util.digester.Digester.sax");
+        log = LogFactory.getLog("org.apache.thundercat.util.digester.Digester");
+        saxLog = LogFactory.getLog("org.apache.thundercat.util.digester.Digester.sax");
 
         // Set the configuration flag to avoid repeating
         configured = true;

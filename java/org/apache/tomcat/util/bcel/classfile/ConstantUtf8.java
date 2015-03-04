@@ -14,16 +14,16 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.bcel.classfile;
+package org.apache.thundercat.util.bcel.classfile;
 
 import java.io.DataInput;
 import java.io.IOException;
 
-import org.apache.tomcat.util.bcel.Constants;
+import org.apache.thundercat.util.bcel.Constants;
 
 /**
  * This class is derived from the abstract
- * <A HREF="org.apache.tomcat.util.bcel.classfile.Constant.html">Constant</A> class
+ * <A HREF="org.apache.thundercat.util.bcel.classfile.Constant.html">Constant</A> class
  * and represents a reference to a Utf8 encoded string.
  *
  * @author  <A HREF="mailto:m.dahm@gmx.de">M. Dahm</A>

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.pool2.impl;
+package org.apache.thundercat.dbcp.pool2.impl;
 
 /**
  * A simple "struct" encapsulating the configuration for a

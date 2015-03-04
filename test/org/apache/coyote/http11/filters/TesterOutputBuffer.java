@@ -22,8 +22,8 @@ import java.io.IOException;
 import org.apache.coyote.OutputBuffer;
 import org.apache.coyote.Response;
 import org.apache.coyote.http11.Http11OutputBuffer;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.net.SocketWrapperBase;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.net.SocketWrapperBase;
 
 /**
  * Output buffer for use in unit tests. This is a minimal implementation.

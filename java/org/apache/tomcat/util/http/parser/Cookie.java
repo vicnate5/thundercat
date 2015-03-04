@@ -14,16 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.http.parser;
+package org.apache.thundercat.util.http.parser;
 
 import java.nio.charset.StandardCharsets;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.http.ServerCookie;
-import org.apache.tomcat.util.http.ServerCookies;
-import org.apache.tomcat.util.log.UserDataHelper;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.http.ServerCookie;
+import org.apache.thundercat.util.http.ServerCookies;
+import org.apache.thundercat.util.log.UserDataHelper;
+import org.apache.thundercat.util.res.StringManager;
 
 
 /**
@@ -55,7 +55,7 @@ public class Cookie {
     private static final UserDataHelper invalidCookieVersionLog = new UserDataHelper(log);
     private static final UserDataHelper invalidCookieLog = new UserDataHelper(log);
     private static final StringManager sm =
-            StringManager.getManager("org.apache.tomcat.util.http.parser");
+            StringManager.getManager("org.apache.thundercat.util.http.parser");
 
     private static final boolean isCookieOctet[] = new boolean[256];
     private static final boolean isText[] = new boolean[256];

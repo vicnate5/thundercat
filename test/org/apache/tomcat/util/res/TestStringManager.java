@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.util.res;
+package org.apache.thundercat.util.res;
 
 import static org.junit.Assert.assertTrue;
 

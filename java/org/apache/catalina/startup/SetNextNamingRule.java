@@ -20,8 +20,8 @@ package org.apache.catalina.startup;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.deploy.NamingResourcesImpl;
-import org.apache.tomcat.util.IntrospectionUtils;
-import org.apache.tomcat.util.digester.Rule;
+import org.apache.thundercat.util.IntrospectionUtils;
+import org.apache.thundercat.util.digester.Rule;
 
 
 /**

@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.res;
+package org.apache.thundercat.util.res;
 
 import java.text.MessageFormat;
 import java.util.Enumeration;

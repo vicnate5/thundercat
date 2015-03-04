@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -44,7 +44,7 @@ public class NioSelectorPool {
     private static final Log log = LogFactory.getLog(NioSelectorPool.class);
 
     protected static final boolean SHARED =
-        Boolean.valueOf(System.getProperty("org.apache.tomcat.util.net.NioSelectorShared", "true")).booleanValue();
+        Boolean.valueOf(System.getProperty("org.apache.thundercat.util.net.NioSelectorShared", "true")).booleanValue();
 
     protected NioBlockingSelector blockingSelector;
 

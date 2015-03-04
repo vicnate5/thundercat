@@ -25,7 +25,7 @@ import javax.crypto.spec.PBEKeySpec;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.buf.HexUtils;
+import org.apache.thundercat.util.buf.HexUtils;
 
 public class SecretKeyCredentialHandler extends DigestCredentialHandlerBase {
 

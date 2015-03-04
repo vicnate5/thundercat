@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import java.io.IOException;
 
@@ -67,9 +67,9 @@ public abstract class CookiesBaseTest extends TomcatBaseTest {
     }
 
 
-    public static void addServlets(Tomcat tomcat) {
+    public static void addServlets(Tomcat thundercat) {
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "invalid", new CookieServlet("na;me", "value"));
         ctx.addServletMapping("/invalid", "invalid");

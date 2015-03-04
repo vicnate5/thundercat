@@ -30,7 +30,7 @@ import org.junit.Test;
 
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestCompiler extends TomcatBaseTest {
 
@@ -170,11 +170,11 @@ public class TestCompiler extends TomcatBaseTest {
 
     @Test
     public void testBug51584() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp-fragments");
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
-        tomcat.start();
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.start();
 
         // No further tests required. The bug triggers an infinite loop on
         // context start so the test will crash before it reaches this point if

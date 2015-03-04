@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool.jmx;
+package org.apache.thundercat.jdbc.pool.jmx;
 
 import java.util.Properties;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -26,10 +26,10 @@ import javax.management.NotificationListener;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.jdbc.pool.PoolConfiguration;
-import org.apache.tomcat.jdbc.pool.PoolProperties.InterceptorDefinition;
-import org.apache.tomcat.jdbc.pool.PoolUtilities;
-import org.apache.tomcat.jdbc.pool.Validator;
+import org.apache.thundercat.jdbc.pool.PoolConfiguration;
+import org.apache.thundercat.jdbc.pool.PoolProperties.InterceptorDefinition;
+import org.apache.thundercat.jdbc.pool.PoolUtilities;
+import org.apache.thundercat.jdbc.pool.Validator;
 
 public class ConnectionPool extends NotificationBroadcasterSupport implements ConnectionPoolMBean  {
     /**
@@ -40,7 +40,7 @@ public class ConnectionPool extends NotificationBroadcasterSupport implements Co
     /**
      * the connection pool
      */
-    protected org.apache.tomcat.jdbc.pool.ConnectionPool pool = null;
+    protected org.apache.thundercat.jdbc.pool.ConnectionPool pool = null;
     /**
      * sequence for JMX notifications
      */
@@ -52,12 +52,12 @@ public class ConnectionPool extends NotificationBroadcasterSupport implements Co
     protected ConcurrentLinkedQueue<NotificationListener> listeners =
             new ConcurrentLinkedQueue<>();
 
-    public ConnectionPool(org.apache.tomcat.jdbc.pool.ConnectionPool pool) {
+    public ConnectionPool(org.apache.thundercat.jdbc.pool.ConnectionPool pool) {
         super();
         this.pool = pool;
     }
 
-    public org.apache.tomcat.jdbc.pool.ConnectionPool getPool() {
+    public org.apache.thundercat.jdbc.pool.ConnectionPool getPool() {
         return pool;
     }
 

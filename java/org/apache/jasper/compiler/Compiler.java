@@ -36,8 +36,8 @@ import org.apache.jasper.Options;
 import org.apache.jasper.servlet.JspServletWrapper;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.scan.Jar;
-import org.apache.tomcat.util.scan.JarFactory;
+import org.apache.thundercat.util.scan.Jar;
+import org.apache.thundercat.util.scan.JarFactory;
 
 /**
  * Main JSP compiler class. This class uses Ant for compiling.

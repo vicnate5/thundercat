@@ -33,7 +33,7 @@ import java.util.zip.ZipException;
 import org.apache.catalina.Host;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Expand out a WAR in a Host's appBase.

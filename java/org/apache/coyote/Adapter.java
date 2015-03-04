@@ -16,7 +16,7 @@
  */
 package org.apache.coyote;
 
-import org.apache.tomcat.util.net.SocketStatus;
+import org.apache.thundercat.util.net.SocketStatus;
 
 /**
  * Adapter. This represents the entry point in a coyote-based servlet container.

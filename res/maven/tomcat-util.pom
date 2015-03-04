@@ -17,11 +17,11 @@
 -->
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.apache.tomcat</groupId>
-  <artifactId>tomcat-util</artifactId>
+  <groupId>org.apache.thundercat</groupId>
+  <artifactId>thundercat-util</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
   <description>Common code shared by multiple Tomcat components</description>
-  <url>http://tomcat.apache.org/</url>
+  <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -31,8 +31,8 @@
   </licenses>
   <dependencies>
     <dependency>
-      <groupId>org.apache.tomcat</groupId>
-      <artifactId>tomcat-juli</artifactId>
+      <groupId>org.apache.thundercat</groupId>
+      <artifactId>thundercat-juli</artifactId>
       <version>@MAVEN.DEPLOY.VERSION@</version>
       <scope>compile</scope>
     </dependency>

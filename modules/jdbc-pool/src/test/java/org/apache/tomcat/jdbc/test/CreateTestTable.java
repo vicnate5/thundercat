@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +24,7 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.pool.interceptor.ResetAbandonedTimer;
+import org.apache.thundercat.jdbc.pool.interceptor.ResetAbandonedTimer;
 
 public class CreateTestTable extends DefaultTestCase {
 

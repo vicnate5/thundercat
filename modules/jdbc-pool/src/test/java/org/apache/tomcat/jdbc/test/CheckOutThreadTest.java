@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.sql.Connection;
 import java.util.concurrent.CountDownLatch;
@@ -37,7 +37,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
         long start = System.currentTimeMillis();
         for (int i=0; i<threadcount; i++) {
             TestThread t = new TestThread();
-            t.setName("tomcat-dbcp-"+i);
+            t.setName("thundercat-dbcp-"+i);
             t.d = this.tDatasource;
             t.start();
         }
@@ -58,7 +58,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
         long start = System.currentTimeMillis();
         for (int i=0; i<threadcount; i++) {
             TestThread t = new TestThread();
-            t.setName("tomcat-pool-"+i);
+            t.setName("thundercat-pool-"+i);
             t.d = this.datasource;
             t.start();
         }
@@ -79,7 +79,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
         long start = System.currentTimeMillis();
         for (int i=0; i<threadcount; i++) {
             TestThread t = new TestThread();
-            t.setName("tomcat-pool-"+i);
+            t.setName("thundercat-pool-"+i);
             t.d = this.datasource;
             t.start();
         }
@@ -99,7 +99,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
 //        long start = System.currentTimeMillis();
 //        for (int i=0; i<threadcount; i++) {
 //            TestThread t = new TestThread();
-//            t.setName("tomcat-pool-"+i);
+//            t.setName("thundercat-pool-"+i);
 //            t.d = this.c3p0Datasource;
 //            t.start();
 //        }
@@ -119,7 +119,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
         long start = System.currentTimeMillis();
         for (int i=0; i<threadcount; i++) {
             TestThread t = new TestThread();
-            t.setName("tomcat-dbcp-"+i);
+            t.setName("thundercat-dbcp-"+i);
             t.d = this.tDatasource;
             t.start();
         }
@@ -140,7 +140,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
         long start = System.currentTimeMillis();
         for (int i=0; i<threadcount; i++) {
             TestThread t = new TestThread();
-            t.setName("tomcat-pool-"+i);
+            t.setName("thundercat-pool-"+i);
             t.d = this.datasource;
             t.start();
         }
@@ -161,7 +161,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
         long start = System.currentTimeMillis();
         for (int i=0; i<threadcount; i++) {
             TestThread t = new TestThread();
-            t.setName("tomcat-pool-"+i);
+            t.setName("thundercat-pool-"+i);
             t.d = this.datasource;
             t.start();
         }
@@ -181,7 +181,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
 //        long start = System.currentTimeMillis();
 //        for (int i=0; i<threadcount; i++) {
 //            TestThread t = new TestThread();
-//            t.setName("tomcat-pool-"+i);
+//            t.setName("thundercat-pool-"+i);
 //            t.d = this.c3p0Datasource;
 //            t.start();
 //        }
@@ -202,7 +202,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
         long start = System.currentTimeMillis();
         for (int i=0; i<threadcount; i++) {
             TestThread t = new TestThread();
-            t.setName("tomcat-dbcp-validate-"+i);
+            t.setName("thundercat-dbcp-validate-"+i);
             t.d = this.tDatasource;
             t.start();
         }
@@ -224,7 +224,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
         long start = System.currentTimeMillis();
         for (int i=0; i<threadcount; i++) {
             TestThread t = new TestThread();
-            t.setName("tomcat-pool-validate-"+i);
+            t.setName("thundercat-pool-validate-"+i);
             t.d = this.datasource;
             t.start();
         }
@@ -246,7 +246,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
         long start = System.currentTimeMillis();
         for (int i=0; i<threadcount; i++) {
             TestThread t = new TestThread();
-            t.setName("tomcat-pool-validate-"+i);
+            t.setName("thundercat-pool-validate-"+i);
             t.d = this.datasource;
             t.start();
         }
@@ -267,7 +267,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
 //        long start = System.currentTimeMillis();
 //        for (int i=0; i<threadcount; i++) {
 //            TestThread t = new TestThread();
-//            t.setName("tomcat-pool-validate-"+i);
+//            t.setName("thundercat-pool-validate-"+i);
 //            t.d = this.c3p0Datasource;
 //            t.start();
 //        }
@@ -288,7 +288,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
         long start = System.currentTimeMillis();
         for (int i=0; i<threadcount; i++) {
             TestThread t = new TestThread();
-            t.setName("tomcat-dbcp-validate-"+i);
+            t.setName("thundercat-dbcp-validate-"+i);
             t.d = this.tDatasource;
             t.start();
         }
@@ -310,7 +310,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
         long start = System.currentTimeMillis();
         for (int i=0; i<threadcount; i++) {
             TestThread t = new TestThread();
-            t.setName("tomcat-pool-validate-"+i);
+            t.setName("thundercat-pool-validate-"+i);
             t.d = this.datasource;
             t.start();
         }
@@ -332,7 +332,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
         long start = System.currentTimeMillis();
         for (int i=0; i<threadcount; i++) {
             TestThread t = new TestThread();
-            t.setName("tomcat-pool-validate-"+i);
+            t.setName("thundercat-pool-validate-"+i);
             t.d = this.datasource;
             t.start();
         }
@@ -353,7 +353,7 @@ public class CheckOutThreadTest extends DefaultTestCase {
 //        long start = System.currentTimeMillis();
 //        for (int i=0; i<threadcount; i++) {
 //            TestThread t = new TestThread();
-//            t.setName("tomcat-pool-validate-"+i);
+//            t.setName("thundercat-pool-validate-"+i);
 //            t.d = this.c3p0Datasource;
 //            t.start();
 //        }

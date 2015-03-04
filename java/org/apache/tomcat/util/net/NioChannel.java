@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -23,8 +23,8 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 
-import org.apache.tomcat.util.net.NioEndpoint.Poller;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.net.NioEndpoint.Poller;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  *

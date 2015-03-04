@@ -24,8 +24,8 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.util.Iterator;
 
-import org.apache.tomcat.util.IntrospectionUtils;
-import org.apache.tomcat.util.descriptor.web.ResourceBase;
+import org.apache.thundercat.util.IntrospectionUtils;
+import org.apache.thundercat.util.descriptor.web.ResourceBase;
 
 /**
  * StoreAppends generate really the xml tag elements

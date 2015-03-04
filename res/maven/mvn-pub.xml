@@ -97,17 +97,17 @@
   <macrodef name="doMavenDeploy">
     <attribute name="artifactId"/>
     <attribute name="jarFileName" default="@{artifactId}.jar" />
-    <attribute name="groupId" default="org.apache.tomcat" />
-    <attribute name="file" default="${tomcat.lib.path}/@{jarFileName}" />
+    <attribute name="groupId" default="org.apache.thundercat" />
+    <attribute name="file" default="${thundercat.lib.path}/@{jarFileName}" />
     <attribute name="pom" default="@{artifactId}.pom" />
     <attribute name="srcJarFileName" default="@{artifactId}-src.jar" />
-    <attribute name="src" default="${tomcat.src.path}/@{srcJarFileName}" />
+    <attribute name="src" default="${thundercat.src.path}/@{srcJarFileName}" />
     <sequential>
       <antcall target="maven-deploy">
         <param name="file" value="@{file}"/>
         <param name="groupId" value="@{groupId}"/>
         <param name="artifactId" value="@{artifactId}"/>
-        <param name="pom" value="${tomcat.pom.path}/@{pom}"/>
+        <param name="pom" value="${thundercat.pom.path}/@{pom}"/>
         <param name="src" value="@{src}"/>
         <param name="src.skip" value="@{src.skip}"/>
       </antcall>
@@ -165,15 +165,15 @@
   <macrodef name="doMavenDeployNoSrc">
     <attribute name="artifactId"/>
     <attribute name="jarFileName" default="@{artifactId}.jar" />
-    <attribute name="groupId" default="org.apache.tomcat" />
-    <attribute name="file" default="${tomcat.lib.path}/@{jarFileName}" />
+    <attribute name="groupId" default="org.apache.thundercat" />
+    <attribute name="file" default="${thundercat.lib.path}/@{jarFileName}" />
     <attribute name="pom" default="@{artifactId}.pom" />
     <sequential>
       <antcall target="maven-deploy-nosrc">
         <param name="file" value="@{file}"/>
         <param name="groupId" value="@{groupId}"/>
         <param name="artifactId" value="@{artifactId}"/>
-        <param name="pom" value="${tomcat.pom.path}/@{pom}"/>
+        <param name="pom" value="${thundercat.pom.path}/@{pom}"/>
       </antcall>
     </sequential>
   </macrodef>
@@ -241,7 +241,7 @@
 
   <macrodef name="doMavenDeployBinaries">
     <attribute name="artifactId"/>
-    <attribute name="groupId" default="org.apache.tomcat" />
+    <attribute name="groupId" default="org.apache.thundercat" />
     <attribute name="file" />
     <attribute name="pom" default="@{artifactId}.pom" />
     <sequential>
@@ -249,7 +249,7 @@
         <param name="file" value="@{file}"/>
         <param name="groupId" value="@{groupId}"/>
         <param name="artifactId" value="@{artifactId}"/>
-        <param name="pom" value="${tomcat.pom.path}/@{pom}"/>
+        <param name="pom" value="${thundercat.pom.path}/@{pom}"/>
       </antcall>
     </sequential>
   </macrodef>
@@ -257,125 +257,125 @@
   <target name="generic-deploy" depends="init-maven,init-gpg,init-ldap">
     <!-- Standard jars in bin directory -->
     <!-- Skip bootstrap.jar - it is just a subset of catalina.jar -->
-    <doMavenDeploy artifactId="tomcat-juli"
-                         file="${tomcat.bin.path}/tomcat-juli.jar"/>
+    <doMavenDeploy artifactId="thundercat-juli"
+                         file="${thundercat.bin.path}/thundercat-juli.jar"/>
 
     <!-- Standard jars in lib directory -->
-    <doMavenDeploy artifactId="tomcat-annotations-api"
+    <doMavenDeploy artifactId="thundercat-annotations-api"
                   jarFileName="annotations-api.jar"
                srcJarFileName="annotations-api-src.jar"/>
 
-    <doMavenDeploy artifactId="tomcat-catalina"
+    <doMavenDeploy artifactId="thundercat-catalina"
                   jarFileName="catalina.jar"
                srcJarFileName="catalina-src.jar"/>
 
-    <doMavenDeploy artifactId="tomcat-catalina-ant"
+    <doMavenDeploy artifactId="thundercat-catalina-ant"
                   jarFileName="catalina-ant.jar"
                srcJarFileName="catalina-ant-src.jar"/>
 
-    <doMavenDeploy artifactId="tomcat-catalina-ha"
+    <doMavenDeploy artifactId="thundercat-catalina-ha"
                   jarFileName="catalina-ha.jar"
                srcJarFileName="catalina-ha-src.jar"/>
 
-    <doMavenDeploy artifactId="tomcat-tribes"
+    <doMavenDeploy artifactId="thundercat-tribes"
                   jarFileName="catalina-tribes.jar"
                srcJarFileName="catalina-tribes-src.jar"/>
 
-    <doMavenDeploy artifactId="tomcat-jdbc"
-                  jarFileName="tomcat-jdbc.jar"
-               srcJarFileName="tomcat-jdbc-src.jar"/>
+    <doMavenDeploy artifactId="thundercat-jdbc"
+                  jarFileName="thundercat-jdbc.jar"
+               srcJarFileName="thundercat-jdbc-src.jar"/>
 
-    <doMavenDeploy artifactId="tomcat-el-api"
+    <doMavenDeploy artifactId="thundercat-el-api"
                   jarFileName="el-api.jar"
                srcJarFileName="el-api-src.jar"/>
 
-    <doMavenDeploy artifactId="tomcat-jasper"
+    <doMavenDeploy artifactId="thundercat-jasper"
                   jarFileName="jasper.jar"
                srcJarFileName="jasper-src.jar"/>
 
-    <doMavenDeploy artifactId="tomcat-jasper-el"
+    <doMavenDeploy artifactId="thundercat-jasper-el"
                   jarFileName="jasper-el.jar"
                srcJarFileName="jasper-el-src.jar"/>
 
-    <doMavenDeploy artifactId="tomcat-jsp-api"
+    <doMavenDeploy artifactId="thundercat-jsp-api"
                   jarFileName="jsp-api.jar"
                srcJarFileName="jsp-api-src.jar"/>
 
-    <doMavenDeploy artifactId="tomcat-servlet-api"
+    <doMavenDeploy artifactId="thundercat-servlet-api"
                   jarFileName="servlet-api.jar"
                srcJarFileName="servlet-api-src.jar"/>
 
-    <doMavenDeploy artifactId="tomcat-websocket-api"
+    <doMavenDeploy artifactId="thundercat-websocket-api"
                   jarFileName="websocket-api.jar"
                srcJarFileName="websocket-api-src.jar"/>
 
-    <doMavenDeploy artifactId="tomcat-api"/>
-    <doMavenDeploy artifactId="tomcat-jni"/>
-    <doMavenDeploy artifactId="tomcat-spdy"/>
-    <doMavenDeploy artifactId="tomcat-util"/>
-    <doMavenDeploy artifactId="tomcat-util-scan"/>
-    <doMavenDeploy artifactId="tomcat-coyote"/>
-    <doMavenDeploy artifactId="tomcat-dbcp"/>
-    <doMavenDeploy artifactId="tomcat-websocket"/>
-    <doMavenDeployNoSrc artifactId="tomcat-i18n-es"/>
-    <doMavenDeployNoSrc artifactId="tomcat-i18n-fr"/>
-    <doMavenDeployNoSrc artifactId="tomcat-i18n-ja"/>
+    <doMavenDeploy artifactId="thundercat-api"/>
+    <doMavenDeploy artifactId="thundercat-jni"/>
+    <doMavenDeploy artifactId="thundercat-spdy"/>
+    <doMavenDeploy artifactId="thundercat-util"/>
+    <doMavenDeploy artifactId="thundercat-util-scan"/>
+    <doMavenDeploy artifactId="thundercat-coyote"/>
+    <doMavenDeploy artifactId="thundercat-dbcp"/>
+    <doMavenDeploy artifactId="thundercat-websocket"/>
+    <doMavenDeployNoSrc artifactId="thundercat-i18n-es"/>
+    <doMavenDeployNoSrc artifactId="thundercat-i18n-fr"/>
+    <doMavenDeployNoSrc artifactId="thundercat-i18n-ja"/>
 
     <!-- Extras jars -->
-    <doMavenDeploy artifactId="tomcat-extras-juli"
-        groupId="org.apache.tomcat.extras"
-        file="${tomcat.extras.path}/tomcat-juli.jar"
-        src="${tomcat.extras.src.path}/tomcat-juli-src.jar" />
-    <doMavenDeploy artifactId="tomcat-extras-juli-adapters"
-        groupId="org.apache.tomcat.extras"
-        file="${tomcat.extras.path}/tomcat-juli-adapters.jar"
-        src="${tomcat.extras.src.path}/tomcat-juli-adapters-src.jar" />
-    <doMavenDeploy artifactId="tomcat-catalina-jmx-remote"
-        groupId="org.apache.tomcat.extras"
-        file="${tomcat.extras.path}/catalina-jmx-remote.jar"
-        src="${tomcat.extras.src.path}/catalina-jmx-remote-src.jar" />
-    <doMavenDeploy artifactId="tomcat-catalina-ws"
-        groupId="org.apache.tomcat.extras"
-        file="${tomcat.extras.path}/catalina-ws.jar"
-        src="${tomcat.extras.src.path}/catalina-ws-src.jar" />
+    <doMavenDeploy artifactId="thundercat-extras-juli"
+        groupId="org.apache.thundercat.extras"
+        file="${thundercat.extras.path}/thundercat-juli.jar"
+        src="${thundercat.extras.src.path}/thundercat-juli-src.jar" />
+    <doMavenDeploy artifactId="thundercat-extras-juli-adapters"
+        groupId="org.apache.thundercat.extras"
+        file="${thundercat.extras.path}/thundercat-juli-adapters.jar"
+        src="${thundercat.extras.src.path}/thundercat-juli-adapters-src.jar" />
+    <doMavenDeploy artifactId="thundercat-catalina-jmx-remote"
+        groupId="org.apache.thundercat.extras"
+        file="${thundercat.extras.path}/catalina-jmx-remote.jar"
+        src="${thundercat.extras.src.path}/catalina-jmx-remote-src.jar" />
+    <doMavenDeploy artifactId="thundercat-catalina-ws"
+        groupId="org.apache.thundercat.extras"
+        file="${thundercat.extras.path}/catalina-ws.jar"
+        src="${thundercat.extras.src.path}/catalina-ws-src.jar" />
 
     <!-- Emedded jars -->
     <!-- Skip DBCP - optional and can use standard ones above -->
-    <doMavenDeploy artifactId="tomcat-embed-core"
-        groupId="org.apache.tomcat.embed"
-        file="${tomcat.embed.path}/tomcat-embed-core.jar"
-        pom="tomcat-embed-core.pom"
-        src="${tomcat.embed.src.path}/tomcat-embed-core-src.jar"/>
-    <doMavenDeploy artifactId="tomcat-embed-jasper"
-        groupId="org.apache.tomcat.embed"
-        file="${tomcat.embed.path}/tomcat-embed-jasper.jar"
-        pom="tomcat-embed-jasper.pom"
-        src="${tomcat.embed.src.path}/tomcat-embed-jasper-src.jar"/>
-    <doMavenDeploy artifactId="tomcat-embed-el"
-        groupId="org.apache.tomcat.embed"
-        file="${tomcat.embed.path}/tomcat-embed-el.jar"
-        pom="tomcat-embed-el.pom"
-        src="${tomcat.embed.src.path}/tomcat-embed-el-src.jar"/>
-    <doMavenDeploy artifactId="tomcat-embed-websocket"
-        groupId="org.apache.tomcat.embed"
-        file="${tomcat.embed.path}/tomcat-embed-websocket.jar"
-        pom="tomcat-embed-websocket.pom"
-        src="${tomcat.embed.src.path}/tomcat-embed-websocket-src.jar"/>
-    <doMavenDeploy artifactId="tomcat-embed-logging-juli"
-        groupId="org.apache.tomcat.embed"
-        file="${tomcat.embed.path}/tomcat-embed-logging-juli.jar"
-        pom="tomcat-embed-logging-juli.pom"
-        src="${tomcat.embed.src.path}/tomcat-embed-logging-juli-src.jar"/>
-    <doMavenDeploy artifactId="tomcat-embed-logging-log4j"
-        groupId="org.apache.tomcat.embed"
-        file="${tomcat.embed.path}/tomcat-embed-logging-log4j.jar"
-        pom="tomcat-embed-logging-log4j.pom"
-        src="${tomcat.embed.src.path}/tomcat-embed-logging-log4j-src.jar"/>
+    <doMavenDeploy artifactId="thundercat-embed-core"
+        groupId="org.apache.thundercat.embed"
+        file="${thundercat.embed.path}/thundercat-embed-core.jar"
+        pom="thundercat-embed-core.pom"
+        src="${thundercat.embed.src.path}/thundercat-embed-core-src.jar"/>
+    <doMavenDeploy artifactId="thundercat-embed-jasper"
+        groupId="org.apache.thundercat.embed"
+        file="${thundercat.embed.path}/thundercat-embed-jasper.jar"
+        pom="thundercat-embed-jasper.pom"
+        src="${thundercat.embed.src.path}/thundercat-embed-jasper-src.jar"/>
+    <doMavenDeploy artifactId="thundercat-embed-el"
+        groupId="org.apache.thundercat.embed"
+        file="${thundercat.embed.path}/thundercat-embed-el.jar"
+        pom="thundercat-embed-el.pom"
+        src="${thundercat.embed.src.path}/thundercat-embed-el-src.jar"/>
+    <doMavenDeploy artifactId="thundercat-embed-websocket"
+        groupId="org.apache.thundercat.embed"
+        file="${thundercat.embed.path}/thundercat-embed-websocket.jar"
+        pom="thundercat-embed-websocket.pom"
+        src="${thundercat.embed.src.path}/thundercat-embed-websocket-src.jar"/>
+    <doMavenDeploy artifactId="thundercat-embed-logging-juli"
+        groupId="org.apache.thundercat.embed"
+        file="${thundercat.embed.path}/thundercat-embed-logging-juli.jar"
+        pom="thundercat-embed-logging-juli.pom"
+        src="${thundercat.embed.src.path}/thundercat-embed-logging-juli-src.jar"/>
+    <doMavenDeploy artifactId="thundercat-embed-logging-log4j"
+        groupId="org.apache.thundercat.embed"
+        file="${thundercat.embed.path}/thundercat-embed-logging-log4j.jar"
+        pom="thundercat-embed-logging-log4j.pom"
+        src="${thundercat.embed.src.path}/thundercat-embed-logging-log4j-src.jar"/>
 
     <!-- Binaries -->
     <doMavenDeployBinaries
-      artifactId="tomcat"
-      file="${tomcat.release.path}/v${maven.deploy.binary.version}/bin/apache-tomcat-${maven.deploy.binary.version}"/>
+      artifactId="thundercat"
+      file="${thundercat.release.path}/v${maven.deploy.binary.version}/bin/apache-thundercat-${maven.deploy.binary.version}"/>
 
   </target>
 

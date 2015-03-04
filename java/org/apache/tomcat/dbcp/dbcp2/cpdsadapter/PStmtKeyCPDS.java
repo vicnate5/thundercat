@@ -14,11 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.dbcp2.cpdsadapter;
+package org.apache.thundercat.dbcp.dbcp2.cpdsadapter;
 
 import java.util.Arrays;
 
-import org.apache.tomcat.dbcp.dbcp2.PStmtKey;
+import org.apache.thundercat.dbcp.dbcp2.PStmtKey;
 
 /**
  * A key uniquely identifying a {@link java.sql.PreparedStatement PreparedStatement}.

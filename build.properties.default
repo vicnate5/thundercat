@@ -76,8 +76,8 @@ base-apache.loc.1=http://www.apache.org/dist
 base-apache.loc.2=http://archive.apache.org/dist
 base-commons.loc.1=${base-apache.loc.1}/commons
 base-commons.loc.2=${base-apache.loc.2}/commons
-base-tomcat.loc.1=${base-apache.loc.1}/tomcat
-base-tomcat.loc.2=${base-apache.loc.2}/tomcat
+base-thundercat.loc.1=${base-apache.loc.1}/thundercat
+base-thundercat.loc.2=${base-apache.loc.2}/thundercat
 
 base-sf.loc=http://downloads.sourceforge.net
 # repo.maven.apache.org is the same as repo2.maven.org
@@ -138,7 +138,7 @@ wsdl4j-lib.loc=${base-maven.loc}/wsdl4j/wsdl4j/${wsdl4j-lib.version}/wsdl4j-${ws
 wsdl4j-lib.jar=${wsdl4j-lib.home}/wsdl4j-${wsdl4j-lib.version}.jar
 
 # ----- Eclipse JDT, version 4.4 or later -----#
-# See https://wiki.apache.org/tomcat/JDTCoreBatchCompiler before updating
+# See https://wiki.apache.org/thundercat/JDTCoreBatchCompiler before updating
 jdt.version=4.4.1
 jdt.release=R-4.4.1-201409250400
 jdt.home=${base.path}/ecj-${jdt.version}
@@ -154,13 +154,13 @@ npn.jar=${npn.home}/npn-${npn.version}.jar
 npn.loc=http://repo1.maven.org/maven2/org/eclipse/jetty/npn/npn-api/${npn.version}/npn-api-${npn.version}.jar
 
 # ----- Tomcat native library -----
-tomcat-native.version=1.1.32
-tomcat-native.home=${base.path}/tomcat-native-${tomcat-native.version}
-tomcat-native.tar.gz=${tomcat-native.home}/tomcat-native.tar.gz
-tomcat-native.loc.1=${base-tomcat.loc.1}/tomcat-connectors/native/${tomcat-native.version}/source/tomcat-native-${tomcat-native.version}-src.tar.gz
-tomcat-native.loc.2=${base-tomcat.loc.2}/tomcat-connectors/native/${tomcat-native.version}/source/tomcat-native-${tomcat-native.version}-src.tar.gz
-tomcat-native.win.1=${base-tomcat.loc.1}/tomcat-connectors/native/${tomcat-native.version}/binaries/tomcat-native-${tomcat-native.version}-win32-bin.zip
-tomcat-native.win.2=${base-tomcat.loc.2}/tomcat-connectors/native/${tomcat-native.version}/binaries/tomcat-native-${tomcat-native.version}-win32-bin.zip
+thundercat-native.version=1.1.32
+thundercat-native.home=${base.path}/thundercat-native-${thundercat-native.version}
+thundercat-native.tar.gz=${thundercat-native.home}/thundercat-native.tar.gz
+thundercat-native.loc.1=${base-thundercat.loc.1}/thundercat-connectors/native/${thundercat-native.version}/source/thundercat-native-${thundercat-native.version}-src.tar.gz
+thundercat-native.loc.2=${base-thundercat.loc.2}/thundercat-connectors/native/${thundercat-native.version}/source/thundercat-native-${thundercat-native.version}-src.tar.gz
+thundercat-native.win.1=${base-thundercat.loc.1}/thundercat-connectors/native/${thundercat-native.version}/binaries/thundercat-native-${thundercat-native.version}-win32-bin.zip
+thundercat-native.win.2=${base-thundercat.loc.2}/thundercat-connectors/native/${thundercat-native.version}/binaries/thundercat-native-${thundercat-native.version}-win32-bin.zip
 
 # ----- NSIS, version 2.0 or later -----
 nsis.home=${base.path}/nsis-2.46

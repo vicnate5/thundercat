@@ -36,7 +36,7 @@ import org.apache.catalina.SessionListener;
 import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.Response;
 import org.apache.catalina.valves.ValveBase;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * A <strong>Valve</strong> that supports a "single sign on" user experience,

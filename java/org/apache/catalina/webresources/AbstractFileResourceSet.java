@@ -22,7 +22,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.apache.catalina.LifecycleException;
-import org.apache.tomcat.util.http.RequestUtil;
+import org.apache.thundercat.util.http.RequestUtil;
 
 public abstract class AbstractFileResourceSet extends AbstractResourceSet {
 

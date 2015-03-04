@@ -99,16 +99,16 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
             boolean expectPass) throws Exception {
 
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         EchoHeaderServlet servlet = new EchoHeaderServlet(expectPass);
         Tomcat.addServlet(ctx, "servlet", servlet);
         ctx.addServletMapping("/", "servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         String[] request = new String[]{
             "POST /echo-params.jsp HTTP/1.1" + SimpleHttpClient.CRLF +
@@ -130,7 +130,7 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
             (endUsesCRLF ? SimpleHttpClient.CRLF : LF) };
 
         TrailerClient client =
-                new TrailerClient(tomcat.getConnector().getLocalPort());
+                new TrailerClient(thundercat.getConnector().getLocalPort());
         client.setRequest(request);
 
         client.connect();
@@ -162,17 +162,17 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
     @Test
     public void testTrailingHeadersSizeLimit() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "servlet", new EchoHeaderServlet(false));
         ctx.addServletMapping("/", "servlet");
 
         // Limit the size of the trailing header
-        tomcat.getConnector().setProperty("maxTrailerSize", "10");
-        tomcat.start();
+        thundercat.getConnector().setProperty("maxTrailerSize", "10");
+        thundercat.start();
 
         String[] request = new String[]{
             "POST /echo-params.jsp HTTP/1.1" + SimpleHttpClient.CRLF +
@@ -191,7 +191,7 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
             SimpleHttpClient.CRLF };
 
         TrailerClient client =
-                new TrailerClient(tomcat.getConnector().getLocalPort());
+                new TrailerClient(thundercat.getConnector().getLocalPort());
         client.setRequest(request);
 
         client.connect();
@@ -222,18 +222,18 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
 
     private void doTestExtensionSizeLimit(int len, boolean ok) throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
-        tomcat.getConnector().setProperty(
+        thundercat.getConnector().setProperty(
                 "maxExtensionSize", Integer.toString(EXT_SIZE_LIMIT));
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "servlet", new EchoHeaderServlet(ok));
         ctx.addServletMapping("/", "servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         String extName = ";foo=";
         StringBuilder extValue = new StringBuilder(len);
@@ -257,7 +257,7 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
             SimpleHttpClient.CRLF };
 
         TrailerClient client =
-                new TrailerClient(tomcat.getConnector().getLocalPort());
+                new TrailerClient(thundercat.getConnector().getLocalPort());
         client.setRequest(request);
 
         client.connect();
@@ -273,15 +273,15 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
     @Test
     public void testNoTrailingHeaders() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "servlet", new EchoHeaderServlet(true));
         ctx.addServletMapping("/", "servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         String request =
             "POST /echo-params.jsp HTTP/1.1" + SimpleHttpClient.CRLF +
@@ -299,7 +299,7 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
             SimpleHttpClient.CRLF;
 
         TrailerClient client =
-                new TrailerClient(tomcat.getConnector().getLocalPort());
+                new TrailerClient(thundercat.getConnector().getLocalPort());
         client.setRequest(new String[] {request});
 
         client.connect();
@@ -372,16 +372,16 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
             boolean expectReadWholeBody, String chunks, int readLimit,
             int expectReadCount) throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         BodyReadServlet servlet = new BodyReadServlet(expectPass, readLimit);
         Tomcat.addServlet(ctx, "servlet", servlet);
         ctx.addServletMapping("/", "servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         String request = "POST /echo-params.jsp HTTP/1.1"
                 + SimpleHttpClient.CRLF + "Host: any" + SimpleHttpClient.CRLF
@@ -393,7 +393,7 @@ public class TestChunkedInputFilter extends TomcatBaseTest {
         request += SimpleHttpClient.CRLF + chunks + "0" + SimpleHttpClient.CRLF
                 + SimpleHttpClient.CRLF;
 
-        TrailerClient client = new TrailerClient(tomcat.getConnector()
+        TrailerClient client = new TrailerClient(thundercat.getConnector()
                 .getLocalPort());
         client.setRequest(new String[] { request });
 

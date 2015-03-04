@@ -28,7 +28,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 
-import org.apache.tomcat.util.codec.binary.Base64;
+import org.apache.thundercat.util.codec.binary.Base64;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Project;
 

@@ -42,9 +42,9 @@ import org.apache.catalina.deploy.NamingResourcesImpl;
 import org.apache.catalina.util.ContextName;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.JarScanner;
-import org.apache.tomcat.util.descriptor.web.ApplicationParameter;
-import org.apache.tomcat.util.http.CookieProcessor;
+import org.apache.thundercat.JarScanner;
+import org.apache.thundercat.util.descriptor.web.ApplicationParameter;
+import org.apache.thundercat.util.http.CookieProcessor;
 
 /**
  * Store server.xml Context element with all children

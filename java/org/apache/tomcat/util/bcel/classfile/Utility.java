@@ -15,13 +15,13 @@
  *  limitations under the License.
  *
  */
-package org.apache.tomcat.util.bcel.classfile;
+package org.apache.thundercat.util.bcel.classfile;
 
 import java.io.DataInput;
 import java.io.EOFException;
 import java.io.IOException;
 
-import org.apache.tomcat.util.bcel.Constants;
+import org.apache.thundercat.util.bcel.Constants;
 
 /**
  * Utility functions that do not really belong to any class in particular.

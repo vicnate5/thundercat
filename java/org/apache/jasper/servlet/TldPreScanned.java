@@ -21,7 +21,7 @@ import java.util.Collection;
 
 import javax.servlet.ServletContext;
 
-import org.apache.tomcat.util.descriptor.tld.TldResourcePath;
+import org.apache.thundercat.util.descriptor.tld.TldResourcePath;
 
 public class TldPreScanned extends TldScanner {
 

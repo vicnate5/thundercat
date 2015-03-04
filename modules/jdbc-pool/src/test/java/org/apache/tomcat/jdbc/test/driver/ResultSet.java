@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.jdbc.test.driver;
+package org.apache.thundercat.jdbc.test.driver;
 
 import java.io.InputStream;
 import java.io.Reader;

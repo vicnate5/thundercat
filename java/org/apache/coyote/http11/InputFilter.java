@@ -21,7 +21,7 @@ import java.io.IOException;
 
 import org.apache.coyote.InputBuffer;
 import org.apache.coyote.Request;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Input filter interface.

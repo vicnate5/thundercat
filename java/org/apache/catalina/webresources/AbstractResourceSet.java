@@ -21,7 +21,7 @@ import org.apache.catalina.LifecycleState;
 import org.apache.catalina.WebResourceRoot;
 import org.apache.catalina.WebResourceSet;
 import org.apache.catalina.util.LifecycleBase;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 public abstract class AbstractResourceSet extends LifecycleBase
         implements WebResourceSet {

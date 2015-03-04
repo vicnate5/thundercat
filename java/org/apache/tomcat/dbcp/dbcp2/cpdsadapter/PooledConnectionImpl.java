@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.dbcp.dbcp2.cpdsadapter;
+package org.apache.thundercat.dbcp.dbcp2.cpdsadapter;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,12 +27,12 @@ import javax.sql.ConnectionEventListener;
 import javax.sql.PooledConnection;
 import javax.sql.StatementEventListener;
 
-import org.apache.tomcat.dbcp.dbcp2.DelegatingConnection;
-import org.apache.tomcat.dbcp.dbcp2.PoolablePreparedStatement;
-import org.apache.tomcat.dbcp.pool2.KeyedObjectPool;
-import org.apache.tomcat.dbcp.pool2.KeyedPooledObjectFactory;
-import org.apache.tomcat.dbcp.pool2.PooledObject;
-import org.apache.tomcat.dbcp.pool2.impl.DefaultPooledObject;
+import org.apache.thundercat.dbcp.dbcp2.DelegatingConnection;
+import org.apache.thundercat.dbcp.dbcp2.PoolablePreparedStatement;
+import org.apache.thundercat.dbcp.pool2.KeyedObjectPool;
+import org.apache.thundercat.dbcp.pool2.KeyedPooledObjectFactory;
+import org.apache.thundercat.dbcp.pool2.PooledObject;
+import org.apache.thundercat.dbcp.pool2.impl.DefaultPooledObject;
 
 /**
  * Implementation of PooledConnection that is returned by

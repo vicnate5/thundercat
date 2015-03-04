@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.pool2.impl;
+package org.apache.thundercat.dbcp.pool2.impl;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -26,12 +26,12 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.apache.tomcat.dbcp.pool2.ObjectPool;
-import org.apache.tomcat.dbcp.pool2.PoolUtils;
-import org.apache.tomcat.dbcp.pool2.PooledObject;
-import org.apache.tomcat.dbcp.pool2.PooledObjectFactory;
-import org.apache.tomcat.dbcp.pool2.PooledObjectState;
-import org.apache.tomcat.dbcp.pool2.UsageTracking;
+import org.apache.thundercat.dbcp.pool2.ObjectPool;
+import org.apache.thundercat.dbcp.pool2.PoolUtils;
+import org.apache.thundercat.dbcp.pool2.PooledObject;
+import org.apache.thundercat.dbcp.pool2.PooledObjectFactory;
+import org.apache.thundercat.dbcp.pool2.PooledObjectState;
+import org.apache.thundercat.dbcp.pool2.UsageTracking;
 
 /**
  * A configurable {@link ObjectPool} implementation.
@@ -55,7 +55,7 @@ import org.apache.tomcat.dbcp.pool2.UsageTracking;
  * Abandoned object removal can be configured to happen when
  * <code>borrowObject</code> is invoked and the pool is close to starvation, or
  * it can be executed by the idle object evictor, or both. If pooled objects
- * implement the {@link org.apache.tomcat.dbcp.pool2.TrackedUse} interface,
+ * implement the {@link org.apache.thundercat.dbcp.pool2.TrackedUse} interface,
  * their last use will be queried
  * using the <code>getLastUsed</code> method on that interface; otherwise
  * abandonment is determined by how long an object has been checked out from
@@ -528,7 +528,7 @@ public class GenericObjectPool<T> extends BaseGenericObjectPool<T>
      * <p>
      * Exceptions encountered destroying objects for any reason are swallowed
      * but notified via a
-     * {@link org.apache.tomcat.dbcp.pool2.SwallowedExceptionListener}.
+     * {@link org.apache.thundercat.dbcp.pool2.SwallowedExceptionListener}.
      */
     @Override
     public void returnObject(T obj) {
@@ -665,7 +665,7 @@ public class GenericObjectPool<T> extends BaseGenericObjectPool<T>
      * be returned while removed items are being destroyed.</li>
      * <li>Exceptions encountered destroying idle instances are swallowed
      * but notified via a
-     * {@link org.apache.tomcat.dbcp.pool2.SwallowedExceptionListener}.</li>
+     * {@link org.apache.thundercat.dbcp.pool2.SwallowedExceptionListener}.</li>
      * </ul>
      */
     @Override
@@ -1132,7 +1132,7 @@ public class GenericObjectPool<T> extends BaseGenericObjectPool<T>
 
     // JMX specific attributes
     private static final String ONAME_BASE =
-        "org.apache.tomcat.dbcp.pool2:type=GenericObjectPool,name=";
+        "org.apache.thundercat.dbcp.pool2:type=GenericObjectPool,name=";
 
     // Additional configuration properties for abandoned object tracking
     private volatile AbandonedConfig abandonedConfig = null;

@@ -38,7 +38,7 @@ import javax.management.ObjectName;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.catalina.util.RequestUtil;
-import org.apache.tomcat.util.ExceptionUtils;
+import org.apache.thundercat.util.ExceptionUtils;
 
 /**
  * This is a refactoring of the servlet to externalize
@@ -158,7 +158,7 @@ public class StatusTransformer {
             paramTypes[0] = result.getClass();
             Object paramValues[] = new Object[1];
             paramValues[0] = result;
-            Method method = Class.forName("org.apache.tomcat.jni.OS")
+            Method method = Class.forName("org.apache.thundercat.jni.OS")
                 .getMethod(methodName, paramTypes);
             method.invoke(null, paramValues);
             ok = true;

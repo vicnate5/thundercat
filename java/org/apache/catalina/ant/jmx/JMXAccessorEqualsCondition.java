@@ -42,7 +42,7 @@ import org.apache.tools.ant.BuildException;
  *               &lt;socket server="${server.name}" port="${server.port}"/&gt;
  *               &lt;http url="${url}"/&gt;
  *               &lt;jmxEquals
- *                   host="localhost" port="9014" username="controlRole" password="tomcat"
+ *                   host="localhost" port="9014" username="controlRole" password="thundercat"
  *                   name="Catalina:type=IDataSender,host=localhost,senderAddress=192.168.111.1,senderPort=9025"
  *                   attribute="connected" value="true"
  *               /&gt;

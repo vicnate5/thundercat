@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket;
+package org.apache.thundercat.websocket;
 
 import java.io.OutputStream;
 import java.io.Writer;
@@ -39,12 +39,12 @@ import org.apache.catalina.Context;
 import org.apache.catalina.servlets.DefaultServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.websocket.TesterMessageCountClient.AsyncBinary;
-import org.apache.tomcat.websocket.TesterMessageCountClient.AsyncHandler;
-import org.apache.tomcat.websocket.TesterMessageCountClient.AsyncText;
-import org.apache.tomcat.websocket.TesterMessageCountClient.TesterAnnotatedEndpoint;
-import org.apache.tomcat.websocket.TesterMessageCountClient.TesterEndpoint;
-import org.apache.tomcat.websocket.TesterMessageCountClient.TesterProgrammaticEndpoint;
+import org.apache.thundercat.websocket.TesterMessageCountClient.AsyncBinary;
+import org.apache.thundercat.websocket.TesterMessageCountClient.AsyncHandler;
+import org.apache.thundercat.websocket.TesterMessageCountClient.AsyncText;
+import org.apache.thundercat.websocket.TesterMessageCountClient.TesterAnnotatedEndpoint;
+import org.apache.thundercat.websocket.TesterMessageCountClient.TesterEndpoint;
+import org.apache.thundercat.websocket.TesterMessageCountClient.TesterProgrammaticEndpoint;
 
 public class TestWsRemoteEndpoint extends TomcatBaseTest {
 
@@ -91,9 +91,9 @@ public class TestWsRemoteEndpoint extends TomcatBaseTest {
     }
 
     private void doTestWriter(Class<?> clazz, boolean useWriter, String testMessage) throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterEchoServer.Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
@@ -101,7 +101,7 @@ public class TestWsRemoteEndpoint extends TomcatBaseTest {
         WebSocketContainer wsContainer =
                 ContainerProvider.getWebSocketContainer();
 
-        tomcat.start();
+        thundercat.start();
 
         Session wsSession;
         URI uri = new URI("ws://localhost:" + getPort() +
@@ -204,16 +204,16 @@ public class TestWsRemoteEndpoint extends TomcatBaseTest {
     }
 
     private void doTestWriterError(Class<?> clazz) throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterEchoServer.Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
         WebSocketContainer wsContainer = ContainerProvider.getWebSocketContainer();
 
-        tomcat.start();
+        thundercat.start();
 
         Session wsSession;
         URI uri = new URI("ws://localhost:" + getPort() + TesterEchoServer.Config.PATH_WRITER_ERROR);

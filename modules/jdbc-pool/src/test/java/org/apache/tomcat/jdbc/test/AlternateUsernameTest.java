@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.sql.SQLException;
 import java.util.Arrays;
@@ -29,8 +29,8 @@ import javax.sql.PooledConnection;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.test.driver.Connection;
-import org.apache.tomcat.jdbc.test.driver.Driver;
+import org.apache.thundercat.jdbc.test.driver.Connection;
+import org.apache.thundercat.jdbc.test.driver.Driver;
 
 public class AlternateUsernameTest extends DefaultTestCase {
 
@@ -47,7 +47,7 @@ public class AlternateUsernameTest extends DefaultTestCase {
         int withuser = withoutuser;
         this.datasource.setMaxActive(withuser+withoutuser);
         this.datasource.setDriverClassName(Driver.class.getName());
-        this.datasource.setUrl("jdbc:tomcat:test");
+        this.datasource.setUrl("jdbc:thundercat:test");
         this.datasource.setAlternateUsernameAllowed(allowUsernameChange);
         this.datasource.getConnection().close();
 

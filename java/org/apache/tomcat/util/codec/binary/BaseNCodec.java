@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.codec.binary;
+package org.apache.thundercat.util.codec.binary;
 
-import org.apache.tomcat.util.buf.HexUtils;
-import org.apache.tomcat.util.codec.BinaryDecoder;
-import org.apache.tomcat.util.codec.BinaryEncoder;
-import org.apache.tomcat.util.codec.DecoderException;
-import org.apache.tomcat.util.codec.EncoderException;
+import org.apache.thundercat.util.buf.HexUtils;
+import org.apache.thundercat.util.codec.BinaryDecoder;
+import org.apache.thundercat.util.codec.BinaryEncoder;
+import org.apache.thundercat.util.codec.DecoderException;
+import org.apache.thundercat.util.codec.EncoderException;
 
 /**
  * Abstract superclass for Base-N encoders and decoders.

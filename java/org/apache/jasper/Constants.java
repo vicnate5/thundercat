@@ -57,7 +57,7 @@ public class Constants {
         Collections.unmodifiableList(Arrays.asList(PRIVATE_STANDARD_IMPORTS));
 
     /**
-     * ServletContext attribute for classpath. This is tomcat specific.
+     * ServletContext attribute for classpath. This is thundercat specific.
      * Other servlet engines may choose to support this attribute if they
      * want to have this JSP engine running on them.
      */
@@ -145,7 +145,7 @@ public class Constants {
 
     /**
      * Name of the system property containing
-     * the tomcat product installation path
+     * the thundercat product installation path
      */
     public static final String CATALINA_HOME_PROP = "catalina.home";
 

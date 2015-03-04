@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool.interceptor;
+package org.apache.thundercat.jdbc.pool.interceptor;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -23,9 +23,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.apache.tomcat.jdbc.pool.ConnectionPool;
-import org.apache.tomcat.jdbc.pool.PoolProperties.InterceptorProperty;
-import org.apache.tomcat.jdbc.pool.PooledConnection;
+import org.apache.thundercat.jdbc.pool.ConnectionPool;
+import org.apache.thundercat.jdbc.pool.PoolProperties.InterceptorProperty;
+import org.apache.thundercat.jdbc.pool.PooledConnection;
 
 /**
  * Interceptor that caches {@code PreparedStatement} and/or

@@ -23,7 +23,7 @@ import java.nio.charset.StandardCharsets;
 import org.apache.coyote.InputBuffer;
 import org.apache.coyote.Request;
 import org.apache.coyote.http11.InputFilter;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Input filter responsible for reading and buffering the request body, so that

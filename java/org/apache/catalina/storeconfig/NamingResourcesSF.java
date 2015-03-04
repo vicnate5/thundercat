@@ -21,12 +21,12 @@ import java.io.PrintWriter;
 import org.apache.catalina.deploy.NamingResourcesImpl;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.descriptor.web.ContextEjb;
-import org.apache.tomcat.util.descriptor.web.ContextEnvironment;
-import org.apache.tomcat.util.descriptor.web.ContextLocalEjb;
-import org.apache.tomcat.util.descriptor.web.ContextResource;
-import org.apache.tomcat.util.descriptor.web.ContextResourceEnvRef;
-import org.apache.tomcat.util.descriptor.web.ContextResourceLink;
+import org.apache.thundercat.util.descriptor.web.ContextEjb;
+import org.apache.thundercat.util.descriptor.web.ContextEnvironment;
+import org.apache.thundercat.util.descriptor.web.ContextLocalEjb;
+import org.apache.thundercat.util.descriptor.web.ContextResource;
+import org.apache.thundercat.util.descriptor.web.ContextResourceEnvRef;
+import org.apache.thundercat.util.descriptor.web.ContextResourceLink;
 
 /**
  * Store server.xml elements Resources at context and GlobalNamingResources

@@ -25,8 +25,8 @@
     <version>15</version>
   </parent>
 
-  <groupId>org.apache.tomcat</groupId>
-  <artifactId>tomcat-jdbc</artifactId>
+  <groupId>org.apache.thundercat</groupId>
+  <artifactId>thundercat-jdbc</artifactId>
   <version>8.0.15-SNAPSHOT</version>
 
   <packaging>jar</packaging>
@@ -41,27 +41,27 @@
   <mailingLists>
     <mailingList>
       <name>Development List</name>
-      <subscribe>dev-subscribe@tomcat.apache.org</subscribe>
-      <unsubscribe>dev-unsubscribe@tomcat.apache.org</unsubscribe>
-      <post>dev@tomcat.apache.org</post>
+      <subscribe>dev-subscribe@thundercat.apache.org</subscribe>
+      <unsubscribe>dev-unsubscribe@thundercat.apache.org</unsubscribe>
+      <post>dev@thundercat.apache.org</post>
     </mailingList>
     <mailingList>
       <name>Users List</name>
-      <subscribe>users-subscribe@tomcat.apache.org</subscribe>
-      <unsubscribe>users-unsubscribe@tomcat.apache.org</unsubscribe>
-      <post>users@tomcat.apache.org</post>
+      <subscribe>users-subscribe@thundercat.apache.org</subscribe>
+      <unsubscribe>users-unsubscribe@thundercat.apache.org</unsubscribe>
+      <post>users@thundercat.apache.org</post>
     </mailingList>
   </mailingLists>
 
   <scm>
-    <connection>scm:svn:https://svn.apache.org/repos/asf/tomcat/trunk/modules/jdbc-pool</connection>
-    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/tomcat/trunk/modules/jdbc-pool</developerConnection>
-    <url>http://svn.apache.org/viewvc/tomcat/trunk/modules/jdbc-pool</url>
+    <connection>scm:svn:https://svn.apache.org/repos/asf/thundercat/trunk/modules/jdbc-pool</connection>
+    <developerConnection>scm:svn:https://svn.apache.org/repos/asf/thundercat/trunk/modules/jdbc-pool</developerConnection>
+    <url>http://svn.apache.org/viewvc/thundercat/trunk/modules/jdbc-pool</url>
   </scm>
 
   <dependencies>
     <dependency>
-      <groupId>org.apache.tomcat</groupId>
+      <groupId>org.apache.thundercat</groupId>
       <artifactId>juli</artifactId>
       <version>6.0.32</version>
     </dependency>
@@ -72,8 +72,8 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.apache.tomcat</groupId>
-      <artifactId>tomcat-dbcp</artifactId>
+      <groupId>org.apache.thundercat</groupId>
+      <artifactId>thundercat-dbcp</artifactId>
       <version>8.0.14</version>
       <scope>test</scope>
     </dependency>

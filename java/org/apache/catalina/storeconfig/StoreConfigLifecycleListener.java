@@ -26,9 +26,9 @@ import org.apache.catalina.Server;
 import org.apache.catalina.mbeans.MBeanUtils;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.modeler.ManagedBean;
-import org.apache.tomcat.util.modeler.Registry;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.modeler.ManagedBean;
+import org.apache.thundercat.util.modeler.Registry;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Loads and registers a StoreConfig MBean with the name

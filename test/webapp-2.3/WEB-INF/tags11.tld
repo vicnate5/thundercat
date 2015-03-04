@@ -21,7 +21,7 @@
   <tlibversion>1.0</tlibversion>
   <jspversion>1.1</jspversion>
   <shortname>Tags11</shortname>
-  <uri>http://tomcat.apache.org/tags11</uri>
+  <uri>http://thundercat.apache.org/tags11</uri>
 
   <tag>
     <name>Echo</name>

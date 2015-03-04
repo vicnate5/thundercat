@@ -18,7 +18,7 @@ package org.apache.coyote;
 
 import java.io.IOException;
 
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Output buffer.

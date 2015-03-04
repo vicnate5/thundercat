@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.scan;
+package org.apache.thundercat.util.scan;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,8 +28,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import org.apache.catalina.filters.TesterServletContext;
-import org.apache.tomcat.JarScanType;
-import org.apache.tomcat.JarScannerCallback;
+import org.apache.thundercat.JarScanType;
+import org.apache.thundercat.JarScannerCallback;
 
 public class TestStandardJarScanner {
 

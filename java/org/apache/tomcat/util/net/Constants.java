@@ -14,13 +14,13 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 public class Constants {
 
     /**
      * Name of the system property containing
-     * the tomcat instance installation path
+     * the thundercat instance installation path
      */
     public static final String CATALINA_BASE_PROP = "catalina.base";
 }

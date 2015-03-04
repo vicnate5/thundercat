@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.http.fileupload.servlet;
+package org.apache.thundercat.util.http.fileupload.servlet;
 
 import java.io.IOException;
 import java.util.List;
@@ -22,12 +22,12 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.tomcat.util.http.fileupload.FileItem;
-import org.apache.tomcat.util.http.fileupload.FileItemFactory;
-import org.apache.tomcat.util.http.fileupload.FileItemIterator;
-import org.apache.tomcat.util.http.fileupload.FileUpload;
-import org.apache.tomcat.util.http.fileupload.FileUploadBase;
-import org.apache.tomcat.util.http.fileupload.FileUploadException;
+import org.apache.thundercat.util.http.fileupload.FileItem;
+import org.apache.thundercat.util.http.fileupload.FileItemFactory;
+import org.apache.thundercat.util.http.fileupload.FileItemIterator;
+import org.apache.thundercat.util.http.fileupload.FileUpload;
+import org.apache.thundercat.util.http.fileupload.FileUploadBase;
+import org.apache.thundercat.util.http.fileupload.FileUploadException;
 
 
 /**
@@ -36,8 +36,8 @@ import org.apache.tomcat.util.http.fileupload.FileUploadException;
  * <p>This class handles multiple files per single HTML widget, sent using
  * <code>multipart/mixed</code> encoding type, as specified by
  * <a href="http://www.ietf.org/rfc/rfc1867.txt">RFC 1867</a>.  Use {@link
- * #parseRequest(org.apache.tomcat.util.http.fileupload.RequestContext)} to
- * acquire a list of {@link org.apache.tomcat.util.http.fileupload.FileItem}s
+ * #parseRequest(org.apache.thundercat.util.http.fileupload.RequestContext)} to
+ * acquire a list of {@link org.apache.thundercat.util.http.fileupload.FileItem}s
  * associated with a given HTML widget.</p>
  *
  * <p>How the data for individual parts is stored is determined by the factory

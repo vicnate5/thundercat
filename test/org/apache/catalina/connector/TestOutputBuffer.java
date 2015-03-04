@@ -31,7 +31,7 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestOutputBuffer extends TomcatBaseTest{
 
@@ -43,9 +43,9 @@ public class TestOutputBuffer extends TomcatBaseTest{
      */
     @Test
     public void testWriteSpeed() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
-        Context root = tomcat.addContext("", TEMP_DIR);
+        Context root = thundercat.addContext("", TEMP_DIR);
 
         for (int i = 1; i <= WritingServlet.EXPECTED_CONTENT_LENGTH; i*=10) {
             WritingServlet servlet = new WritingServlet(i);
@@ -53,7 +53,7 @@ public class TestOutputBuffer extends TomcatBaseTest{
             root.addServletMapping("/servlet" + i, "servlet" + i);
         }
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk bc = new ByteChunk();
 
@@ -78,15 +78,15 @@ public class TestOutputBuffer extends TomcatBaseTest{
 
     @Test
     public void testBug52577() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
-        Context root = tomcat.addContext("", TEMP_DIR);
+        Context root = thundercat.addContext("", TEMP_DIR);
 
         Bug52577Servlet bug52577 = new Bug52577Servlet();
         Tomcat.addServlet(root, "bug52577", bug52577);
         root.addServletMapping("/", "bug52577");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk bc = new ByteChunk();
 

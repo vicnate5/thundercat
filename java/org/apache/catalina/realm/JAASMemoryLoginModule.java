@@ -35,7 +35,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.digester.Digester;
+import org.apache.thundercat.util.digester.Digester;
 
 
 /**
@@ -94,7 +94,7 @@ public class JAASMemoryLoginModule extends MemoryRealm implements LoginModule {
     /**
      * The absolute or relative pathname to the XML configuration file.
      */
-    protected String pathname = "conf/tomcat-users.xml";
+    protected String pathname = "conf/thundercat-users.xml";
 
 
     /**

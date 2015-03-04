@@ -41,14 +41,14 @@ import org.apache.jasper.compiler.JarScannerFactory;
 import org.apache.jasper.compiler.Localizer;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.JarScanType;
-import org.apache.tomcat.JarScanner;
-import org.apache.tomcat.JarScannerCallback;
-import org.apache.tomcat.util.descriptor.tld.TaglibXml;
-import org.apache.tomcat.util.descriptor.tld.TldParser;
-import org.apache.tomcat.util.descriptor.tld.TldResourcePath;
-import org.apache.tomcat.util.scan.Jar;
-import org.apache.tomcat.util.scan.JarFactory;
+import org.apache.thundercat.JarScanType;
+import org.apache.thundercat.JarScanner;
+import org.apache.thundercat.JarScannerCallback;
+import org.apache.thundercat.util.descriptor.tld.TaglibXml;
+import org.apache.thundercat.util.descriptor.tld.TldParser;
+import org.apache.thundercat.util.descriptor.tld.TldResourcePath;
+import org.apache.thundercat.util.scan.Jar;
+import org.apache.thundercat.util.scan.JarFactory;
 import org.xml.sax.SAXException;
 
 /**

@@ -29,15 +29,15 @@ import javax.servlet.ServletSecurityElement;
 import javax.servlet.descriptor.JspConfigDescriptor;
 
 import org.apache.catalina.deploy.NamingResourcesImpl;
-import org.apache.tomcat.InstanceManager;
-import org.apache.tomcat.JarScanner;
-import org.apache.tomcat.util.descriptor.web.ApplicationParameter;
-import org.apache.tomcat.util.descriptor.web.ErrorPage;
-import org.apache.tomcat.util.descriptor.web.FilterDef;
-import org.apache.tomcat.util.descriptor.web.FilterMap;
-import org.apache.tomcat.util.descriptor.web.LoginConfig;
-import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
-import org.apache.tomcat.util.http.CookieProcessor;
+import org.apache.thundercat.InstanceManager;
+import org.apache.thundercat.JarScanner;
+import org.apache.thundercat.util.descriptor.web.ApplicationParameter;
+import org.apache.thundercat.util.descriptor.web.ErrorPage;
+import org.apache.thundercat.util.descriptor.web.FilterDef;
+import org.apache.thundercat.util.descriptor.web.FilterMap;
+import org.apache.thundercat.util.descriptor.web.LoginConfig;
+import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
+import org.apache.thundercat.util.http.CookieProcessor;
 
 /**
  * A <b>Context</b> is a Container that represents a servlet context, and

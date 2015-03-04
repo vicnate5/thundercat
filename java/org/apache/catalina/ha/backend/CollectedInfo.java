@@ -27,7 +27,7 @@ import javax.management.MBeanServer;
 import javax.management.ObjectInstance;
 import javax.management.ObjectName;
 
-import org.apache.tomcat.util.modeler.Registry;
+import org.apache.thundercat.util.modeler.Registry;
 
 /*
  * Listener to provider informations to mod_heartbeat.c

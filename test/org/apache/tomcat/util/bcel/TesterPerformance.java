@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.bcel;
+package org.apache.thundercat.util.bcel;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,9 +26,9 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import org.apache.tomcat.util.bcel.classfile.ClassParser;
-import org.apache.tomcat.util.scan.Jar;
-import org.apache.tomcat.util.scan.JarFactory;
+import org.apache.thundercat.util.bcel.classfile.ClassParser;
+import org.apache.thundercat.util.scan.Jar;
+import org.apache.thundercat.util.scan.JarFactory;
 
 public class TesterPerformance {
 

@@ -55,7 +55,7 @@ do
         shift; shift;
         continue
     ;;
-    --tomcat-user )
+    --thundercat-user )
         TOMCAT_USER="$2"
         shift; shift;
         continue
@@ -86,7 +86,7 @@ esac
 test ".$MAX_FD" = . && MAX_FD="maximum"
 # Setup parameters for running the jsvc
 #
-test ".$TOMCAT_USER" = . && TOMCAT_USER=tomcat
+test ".$TOMCAT_USER" = . && TOMCAT_USER=thundercat
 # Set JAVA_HOME to working JDK or JRE
 # JAVA_HOME=/opt/jdk-1.6.0.22
 # If not set we'll try to guess the JAVA_HOME
@@ -131,12 +131,12 @@ CLASSPATH="$CLASSPATH$CATALINA_HOME/bin/bootstrap.jar:$CATALINA_HOME/bin/commons
 test ".$CATALINA_OUT" = . && CATALINA_OUT="$CATALINA_BASE/logs/catalina-daemon.out"
 test ".$CATALINA_TMP" = . && CATALINA_TMP="$CATALINA_BASE/temp"
 
-# Add tomcat-juli.jar to classpath
-# tomcat-juli.jar can be over-ridden per instance
-if [ -r "$CATALINA_BASE/bin/tomcat-juli.jar" ] ; then
-  CLASSPATH="$CLASSPATH:$CATALINA_BASE/bin/tomcat-juli.jar"
+# Add thundercat-juli.jar to classpath
+# thundercat-juli.jar can be over-ridden per instance
+if [ -r "$CATALINA_BASE/bin/thundercat-juli.jar" ] ; then
+  CLASSPATH="$CLASSPATH:$CATALINA_BASE/bin/thundercat-juli.jar"
 else
-  CLASSPATH="$CLASSPATH:$CATALINA_HOME/bin/tomcat-juli.jar"
+  CLASSPATH="$CLASSPATH:$CATALINA_HOME/bin/thundercat-juli.jar"
 fi
 # Set juli LogManager config file if it is present and an override has not been issued
 if [ -z "$LOGGING_CONFIG" ]; then

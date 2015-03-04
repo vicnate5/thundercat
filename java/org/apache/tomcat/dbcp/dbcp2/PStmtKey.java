@@ -14,9 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.dbcp2;
+package org.apache.thundercat.dbcp.dbcp2;
 
-import org.apache.tomcat.dbcp.dbcp2.PoolingConnection.StatementType;
+import org.apache.thundercat.dbcp.dbcp2.PoolingConnection.StatementType;
 
 /**
  * A key uniquely identifying {@link java.sql.PreparedStatement PreparedStatement}s.

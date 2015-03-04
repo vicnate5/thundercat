@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import org.apache.catalina.LifecycleException;
-import org.apache.tomcat.util.ExceptionUtils;
+import org.apache.thundercat.util.ExceptionUtils;
 
 
 /**
@@ -711,7 +711,7 @@ public class JDBCRealm
     @Override
     protected void startInternal() throws LifecycleException {
 
-        // Validate that we can open our connection - but let tomcat
+        // Validate that we can open our connection - but let thundercat
         // startup in case the database is temporarily unavailable
         try {
             open();

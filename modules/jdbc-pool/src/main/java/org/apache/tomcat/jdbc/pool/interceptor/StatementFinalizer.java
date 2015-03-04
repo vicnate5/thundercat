@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool.interceptor;
+package org.apache.thundercat.jdbc.pool.interceptor;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
@@ -25,9 +25,9 @@ import java.util.Map;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.jdbc.pool.ConnectionPool;
-import org.apache.tomcat.jdbc.pool.PoolProperties;
-import org.apache.tomcat.jdbc.pool.PooledConnection;
+import org.apache.thundercat.jdbc.pool.ConnectionPool;
+import org.apache.thundercat.jdbc.pool.PoolProperties;
+import org.apache.thundercat.jdbc.pool.PooledConnection;
 
 /**
  * Keeps track of statements associated with a connection and invokes close upon {@link java.sql.Connection#close()}

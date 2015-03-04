@@ -25,12 +25,12 @@ import javax.management.ObjectName;
 import javax.management.RuntimeOperationsException;
 
 import org.apache.catalina.deploy.NamingResourcesImpl;
-import org.apache.tomcat.util.descriptor.web.ContextEnvironment;
-import org.apache.tomcat.util.descriptor.web.ContextResource;
-import org.apache.tomcat.util.descriptor.web.ContextResourceLink;
-import org.apache.tomcat.util.modeler.BaseModelMBean;
-import org.apache.tomcat.util.modeler.ManagedBean;
-import org.apache.tomcat.util.modeler.Registry;
+import org.apache.thundercat.util.descriptor.web.ContextEnvironment;
+import org.apache.thundercat.util.descriptor.web.ContextResource;
+import org.apache.thundercat.util.descriptor.web.ContextResourceLink;
+import org.apache.thundercat.util.modeler.BaseModelMBean;
+import org.apache.thundercat.util.modeler.ManagedBean;
+import org.apache.thundercat.util.modeler.Registry;
 
 /**
  * <p>A <strong>ModelMBean</strong> implementation for the

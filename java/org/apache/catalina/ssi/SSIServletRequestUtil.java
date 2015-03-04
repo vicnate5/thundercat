@@ -19,7 +19,7 @@ package org.apache.catalina.ssi;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.tomcat.util.http.RequestUtil;
+import org.apache.thundercat.util.http.RequestUtil;
 
 public class SSIServletRequestUtil {
     /**

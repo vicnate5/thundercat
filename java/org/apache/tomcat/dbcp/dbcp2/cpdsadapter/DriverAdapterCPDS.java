@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.dbcp.dbcp2.cpdsadapter;
+package org.apache.thundercat.dbcp.dbcp2.cpdsadapter;
 
 import java.io.PrintWriter;
 import java.io.Serializable;
@@ -37,11 +37,11 @@ import javax.naming.spi.ObjectFactory;
 import javax.sql.ConnectionPoolDataSource;
 import javax.sql.PooledConnection;
 
-import org.apache.tomcat.dbcp.dbcp2.PoolablePreparedStatement;
-import org.apache.tomcat.dbcp.pool2.KeyedObjectPool;
-import org.apache.tomcat.dbcp.pool2.impl.BaseObjectPoolConfig;
-import org.apache.tomcat.dbcp.pool2.impl.GenericKeyedObjectPool;
-import org.apache.tomcat.dbcp.pool2.impl.GenericKeyedObjectPoolConfig;
+import org.apache.thundercat.dbcp.dbcp2.PoolablePreparedStatement;
+import org.apache.thundercat.dbcp.pool2.KeyedObjectPool;
+import org.apache.thundercat.dbcp.pool2.impl.BaseObjectPoolConfig;
+import org.apache.thundercat.dbcp.pool2.impl.GenericKeyedObjectPool;
+import org.apache.thundercat.dbcp.pool2.impl.GenericKeyedObjectPoolConfig;
 
 /**
  * <p>
@@ -51,7 +51,7 @@ import org.apache.tomcat.dbcp.pool2.impl.GenericKeyedObjectPoolConfig;
  * <code>ConnectionPoolDataSource</code>s are not used within general
  * applications.  They are used by <code>DataSource</code> implementations
  * that pool <code>Connection</code>s, such as
- * {@link org.apache.tomcat.dbcp.dbcp2.datasources.SharedPoolDataSource}.  A J2EE
+ * {@link org.apache.thundercat.dbcp.dbcp2.datasources.SharedPoolDataSource}.  A J2EE
  * container will normally provide some method of initializing the
  * <code>ConnectionPoolDataSource</code> whose attributes are presented
  * as bean getters/setters and then deploying it via JNDI.  It is then
@@ -211,7 +211,7 @@ public class DriverAdapterCPDS
             {
                 // since there is limit, create a prepared statement pool without an eviction thread
                 //  pool has LRU functionality so when the limit is reached, 15% of the pool is cleared.
-                // see org.apache.tomcat.dbcp.pool2.impl.GenericKeyedObjectPool.clearOldest method
+                // see org.apache.thundercat.dbcp.pool2.impl.GenericKeyedObjectPool.clearOldest method
                 config.setMaxTotal(getMaxPreparedStatements());
                 config.setTimeBetweenEvictionRunsMillis(-1);
                 config.setNumTestsPerEvictionRun(0);

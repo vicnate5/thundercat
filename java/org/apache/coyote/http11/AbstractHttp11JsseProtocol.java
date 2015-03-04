@@ -16,7 +16,7 @@
  */
 package org.apache.coyote.http11;
 
-import org.apache.tomcat.util.net.AbstractEndpoint;
+import org.apache.thundercat.util.net.AbstractEndpoint;
 
 public abstract class AbstractHttp11JsseProtocol<S>
         extends AbstractHttp11Protocol<S> {

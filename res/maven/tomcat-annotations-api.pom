@@ -17,11 +17,11 @@
 -->
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.apache.tomcat</groupId>
-  <artifactId>tomcat-annotations-api</artifactId>
+  <groupId>org.apache.thundercat</groupId>
+  <artifactId>thundercat-annotations-api</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
   <description>Annotations Package</description>
-    <url>http://tomcat.apache.org/</url>
+    <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>

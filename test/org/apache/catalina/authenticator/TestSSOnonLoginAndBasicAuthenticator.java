@@ -37,11 +37,11 @@ import org.apache.catalina.session.ManagerBase;
 import org.apache.catalina.startup.TesterServletEncodeUrl;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.codec.binary.Base64;
-import org.apache.tomcat.util.descriptor.web.LoginConfig;
-import org.apache.tomcat.util.descriptor.web.SecurityCollection;
-import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.codec.binary.Base64;
+import org.apache.thundercat.util.descriptor.web.LoginConfig;
+import org.apache.thundercat.util.descriptor.web.SecurityCollection;
+import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
 
 /**
  * Test BasicAuthenticator and NonLoginAuthenticator when a
@@ -118,7 +118,7 @@ public class TestSSOnonLoginAndBasicAuthenticator extends TomcatBaseTest {
                 new TestSSOnonLoginAndBasicAuthenticator.BasicCredentials(
                             NICE_METHOD, USER, PWD);
 
-    private Tomcat tomcat;
+    private Tomcat thundercat;
     private Context basicContext;
     private Context nonloginContext;
     private List<String> cookies;
@@ -443,41 +443,41 @@ public class TestSSOnonLoginAndBasicAuthenticator extends TomcatBaseTest {
     /*
      * setup two webapps for every test
      *
-     * note: the super class tearDown method will stop tomcat
+     * note: the super class tearDown method will stop thundercat
      */
     @Override
     public void setUp() throws Exception {
 
         super.setUp();
 
-        // create a tomcat server using the default in-memory Realm
-        tomcat = getTomcatInstance();
+        // create a thundercat server using the default in-memory Realm
+        thundercat = getTomcatInstance();
 
         // associate the SingeSignOn Valve before the Contexts
         SingleSignOn sso = new SingleSignOn();
-        tomcat.getHost().getPipeline().addValve(sso);
+        thundercat.getHost().getPipeline().addValve(sso);
 
         // add the test user and role to the Realm
-        tomcat.addUser(USER, PWD);
-        tomcat.addRole(USER, ROLE);
+        thundercat.addUser(USER, PWD);
+        thundercat.addRole(USER, ROLE);
 
         // setup both NonLogin and Login webapps
         setUpNonLogin();
         setUpLogin();
 
-        tomcat.start();
+        thundercat.start();
     }
 
     @Override
     public void tearDown() throws Exception {
 
-        tomcat.stop();
+        thundercat.stop();
     }
 
     private void setUpNonLogin() throws Exception {
 
         // Must have a real docBase for webapps - just use temp
-        nonloginContext = tomcat.addContext(CONTEXT_PATH_NOLOGIN,
+        nonloginContext = thundercat.addContext(CONTEXT_PATH_NOLOGIN,
                 System.getProperty("java.io.tmpdir"));
         nonloginContext.setSessionTimeout(LONG_SESSION_TIMEOUT_MINS);
 
@@ -516,7 +516,7 @@ public class TestSSOnonLoginAndBasicAuthenticator extends TomcatBaseTest {
     private void setUpLogin() throws Exception {
 
         // Must have a real docBase for webapps - just use temp
-        basicContext = tomcat.addContext(CONTEXT_PATH_LOGIN,
+        basicContext = thundercat.addContext(CONTEXT_PATH_LOGIN,
                 System.getProperty("java.io.tmpdir"));
         basicContext.setSessionTimeout(SHORT_SESSION_TIMEOUT_MINS);
 

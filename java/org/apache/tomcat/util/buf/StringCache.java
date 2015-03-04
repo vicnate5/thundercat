@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.buf;
+package org.apache.thundercat.util.buf;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -43,24 +43,24 @@ public class StringCache {
      * Enabled ?
      */
     protected static boolean byteEnabled = ("true".equals(System.getProperty(
-            "tomcat.util.buf.StringCache.byte.enabled", "false")));
+            "thundercat.util.buf.StringCache.byte.enabled", "false")));
 
 
     protected static boolean charEnabled = ("true".equals(System.getProperty(
-            "tomcat.util.buf.StringCache.char.enabled", "false")));
+            "thundercat.util.buf.StringCache.char.enabled", "false")));
 
 
     protected static int trainThreshold = Integer.parseInt(System.getProperty(
-            "tomcat.util.buf.StringCache.trainThreshold", "20000"));
+            "thundercat.util.buf.StringCache.trainThreshold", "20000"));
 
 
     protected static int cacheSize = Integer.parseInt(System.getProperty(
-            "tomcat.util.buf.StringCache.cacheSize", "200"));
+            "thundercat.util.buf.StringCache.cacheSize", "200"));
 
 
     protected static final int maxStringSize =
             Integer.parseInt(System.getProperty(
-                    "tomcat.util.buf.StringCache.maxStringSize", "128"));
+                    "thundercat.util.buf.StringCache.maxStringSize", "128"));
 
 
    /**

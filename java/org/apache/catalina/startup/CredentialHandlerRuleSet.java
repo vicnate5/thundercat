@@ -16,8 +16,8 @@
  */
 package org.apache.catalina.startup;
 
-import org.apache.tomcat.util.digester.Digester;
-import org.apache.tomcat.util.digester.RuleSetBase;
+import org.apache.thundercat.util.digester.Digester;
+import org.apache.thundercat.util.digester.RuleSetBase;
 
 /**
  * <p><strong>RuleSet</strong> for processing the contents of a

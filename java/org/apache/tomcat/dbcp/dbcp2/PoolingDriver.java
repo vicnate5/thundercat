@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.dbcp2;
+package org.apache.thundercat.dbcp.dbcp2;
 
 import java.sql.Connection;
 import java.sql.Driver;
@@ -28,7 +28,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import org.apache.tomcat.dbcp.pool2.ObjectPool;
+import org.apache.thundercat.dbcp.pool2.ObjectPool;
 
 
 /**
@@ -216,7 +216,7 @@ public class PoolingDriver implements Driver {
         }
 
         /**
-         * @see org.apache.tomcat.dbcp.dbcp2.DelegatingConnection#getDelegate()
+         * @see org.apache.thundercat.dbcp.dbcp2.DelegatingConnection#getDelegate()
          */
         @Override
         public Connection getDelegate() {
@@ -227,7 +227,7 @@ public class PoolingDriver implements Driver {
         }
 
         /**
-         * @see org.apache.tomcat.dbcp.dbcp2.DelegatingConnection#getInnermostDelegate()
+         * @see org.apache.thundercat.dbcp.dbcp2.DelegatingConnection#getInnermostDelegate()
          */
         @Override
         public Connection getInnermostDelegate() {

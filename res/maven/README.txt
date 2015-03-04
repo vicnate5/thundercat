@@ -28,7 +28,7 @@ General preparations before any publishing:
 To publish a snapshot do the following:
 1 - ant -f mvn-pub.xml deploy-snapshot
     This populates
-    https://repository.apache.org/content/repositories/snapshots/org/apache/tomcat/
+    https://repository.apache.org/content/repositories/snapshots/org/apache/thundercat/
 
 To release do the following:
 1 - ant -f mvn-pub.xml deploy-release

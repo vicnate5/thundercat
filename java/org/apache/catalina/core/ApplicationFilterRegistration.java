@@ -28,9 +28,9 @@ import javax.servlet.FilterRegistration;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.util.ParameterMap;
-import org.apache.tomcat.util.descriptor.web.FilterDef;
-import org.apache.tomcat.util.descriptor.web.FilterMap;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.descriptor.web.FilterDef;
+import org.apache.thundercat.util.descriptor.web.FilterMap;
+import org.apache.thundercat.util.res.StringManager;
 
 public class ApplicationFilterRegistration
         implements FilterRegistration.Dynamic {

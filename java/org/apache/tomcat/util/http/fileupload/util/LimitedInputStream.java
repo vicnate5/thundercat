@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.http.fileupload.util;
+package org.apache.thundercat.util.http.fileupload.util;
 
 import java.io.FilterInputStream;
 import java.io.IOException;

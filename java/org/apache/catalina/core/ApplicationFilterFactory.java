@@ -23,7 +23,7 @@ import javax.servlet.ServletRequest;
 import org.apache.catalina.Globals;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.connector.Request;
-import org.apache.tomcat.util.descriptor.web.FilterMap;
+import org.apache.thundercat.util.descriptor.web.FilterMap;
 
 /**
  * Factory for the creation and caching of Filters and creation

@@ -23,15 +23,15 @@ import org.apache.coyote.AbstractProtocol;
 import org.apache.coyote.ajp.Constants;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.spdy.NetSupportSocket;
-import org.apache.tomcat.spdy.SpdyConnection;
-import org.apache.tomcat.spdy.SpdyContext;
-import org.apache.tomcat.spdy.SpdyContext.SpdyHandler;
-import org.apache.tomcat.spdy.SpdyStream;
-import org.apache.tomcat.util.net.NioChannel;
-import org.apache.tomcat.util.net.NioEndpoint;
-import org.apache.tomcat.util.net.SocketStatus;
-import org.apache.tomcat.util.net.SocketWrapperBase;
+import org.apache.thundercat.spdy.NetSupportSocket;
+import org.apache.thundercat.spdy.SpdyConnection;
+import org.apache.thundercat.spdy.SpdyContext;
+import org.apache.thundercat.spdy.SpdyContext.SpdyHandler;
+import org.apache.thundercat.spdy.SpdyStream;
+import org.apache.thundercat.util.net.NioChannel;
+import org.apache.thundercat.util.net.NioEndpoint;
+import org.apache.thundercat.util.net.SocketStatus;
+import org.apache.thundercat.util.net.SocketWrapperBase;
 
 /**
  * SPDY in 'proxy' mode - no SSL and no header compression.

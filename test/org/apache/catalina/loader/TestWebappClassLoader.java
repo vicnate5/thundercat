@@ -38,12 +38,12 @@ public class TestWebappClassLoader extends TomcatBaseTest {
         expected[0] = "jar:" + warUrl + "!/WEB-INF/classes/";
         expected[1] = "jar:" + warUrl + "!/WEB-INF/lib/test.jar";
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         StandardContext ctx =
-                (StandardContext)tomcat.addContext("",  f.getAbsolutePath());
+                (StandardContext)thundercat.addContext("",  f.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ClassLoader cl = ctx.getLoader().getClassLoader();
 

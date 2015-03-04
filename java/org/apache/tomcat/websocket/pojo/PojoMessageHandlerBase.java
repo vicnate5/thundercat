@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket.pojo;
+package org.apache.thundercat.websocket.pojo;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -25,8 +25,8 @@ import javax.websocket.MessageHandler;
 import javax.websocket.RemoteEndpoint;
 import javax.websocket.Session;
 
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.websocket.WrappedMessageHandler;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.websocket.WrappedMessageHandler;
 
 /**
  * Common implementation code for the POJO message handlers.

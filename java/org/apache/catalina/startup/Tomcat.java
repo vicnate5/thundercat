@@ -62,7 +62,7 @@ import org.apache.catalina.core.StandardService;
 import org.apache.catalina.core.StandardWrapper;
 import org.apache.catalina.realm.GenericPrincipal;
 import org.apache.catalina.realm.RealmBase;
-import org.apache.tomcat.util.descriptor.web.LoginConfig;
+import org.apache.thundercat.util.descriptor.web.LoginConfig;
 
 // TODO: lazy init for the temp dir - only when a JSP is compiled or
 // get temp dir is called we need to create it. This will avoid the
@@ -72,16 +72,16 @@ import org.apache.tomcat.util.descriptor.web.LoginConfig;
 // only programmatic. This would disable the default servlet.
 
 /**
- * Minimal tomcat starter for embedding/unit tests.
+ * Minimal thundercat starter for embedding/unit tests.
  *
  * Tomcat supports multiple styles of configuration and
  * startup - the most common and stable is server.xml-based,
  * implemented in org.apache.catalina.startup.Bootstrap.
  *
- * This class is for use in apps that embed tomcat.
+ * This class is for use in apps that embed thundercat.
  * Requirements:
  *
- * - all tomcat classes and possibly servlets are in the classpath.
+ * - all thundercat classes and possibly servlets are in the classpath.
  * ( for example all is in one big jar, or in eclipse CP, or in any other
  * combination )
  *
@@ -122,7 +122,7 @@ import org.apache.tomcat.util.descriptor.web.LoginConfig;
  * see setters for doc. It can be used for simple tests and
  * demo.
  *
- * @see <a href="http://svn.apache.org/repos/asf/tomcat/trunk/test/org/apache/catalina/startup/TestTomcat.java">TestTomcat</a>
+ * @see <a href="http://svn.apache.org/repos/asf/thundercat/trunk/test/org/apache/catalina/startup/TestTomcat.java">TestTomcat</a>
  * @author Costin Manolache
  */
 public class Tomcat {
@@ -167,7 +167,7 @@ public class Tomcat {
      *
      * By default, if this method is not called, we use:
      *  - system properties - catalina.base, catalina.home
-     *  - $PWD/tomcat.$PORT
+     *  - $PWD/thundercat.$PORT
      * (/tmp doesn't seem a good choice for security).
      *
      * TODO: disable work dir if not needed ( no jsp, etc ).
@@ -392,7 +392,7 @@ public class Tomcat {
     }
 
     // ------- Extra customization -------
-    // You can tune individual tomcat objects, using internal APIs
+    // You can tune individual thundercat objects, using internal APIs
 
     /**
      * Get the default http connector. You can set more
@@ -434,7 +434,7 @@ public class Tomcat {
 
     /**
      * Sets the current host - all future webapps will
-     * be added to this host. When tomcat starts, the
+     * be added to this host. When thundercat starts, the
      * host will be the default host.
      *
      * @param host
@@ -623,7 +623,7 @@ public class Tomcat {
         if (basedir == null) {
             // Create a temp dir.
             basedir = System.getProperty("user.dir") +
-                "/tomcat." + port;
+                "/thundercat." + port;
         }
 
         File baseFile = new File(basedir);

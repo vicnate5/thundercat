@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool.interceptor;
+package org.apache.thundercat.jdbc.pool.interceptor;
 
 import java.lang.reflect.Method;
 
-import org.apache.tomcat.jdbc.pool.ConnectionPool;
-import org.apache.tomcat.jdbc.pool.JdbcInterceptor;
-import org.apache.tomcat.jdbc.pool.PooledConnection;
+import org.apache.thundercat.jdbc.pool.ConnectionPool;
+import org.apache.thundercat.jdbc.pool.JdbcInterceptor;
+import org.apache.thundercat.jdbc.pool.PooledConnection;
 
 /**
  * Abstraction interceptor. This component intercepts all calls to create some type of SQL statement.

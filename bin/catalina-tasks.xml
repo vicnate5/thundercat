@@ -27,7 +27,7 @@
   <property name="catalina.home" value="${catalina.home.bin.dir}/.."/>
   <typedef resource="org/apache/catalina/ant/catalina.tasks">
     <classpath>
-      <fileset file="${catalina.home}/bin/tomcat-juli.jar"/>
+      <fileset file="${catalina.home}/bin/thundercat-juli.jar"/>
       <fileset dir="${catalina.home}/lib" includes="*.jar"/>
     </classpath>
   </typedef>

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.dbcp.dbcp2;
+package org.apache.thundercat.dbcp.dbcp2;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -23,7 +23,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.apache.tomcat.dbcp.pool2.KeyedObjectPool;
+import org.apache.thundercat.dbcp.pool2.KeyedObjectPool;
 
 /**
  * A {@link DelegatingCallableStatement} that cooperates with

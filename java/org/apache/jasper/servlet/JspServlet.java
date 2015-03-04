@@ -42,7 +42,7 @@ import org.apache.jasper.security.SecurityUtil;
 import org.apache.jasper.util.ExceptionUtils;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.PeriodicEventListener;
+import org.apache.thundercat.PeriodicEventListener;
 
 /**
  * The JSP engine (a.k.a Jasper).

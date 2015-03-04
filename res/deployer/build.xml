@@ -28,8 +28,8 @@
 
   <!-- Configure properties to access the Manager application -->
   <property name="url"      value="http://localhost:8080/manager/text"/>
-  <property name="username" value="tomcat"/>
-  <property name="password" value="tomcat"/>
+  <property name="username" value="thundercat"/>
+  <property name="password" value="thundercat"/>
 
   <property name="webapp.path"     value="${build}/webapp${path}"/>
 

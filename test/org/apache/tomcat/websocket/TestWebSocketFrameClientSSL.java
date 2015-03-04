@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket;
+package org.apache.thundercat.websocket;
 
 import java.net.URI;
 import java.util.Queue;
@@ -34,25 +34,25 @@ import org.apache.catalina.Context;
 import org.apache.catalina.servlets.DefaultServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.net.TesterSupport;
-import org.apache.tomcat.websocket.TesterMessageCountClient.BasicText;
-import org.apache.tomcat.websocket.TesterMessageCountClient.SleepingText;
-import org.apache.tomcat.websocket.TesterMessageCountClient.TesterProgrammaticEndpoint;
+import org.apache.thundercat.util.net.TesterSupport;
+import org.apache.thundercat.websocket.TesterMessageCountClient.BasicText;
+import org.apache.thundercat.websocket.TesterMessageCountClient.SleepingText;
+import org.apache.thundercat.websocket.TesterMessageCountClient.TesterProgrammaticEndpoint;
 
 public class TestWebSocketFrameClientSSL extends TomcatBaseTest {
 
     @Test
     public void testConnectToServerEndpoint() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterFirehoseServer.Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
-        TesterSupport.initSsl(tomcat);
+        TesterSupport.initSsl(thundercat);
 
-        tomcat.start();
+        thundercat.start();
 
         WebSocketContainer wsContainer =
                 ContainerProvider.getWebSocketContainer();
@@ -60,7 +60,7 @@ public class TestWebSocketFrameClientSSL extends TomcatBaseTest {
                 ClientEndpointConfig.Builder.create().build();
         clientEndpointConfig.getUserProperties().put(
                 WsWebSocketContainer.SSL_TRUSTSTORE_PROPERTY,
-                "test/org/apache/tomcat/util/net/ca.jks");
+                "test/org/apache/thundercat/util/net/ca.jks");
         Session wsSession = wsContainer.connectToServer(
                 TesterProgrammaticEndpoint.class,
                 clientEndpointConfig,
@@ -90,16 +90,16 @@ public class TestWebSocketFrameClientSSL extends TomcatBaseTest {
 
     @Test
     public void testBug56032() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterFirehoseServer.Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
-        TesterSupport.initSsl(tomcat);
+        TesterSupport.initSsl(thundercat);
 
-        tomcat.start();
+        thundercat.start();
 
         WebSocketContainer wsContainer =
                 ContainerProvider.getWebSocketContainer();
@@ -107,7 +107,7 @@ public class TestWebSocketFrameClientSSL extends TomcatBaseTest {
                 ClientEndpointConfig.Builder.create().build();
         clientEndpointConfig.getUserProperties().put(
                 WsWebSocketContainer.SSL_TRUSTSTORE_PROPERTY,
-                "test/org/apache/tomcat/util/net/ca.jks");
+                "test/org/apache/thundercat/util/net/ca.jks");
         Session wsSession = wsContainer.connectToServer(
                 TesterProgrammaticEndpoint.class,
                 clientEndpointConfig,

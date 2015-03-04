@@ -32,7 +32,7 @@ import org.apache.catalina.Context;
 import org.apache.catalina.ha.tcp.SimpleTcpCluster;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestStandardSession extends TomcatBaseTest {
 
@@ -51,20 +51,20 @@ public class TestStandardSession extends TomcatBaseTest {
 
     private void doTestInvalidate(boolean useClustering) throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "bug56578", new Bug56578Servlet());
         ctx.addServletMapping("/bug56578", "bug56578");
 
         if (useClustering) {
-            tomcat.getEngine().setCluster(new SimpleTcpCluster());
+            thundercat.getEngine().setCluster(new SimpleTcpCluster());
             ctx.setDistributable(true);
             ctx.setManager(ctx.getCluster().createManager(""));
         }
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() + "/bug56578");
         Assert.assertEquals("PASS", res.toString());

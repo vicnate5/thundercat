@@ -29,9 +29,9 @@ import javax.management.RuntimeOperationsException;
 import org.apache.catalina.Group;
 import org.apache.catalina.Role;
 import org.apache.catalina.User;
-import org.apache.tomcat.util.modeler.BaseModelMBean;
-import org.apache.tomcat.util.modeler.ManagedBean;
-import org.apache.tomcat.util.modeler.Registry;
+import org.apache.thundercat.util.modeler.BaseModelMBean;
+import org.apache.thundercat.util.modeler.ManagedBean;
+import org.apache.thundercat.util.modeler.Registry;
 
 /**
  * <p>A <strong>ModelMBean</strong> implementation for the

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.dbcp2;
+package org.apache.thundercat.dbcp.dbcp2;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.tomcat.dbcp.pool2.TrackedUse;
+import org.apache.thundercat.dbcp.pool2.TrackedUse;
 
 /**
  * Tracks db connection usage for recovering and reporting

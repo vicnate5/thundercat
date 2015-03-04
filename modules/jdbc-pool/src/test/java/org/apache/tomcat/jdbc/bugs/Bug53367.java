@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.bugs;
+package org.apache.thundercat.jdbc.bugs;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -32,11 +32,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import org.apache.tomcat.jdbc.pool.ConnectionPool;
-import org.apache.tomcat.jdbc.pool.DataSource;
-import org.apache.tomcat.jdbc.pool.PoolExhaustedException;
-import org.apache.tomcat.jdbc.pool.PoolProperties;
-import org.apache.tomcat.jdbc.test.DefaultProperties;
+import org.apache.thundercat.jdbc.pool.ConnectionPool;
+import org.apache.thundercat.jdbc.pool.DataSource;
+import org.apache.thundercat.jdbc.pool.PoolExhaustedException;
+import org.apache.thundercat.jdbc.pool.PoolProperties;
+import org.apache.thundercat.jdbc.test.DefaultProperties;
 
 @RunWith(Parameterized.class)
 public class Bug53367 {

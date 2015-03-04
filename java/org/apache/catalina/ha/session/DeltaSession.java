@@ -44,7 +44,7 @@ import org.apache.catalina.tribes.io.ReplicationStream;
 import org.apache.catalina.tribes.tipis.ReplicatedMapEntry;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  *

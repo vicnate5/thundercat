@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool;
+package org.apache.thundercat.jdbc.pool;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -29,7 +29,7 @@ import javax.sql.XAConnection;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.jdbc.pool.PoolProperties.InterceptorDefinition;
+import org.apache.thundercat.jdbc.pool.PoolProperties.InterceptorDefinition;
 
 /**
  *

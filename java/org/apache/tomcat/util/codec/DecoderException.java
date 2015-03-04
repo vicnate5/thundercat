@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.codec;
+package org.apache.thundercat.util.codec;
 
 /**
  * Thrown when there is a failure condition during the decoding process. This exception is thrown when a {@link Decoder}

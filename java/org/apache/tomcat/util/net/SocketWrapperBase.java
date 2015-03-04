@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -26,8 +26,8 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
 
-import org.apache.tomcat.util.buf.ByteBufferHolder;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.buf.ByteBufferHolder;
+import org.apache.thundercat.util.res.StringManager;
 
 public abstract class SocketWrapperBase<E> {
 

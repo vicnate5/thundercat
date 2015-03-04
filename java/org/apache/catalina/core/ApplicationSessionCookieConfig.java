@@ -23,7 +23,7 @@ import javax.servlet.http.Cookie;
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleState;
 import org.apache.catalina.util.SessionConfig;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 public class ApplicationSessionCookieConfig implements SessionCookieConfig {
 

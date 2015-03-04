@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.dbcp.dbcp2.datasources;
+package org.apache.thundercat.dbcp.dbcp2.datasources;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -31,11 +31,11 @@ import javax.sql.ConnectionEventListener;
 import javax.sql.ConnectionPoolDataSource;
 import javax.sql.PooledConnection;
 
-import org.apache.tomcat.dbcp.dbcp2.Utils;
-import org.apache.tomcat.dbcp.pool2.KeyedObjectPool;
-import org.apache.tomcat.dbcp.pool2.KeyedPooledObjectFactory;
-import org.apache.tomcat.dbcp.pool2.PooledObject;
-import org.apache.tomcat.dbcp.pool2.impl.DefaultPooledObject;
+import org.apache.thundercat.dbcp.dbcp2.Utils;
+import org.apache.thundercat.dbcp.pool2.KeyedObjectPool;
+import org.apache.thundercat.dbcp.pool2.KeyedPooledObjectFactory;
+import org.apache.thundercat.dbcp.pool2.PooledObject;
+import org.apache.thundercat.dbcp.pool2.impl.DefaultPooledObject;
 
 /**
  * A {@link KeyedPooledObjectFactory} that creates
@@ -112,7 +112,7 @@ class KeyedCPDSConnectionFactory
      *
      * @param upkey {@link UserPassKey} containing user credentials
      * @throws SQLException if the connection could not be created.
-     * @see org.apache.tomcat.dbcp.pool2.KeyedPooledObjectFactory#makeObject(java.lang.Object)
+     * @see org.apache.thundercat.dbcp.pool2.KeyedPooledObjectFactory#makeObject(java.lang.Object)
      */
     @Override
     public synchronized PooledObject<PooledConnectionAndInfo> makeObject(UserPassKey upkey)

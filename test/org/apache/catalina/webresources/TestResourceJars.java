@@ -44,7 +44,7 @@ public class TestResourceJars {
         test.setStaticOnly(true);
         root.addJarResources(test);
 
-        WebResource resource = root.getClassLoaderResource("/org/apache/tomcat/unittest/foo.txt");
+        WebResource resource = root.getClassLoaderResource("/org/apache/thundercat/unittest/foo.txt");
 
         Assert.assertFalse(resource.exists());
     }

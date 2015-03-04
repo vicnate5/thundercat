@@ -14,10 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.dbcp2;
+package org.apache.thundercat.dbcp.dbcp2;
 
 import org.apache.juli.logging.Log;
-import org.apache.tomcat.dbcp.pool2.SwallowedExceptionListener;
+import org.apache.thundercat.dbcp.pool2.SwallowedExceptionListener;
 
 /**
  * Class for logging swallowed exceptions

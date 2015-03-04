@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool.interceptor;
+package org.apache.thundercat.jdbc.pool.interceptor;
 
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
@@ -31,9 +31,9 @@ import javax.management.openmbean.SimpleType;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.jdbc.pool.ConnectionPool;
-import org.apache.tomcat.jdbc.pool.PoolProperties.InterceptorProperty;
-import org.apache.tomcat.jdbc.pool.PooledConnection;
+import org.apache.thundercat.jdbc.pool.ConnectionPool;
+import org.apache.thundercat.jdbc.pool.PoolProperties.InterceptorProperty;
+import org.apache.thundercat.jdbc.pool.PooledConnection;
 
 /**
  * Slow query report interceptor. Tracks timing of query executions.

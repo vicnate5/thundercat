@@ -14,15 +14,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 
-import org.apache.tomcat.jni.SSL;
-import org.apache.tomcat.jni.SSLSocket;
+import org.apache.thundercat.jni.SSL;
+import org.apache.thundercat.jni.SSLSocket;
 
 /**
  * Implementation of SSLSupport for APR.

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.descriptor;
+package org.apache.thundercat.util.descriptor;
 
 import java.net.URL;
 import java.util.Collections;
@@ -25,9 +25,9 @@ import javax.servlet.ServletContext;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.digester.Digester;
-import org.apache.tomcat.util.digester.RuleSet;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.digester.Digester;
+import org.apache.thundercat.util.digester.RuleSet;
+import org.apache.thundercat.util.res.StringManager;
 import org.xml.sax.ext.EntityResolver2;
 
 /**

@@ -52,10 +52,10 @@ import org.apache.catalina.startup.SimpleHttpClient;
 import org.apache.catalina.startup.TesterMapRealm;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.descriptor.web.FilterDef;
-import org.apache.tomcat.util.descriptor.web.FilterMap;
-import org.apache.tomcat.util.descriptor.web.LoginConfig;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.descriptor.web.FilterDef;
+import org.apache.thundercat.util.descriptor.web.FilterMap;
+import org.apache.thundercat.util.descriptor.web.LoginConfig;
 
 /**
  * Test case for {@link Request}.
@@ -65,7 +65,7 @@ public class TestRequest extends TomcatBaseTest {
     @BeforeClass
     public static void setup() {
         // Some of these tests need this and it used statically so set it once
-        System.setProperty("org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH", "true");
+        System.setProperty("org.apache.thundercat.util.buf.UDecoder.ALLOW_ENCODED_SLASH", "true");
     }
 
     /**
@@ -174,8 +174,8 @@ public class TestRequest extends TomcatBaseTest {
         private synchronized void init() throws Exception {
             if (init) return;
 
-            Tomcat tomcat = getTomcatInstance();
-            Context root = tomcat.addContext("", TEMP_DIR);
+            Tomcat thundercat = getTomcatInstance();
+            Context root = thundercat.addContext("", TEMP_DIR);
             Tomcat.addServlet(root, "Bug37794", new Bug37794Servlet());
             root.addServletMapping("/test", "Bug37794");
 
@@ -191,19 +191,19 @@ public class TestRequest extends TomcatBaseTest {
                 root.addFilterMap(failedRequestFilterMap);
             }
 
-            tomcat.start();
+            thundercat.start();
 
-            setPort(tomcat.getConnector().getLocalPort());
+            setPort(thundercat.getConnector().getLocalPort());
 
             init = true;
         }
 
         private Exception doRequest(int postLimit, boolean ucChunkedHead) {
-            Tomcat tomcat = getTomcatInstance();
+            Tomcat thundercat = getTomcatInstance();
 
             try {
                 init();
-                tomcat.getConnector().setMaxPostSize(postLimit);
+                thundercat.getConnector().setMaxPostSize(postLimit);
 
                 // Open connection
                 connect();
@@ -270,16 +270,16 @@ public class TestRequest extends TomcatBaseTest {
     @Test
     public void testBug38113() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         // Add the Servlet
         Tomcat.addServlet(ctx, "servlet", new EchoQueryStringServlet());
         ctx.addServletMapping("/", "servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         // No query string
         ByteChunk res = getUrl("http://localhost:" + getPort() + "/");
@@ -314,10 +314,10 @@ public class TestRequest extends TomcatBaseTest {
     @Test
     public void testLoginLogout() throws Exception{
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         LoginConfig config = new LoginConfig();
         config.setAuthMethod("BASIC");
@@ -331,7 +331,7 @@ public class TestRequest extends TomcatBaseTest {
         realm.addUser(LoginLogoutServlet.USER, LoginLogoutServlet.PWD);
         ctx.setRealm(realm);
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() + "/");
         assertEquals(LoginLogoutServlet.OK, res.toString());
@@ -368,12 +368,12 @@ public class TestRequest extends TomcatBaseTest {
 
     @Test
     public void testBug49424NoChunking() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        Context root = tomcat.addContext("",
+        Tomcat thundercat = getTomcatInstance();
+        Context root = thundercat.addContext("",
                 System.getProperty("java.io.tmpdir"));
         Tomcat.addServlet(root, "Bug37794", new Bug37794Servlet());
         root.addServletMapping("/", "Bug37794");
-        tomcat.start();
+        thundercat.start();
 
         HttpURLConnection conn = getConnection("http://localhost:" + getPort() + "/");
         InputStream is = conn.getInputStream();
@@ -382,12 +382,12 @@ public class TestRequest extends TomcatBaseTest {
 
     @Test
     public void testBug49424WithChunking() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        Context root = tomcat.addContext("",
+        Tomcat thundercat = getTomcatInstance();
+        Context root = thundercat.addContext("",
                 System.getProperty("java.io.tmpdir"));
         Tomcat.addServlet(root, "Bug37794", new Bug37794Servlet());
         root.addServletMapping("/", "Bug37794");
-        tomcat.start();
+        thundercat.start();
 
         HttpURLConnection conn = getConnection("http://localhost:" + getPort() + "/");
         conn.setChunkedStreamingMode(8 * 1024);
@@ -474,13 +474,13 @@ public class TestRequest extends TomcatBaseTest {
 
     @Test
     public void testBug54984() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        Context root = tomcat.addContext("",
+        Tomcat thundercat = getTomcatInstance();
+        Context root = thundercat.addContext("",
                 System.getProperty("java.io.tmpdir"));
         root.setAllowCasualMultipartParsing(true);
         Tomcat.addServlet(root, "Bug54984", new Bug54984Servlet());
         root.addServletMapping("/", "Bug54984");
-        tomcat.start();
+        thundercat.start();
 
         HttpURLConnection conn = getConnection("http://localhost:" + getPort()
                 + "/parseParametersBeforeParseParts");
@@ -553,13 +553,13 @@ public class TestRequest extends TomcatBaseTest {
         private synchronized void init() throws Exception {
             if (init) return;
 
-            Tomcat tomcat = getTomcatInstance();
-            Context root = tomcat.addContext("", TEMP_DIR);
+            Tomcat thundercat = getTomcatInstance();
+            Context root = thundercat.addContext("", TEMP_DIR);
             Tomcat.addServlet(root, "EchoParameters", new EchoParametersServlet());
             root.addServletMapping("/echo", "EchoParameters");
-            tomcat.start();
+            thundercat.start();
 
-            setPort(tomcat.getConnector().getLocalPort());
+            setPort(thundercat.getConnector().getLocalPort());
 
             init = true;
         }
@@ -569,14 +569,14 @@ public class TestRequest extends TomcatBaseTest {
                                     String contentType,
                                     String requestBody,
                                     boolean allowBody) {
-            Tomcat tomcat = getTomcatInstance();
+            Tomcat thundercat = getTomcatInstance();
 
             try {
                 init();
                 if(allowBody)
-                    tomcat.getConnector().setParseBodyMethods(method);
+                    thundercat.getConnector().setParseBodyMethods(method);
                 else
-                    tomcat.getConnector().setParseBodyMethods(""); // never parse
+                    thundercat.getConnector().setParseBodyMethods(""); // never parse
 
                 // Open connection
                 connect();
@@ -803,15 +803,15 @@ public class TestRequest extends TomcatBaseTest {
             throws Exception {
 
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext(deployPath, null);
+        Context ctx = thundercat.addContext(deployPath, null);
 
         Tomcat.addServlet(ctx, "servlet", new Bug56501Servelet());
         ctx.addServletMapping("/*", "servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() + requestPath);
         String resultPath = res.toString();

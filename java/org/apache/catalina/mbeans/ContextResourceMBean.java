@@ -24,14 +24,14 @@ import javax.management.ReflectionException;
 import javax.management.RuntimeOperationsException;
 import javax.management.modelmbean.InvalidTargetObjectTypeException;
 
-import org.apache.tomcat.util.descriptor.web.ContextResource;
-import org.apache.tomcat.util.descriptor.web.NamingResources;
-import org.apache.tomcat.util.modeler.BaseModelMBean;
+import org.apache.thundercat.util.descriptor.web.ContextResource;
+import org.apache.thundercat.util.descriptor.web.NamingResources;
+import org.apache.thundercat.util.modeler.BaseModelMBean;
 
 
 /**
  * <p>A <strong>ModelMBean</strong> implementation for the
- * <code>org.apache.tomcat.util.descriptor.web.ContextResource</code> component.</p>
+ * <code>org.apache.thundercat.util.descriptor.web.ContextResource</code> component.</p>
  *
  * @author Amy Roh
  */

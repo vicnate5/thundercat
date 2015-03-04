@@ -35,25 +35,25 @@ import org.apache.coyote.Request;
 import org.apache.coyote.RequestInfo;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.spdy.SpdyConnection;
-import org.apache.tomcat.spdy.SpdyContext;
-import org.apache.tomcat.spdy.SpdyFrame;
-import org.apache.tomcat.spdy.SpdyStream;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.buf.Ascii;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.http.HttpMessages;
-import org.apache.tomcat.util.http.MimeHeaders;
-import org.apache.tomcat.util.net.AbstractEndpoint;
-import org.apache.tomcat.util.net.AbstractEndpoint.Handler.SocketState;
-import org.apache.tomcat.util.net.SSLSupport;
-import org.apache.tomcat.util.net.SocketStatus;
-import org.apache.tomcat.util.net.SocketWrapperBase;
+import org.apache.thundercat.spdy.SpdyConnection;
+import org.apache.thundercat.spdy.SpdyContext;
+import org.apache.thundercat.spdy.SpdyFrame;
+import org.apache.thundercat.spdy.SpdyStream;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.buf.Ascii;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.http.HttpMessages;
+import org.apache.thundercat.util.http.MimeHeaders;
+import org.apache.thundercat.util.net.AbstractEndpoint;
+import org.apache.thundercat.util.net.AbstractEndpoint.Handler.SocketState;
+import org.apache.thundercat.util.net.SSLSupport;
+import org.apache.thundercat.util.net.SocketStatus;
+import org.apache.thundercat.util.net.SocketWrapperBase;
 
 /**
  * A spdy stream ( multiplexed over a spdy tcp connection ) processed by a
- * tomcat servlet.
+ * thundercat servlet.
  *
  * Based on the AJP processor.
  */
@@ -123,7 +123,7 @@ public class SpdyProcessor extends AbstractProcessor implements Runnable {
         long byteCount;
 
         @Override
-        public int doWrite(org.apache.tomcat.util.buf.ByteChunk chunk) throws IOException {
+        public int doWrite(org.apache.thundercat.util.buf.ByteChunk chunk) throws IOException {
             if (!response.isCommitted()) {
 
                 // Send the connector a request for commit. The connector should

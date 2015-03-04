@@ -19,10 +19,10 @@ package org.apache.coyote.ajp;
 import org.apache.coyote.Processor;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.net.Nio2Channel;
-import org.apache.tomcat.util.net.Nio2Endpoint;
-import org.apache.tomcat.util.net.Nio2Endpoint.Handler;
-import org.apache.tomcat.util.net.SocketWrapperBase;
+import org.apache.thundercat.util.net.Nio2Channel;
+import org.apache.thundercat.util.net.Nio2Endpoint;
+import org.apache.thundercat.util.net.Nio2Endpoint.Handler;
+import org.apache.thundercat.util.net.SocketWrapperBase;
 
 
 /**

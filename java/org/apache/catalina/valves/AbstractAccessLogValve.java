@@ -44,8 +44,8 @@ import org.apache.catalina.connector.Response;
 import org.apache.coyote.RequestInfo;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.collections.SynchronizedStack;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.collections.SynchronizedStack;
 
 
 /**

@@ -9,10 +9,10 @@
   <!.. ..> that surrounds them.
 -->
 <!--
-  <role rolename="tomcat"/>
+  <role rolename="thundercat"/>
   <role rolename="role1"/>
-  <user username="tomcat" password="tomcat" roles="tomcat"/>
-  <user username="both" password="tomcat" roles="tomcat,role1"/>
-  <user username="role1" password="tomcat" roles="role1"/>
+  <user username="thundercat" password="thundercat" roles="thundercat"/>
+  <user username="both" password="thundercat" roles="thundercat,role1"/>
+  <user username="role1" password="thundercat" roles="role1"/>
 -->
-</tomcat-users>
+</thundercat-users>

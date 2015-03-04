@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.scan;
+package org.apache.thundercat.util.scan;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,11 +32,11 @@ import javax.servlet.ServletContext;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.JarScanFilter;
-import org.apache.tomcat.JarScanType;
-import org.apache.tomcat.JarScanner;
-import org.apache.tomcat.JarScannerCallback;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.JarScanFilter;
+import org.apache.thundercat.JarScanType;
+import org.apache.thundercat.JarScanner;
+import org.apache.thundercat.JarScannerCallback;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * The default {@link JarScanner} implementation scans the WEB-INF/lib directory

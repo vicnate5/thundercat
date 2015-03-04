@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket;
+package org.apache.thundercat.websocket;
 
 import java.io.IOException;
 import java.net.URI;
@@ -32,7 +32,7 @@ import org.apache.catalina.Context;
 import org.apache.catalina.servlets.DefaultServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.websocket.TesterMessageCountClient.TesterProgrammaticEndpoint;
+import org.apache.thundercat.websocket.TesterMessageCountClient.TesterProgrammaticEndpoint;
 
 
 public class TestConnectionLimit extends TomcatBaseTest{
@@ -44,16 +44,16 @@ public class TestConnectionLimit extends TomcatBaseTest{
     @Test
     @Ignore // Not for use in normal unit test runs
     public void testSingleMachine() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(TesterEchoServer.Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
-        tomcat.getConnector().setAttribute("maxConnections", "-1");
+        thundercat.getConnector().setAttribute("maxConnections", "-1");
 
-        tomcat.start();
+        thundercat.start();
 
         URI uri = new URI("ws://localhost:" + getPort() +
                 TesterEchoServer.Config.PATH_ASYNC);

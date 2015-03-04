@@ -49,37 +49,37 @@ import org.apache.catalina.startup.SimpleHttpClient;
 import org.apache.catalina.startup.TesterServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.B2CConverter;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.descriptor.web.SecurityCollection;
-import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
+import org.apache.thundercat.util.buf.B2CConverter;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.descriptor.web.SecurityCollection;
+import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
 
 public class TestAbstractHttp11Processor extends TomcatBaseTest {
 
     @Test
     public void testResponseWithErrorChunked() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // This setting means the connection will be closed at the end of the
         // request
-        tomcat.getConnector().setAttribute("maxKeepAliveRequests", "1");
+        thundercat.getConnector().setAttribute("maxKeepAliveRequests", "1");
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         // Add protected servlet
         Tomcat.addServlet(ctx, "ChunkedResponseWithErrorServlet",
                 new ResponseWithErrorServlet(true));
         ctx.addServletMapping("/*", "ChunkedResponseWithErrorServlet");
 
-        tomcat.start();
+        thundercat.start();
 
         String request =
                 "GET /anything HTTP/1.1" + SimpleHttpClient.CRLF +
                 "Host: any" + SimpleHttpClient.CRLF +
                  SimpleHttpClient.CRLF;
 
-        Client client = new Client(tomcat.getConnector().getLocalPort());
+        Client client = new Client(thundercat.getConnector().getLocalPort());
         client.setRequest(new String[] {request});
 
         client.connect();
@@ -317,16 +317,16 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
 
     @Test
     public void testPipelining() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         // Add protected servlet
         Tomcat.addServlet(ctx, "TesterServlet", new TesterServlet());
         ctx.addServletMapping("/foo", "TesterServlet");
 
-        tomcat.start();
+        thundercat.start();
 
         String requestPart1 =
             "GET /foo HTTP/1.1" + SimpleHttpClient.CRLF;
@@ -334,7 +334,7 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
             "Host: any" + SimpleHttpClient.CRLF +
             SimpleHttpClient.CRLF;
 
-        final Client client = new Client(tomcat.getConnector().getLocalPort());
+        final Client client = new Client(thundercat.getConnector().getLocalPort());
         client.setRequest(new String[] {requestPart1, requestPart2});
         client.setRequestPause(1000);
         client.setUseContentLength(true);
@@ -377,16 +377,16 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
 
     @Test
     public void testChunking11NoContentLength() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "NoContentLengthFlushingServlet",
                 new NoContentLengthFlushingServlet());
         ctx.addServletMapping("/test", "NoContentLengthFlushingServlet");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk responseBody = new ByteChunk();
         Map<String,List<String>> responseHeaders = new HashMap<>();
@@ -404,17 +404,17 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
     public void testNoChunking11NoContentLengthConnectionClose()
             throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "NoContentLengthConnectionCloseFlushingServlet",
                 new NoContentLengthConnectionCloseFlushingServlet());
         ctx.addServletMapping("/test",
                 "NoContentLengthConnectionCloseFlushingServlet");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk responseBody = new ByteChunk();
         Map<String,List<String>> responseHeaders = new HashMap<>();
@@ -444,16 +444,16 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
     }
 
     private void doTestBug53677(boolean flush) throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "LargeHeaderServlet",
                 new LargeHeaderServlet(flush));
         ctx.addServletMapping("/test", "LargeHeaderServlet");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk responseBody = new ByteChunk();
         Map<String,List<String>> responseHeaders = new HashMap<>();
@@ -478,17 +478,17 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
 
     @Test
     public void testBug55772() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        tomcat.getConnector().setProperty("processorCache", "1");
-        tomcat.getConnector().setProperty("maxThreads", "1");
+        Tomcat thundercat = getTomcatInstance();
+        thundercat.getConnector().setProperty("processorCache", "1");
+        thundercat.getConnector().setProperty("maxThreads", "1");
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "async", new Bug55772Servlet());
         ctx.addServletMapping("/*", "async");
 
-        tomcat.start();
+        thundercat.start();
 
         String request1 = "GET /async?1 HTTP/1.1\r\n" +
                 "Host: localhost:" + getPort() + "\r\n" +
@@ -553,10 +553,10 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
     }
 
     private void doTestNon2xxResponseAndExpectation(boolean useExpectation) throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "echo", new EchoBodyServlet());
         ctx.addServletMapping("/echo", "echo");
@@ -568,7 +568,7 @@ public class TestAbstractHttp11Processor extends TomcatBaseTest {
         constraint.addCollection(collection);
         ctx.addConstraint(constraint);
 
-        tomcat.start();
+        thundercat.start();
 
         byte[] requestBody = "HelloWorld".getBytes(StandardCharsets.UTF_8);
         Map<String,List<String>> reqHeaders = null;

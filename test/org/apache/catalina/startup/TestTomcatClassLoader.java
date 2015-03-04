@@ -32,21 +32,21 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.loader.WebappClassLoader;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestTomcatClassLoader extends TomcatBaseTest {
 
     @Test
     public void testDefaultClassLoader() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "ClassLoaderReport", new ClassLoaderReport(null));
         ctx.addServletMapping("/", "ClassLoaderReport");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() + "/");
         assertEquals("WEBAPP,SYSTEM,OTHER,", res.toString());
@@ -60,16 +60,16 @@ public class TestTomcatClassLoader extends TomcatBaseTest {
 
         Thread.currentThread().setContextClassLoader(cl);
 
-        Tomcat tomcat = getTomcatInstance();
-        tomcat.getServer().setParentClassLoader(cl);
+        Tomcat thundercat = getTomcatInstance();
+        thundercat.getServer().setParentClassLoader(cl);
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "ClassLoaderReport", new ClassLoaderReport(cl));
         ctx.addServletMapping("/", "ClassLoaderReport");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() + "/");
         assertEquals("WEBAPP,CUSTOM,SYSTEM,OTHER,", res.toString());

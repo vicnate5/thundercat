@@ -25,7 +25,7 @@ import javax.management.modelmbean.InvalidTargetObjectTypeException;
 import org.apache.catalina.Executor;
 import org.apache.catalina.Service;
 import org.apache.catalina.connector.Connector;
-import org.apache.tomcat.util.modeler.BaseModelMBean;
+import org.apache.thundercat.util.modeler.BaseModelMBean;
 
 public class ServiceMBean extends BaseModelMBean {
 

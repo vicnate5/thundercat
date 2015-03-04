@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 import javax.net.ssl.SSLSession;
 
@@ -33,7 +33,7 @@ public abstract class SSLImplementation {
 
     // The default implementations in our search path
     private static final String JSSEImplementationClass =
-        "org.apache.tomcat.util.net.jsse.JSSEImplementation";
+        "org.apache.thundercat.util.net.jsse.JSSEImplementation";
 
     private static final String[] implementations = { JSSEImplementationClass };
 

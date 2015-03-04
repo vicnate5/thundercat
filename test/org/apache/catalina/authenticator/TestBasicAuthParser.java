@@ -22,8 +22,8 @@ import java.nio.charset.StandardCharsets;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.codec.binary.Base64;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.codec.binary.Base64;
 
 /**
  * Test the BasicAuthenticator's BasicCredentials inner class and the
@@ -511,7 +511,7 @@ public class TestBasicAuthParser {
                 throw new IllegalStateException("unable to extend ByteChunk:"
                         + ioe.getMessage());
             }
-            // emulate tomcat server - offset points to method in header
+            // emulate thundercat server - offset points to method in header
             authHeader.setOffset(initialOffset);
         }
 
@@ -531,7 +531,7 @@ public class TestBasicAuthParser {
                 throw new IllegalStateException("unable to extend ByteChunk:"
                         + ioe.getMessage());
             }
-            // emulate tomcat server - offset points to method in header
+            // emulate thundercat server - offset points to method in header
             authHeader.setOffset(initialOffset);
         }
 

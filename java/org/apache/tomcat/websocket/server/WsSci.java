@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket.server;
+package org.apache.thundercat.websocket.server;
 
 import java.lang.reflect.Modifier;
 import java.util.HashSet;

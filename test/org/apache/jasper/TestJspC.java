@@ -36,7 +36,7 @@ public class TestJspC {
 
     @Before
     public void init() {
-        File tempDir = new File(System.getProperty("tomcat.test.temp",
+        File tempDir = new File(System.getProperty("thundercat.test.temp",
                 "output/tmp"));
         outputDir = new File(tempDir, "jspc");
         jspc = new JspC();

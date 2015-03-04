@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.http.fileupload.disk;
+package org.apache.thundercat.util.http.fileupload.disk;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -30,22 +30,22 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.apache.tomcat.util.http.fileupload.DeferredFileOutputStream;
-import org.apache.tomcat.util.http.fileupload.FileItem;
-import org.apache.tomcat.util.http.fileupload.FileItemHeaders;
-import org.apache.tomcat.util.http.fileupload.FileUploadException;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
-import org.apache.tomcat.util.http.fileupload.ParameterParser;
-import org.apache.tomcat.util.http.fileupload.util.Streams;
+import org.apache.thundercat.util.http.fileupload.DeferredFileOutputStream;
+import org.apache.thundercat.util.http.fileupload.FileItem;
+import org.apache.thundercat.util.http.fileupload.FileItemHeaders;
+import org.apache.thundercat.util.http.fileupload.FileUploadException;
+import org.apache.thundercat.util.http.fileupload.IOUtils;
+import org.apache.thundercat.util.http.fileupload.ParameterParser;
+import org.apache.thundercat.util.http.fileupload.util.Streams;
 
 /**
  * <p> The default implementation of the
- * {@link org.apache.tomcat.util.http.fileupload.FileItem FileItem} interface.
+ * {@link org.apache.thundercat.util.http.fileupload.FileItem FileItem} interface.
  *
  * <p> After retrieving an instance of this class from a {@link
- * org.apache.tomcat.util.http.fileupload.FileUpload FileUpload} instance (see
- * {@link org.apache.tomcat.util.http.fileupload.FileUpload
- * #parseRequest(org.apache.tomcat.util.http.fileupload.RequestContext)}), you
+ * org.apache.thundercat.util.http.fileupload.FileUpload FileUpload} instance (see
+ * {@link org.apache.thundercat.util.http.fileupload.FileUpload
+ * #parseRequest(org.apache.thundercat.util.http.fileupload.RequestContext)}), you
  * may either request all contents of file at once using {@link #get()} or
  * request an {@link java.io.InputStream InputStream} with
  * {@link #getInputStream()} and process the file without attempting to load
@@ -225,11 +225,11 @@ public class DiskFileItem
      * Returns the original filename in the client's filesystem.
      *
      * @return The original filename in the client's filesystem.
-     * @throws org.apache.tomcat.util.http.fileupload.InvalidFileNameException
+     * @throws org.apache.thundercat.util.http.fileupload.InvalidFileNameException
      *   The file name contains a NUL character, which might be an indicator of
      *   a security attack. If you intend to use the file name anyways, catch
      *   the exception and use {@link
-     *   org.apache.tomcat.util.http.fileupload.InvalidFileNameException#getName()}.
+     *   org.apache.thundercat.util.http.fileupload.InvalidFileNameException#getName()}.
      */
     @Override
     public String getName() {

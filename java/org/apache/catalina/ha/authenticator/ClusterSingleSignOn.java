@@ -30,7 +30,7 @@ import org.apache.catalina.ha.ClusterValve;
 import org.apache.catalina.tribes.Channel;
 import org.apache.catalina.tribes.tipis.AbstractReplicatedMap.MapOwner;
 import org.apache.catalina.tribes.tipis.ReplicatedMap;
-import org.apache.tomcat.util.ExceptionUtils;
+import org.apache.thundercat.util.ExceptionUtils;
 
 /**
  * A <strong>Valve</strong> that supports a "single sign on" user experience on

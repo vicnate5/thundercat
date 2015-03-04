@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.descriptor.tld;
+package org.apache.thundercat.util.descriptor.tld;
 
 import java.lang.reflect.Method;
 
@@ -22,9 +22,9 @@ import javax.servlet.jsp.tagext.TagAttributeInfo;
 import javax.servlet.jsp.tagext.TagVariableInfo;
 import javax.servlet.jsp.tagext.VariableInfo;
 
-import org.apache.tomcat.util.digester.Digester;
-import org.apache.tomcat.util.digester.Rule;
-import org.apache.tomcat.util.digester.RuleSetBase;
+import org.apache.thundercat.util.digester.Digester;
+import org.apache.thundercat.util.digester.Rule;
+import org.apache.thundercat.util.digester.RuleSetBase;
 import org.xml.sax.Attributes;
 
 /**

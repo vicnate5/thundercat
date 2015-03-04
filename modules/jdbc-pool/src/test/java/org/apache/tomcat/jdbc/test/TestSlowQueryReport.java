@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.lang.management.ManagementFactory;
 import java.sql.CallableStatement;
@@ -39,9 +39,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.pool.ConnectionPool;
-import org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReport;
-import org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReportJmx;
+import org.apache.thundercat.jdbc.pool.ConnectionPool;
+import org.apache.thundercat.jdbc.pool.interceptor.SlowQueryReport;
+import org.apache.thundercat.jdbc.pool.interceptor.SlowQueryReportJmx;
 
 public class TestSlowQueryReport extends DefaultTestCase {
     public static final String superSlowSql = "select count(1) from test where val1 like 'ewq%eq' and val2 = 'ew%rre' and val3 = 'sda%da' and val4 = 'dad%ada'";
@@ -223,7 +223,7 @@ public class TestSlowQueryReport extends DefaultTestCase {
      * Mock Driver, Connection and Statement implementations use to verify setQueryTimeout was called.
      */
     public static class MockDriver implements java.sql.Driver {
-        public static final String url = "jdbc:tomcat:mock";
+        public static final String url = "jdbc:thundercat:mock";
 
         public MockDriver() {
         }
@@ -264,7 +264,7 @@ public class TestSlowQueryReport extends DefaultTestCase {
         }
     }
 
-    public static class MockConnection extends org.apache.tomcat.jdbc.test.driver.Connection {
+    public static class MockConnection extends org.apache.thundercat.jdbc.test.driver.Connection {
         public MockConnection(Properties info) {
             super(info);
         }
@@ -285,7 +285,7 @@ public class TestSlowQueryReport extends DefaultTestCase {
         }
     }
 
-    public static class MockStatement extends org.apache.tomcat.jdbc.test.driver.Statement {
+    public static class MockStatement extends org.apache.thundercat.jdbc.test.driver.Statement {
         boolean slow = false;
 
         public MockStatement(boolean slow) {

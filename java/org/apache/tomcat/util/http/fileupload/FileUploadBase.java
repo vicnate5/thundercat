@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.http.fileupload;
+package org.apache.thundercat.util.http.fileupload;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,11 +26,11 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
-import org.apache.tomcat.util.http.fileupload.MultipartStream.ItemInputStream;
-import org.apache.tomcat.util.http.fileupload.util.Closeable;
-import org.apache.tomcat.util.http.fileupload.util.FileItemHeadersImpl;
-import org.apache.tomcat.util.http.fileupload.util.LimitedInputStream;
-import org.apache.tomcat.util.http.fileupload.util.Streams;
+import org.apache.thundercat.util.http.fileupload.MultipartStream.ItemInputStream;
+import org.apache.thundercat.util.http.fileupload.util.Closeable;
+import org.apache.thundercat.util.http.fileupload.util.FileItemHeadersImpl;
+import org.apache.thundercat.util.http.fileupload.util.LimitedInputStream;
+import org.apache.thundercat.util.http.fileupload.util.Streams;
 
 
 /**
@@ -40,7 +40,7 @@ import org.apache.tomcat.util.http.fileupload.util.Streams;
  * <code>multipart/mixed</code> encoding type, as specified by
  * <a href="http://www.ietf.org/rfc/rfc1867.txt">RFC 1867</a>.  Use {@link
  * #parseRequest(RequestContext)} to acquire a list of {@link
- * org.apache.tomcat.util.http.fileupload.FileItem}s associated with a given HTML
+ * org.apache.thundercat.util.http.fileupload.FileItem}s associated with a given HTML
  * widget.</p>
  *
  * <p>How the data for individual parts is stored is determined by the factory

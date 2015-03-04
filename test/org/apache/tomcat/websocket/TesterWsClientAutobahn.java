@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket;
+package org.apache.thundercat.websocket;
 
 import java.io.IOException;
 import java.net.URI;
@@ -34,8 +34,8 @@ import javax.websocket.OnMessage;
 import javax.websocket.Session;
 import javax.websocket.WebSocketContainer;
 
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.websocket.pojo.PojoEndpointClient;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.websocket.pojo.PojoEndpointClient;
 
 /**
  * Runs the Autobahn test suite in client mode for testing the WebSocket client

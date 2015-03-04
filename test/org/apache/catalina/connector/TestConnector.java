@@ -28,7 +28,7 @@ import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.TesterServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Test cases for {@link Connector}.
@@ -37,17 +37,17 @@ public class TestConnector extends TomcatBaseTest {
 
     @Test
     public void testStop() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
-        Context root = tomcat.addContext("", TEMP_DIR);
+        Context root = thundercat.addContext("", TEMP_DIR);
         Wrapper w =
             Tomcat.addServlet(root, "tester", new TesterServlet());
         w.setAsyncSupported(true);
         root.addServletMapping("/", "tester");
 
-        Connector connector = tomcat.getConnector();
+        Connector connector = thundercat.getConnector();
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk bc = new ByteChunk();
         int rc = getUrl("http://localhost:" + getPort() + "/", bc, null, null);
@@ -74,17 +74,17 @@ public class TestConnector extends TomcatBaseTest {
 
     @Test
     public void testPort() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
-        Connector connector1 = tomcat.getConnector();
+        Connector connector1 = thundercat.getConnector();
         connector1.setPort(0);
 
         Connector connector2 = new Connector();
         connector2.setPort(0);
 
-        tomcat.getService().addConnector(connector2);
+        thundercat.getService().addConnector(connector2);
 
-        tomcat.start();
+        thundercat.start();
 
         int localPort1 = connector1.getLocalPort();
         int localPort2 = connector2.getLocalPort();

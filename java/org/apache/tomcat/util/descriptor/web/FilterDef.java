@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.descriptor.web;
+package org.apache.thundercat.util.descriptor.web;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ import java.util.Map;
 
 import javax.servlet.Filter;
 
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 
 /**

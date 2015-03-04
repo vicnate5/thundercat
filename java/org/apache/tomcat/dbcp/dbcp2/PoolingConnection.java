@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.dbcp.dbcp2;
+package org.apache.thundercat.dbcp.dbcp2;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -23,10 +23,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.NoSuchElementException;
 
-import org.apache.tomcat.dbcp.pool2.KeyedObjectPool;
-import org.apache.tomcat.dbcp.pool2.KeyedPooledObjectFactory;
-import org.apache.tomcat.dbcp.pool2.PooledObject;
-import org.apache.tomcat.dbcp.pool2.impl.DefaultPooledObject;
+import org.apache.thundercat.dbcp.pool2.KeyedObjectPool;
+import org.apache.thundercat.dbcp.pool2.KeyedPooledObjectFactory;
+import org.apache.thundercat.dbcp.pool2.PooledObject;
+import org.apache.thundercat.dbcp.pool2.impl.DefaultPooledObject;
 
 /**
  * A {@link DelegatingConnection} that pools {@link PreparedStatement}s.

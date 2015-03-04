@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.dbcp.pool2.impl;
+package org.apache.thundercat.dbcp.pool2.impl;
 
 import java.io.PrintWriter;
 
@@ -105,7 +105,7 @@ public class AbandonedConfig {
      * <p>Timeout in seconds before an abandoned object can be removed.</p>
      *
      * <p>The time of most recent use of an object is the maximum (latest) of
-     * {@link org.apache.tomcat.dbcp.pool2.TrackedUse#getLastUsed()}
+     * {@link org.apache.thundercat.dbcp.pool2.TrackedUse#getLastUsed()}
      * (if this class of the object implements
      * TrackedUse) and the time when the object was borrowed from the pool.</p>
      *
@@ -203,7 +203,7 @@ public class AbandonedConfig {
 
     /**
      * If the pool implements
-     * {@link org.apache.tomcat.dbcp.pool2.UsageTracking}, should the pool
+     * {@link org.apache.thundercat.dbcp.pool2.UsageTracking}, should the pool
      * record a
      * stack trace every time a method is called on a pooled object and retain
      * the most recent stack trace to aid debugging of abandoned objects?
@@ -216,7 +216,7 @@ public class AbandonedConfig {
 
     /**
      * If the pool implements
-     * {@link org.apache.tomcat.dbcp.pool2.UsageTracking}, configure whether the
+     * {@link org.apache.thundercat.dbcp.pool2.UsageTracking}, configure whether the
      * pool
      * should record a stack trace every time a method is called on a pooled
      * object and retain the most recent stack trace to aid debugging of

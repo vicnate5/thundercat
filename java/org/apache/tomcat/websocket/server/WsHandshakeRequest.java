@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket.server;
+package org.apache.thundercat.websocket.server;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -30,7 +30,7 @@ import java.util.Map.Entry;
 import javax.servlet.http.HttpServletRequest;
 import javax.websocket.server.HandshakeRequest;
 
-import org.apache.tomcat.websocket.CaseInsensitiveKeyMap;
+import org.apache.thundercat.websocket.CaseInsensitiveKeyMap;
 
 /**
  * Represents the request that this session was opened under.

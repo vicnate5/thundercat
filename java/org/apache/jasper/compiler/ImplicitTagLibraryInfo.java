@@ -33,10 +33,10 @@ import javax.servlet.jsp.tagext.TagLibraryInfo;
 import org.apache.jasper.Constants;
 import org.apache.jasper.JasperException;
 import org.apache.jasper.JspCompilationContext;
-import org.apache.tomcat.util.descriptor.tld.ImplicitTldRuleSet;
-import org.apache.tomcat.util.descriptor.tld.TaglibXml;
-import org.apache.tomcat.util.descriptor.tld.TldParser;
-import org.apache.tomcat.util.descriptor.tld.TldResourcePath;
+import org.apache.thundercat.util.descriptor.tld.ImplicitTldRuleSet;
+import org.apache.thundercat.util.descriptor.tld.TaglibXml;
+import org.apache.thundercat.util.descriptor.tld.TldParser;
+import org.apache.thundercat.util.descriptor.tld.TldResourcePath;
 import org.xml.sax.SAXException;
 
 /**

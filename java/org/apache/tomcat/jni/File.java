@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.jni;
+package org.apache.thundercat.jni;
 /* Import needed classes */
 import java.nio.ByteBuffer;
 

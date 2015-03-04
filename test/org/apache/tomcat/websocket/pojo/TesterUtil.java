@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket.pojo;
+package org.apache.thundercat.websocket.pojo;
 
 import javax.servlet.ServletContextEvent;
 import javax.websocket.ClientEndpoint;
@@ -22,8 +22,8 @@ import javax.websocket.DeploymentException;
 import javax.websocket.server.ServerContainer;
 import javax.websocket.server.ServerEndpointConfig.Configurator;
 
-import org.apache.tomcat.websocket.server.Constants;
-import org.apache.tomcat.websocket.server.WsContextListener;
+import org.apache.thundercat.websocket.server.Constants;
+import org.apache.thundercat.websocket.server.WsContextListener;
 
 public class TesterUtil {
 

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.sql.Connection;
 
@@ -24,7 +24,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.test.driver.Driver;
+import org.apache.thundercat.jdbc.test.driver.Driver;
 
 public class EqualsHashCodeTest extends DefaultTestCase{
     public static final String password = "password";
@@ -33,7 +33,7 @@ public class EqualsHashCodeTest extends DefaultTestCase{
     @Before
     public void setUp() throws Exception {
         this.datasource.setDriverClassName(Driver.class.getName());
-        this.datasource.setUrl("jdbc:tomcat:test");
+        this.datasource.setUrl("jdbc:thundercat:test");
         this.datasource.setPassword(password);
         this.datasource.setMaxActive(1);
         this.datasource.setMinIdle(datasource.getMaxActive());

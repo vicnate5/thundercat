@@ -30,7 +30,7 @@ import java.util.List;
 
 import org.apache.catalina.connector.Connector;
 import org.apache.coyote.ProtocolHandler;
-import org.apache.tomcat.util.IntrospectionUtils;
+import org.apache.thundercat.util.IntrospectionUtils;
 
 /**
  * Store the Connector attributes. Connector has really special design. A

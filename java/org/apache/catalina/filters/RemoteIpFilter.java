@@ -1112,7 +1112,7 @@ public class RemoteIpFilter implements Filter {
      * <li>org.apache.catalina.AccessLog.RemoteHost</li>
      * <li>org.apache.catalina.AccessLog.Protocol</li>
      * <li>org.apache.catalina.AccessLog.ServerPort</li>
-     * <li>org.apache.tomcat.remoteAddr</li>
+     * <li>org.apache.thundercat.remoteAddr</li>
      * </ul>
      *
      * @param requestAttributesEnabled  <code>true</code> causes the attributes

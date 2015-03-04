@@ -35,9 +35,9 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.descriptor.web.FilterDef;
-import org.apache.tomcat.util.descriptor.web.FilterMap;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.descriptor.web.FilterDef;
+import org.apache.thundercat.util.descriptor.web.FilterMap;
 
 public class TestAddCharSetFilter extends TomcatBaseTest {
 
@@ -89,10 +89,10 @@ public class TestAddCharSetFilter extends TomcatBaseTest {
     private void doTest(String encoding, String expected, int mode)
             throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         // Add the Servlet
         CharsetServlet servlet = new CharsetServlet(mode);
@@ -112,7 +112,7 @@ public class TestAddCharSetFilter extends TomcatBaseTest {
         filterMap.addServletName("servlet");
         ctx.addFilterMap(filterMap);
 
-        tomcat.start();
+        thundercat.start();
 
         Map<String, List<String>> headers = new HashMap<>();
         getUrl("http://localhost:" + getPort() + "/", new ByteChunk(), headers);

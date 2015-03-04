@@ -17,7 +17,7 @@
 
 package org.apache.coyote.http11;
 
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 
 /**

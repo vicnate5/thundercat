@@ -130,7 +130,7 @@ public class ReplicatedContext extends StandardContext implements MapOwner {
 
 
     protected static class ReplApplContext extends ApplicationContext {
-        protected final ConcurrentHashMap<String, Object> tomcatAttributes =
+        protected final ConcurrentHashMap<String, Object> thundercatAttributes =
             new ConcurrentHashMap<>();
 
         public ReplApplContext(ReplicatedContext context) {
@@ -155,7 +155,7 @@ public class ReplicatedContext extends StandardContext implements MapOwner {
 
         @Override
         public void removeAttribute(String name) {
-            tomcatAttributes.remove(name);
+            thundercatAttributes.remove(name);
             //do nothing
             super.removeAttribute(name);
         }
@@ -170,14 +170,14 @@ public class ReplicatedContext extends StandardContext implements MapOwner {
                 return;
             }
             if ( (!getParent().getState().isAvailable()) || "org.apache.jasper.runtime.JspApplicationContextImpl".equals(name) ){
-                tomcatAttributes.put(name,value);
+                thundercatAttributes.put(name,value);
             } else
                 super.setAttribute(name,value);
         }
 
         @Override
         public Object getAttribute(String name) {
-            Object obj = tomcatAttributes.get(name);
+            Object obj = thundercatAttributes.get(name);
             if (obj == null) {
                 return super.getAttribute(name);
             } else {

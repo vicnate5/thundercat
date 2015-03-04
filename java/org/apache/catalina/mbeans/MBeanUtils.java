@@ -33,11 +33,11 @@ import org.apache.catalina.Server;
 import org.apache.catalina.User;
 import org.apache.catalina.UserDatabase;
 import org.apache.catalina.util.ContextName;
-import org.apache.tomcat.util.descriptor.web.ContextEnvironment;
-import org.apache.tomcat.util.descriptor.web.ContextResource;
-import org.apache.tomcat.util.descriptor.web.ContextResourceLink;
-import org.apache.tomcat.util.modeler.ManagedBean;
-import org.apache.tomcat.util.modeler.Registry;
+import org.apache.thundercat.util.descriptor.web.ContextEnvironment;
+import org.apache.thundercat.util.descriptor.web.ContextResource;
+import org.apache.thundercat.util.descriptor.web.ContextResourceLink;
+import org.apache.thundercat.util.modeler.ManagedBean;
+import org.apache.thundercat.util.modeler.Registry;
 
 
 /**
@@ -562,7 +562,7 @@ public class MBeanUtils {
             registry.loadDescriptors("org.apache.catalina.connector", cl);
             registry.loadDescriptors("org.apache.catalina.valves",  cl);
             registry.loadDescriptors("org.apache.catalina.storeconfig",  cl);
-            registry.loadDescriptors("org.apache.tomcat.util.descriptor.web",  cl);
+            registry.loadDescriptors("org.apache.thundercat.util.descriptor.web",  cl);
         }
         return (registry);
 

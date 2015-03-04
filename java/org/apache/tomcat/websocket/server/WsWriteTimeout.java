@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket.server;
+package org.apache.thundercat.websocket.server;
 
 import java.util.Comparator;
 import java.util.Iterator;
@@ -22,8 +22,8 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.apache.tomcat.websocket.BackgroundProcess;
-import org.apache.tomcat.websocket.BackgroundProcessManager;
+import org.apache.thundercat.websocket.BackgroundProcess;
+import org.apache.thundercat.websocket.BackgroundProcessManager;
 
 /**
  * Provides timeouts for asynchronous web socket writes. On the server side we

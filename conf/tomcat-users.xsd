@@ -16,13 +16,13 @@
   limitations under the License.
 -->
 <xs:schema xmlns="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="http://tomcat.apache.org/xml"
-           xmlns:users="http://tomcat.apache.org/xml"
+           targetNamespace="http://thundercat.apache.org/xml"
+           xmlns:users="http://thundercat.apache.org/xml"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified"
            version="1.0">
-  <xs:element name="tomcat-users">
+  <xs:element name="thundercat-users">
     <xs:complexType>
       <xs:sequence>
         <xs:element name="role" minOccurs="0" maxOccurs="unbounded">

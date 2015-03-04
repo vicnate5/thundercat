@@ -19,8 +19,8 @@ package org.apache.catalina.storeconfig;
 
 import java.io.PrintWriter;
 
-import org.apache.tomcat.JarScanFilter;
-import org.apache.tomcat.JarScanner;
+import org.apache.thundercat.JarScanFilter;
+import org.apache.thundercat.JarScanner;
 
 /**
  * Store server.xml Element JarScanner

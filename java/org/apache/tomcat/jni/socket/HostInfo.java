@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.jni.socket;
+package org.apache.thundercat.jni.socket;
 
 import java.io.Serializable;
 

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.pool2.impl;
+package org.apache.thundercat.dbcp.pool2.impl;
 
 /**
  * Provides the implementation for the common attributes shared by the
@@ -149,7 +149,7 @@ public abstract class BaseObjectPoolConfig implements Cloneable {
      * @see GenericKeyedObjectPool#getEvictionPolicyClassName()
      */
     public static final String DEFAULT_EVICTION_POLICY_CLASS_NAME =
-            "org.apache.tomcat.dbcp.pool2.impl.DefaultEvictionPolicy";
+            "org.apache.thundercat.dbcp.pool2.impl.DefaultEvictionPolicy";
 
 
     private boolean lifo = DEFAULT_LIFO;

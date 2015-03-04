@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.jni.socket;
+package org.apache.thundercat.jni.socket;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -37,17 +37,17 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.apache.tomcat.jni.Address;
-import org.apache.tomcat.jni.Error;
-import org.apache.tomcat.jni.Library;
-import org.apache.tomcat.jni.OS;
-import org.apache.tomcat.jni.Poll;
-import org.apache.tomcat.jni.Pool;
-import org.apache.tomcat.jni.SSL;
-import org.apache.tomcat.jni.SSLContext;
-import org.apache.tomcat.jni.SSLExt;
-import org.apache.tomcat.jni.Socket;
-import org.apache.tomcat.jni.Status;
+import org.apache.thundercat.jni.Address;
+import org.apache.thundercat.jni.Error;
+import org.apache.thundercat.jni.Library;
+import org.apache.thundercat.jni.OS;
+import org.apache.thundercat.jni.Poll;
+import org.apache.thundercat.jni.Pool;
+import org.apache.thundercat.jni.SSL;
+import org.apache.thundercat.jni.SSLContext;
+import org.apache.thundercat.jni.SSLExt;
+import org.apache.thundercat.jni.Socket;
+import org.apache.thundercat.jni.Status;
 
 public class AprSocketContext {
     /**

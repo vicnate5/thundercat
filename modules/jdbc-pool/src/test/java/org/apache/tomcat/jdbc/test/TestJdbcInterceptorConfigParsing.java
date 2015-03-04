@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.util.Map;
 
@@ -24,14 +24,14 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.pool.PoolProperties;
-import org.apache.tomcat.jdbc.pool.PoolProperties.InterceptorDefinition;
-import org.apache.tomcat.jdbc.pool.PoolProperties.InterceptorProperty;
-import org.apache.tomcat.jdbc.pool.TrapException;
+import org.apache.thundercat.jdbc.pool.PoolProperties;
+import org.apache.thundercat.jdbc.pool.PoolProperties.InterceptorDefinition;
+import org.apache.thundercat.jdbc.pool.PoolProperties.InterceptorProperty;
+import org.apache.thundercat.jdbc.pool.TrapException;
 
 /**
  * Test of JdbcInterceptor configuration parsing in the
- * {@link org.apache.tomcat.jdbc.pool.PoolProperties PoolProperties} class.
+ * {@link org.apache.thundercat.jdbc.pool.PoolProperties PoolProperties} class.
  * Added in context of bug 54395.
  */
 public class TestJdbcInterceptorConfigParsing {

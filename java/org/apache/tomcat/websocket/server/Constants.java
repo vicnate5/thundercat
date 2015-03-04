@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket.server;
+package org.apache.thundercat.websocket.server;
 
 /**
  * Internal implementation constants.
@@ -25,19 +25,19 @@ public class Constants {
             Constants.class.getPackage().getName();
 
     public static final String BINARY_BUFFER_SIZE_SERVLET_CONTEXT_INIT_PARAM =
-            "org.apache.tomcat.websocket.binaryBufferSize";
+            "org.apache.thundercat.websocket.binaryBufferSize";
     public static final String TEXT_BUFFER_SIZE_SERVLET_CONTEXT_INIT_PARAM =
-            "org.apache.tomcat.websocket.textBufferSize";
+            "org.apache.thundercat.websocket.textBufferSize";
     public static final String ENFORCE_NO_ADD_AFTER_HANDSHAKE_CONTEXT_INIT_PARAM =
-            "org.apache.tomcat.websocket.noAddAfterHandshake";
+            "org.apache.thundercat.websocket.noAddAfterHandshake";
 
     // Executor configuration
     public static final String EXECUTOR_CORE_SIZE_INIT_PARAM =
-            "org.apache.tomcat.websocket.executorCoreSize";
+            "org.apache.thundercat.websocket.executorCoreSize";
     public static final String EXECUTOR_MAX_SIZE_INIT_PARAM =
-            "org.apache.tomcat.websocket.executorMaxSize";
+            "org.apache.thundercat.websocket.executorMaxSize";
     public static final String EXECUTOR_KEEPALIVETIME_SECONDS_INIT_PARAM =
-            "org.apache.tomcat.websocket.executorKeepAliveTimeSeconds";
+            "org.apache.thundercat.websocket.executorKeepAliveTimeSeconds";
 
     public static final String SERVER_CONTAINER_SERVLET_CONTEXT_ATTRIBUTE =
             "javax.websocket.server.ServerContainer";

@@ -24,8 +24,8 @@ import javax.servlet.http.HttpUpgradeHandler;
 import org.apache.coyote.AbstractProtocol;
 import org.apache.coyote.Processor;
 import org.apache.coyote.http11.upgrade.UpgradeProcessor;
-import org.apache.tomcat.util.net.AbstractEndpoint;
-import org.apache.tomcat.util.net.SocketWrapperBase;
+import org.apache.thundercat.util.net.AbstractEndpoint;
+import org.apache.thundercat.util.net.SocketWrapperBase;
 
 public abstract class AbstractHttp11Protocol<S> extends AbstractProtocol<S> {
 

@@ -22,7 +22,7 @@ import org.apache.catalina.WebResource;
 import org.apache.catalina.WebResourceRoot;
 import org.apache.catalina.connector.Request;
 
-import org.apache.tomcat.util.http.FastHttpDateFormat;
+import org.apache.thundercat.util.http.FastHttpDateFormat;
 
 public class ResolverImpl extends Resolver {
 
@@ -98,7 +98,7 @@ public class ResolverImpl extends Resolver {
         } else if (key.equals("SERVER_PROTOCOL")) {
             return request.getProtocol();
         } else if (key.equals("SERVER_SOFTWARE")) {
-            return "tomcat";
+            return "thundercat";
         } else if (key.equals("THE_REQUEST")) {
             return request.getMethod() + " " + request.getRequestURI()
             + " " + request.getProtocol();

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool;
+package org.apache.thundercat.jdbc.pool;
 
 
 import org.apache.juli.logging.Log;
@@ -24,7 +24,7 @@ public class ClassLoaderUtil {
     private static final Log log = LogFactory.getLog(ClassLoaderUtil.class);
 
     private static final boolean onlyAttemptFirstLoader =
-        Boolean.getBoolean(System.getProperty("org.apache.tomcat.jdbc.pool.onlyAttemptCurrentClassLoader", "false"));
+        Boolean.getBoolean(System.getProperty("org.apache.thundercat.jdbc.pool.onlyAttemptCurrentClassLoader", "false"));
 
     public static Class<?> loadClass(String className, ClassLoader... classLoaders) throws ClassNotFoundException {
         ClassNotFoundException last = null;

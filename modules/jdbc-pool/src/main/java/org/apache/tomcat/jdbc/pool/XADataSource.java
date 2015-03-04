@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.jdbc.pool;
+package org.apache.thundercat.jdbc.pool;
 
 public class XADataSource extends DataSource implements javax.sql.XADataSource {
 

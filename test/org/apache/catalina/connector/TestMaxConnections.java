@@ -69,19 +69,19 @@ public class TestMaxConnections extends TomcatBaseTest {
 
 
     private synchronized void init() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        StandardContext root = (StandardContext) tomcat.addContext("", SimpleHttpClient.TEMP_DIR);
+        Tomcat thundercat = getTomcatInstance();
+        StandardContext root = (StandardContext) thundercat.addContext("", SimpleHttpClient.TEMP_DIR);
         root.setUnloadDelay(soTimeout);
         Tomcat.addServlet(root, "Simple", new SimpleServlet());
         root.addServletMapping("/test", "Simple");
-        tomcat.getConnector().setProperty("maxKeepAliveRequests", "1");
-        tomcat.getConnector().setProperty("maxThreads", "10");
-        tomcat.getConnector().setProperty("soTimeout", "20000");
-        tomcat.getConnector().setProperty("keepAliveTimeout", "50000");
-        tomcat.getConnector().setProperty(
+        thundercat.getConnector().setProperty("maxKeepAliveRequests", "1");
+        thundercat.getConnector().setProperty("maxThreads", "10");
+        thundercat.getConnector().setProperty("soTimeout", "20000");
+        thundercat.getConnector().setProperty("keepAliveTimeout", "50000");
+        thundercat.getConnector().setProperty(
                 "maxConnections", Integer.toString(MAX_CONNECTIONS));
-        tomcat.getConnector().setProperty("acceptCount", "1");
-        tomcat.start();
+        thundercat.getConnector().setProperty("acceptCount", "1");
+        thundercat.start();
     }
 
     private class TestClient extends SimpleHttpClient {

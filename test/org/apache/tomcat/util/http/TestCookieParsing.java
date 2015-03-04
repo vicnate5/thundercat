@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import java.io.IOException;
 
@@ -248,8 +248,8 @@ public class TestCookieParsing extends TomcatBaseTest {
 
 
         private void doRequest() throws Exception {
-            Tomcat tomcat = getTomcatInstance();
-            Context root = tomcat.addContext("", TEMP_DIR);
+            Tomcat thundercat = getTomcatInstance();
+            Context root = thundercat.addContext("", TEMP_DIR);
             root.setCookieProcessor(cookieProcessor);
 
             if (echoHeader) {
@@ -259,9 +259,9 @@ public class TestCookieParsing extends TomcatBaseTest {
             }
             root.addServletMapping("/test", "Cookies");
 
-            tomcat.start();
+            thundercat.start();
             // Open connection
-            setPort(tomcat.getConnector().getLocalPort());
+            setPort(thundercat.getConnector().getLocalPort());
             connect();
 
             StringBuilder request = new StringBuilder();
@@ -280,7 +280,7 @@ public class TestCookieParsing extends TomcatBaseTest {
             // Close the connection
             disconnect();
             reset();
-            tomcat.stop();
+            thundercat.stop();
 
             Assert.assertEquals(expected, response);
         }

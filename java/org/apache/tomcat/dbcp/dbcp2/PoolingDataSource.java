@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.dbcp2;
+package org.apache.thundercat.dbcp.dbcp2;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -27,8 +27,8 @@ import javax.sql.DataSource;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.dbcp.pool2.ObjectPool;
-import org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool;
+import org.apache.thundercat.dbcp.pool2.ObjectPool;
+import org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool;
 
 /**
  * A simple {@link DataSource} implementation that obtains
@@ -201,7 +201,7 @@ public class PoolingDataSource<C extends Connection> implements DataSource {
         }
 
         /**
-         * @see org.apache.tomcat.dbcp.dbcp2.DelegatingConnection#getDelegate()
+         * @see org.apache.thundercat.dbcp.dbcp2.DelegatingConnection#getDelegate()
          */
         @Override
         public D getDelegate() {
@@ -212,7 +212,7 @@ public class PoolingDataSource<C extends Connection> implements DataSource {
         }
 
         /**
-         * @see org.apache.tomcat.dbcp.dbcp2.DelegatingConnection#getInnermostDelegate()
+         * @see org.apache.thundercat.dbcp.dbcp2.DelegatingConnection#getInnermostDelegate()
          */
         @Override
         public Connection getInnermostDelegate() {

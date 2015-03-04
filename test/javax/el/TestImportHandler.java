@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 public class TestImportHandler {
 
@@ -58,7 +58,7 @@ public class TestImportHandler {
     public void testResolveClass03() {
         ImportHandler handler = new ImportHandler();
 
-        handler.importPackage("org.apache.tomcat.util");
+        handler.importPackage("org.apache.thundercat.util");
         handler.importPackage("org.apache.jasper.util");
 
         for (int i = 1; i <= 3; i++) {
@@ -127,7 +127,7 @@ public class TestImportHandler {
     public void testImportClass01() {
         ImportHandler handler = new ImportHandler();
 
-        handler.importClass("org.apache.tomcat.util.res.StringManager");
+        handler.importClass("org.apache.thundercat.util.res.StringManager");
 
         Class<?> result = handler.resolveClass("StringManager");
 
@@ -141,7 +141,7 @@ public class TestImportHandler {
     @Test
     public void testImportClass02() {
         ImportHandler handler = new ImportHandler();
-        handler.importClass("org.apache.tomcat.util.res.StringManagerX");
+        handler.importClass("org.apache.thundercat.util.res.StringManagerX");
         Class<?> result = handler.resolveClass("StringManagerX");
         Assert.assertNull(result);
     }
@@ -154,7 +154,7 @@ public class TestImportHandler {
     public void testImportClass03() {
         ImportHandler handler = new ImportHandler();
 
-        handler.importClass("org.apache.tomcat.util.ExceptionUtils");
+        handler.importClass("org.apache.thundercat.util.ExceptionUtils");
         for (int i = 1; i <= 3; i++) {
             try {
                 handler.importClass("org.apache.jasper.util.ExceptionUtils");
@@ -174,8 +174,8 @@ public class TestImportHandler {
     public void testImportClass04() {
         ImportHandler handler = new ImportHandler();
 
-        handler.importClass("org.apache.tomcat.util.res.StringManager");
-        handler.importClass("org.apache.tomcat.util.res.StringManager");
+        handler.importClass("org.apache.thundercat.util.res.StringManager");
+        handler.importClass("org.apache.thundercat.util.res.StringManager");
 
         Class<?> result = handler.resolveClass("StringManager");
 
@@ -190,7 +190,7 @@ public class TestImportHandler {
     public void testImportPackage01_57574() {
         ImportHandler handler = new ImportHandler();
 
-        handler.importPackage("org.apache.tomcat.foo");
+        handler.importPackage("org.apache.thundercat.foo");
 
         // No exception is expected
     }
@@ -203,11 +203,11 @@ public class TestImportHandler {
     public void testImportStatic01() {
         ImportHandler handler = new ImportHandler();
 
-        handler.importStatic("org.apache.tomcat.util.buf.Constants.Package");
+        handler.importStatic("org.apache.thundercat.util.buf.Constants.Package");
 
         Class<?> result = handler.resolveStatic("Package");
 
-        Assert.assertEquals(org.apache.tomcat.util.buf.Constants.class, result);
+        Assert.assertEquals(org.apache.thundercat.util.buf.Constants.class, result);
     }
 
 
@@ -218,7 +218,7 @@ public class TestImportHandler {
     public void testImportStatic02() {
         ImportHandler handler = new ImportHandler();
 
-        handler.importStatic("org.apache.tomcat.util.buf.Constants.PackageXX");
+        handler.importStatic("org.apache.thundercat.util.buf.Constants.PackageXX");
     }
 
 
@@ -229,11 +229,11 @@ public class TestImportHandler {
     public void testImportStatic03() {
         ImportHandler handler = new ImportHandler();
 
-        handler.importStatic("org.apache.tomcat.util.buf.Ascii.toLower");
+        handler.importStatic("org.apache.thundercat.util.buf.Ascii.toLower");
 
         Class<?> result = handler.resolveStatic("toLower");
 
-        Assert.assertEquals(org.apache.tomcat.util.buf.Ascii.class, result);
+        Assert.assertEquals(org.apache.thundercat.util.buf.Ascii.class, result);
     }
 
 
@@ -244,10 +244,10 @@ public class TestImportHandler {
     public void testImportStatic04() {
         ImportHandler handler = new ImportHandler();
 
-        handler.importStatic("org.apache.tomcat.util.buf.Constants.Package");
+        handler.importStatic("org.apache.thundercat.util.buf.Constants.Package");
         for (int i = 1; i <= 3; i++) {
             try {
-                handler.importStatic("org.apache.tomcat.util.scan.Constants.Package");
+                handler.importStatic("org.apache.thundercat.util.scan.Constants.Package");
                 Assert.fail("Expected ELException but got none on iteration "
                         + i);
             } catch (ELException ex) {

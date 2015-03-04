@@ -37,16 +37,16 @@ import org.apache.catalina.WebResourceRoot;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
 import org.apache.catalina.webresources.StandardRoot;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestStandardContextAliases extends TomcatBaseTest {
 
     @Test
     public void testDirContextAliases() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         File lib = new File("webapps/examples/WEB-INF/lib");
         ctx.setResources(new StandardRoot(ctx));
@@ -58,7 +58,7 @@ public class TestStandardContextAliases extends TomcatBaseTest {
         Tomcat.addServlet(ctx, "test", new TestServlet());
         ctx.addServletMapping("/", "test");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() + "/");
 

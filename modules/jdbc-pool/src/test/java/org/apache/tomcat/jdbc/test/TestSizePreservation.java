@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.sql.Connection;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -22,9 +22,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.pool.DataSource;
-import org.apache.tomcat.jdbc.pool.PoolConfiguration;
-import org.apache.tomcat.jdbc.test.driver.Driver;
+import org.apache.thundercat.jdbc.pool.DataSource;
+import org.apache.thundercat.jdbc.pool.PoolConfiguration;
+import org.apache.thundercat.jdbc.test.driver.Driver;
 
 /**
  * https://bz.apache.org/bugzilla/show_bug.cgi?id=50613
@@ -35,7 +35,7 @@ public class TestSizePreservation {
 
     private void initSimplePoolProperties() {
         PoolConfiguration p = new DefaultProperties();
-        ds = new org.apache.tomcat.jdbc.pool.DataSource();
+        ds = new org.apache.thundercat.jdbc.pool.DataSource();
         ds.setPoolProperties(p);
 
         ds.getPoolProperties().setDriverClassName(Driver.class.getName());

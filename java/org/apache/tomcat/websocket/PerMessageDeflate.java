@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket;
+package org.apache.thundercat.websocket;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -28,7 +28,7 @@ import javax.websocket.Extension;
 import javax.websocket.Extension.Parameter;
 import javax.websocket.SendHandler;
 
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 public class PerMessageDeflate implements Transformation {
 

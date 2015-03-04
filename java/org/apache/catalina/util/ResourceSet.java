@@ -22,7 +22,7 @@ package org.apache.catalina.util;
 import java.util.Collection;
 import java.util.HashSet;
 
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 
 /**

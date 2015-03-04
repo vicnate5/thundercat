@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.descriptor;
+package org.apache.thundercat.util.descriptor;
 
 /**
  * Defines constants for well-known Public and System identifiers documented by

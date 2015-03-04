@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.sql.Connection;
 import java.util.concurrent.CountDownLatch;
@@ -26,8 +26,8 @@ import javax.sql.DataSource;
 import org.junit.After;
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.pool.DataSourceProxy;
-import org.apache.tomcat.jdbc.test.driver.Driver;
+import org.apache.thundercat.jdbc.pool.DataSourceProxy;
+import org.apache.thundercat.jdbc.test.driver.Driver;
 
 public class ConnectCountTest extends DefaultTestCase {
 
@@ -39,9 +39,9 @@ public class ConnectCountTest extends DefaultTestCase {
 
 
     @Override
-    public org.apache.tomcat.jdbc.pool.DataSource createDefaultDataSource() {
+    public org.apache.thundercat.jdbc.pool.DataSource createDefaultDataSource() {
         // TODO Auto-generated method stub
-        org.apache.tomcat.jdbc.pool.DataSource ds = super.createDefaultDataSource();
+        org.apache.thundercat.jdbc.pool.DataSource ds = super.createDefaultDataSource();
         ds.getPoolProperties().setDriverClassName(Driver.class.getName());
         ds.getPoolProperties().setUrl(Driver.url);
         ds.getPoolProperties().setInitialSize(0);
@@ -91,7 +91,7 @@ public class ConnectCountTest extends DefaultTestCase {
         TestThread[] threads = new TestThread[threadcount];
         for (int i=0; i<threadcount; i++) {
             threads[i] = new TestThread();
-            threads[i].setName("tomcat-dbcp-"+i);
+            threads[i].setName("thundercat-dbcp-"+i);
             threads[i].d = this.tDatasource;
 
         }
@@ -118,7 +118,7 @@ public class ConnectCountTest extends DefaultTestCase {
         TestThread[] threads = new TestThread[threadcount];
         for (int i=0; i<threadcount; i++) {
             threads[i] = new TestThread();
-            threads[i].setName("tomcat-pool-"+i);
+            threads[i].setName("thundercat-pool-"+i);
             threads[i].d = this.datasource;
 
         }
@@ -146,7 +146,7 @@ public class ConnectCountTest extends DefaultTestCase {
         TestThread[] threads = new TestThread[threadcount];
         for (int i=0; i<threadcount; i++) {
             threads[i] = new TestThread();
-            threads[i].setName("tomcat-pool-"+i);
+            threads[i].setName("thundercat-pool-"+i);
             threads[i].d = this.datasource;
 
         }
@@ -175,7 +175,7 @@ public class ConnectCountTest extends DefaultTestCase {
         TestThread[] threads = new TestThread[threadcount];
         for (int i=0; i<threadcount; i++) {
             threads[i] = new TestThread();
-            threads[i].setName("tomcat-pool-"+i);
+            threads[i].setName("thundercat-pool-"+i);
             threads[i].async = true;
             threads[i].d = this.datasource;
 
@@ -203,7 +203,7 @@ public class ConnectCountTest extends DefaultTestCase {
 //        TestThread[] threads = new TestThread[threadcount];
 //        for (int i=0; i<threadcount; i++) {
 //            threads[i] = new TestThread();
-//            threads[i].setName("tomcat-pool-"+i);
+//            threads[i].setName("thundercat-pool-"+i);
 //            threads[i].d = this.c3p0Datasource;
 //
 //        }

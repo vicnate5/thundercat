@@ -102,18 +102,18 @@ package.
 
  *  Tomcat SVN repository URL:
 
-        http://svn.apache.org/repos/asf/tomcat/tc@VERSION_MAJOR_MINOR@.x/trunk/
+        http://svn.apache.org/repos/asf/thundercat/tc@VERSION_MAJOR_MINOR@.x/trunk/
 
  *  Source packages can be downloaded from:
 
-        http://tomcat.apache.org/download-@VERSION_MAJOR@0.cgi
+        http://thundercat.apache.org/download-@VERSION_MAJOR@0.cgi
 
 The location where the source has been placed will be further referred as
-${tomcat.source}.
+${thundercat.source}.
 
 (3.2) Building
 
- 1. The build is controlled by creating a ${tomcat.source}/build.properties
+ 1. The build is controlled by creating a ${thundercat.source}/build.properties
     file.
 
     It is recommended to always create the file, because of unfortunate
@@ -126,7 +126,7 @@ ${tomcat.source}.
         base.path=/home/me/some-place-to-download-to
 
  2. Configure base.path property by adding it to the
-    ${tomcat.source}/build.properties file.
+    ${thundercat.source}/build.properties file.
 
     The base.path property specifies the place where Tomcat dependencies
     required by the build are downloaded. It is recommended to place this
@@ -145,7 +145,7 @@ ${tomcat.source}.
 * NOTE: Users accessing the Internet through a proxy must use the properties
   file to indicate to Ant the proxy configuration.
 
-  The following properties should be added to the ${tomcat.source}/build.properties
+  The following properties should be added to the ${thundercat.source}/build.properties
   file.
 
         proxy.use=true
@@ -158,20 +158,20 @@ ${tomcat.source}.
 
  3. Go to the sources directory and run Ant:
 
-        cd ${tomcat.source}
+        cd ${thundercat.source}
         ant
 
     This will execute the "deploy" target in build.xml.
 
     Once the build has completed successfully, a usable Tomcat installation
-    will have been produced in the ${tomcat.source}/output/build directory,
+    will have been produced in the ${thundercat.source}/output/build directory,
     and can be started and stopped with the usual scripts.
 
     Note that the build includes Tomcat documentation, which can be found
     in the output/build/webapps/docs directory.
 
     The path of the output directory can be controlled by specifying the
-    "tomcat.output" property in the build.properties file.
+    "thundercat.output" property in the build.properties file.
 
 * NOTE: Do not run the build as the root user. Building and running Tomcat
   does not require root privileges.
@@ -184,7 +184,7 @@ sources using your SVN client.
 
 For a quick rebuild of only modified code you can use:
 
-    cd ${tomcat.source}
+    cd ${thundercat.source}
     ant
 
 
@@ -202,7 +202,7 @@ build.
 
 It can be built quickly by using the following commands:
 
-    cd ${tomcat.source}
+    cd ${thundercat.source}
     ant build-docs
 
 The output of this command will be found in the following directory:
@@ -213,7 +213,7 @@ The output of this command will be found in the following directory:
 The API documentation (Javadoc) is built during a "release" build. It is
 easy to build it separately by using the following commands:
 
-    cd ${tomcat.source}
+    cd ${thundercat.source}
     ant javadoc
 
 The output of this command will be found in the following directories:
@@ -232,7 +232,7 @@ build.
 
 You can build them by using the following commands:
 
-    cd ${tomcat.source}
+    cd ${thundercat.source}
     ant extras
 
 (5.3) Building the embedded packages
@@ -241,7 +241,7 @@ These are built during a "release" build.
 
 You can build them by using the following commands:
 
-    cd ${tomcat.source}
+    cd ${thundercat.source}
     ant embed
 
 
@@ -279,7 +279,7 @@ You can build them by using the following commands:
 
  3. Build the release:
 
-    cd ${tomcat.source}
+    cd ${thundercat.source}
     ant release
 
 
@@ -292,7 +292,7 @@ release is built. There is separate command to run them.
 
 To run the testsuite use the following command:
 
-    cd ${tomcat.source}
+    cd ${thundercat.source}
     ant test
 
 It is advisable to redirect output of the above command to a file for later
@@ -324,7 +324,7 @@ By default the "test.apr.loc" property specifies the following location:
     output/build/bin/native/
 
 If you are on Windows and want to test the APR connector you can put the
-tcnative-1.dll file into ${tomcat.source}/bin/native/ and it will be copied
+tcnative-1.dll file into ${thundercat.source}/bin/native/ and it will be copied
 into the above directory when the build runs.
 
 The unit tests include tests of the clustering functionality which require
@@ -375,7 +375,7 @@ For example:
         output/build/logs
 
  3. The testsuite respects logging configuration as configured by
- ${tomcat.source}/conf/logging.properties
+ ${thundercat.source}/conf/logging.properties
 
  The log files will be written to the temporary directory used by the
  tests,
@@ -444,7 +444,7 @@ is located in the following directory:
 It is possible to run the check separately by invoking the "validate"
 target. The command is:
 
-    cd ${tomcat.source}
+    cd ${thundercat.source}
     ant -Dexecute.validate=true validate
 
 
@@ -465,5 +465,5 @@ an inconsistency is detected.
 
 The command to run this test is:
 
-    cd ${tomcat.source}
+    cd ${thundercat.source}
     ant validate-eoln

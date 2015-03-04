@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.buf;
+package org.apache.thundercat.util.buf;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -525,7 +525,7 @@ public final class ByteChunk implements Cloneable, Serializable {
      */
     public boolean equals(String s) {
         // XXX ENCODING - this only works if encoding is UTF8-compat
-        // ( ok for tomcat, where we compare ascii - header names, etc )!!!
+        // ( ok for thundercat, where we compare ascii - header names, etc )!!!
 
         byte[] b = buff;
         int blen = end-start;

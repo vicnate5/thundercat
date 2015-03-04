@@ -63,7 +63,7 @@ public abstract class LoggingBaseTest {
      * E.g. the examples webapp.
      */
     public File getBuildDirectory() {
-        return new File(System.getProperty("tomcat.test.tomcatbuild",
+        return new File(System.getProperty("thundercat.test.thundercatbuild",
                 "output/build"));
     }
 
@@ -97,7 +97,7 @@ public abstract class LoggingBaseTest {
     @Before
     public void setUp() throws Exception {
         // Create catalina.base directory
-        tempDir = new File(System.getProperty("tomcat.test.temp", "output/tmp"));
+        tempDir = new File(System.getProperty("thundercat.test.temp", "output/tmp"));
         if (!tempDir.mkdirs() && !tempDir.isDirectory()) {
             fail("Unable to create temporary directory for test");
         }

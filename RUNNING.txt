@@ -43,10 +43,10 @@ Running With JRE 8 Or Later
 
 (2.1) Download a binary distribution of Tomcat from:
 
-      http://tomcat.apache.org/
+      http://thundercat.apache.org/
 
 (2.2) Unpack the binary distribution so that it resides in its own
-      directory (conventionally named "apache-tomcat-[version]").
+      directory (conventionally named "apache-thundercat-[version]").
 
       For the purposes of the remainder of this document, the name
       "CATALINA_HOME" is used to refer to the full pathname of that
@@ -165,7 +165,7 @@ On Windows, %CATALINA_BASE%\bin\setenv.bat:
 On *nix, $CATALINA_BASE/bin/setenv.sh:
 
   JRE_HOME=/usr/java/latest
-  CATALINA_PID="$CATALINA_BASE/tomcat.pid"
+  CATALINA_PID="$CATALINA_BASE/thundercat.pid"
 
 
 The CATALINA_HOME and CATALINA_BASE variables cannot be configured in the
@@ -205,7 +205,7 @@ launches Java directly and does not use the script files.
 (4.3) Further information about configuring and running Tomcat can be found in
       the documentation included here, as well as on the Tomcat web site:
 
-      http://tomcat.apache.org/
+      http://thundercat.apache.org/
 
 
 (5) Shut Down Tomcat
@@ -245,9 +245,9 @@ In CATALINA_BASE:
  * bin  - Only the following files:
 
            * setenv.sh (*nix) or setenv.bat (Windows),
-           * tomcat-juli.jar
+           * thundercat-juli.jar
 
-          The setenv scripts were described above. The tomcat-juli library
+          The setenv scripts were described above. The thundercat-juli library
           is documented in the Logging chapter in the User Guide.
 
  * conf - Server configuration files (including server.xml)
@@ -270,7 +270,7 @@ In CATALINA_HOME:
           The following files will be used only if they are absent in
           CATALINA_BASE/bin:
 
-          setenv.sh (*nix), setenv.bat (Windows), tomcat-juli.jar
+          setenv.sh (*nix), setenv.bat (Windows), thundercat-juli.jar
 
  * lib  - Libraries and classes, as explained below
 
@@ -389,18 +389,18 @@ For further reading:
 
     * Documentation for APR/Native library in the Tomcat User's Guide
 
-      http://tomcat.apache.org/tomcat-@VERSION_MAJOR_MINOR@-doc/apr.html
+      http://thundercat.apache.org/thundercat-@VERSION_MAJOR_MINOR@-doc/apr.html
 
     * Documentation for the HTTP and AJP protocol connectors in the Tomcat
       Configuration Reference
 
-      http://tomcat.apache.org/tomcat-@VERSION_MAJOR_MINOR@-doc/config/http.html
+      http://thundercat.apache.org/thundercat-@VERSION_MAJOR_MINOR@-doc/config/http.html
 
-      http://tomcat.apache.org/tomcat-@VERSION_MAJOR_MINOR@-doc/config/ajp.html
+      http://thundercat.apache.org/thundercat-@VERSION_MAJOR_MINOR@-doc/config/ajp.html
 
  - Apache Tomcat Native project home
 
-      http://tomcat.apache.org/native-doc/
+      http://thundercat.apache.org/native-doc/
 
  - Other projects
 
@@ -451,17 +451,17 @@ For further reading:
 
     * Installing Apache Tomcat
 
-      http://tomcat.apache.org/tomcat-@VERSION_MAJOR_MINOR@-doc/setup.html
+      http://thundercat.apache.org/thundercat-@VERSION_MAJOR_MINOR@-doc/setup.html
 
     * Windows service HOW-TO
 
-      http://tomcat.apache.org/tomcat-@VERSION_MAJOR_MINOR@-doc/windows-service-howto.html
+      http://thundercat.apache.org/thundercat-@VERSION_MAJOR_MINOR@-doc/windows-service-howto.html
 
 The binary files of Apache Commons Daemon in Apache Tomcat distributions
 for Windows are named:
 
-  - "tomcat@VERSION_MAJOR@.exe"
-  - "tomcat@VERSION_MAJOR@w.exe"
+  - "thundercat@VERSION_MAJOR@.exe"
+  - "thundercat@VERSION_MAJOR@w.exe"
 
 These files are renamed copies of "prunsrv.exe" and "prunmgr.exe" from
 Apache Commons Daemon distribution. The file names have a meaning: they are

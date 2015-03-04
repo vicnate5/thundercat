@@ -30,7 +30,7 @@ import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleState;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.descriptor.web.ContextEnvironment;
+import org.apache.thundercat.util.descriptor.web.ContextEnvironment;
 
 public class TestNamingContextListener extends TomcatBaseTest {
 
@@ -47,13 +47,13 @@ public class TestNamingContextListener extends TomcatBaseTest {
      */
     @Test
     public void testBug49132() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         // Enable JNDI - it is disabled by default
-        tomcat.enableNaming();
+        thundercat.enableNaming();
 
         ContextEnvironment environment = new ContextEnvironment();
         environment.setType(BUG49132_VALUE.getClass().getName());
@@ -63,7 +63,7 @@ public class TestNamingContextListener extends TomcatBaseTest {
 
         ctx.addApplicationListener(Bug49132Listener.class.getName());
 
-        tomcat.start();
+        thundercat.start();
 
         assertEquals(LifecycleState.STARTED, ctx.getState());
     }
@@ -94,13 +94,13 @@ public class TestNamingContextListener extends TomcatBaseTest {
 
     @Test
     public void testBug54096() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         // Enable JNDI - it is disabled by default
-        tomcat.enableNaming();
+        thundercat.enableNaming();
 
         ContextEnvironment environmentA = new ContextEnvironment();
         environmentA.setType(Bug54096EnvA.class.getName());
@@ -116,7 +116,7 @@ public class TestNamingContextListener extends TomcatBaseTest {
 
         ctx.addApplicationListener(Bug54096Listener.class.getName());
 
-        tomcat.start();
+        thundercat.start();
 
         assertEquals(LifecycleState.STARTED, ctx.getState());
     }

@@ -77,10 +77,10 @@ import org.apache.catalina.webresources.TomcatURLStreamHandlerFactory;
 import org.apache.juli.WebappProperties;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.InstrumentableClassLoader;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.IntrospectionUtils;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.InstrumentableClassLoader;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.IntrospectionUtils;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Specialized web application class loader.
@@ -192,7 +192,7 @@ public abstract class WebappClassLoaderBase extends URLClassLoader
     protected final Matcher packageTriggersDeny = Pattern.compile(
             "^javax\\.el\\.|" +
             "^javax\\.servlet\\.|" +
-            "^org\\.apache\\.(catalina|coyote|el|jasper|juli|naming|tomcat)\\."
+            "^org\\.apache\\.(catalina|coyote|el|jasper|juli|naming|thundercat)\\."
             ).matcher("");
 
 
@@ -203,7 +203,7 @@ public abstract class WebappClassLoaderBase extends URLClassLoader
      */
     protected final Matcher packageTriggersPermit =
             Pattern.compile("^javax\\.servlet\\.jsp\\.jstl\\.|" +
-                    "^org\\.apache\\.tomcat\\.jdbc\\.").matcher("");
+                    "^org\\.apache\\.thundercat\\.jdbc\\.").matcher("");
 
 
     /**

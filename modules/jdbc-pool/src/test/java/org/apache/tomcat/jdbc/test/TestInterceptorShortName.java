@@ -14,14 +14,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.sql.Connection;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.pool.interceptor.TestInterceptor;
+import org.apache.thundercat.jdbc.pool.interceptor.TestInterceptor;
 
 public class TestInterceptorShortName extends DefaultTestCase {
 

@@ -32,19 +32,19 @@ import org.apache.catalina.Wrapper;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestStuckThreadDetectionValve extends TomcatBaseTest {
     private StandardContext context;
-    private Tomcat tomcat;
+    private Tomcat thundercat;
 
     @Override
     @Before
     public void setUp() throws Exception {
         super.setUp();
-        tomcat = getTomcatInstance();
+        thundercat = getTomcatInstance();
         File docBase = new File(System.getProperty("java.io.tmpdir"));
-        context = (StandardContext) tomcat.addContext("",
+        context = (StandardContext) thundercat.addContext("",
                 docBase.getAbsolutePath());
     }
 
@@ -60,7 +60,7 @@ public class TestStuckThreadDetectionValve extends TomcatBaseTest {
         valve.setThreshold(2);
         context.addValve(valve);
         context.setBackgroundProcessorDelay(1);
-        tomcat.start();
+        thundercat.start();
 
         Assert.assertEquals(0, valve.getStuckThreadIds().length);
 
@@ -107,7 +107,7 @@ public class TestStuckThreadDetectionValve extends TomcatBaseTest {
         valve.setInterruptThreadThreshold(5);
         context.addValve(valve);
         context.setBackgroundProcessorDelay(1);
-        tomcat.start();
+        thundercat.start();
 
         Assert.assertEquals(0, valve.getStuckThreadIds().length);
 

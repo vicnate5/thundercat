@@ -14,14 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.http.fileupload;
+package org.apache.thundercat.util.http.fileupload;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import org.apache.tomcat.util.http.fileupload.util.mime.MimeUtility;
+import org.apache.thundercat.util.http.fileupload.util.mime.MimeUtility;
 
 /**
  * A simple parser intended to parse sequences of name/value pairs.

@@ -32,9 +32,9 @@ import org.apache.catalina.User;
 import org.apache.catalina.UserDatabase;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.digester.AbstractObjectCreationFactory;
-import org.apache.tomcat.util.digester.Digester;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.digester.AbstractObjectCreationFactory;
+import org.apache.thundercat.util.digester.Digester;
+import org.apache.thundercat.util.res.StringManager;
 import org.xml.sax.Attributes;
 
 /**
@@ -91,7 +91,7 @@ public class MemoryUserDatabase implements UserDatabase {
      * The relative (to <code>catalina.base</code>) or absolute pathname to
      * the XML file in which we will save our persistent information.
      */
-    protected String pathname = "conf/tomcat-users.xml";
+    protected String pathname = "conf/thundercat-users.xml";
 
 
     /**
@@ -416,13 +416,13 @@ public class MemoryUserDatabase implements UserDatabase {
                     log.warn(sm.getString("memoryUserDatabase.xmlFeatureEncoding"), e);
                 }
                 digester.addFactoryCreate
-                    ("tomcat-users/group",
+                    ("thundercat-users/group",
                      new MemoryGroupCreationFactory(this), true);
                 digester.addFactoryCreate
-                    ("tomcat-users/role",
+                    ("thundercat-users/role",
                      new MemoryRoleCreationFactory(this), true);
                 digester.addFactoryCreate
-                    ("tomcat-users/user",
+                    ("thundercat-users/user",
                      new MemoryUserCreationFactory(this), true);
 
                 // Parse the XML input file to load this database
@@ -544,9 +544,9 @@ public class MemoryUserDatabase implements UserDatabase {
 
             // Print the file prolog
             writer.println("<?xml version='1.0' encoding='utf-8'?>");
-            writer.println("<tomcat-users xmlns=\"http://tomcat.apache.org/xml\"");
+            writer.println("<thundercat-users xmlns=\"http://thundercat.apache.org/xml\"");
             writer.println("              xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
-            writer.println("              xsi:schemaLocation=\"http://tomcat.apache.org/xml tomcat-users.xsd\"");
+            writer.println("              xsi:schemaLocation=\"http://thundercat.apache.org/xml thundercat-users.xsd\"");
             writer.println("              version=\"1.0\">");
 
             // Print entries for each defined role, group, and user
@@ -568,7 +568,7 @@ public class MemoryUserDatabase implements UserDatabase {
             }
 
             // Print the file epilog
-            writer.println("</tomcat-users>");
+            writer.println("</thundercat-users>");
 
             // Check for errors that occurred while printing
             if (writer.checkError()) {

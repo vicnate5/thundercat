@@ -32,8 +32,8 @@ import org.apache.catalina.LifecycleException;
 import org.apache.catalina.LifecycleListener;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.websocket.server.WsContextListener;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.websocket.server.WsContextListener;
 
 public class TestMapperListener extends TomcatBaseTest {
 
@@ -45,14 +45,14 @@ public class TestMapperListener extends TomcatBaseTest {
         // after the first and the second starts.
         // Sample request is from TestTomcat#testSingleWebapp()
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File(getBuildDirectory(), "webapps/examples");
         // app dir is relative to server home
-        Context ctxt = tomcat.addWebapp(null, "/examples",
+        Context ctxt = thundercat.addWebapp(null, "/examples",
                 appDir.getAbsolutePath());
         ctxt.addApplicationListener(WsContextListener.class.getName());
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res;
         String text;
@@ -62,10 +62,10 @@ public class TestMapperListener extends TomcatBaseTest {
         Assert.assertTrue(text, text.contains("<h1>Hello World!</h1>"));
 
         List<ListenersInfo> listenersFirst = new ArrayList<>();
-        populateListenersInfo(listenersFirst, tomcat.getEngine());
+        populateListenersInfo(listenersFirst, thundercat.getEngine());
 
-        tomcat.stop();
-        tomcat.start();
+        thundercat.stop();
+        thundercat.start();
 
         res = getUrl("http://localhost:" + getPort()
                 + "/examples/servlets/servlet/HelloWorldExample");
@@ -73,7 +73,7 @@ public class TestMapperListener extends TomcatBaseTest {
         Assert.assertTrue(text, text.contains("<h1>Hello World!</h1>"));
 
         List<ListenersInfo> listenersSecond = new ArrayList<>();
-        populateListenersInfo(listenersSecond, tomcat.getEngine());
+        populateListenersInfo(listenersSecond, thundercat.getEngine());
 
         Assert.assertEquals(listenersFirst.size(), listenersSecond.size());
         for (int i = 0, len = listenersFirst.size(); i < len; i++) {

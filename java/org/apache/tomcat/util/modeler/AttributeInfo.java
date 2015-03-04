@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.util.modeler;
+package org.apache.thundercat.util.modeler;
 
 import javax.management.MBeanAttributeInfo;
 

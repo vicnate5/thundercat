@@ -154,16 +154,16 @@ public class TestUpgrade extends TomcatBaseTest {
     private UpgradeConnection doUpgrade(
             Class<? extends HttpUpgradeHandler> upgradeHandlerClass) throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         UpgradeServlet servlet = new UpgradeServlet(upgradeHandlerClass);
         Tomcat.addServlet(ctx, "servlet", servlet);
         ctx.addServletMapping("/", "servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         // Use raw socket so the necessary control is available after the HTTP
         // upgrade

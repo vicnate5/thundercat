@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.sql.Connection;
 import java.util.concurrent.Future;
@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.pool.DataSourceProxy;
+import org.apache.thundercat.jdbc.pool.DataSourceProxy;
 
 public class Async0IdleTestBug50477 extends DefaultTestCase {
 

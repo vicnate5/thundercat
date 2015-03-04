@@ -17,7 +17,7 @@
 
 package org.apache.catalina.storeconfig;
 
-import org.apache.tomcat.util.digester.Rule;
+import org.apache.thundercat.util.digester.Rule;
 import org.xml.sax.Attributes;
 
 /**

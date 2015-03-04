@@ -22,7 +22,7 @@ package org.apache.catalina.util;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.apache.tomcat.util.ExceptionUtils;
+import org.apache.thundercat.util.ExceptionUtils;
 
 
 /**

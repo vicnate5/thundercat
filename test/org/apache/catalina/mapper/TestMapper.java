@@ -37,7 +37,7 @@ import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.core.StandardHost;
 import org.apache.catalina.core.StandardWrapper;
 import org.apache.catalina.startup.LoggingBaseTest;
-import org.apache.tomcat.util.buf.MessageBytes;
+import org.apache.thundercat.util.buf.MessageBytes;
 
 public class TestMapper extends LoggingBaseTest {
 

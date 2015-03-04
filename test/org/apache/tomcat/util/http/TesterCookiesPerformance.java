@@ -14,12 +14,12 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.tomcat.util.buf.MessageBytes;
+import org.apache.thundercat.util.buf.MessageBytes;
 
 public class TesterCookiesPerformance {
 

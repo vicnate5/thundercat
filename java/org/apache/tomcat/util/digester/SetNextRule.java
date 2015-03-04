@@ -16,9 +16,9 @@
  */
 
 
-package org.apache.tomcat.util.digester;
+package org.apache.thundercat.util.digester;
 
-import org.apache.tomcat.util.IntrospectionUtils;
+import org.apache.thundercat.util.IntrospectionUtils;
 
 
 /**

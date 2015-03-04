@@ -29,9 +29,9 @@ import org.apache.jasper.Constants;
 import org.apache.jasper.JasperException;
 import org.apache.jasper.compiler.tagplugin.TagPlugin;
 import org.apache.jasper.compiler.tagplugin.TagPluginContext;
-import org.apache.tomcat.util.descriptor.tagplugin.TagPluginParser;
-import org.apache.tomcat.util.security.PrivilegedGetTccl;
-import org.apache.tomcat.util.security.PrivilegedSetTccl;
+import org.apache.thundercat.util.descriptor.tagplugin.TagPluginParser;
+import org.apache.thundercat.util.security.PrivilegedGetTccl;
+import org.apache.thundercat.util.security.PrivilegedSetTccl;
 import org.xml.sax.SAXException;
 
 /**

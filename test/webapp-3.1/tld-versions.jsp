@@ -15,10 +15,10 @@
   limitations under the License.
 --%>
 <html><body>
-<%@ taglib prefix="tags11" uri="http://tomcat.apache.org/tags11" %>
-<%@ taglib prefix="tags12" uri="http://tomcat.apache.org/tags12" %>
-<%@ taglib prefix="tags20" uri="http://tomcat.apache.org/tags20" %>
-<%@ taglib prefix="tags21" uri="http://tomcat.apache.org/tags21" %>
+<%@ taglib prefix="tags11" uri="http://thundercat.apache.org/tags11" %>
+<%@ taglib prefix="tags12" uri="http://thundercat.apache.org/tags12" %>
+<%@ taglib prefix="tags20" uri="http://thundercat.apache.org/tags20" %>
+<%@ taglib prefix="tags21" uri="http://thundercat.apache.org/tags21" %>
 <tags11:Echo echo="${'00-hello world'}"/>
 <tags11:Echo echo="#{'01-hello world'}"/>
 <tags12:Echo echo="${'02-hello world'}"/>

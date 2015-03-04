@@ -35,15 +35,15 @@ import javax.servlet.http.HttpUpgradeHandler;
 import javax.servlet.http.WebConnection;
 
 import org.apache.juli.logging.Log;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.collections.SynchronizedStack;
-import org.apache.tomcat.util.modeler.Registry;
-import org.apache.tomcat.util.net.AbstractEndpoint;
-import org.apache.tomcat.util.net.AbstractEndpoint.Handler;
-import org.apache.tomcat.util.net.DispatchType;
-import org.apache.tomcat.util.net.SocketStatus;
-import org.apache.tomcat.util.net.SocketWrapperBase;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.collections.SynchronizedStack;
+import org.apache.thundercat.util.modeler.Registry;
+import org.apache.thundercat.util.net.AbstractEndpoint;
+import org.apache.thundercat.util.net.AbstractEndpoint.Handler;
+import org.apache.thundercat.util.net.DispatchType;
+import org.apache.thundercat.util.net.SocketStatus;
+import org.apache.thundercat.util.net.SocketWrapperBase;
+import org.apache.thundercat.util.res.StringManager;
 
 public abstract class AbstractProtocol<S> implements ProtocolHandler,
         MBeanRegistration {

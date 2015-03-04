@@ -14,12 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.util.Properties;
 
-import org.apache.tomcat.jdbc.pool.DataSourceFactory;
-import org.apache.tomcat.jdbc.pool.PoolProperties;
+import org.apache.thundercat.jdbc.pool.DataSourceFactory;
+import org.apache.thundercat.jdbc.pool.PoolProperties;
 
 /**
  * @version 1.0

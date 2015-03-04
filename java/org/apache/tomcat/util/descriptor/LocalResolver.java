@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.descriptor;
+package org.apache.thundercat.util.descriptor;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,7 +24,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Map;
 
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.ext.EntityResolver2;

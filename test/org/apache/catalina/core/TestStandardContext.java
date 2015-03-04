@@ -70,10 +70,10 @@ import org.apache.catalina.startup.TesterServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
 import org.apache.jasper.servlet.JasperInitializer;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.descriptor.web.FilterDef;
-import org.apache.tomcat.util.descriptor.web.FilterMap;
-import org.apache.tomcat.util.descriptor.web.LoginConfig;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.descriptor.web.FilterDef;
+import org.apache.thundercat.util.descriptor.web.FilterMap;
+import org.apache.thundercat.util.descriptor.web.LoginConfig;
 
 
 public class TestStandardContext extends TomcatBaseTest {
@@ -92,20 +92,20 @@ public class TestStandardContext extends TomcatBaseTest {
         // the context can be started without a need to redeploy it.
 
         // Set up a container
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
-        File docBase = new File(tomcat.getHost().getAppBaseFile(), "ROOT");
+        File docBase = new File(thundercat.getHost().getAppBaseFile(), "ROOT");
         if (!docBase.mkdirs() && !docBase.isDirectory()) {
             fail("Unable to create docBase");
         }
 
-        Context root = tomcat.addContext("", "ROOT");
+        Context root = thundercat.addContext("", "ROOT");
         configureTest46243Context(root, true);
-        tomcat.start();
+        thundercat.start();
 
         // Configure the client
         Bug46243Client client =
-                new Bug46243Client(tomcat.getConnector().getLocalPort());
+                new Bug46243Client(thundercat.getConnector().getLocalPort());
         client.setRequest(new String[] { REQUEST });
 
         client.connect();
@@ -194,14 +194,14 @@ public class TestStandardContext extends TomcatBaseTest {
         // a need to redeploy it.
 
         // Set up a container
-        Tomcat tomcat = getTomcatInstance();
-        tomcat.start();
+        Tomcat thundercat = getTomcatInstance();
+        thundercat.start();
         // To not start Context automatically, as we have to configure it first
-        ((ContainerBase) tomcat.getHost()).setStartChildren(false);
+        ((ContainerBase) thundercat.getHost()).setStartChildren(false);
 
         FailingWebappLoader loader = new FailingWebappLoader();
         File root = new File("test/webapp");
-        Context context = tomcat.addWebapp("", root.getAbsolutePath());
+        Context context = thundercat.addWebapp("", root.getAbsolutePath());
         context.setLoader(loader);
 
         try {
@@ -230,14 +230,14 @@ public class TestStandardContext extends TomcatBaseTest {
         // the context can be started without a need to redeploy it.
 
         // Set up a container
-        Tomcat tomcat = getTomcatInstance();
-        tomcat.start();
+        Tomcat thundercat = getTomcatInstance();
+        thundercat.start();
         // To not start Context automatically, as we have to configure it first
-        ((ContainerBase) tomcat.getHost()).setStartChildren(false);
+        ((ContainerBase) thundercat.getHost()).setStartChildren(false);
 
         FailingLifecycleListener listener = new FailingLifecycleListener();
         File root = new File("test/webapp");
-        Context context = tomcat.addWebapp("", root.getAbsolutePath());
+        Context context = thundercat.addWebapp("", root.getAbsolutePath());
         context.addLifecycleListener(listener);
 
         try {
@@ -415,15 +415,15 @@ public class TestStandardContext extends TomcatBaseTest {
         // does work.
 
         // Set up a container
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         // Setup realm
         TesterMapRealm realm = new TesterMapRealm();
-        realm.addUser("tomcat", "tomcat");
-        realm.addUserRole("tomcat", "tomcat");
+        realm.addUser("thundercat", "thundercat");
+        realm.addUserRole("thundercat", "thundercat");
         ctx.setRealm(realm);
 
         // Configure app for BASIC auth
@@ -437,7 +437,7 @@ public class TestStandardContext extends TomcatBaseTest {
         ctx.addServletContainerInitializer(sci, null);
 
         // Start the context
-        tomcat.start();
+        thundercat.start();
 
         // Request the first servlet
         ByteChunk bc = new ByteChunk();
@@ -462,7 +462,7 @@ public class TestStandardContext extends TomcatBaseTest {
 
             // Limit access to users in the Tomcat role
             HttpConstraintElement hce = new HttpConstraintElement(
-                    TransportGuarantee.NONE, "tomcat");
+                    TransportGuarantee.NONE, "thundercat");
             ServletSecurityElement sse = new ServletSecurityElement(hce);
             sr.setServletSecurity(sse);
         }
@@ -484,17 +484,17 @@ public class TestStandardContext extends TomcatBaseTest {
         // constraints programmatically does work.
 
         // Set up a container
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         ctx.setDenyUncoveredHttpMethods(enableDeny);
 
         // Setup realm
         TesterMapRealm realm = new TesterMapRealm();
-        realm.addUser("tomcat", "tomcat");
-        realm.addUserRole("tomcat", "tomcat");
+        realm.addUser("thundercat", "thundercat");
+        realm.addUserRole("thundercat", "thundercat");
         ctx.setRealm(realm);
 
         // Configure app for BASIC auth
@@ -508,7 +508,7 @@ public class TestStandardContext extends TomcatBaseTest {
         ctx.addServletContainerInitializer(sci, null);
 
         // Start the context
-        tomcat.start();
+        thundercat.start();
 
         // Request the first servlet
         ByteChunk bc = new ByteChunk();
@@ -539,7 +539,7 @@ public class TestStandardContext extends TomcatBaseTest {
 
             // Add a constraint with uncovered methods
             HttpConstraintElement hce = new HttpConstraintElement(
-                    TransportGuarantee.NONE, "tomcat");
+                    TransportGuarantee.NONE, "thundercat");
             HttpMethodConstraintElement hmce =
                     new HttpMethodConstraintElement("POST", hce);
             Set<HttpMethodConstraintElement> hmces = new HashSet<>();
@@ -565,17 +565,17 @@ public class TestStandardContext extends TomcatBaseTest {
         // methods are called.
 
         // Set up a container
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         // Add ServletContainerInitializer
         Bug51376SCI sci = new Bug51376SCI(loadOnStartUp);
         ctx.addServletContainerInitializer(sci, null);
 
         // Start the context
-        tomcat.start();
+        thundercat.start();
 
         // Stop the context
         ctx.stop();
@@ -740,8 +740,8 @@ public class TestStandardContext extends TomcatBaseTest {
         private synchronized void init() throws Exception {
             if (init) return;
 
-            Tomcat tomcat = getTomcatInstance();
-            context = tomcat.addContext("", TEMP_DIR);
+            Tomcat thundercat = getTomcatInstance();
+            context = thundercat.addContext("", TEMP_DIR);
             Tomcat.addServlet(context, "regular", new Bug49711Servlet());
             Wrapper w = Tomcat.addServlet(context, "multipart", new Bug49711Servlet_multipart());
 
@@ -751,9 +751,9 @@ public class TestStandardContext extends TomcatBaseTest {
 
             context.addServletMapping("/regular", "regular");
             context.addServletMapping("/multipart", "multipart");
-            tomcat.start();
+            thundercat.start();
 
-            setPort(tomcat.getConnector().getLocalPort());
+            setPort(thundercat.getConnector().getLocalPort());
 
             init = true;
         }
@@ -859,14 +859,14 @@ public class TestStandardContext extends TomcatBaseTest {
     @Test
     public void testTldListener() throws Exception {
         // Set up a container
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File docBase = new File("test/webapp-3.0");
-        Context ctx = tomcat.addContext("", docBase.getAbsolutePath());
+        Context ctx = thundercat.addContext("", docBase.getAbsolutePath());
         ctx.addServletContainerInitializer(new JasperInitializer(), null);
 
         // Start the context
-        tomcat.start();
+        thundercat.start();
 
         // Stop the context
         ctx.stop();
@@ -879,16 +879,16 @@ public class TestStandardContext extends TomcatBaseTest {
 
     @Test
     public void testFlagFailCtxIfServletStartFails() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         File docBase = new File(System.getProperty("java.io.tmpdir"));
-        StandardContext context = (StandardContext) tomcat.addContext("",
+        StandardContext context = (StandardContext) thundercat.addContext("",
                 docBase.getAbsolutePath());
 
         // first we test the flag itself, which can be set on the Host and
         // Context
         assertFalse(context.getComputedFailCtxIfServletStartFails());
 
-        StandardHost host = (StandardHost) tomcat.getHost();
+        StandardHost host = (StandardHost) thundercat.getHost();
         host.setFailCtxIfServletStartFails(true);
         assertTrue(context.getComputedFailCtxIfServletStartFails());
         context.setFailCtxIfServletStartFails(Boolean.FALSE);
@@ -900,20 +900,20 @@ public class TestStandardContext extends TomcatBaseTest {
                 new FailingStartupServlet());
         servlet.setLoadOnStartup(1);
 
-        tomcat.start();
+        thundercat.start();
         assertTrue("flag false should not fail deployment", context.getState()
                 .isAvailable());
 
-        tomcat.stop();
+        thundercat.stop();
         assertFalse(context.getState().isAvailable());
 
         host.removeChild(context);
-        context = (StandardContext) tomcat.addContext("",
+        context = (StandardContext) thundercat.addContext("",
                 docBase.getAbsolutePath());
         servlet = Tomcat.addServlet(context, "myservlet",
                 new FailingStartupServlet());
         servlet.setLoadOnStartup(1);
-        tomcat.start();
+        thundercat.start();
         assertFalse("flag true should fail deployment", context.getState()
                 .isAvailable());
     }
@@ -931,9 +931,9 @@ public class TestStandardContext extends TomcatBaseTest {
 
     @Test
     public void testBug56085() throws Exception {
-        Tomcat tomcat = getTomcatInstanceTestWebapp(false, true);
+        Tomcat thundercat = getTomcatInstanceTestWebapp(false, true);
 
-        String realPath = ((Context) tomcat.getHost().findChildren()[0]).getRealPath("\\");
+        String realPath = ((Context) thundercat.getHost().findChildren()[0]).getRealPath("\\");
 
         Assert.assertNull(realPath);
     }
@@ -944,8 +944,8 @@ public class TestStandardContext extends TomcatBaseTest {
      */
     @Test
     public void testBug57556a() throws Exception {
-        Tomcat tomcat = getTomcatInstanceTestWebapp(false, true);
-        Context testContext = ((Context) tomcat.getHost().findChildren()[0]);
+        Tomcat thundercat = getTomcatInstanceTestWebapp(false, true);
+        Context testContext = ((Context) thundercat.getHost().findChildren()[0]);
 
         File f = new File(testContext.getDocBase());
         if (!f.isAbsolute()) {
@@ -965,10 +965,10 @@ public class TestStandardContext extends TomcatBaseTest {
 
     @Test
     public void testBug57556b() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         File docBase = new File("/");
-        Context testContext = tomcat.addContext("", docBase.getAbsolutePath());
-        tomcat.start();
+        Context testContext = thundercat.addContext("", docBase.getAbsolutePath());
+        thundercat.start();
 
         File f = new File(testContext.getDocBase());
         if (!f.isAbsolute()) {

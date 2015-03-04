@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.sql.Connection;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -24,8 +24,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.pool.DataSource;
-import org.apache.tomcat.jdbc.test.driver.Driver;
+import org.apache.thundercat.jdbc.pool.DataSource;
+import org.apache.thundercat.jdbc.test.driver.Driver;
 
 public class TestConcurrency extends DefaultTestCase {
 

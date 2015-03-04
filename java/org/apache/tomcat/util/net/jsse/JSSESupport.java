@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.util.net.jsse;
+package org.apache.thundercat.util.net.jsse;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -28,10 +28,10 @@ import javax.net.ssl.SSLSession;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.net.SSLSessionManager;
-import org.apache.tomcat.util.net.SSLSupport;
-import org.apache.tomcat.util.net.jsse.openssl.Cipher;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.net.SSLSessionManager;
+import org.apache.thundercat.util.net.SSLSupport;
+import org.apache.thundercat.util.net.jsse.openssl.Cipher;
+import org.apache.thundercat.util.res.StringManager;
 
 /** JSSESupport
 
@@ -51,7 +51,7 @@ public class JSSESupport implements SSLSupport, SSLSessionManager {
     private static final Log log = LogFactory.getLog(JSSESupport.class);
 
     private static final StringManager sm =
-        StringManager.getManager("org.apache.tomcat.util.net.jsse.res");
+        StringManager.getManager("org.apache.thundercat.util.net.jsse.res");
 
     private static final Map<String,Integer> keySizeCache = new HashMap<>();
 

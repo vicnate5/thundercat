@@ -45,11 +45,11 @@ public class TestELInterpreterFactory extends TomcatBaseTest {
 
     @Test
     public void testBug54239() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp");
-        Context ctx = tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
-        tomcat.start();
+        Context ctx = thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.start();
 
         ServletContext context = ctx.getServletContext();
 

@@ -39,7 +39,7 @@ import org.apache.catalina.Context;
 import org.apache.catalina.Globals;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestSendFile extends TomcatBaseTest{
 
@@ -49,9 +49,9 @@ public class TestSendFile extends TomcatBaseTest{
     @Test
     public void testSendFile() throws Exception {
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
-        Context root = tomcat.addContext("", TEMP_DIR);
+        Context root = thundercat.addContext("", TEMP_DIR);
 
         File[] files = new File[ITERATIONS];
         for (int i=0; i<ITERATIONS; i++) {
@@ -65,7 +65,7 @@ public class TestSendFile extends TomcatBaseTest{
                 root.addServletMapping("/servlet" + i, "servlet" + i);
             }
 
-            tomcat.start();
+            thundercat.start();
 
             ByteChunk bc = new ByteChunk();
             Map<String, List<String>> respHeaders = new HashMap<>();

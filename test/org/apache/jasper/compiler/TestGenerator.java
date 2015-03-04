@@ -38,7 +38,7 @@ import org.junit.Test;
 
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestGenerator extends TomcatBaseTest {
 

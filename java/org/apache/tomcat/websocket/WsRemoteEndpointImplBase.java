@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket;
+package org.apache.thundercat.websocket;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -43,8 +43,8 @@ import javax.websocket.SendResult;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.buf.Utf8Encoder;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.buf.Utf8Encoder;
+import org.apache.thundercat.util.res.StringManager;
 
 public abstract class WsRemoteEndpointImplBase implements RemoteEndpoint {
 
@@ -55,7 +55,7 @@ public abstract class WsRemoteEndpointImplBase implements RemoteEndpoint {
     private static final long DEFAULT_BLOCKING_SEND_TIMEOUT = 20 * 1000;
 
     public static final String BLOCKING_SEND_TIMEOUT_PROPERTY =
-            "org.apache.tomcat.websocket.BLOCKING_SEND_TIMEOUT";
+            "org.apache.thundercat.websocket.BLOCKING_SEND_TIMEOUT";
 
     private final Log log = LogFactory.getLog(WsRemoteEndpointImplBase.class);
 

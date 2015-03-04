@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.util.buf;
+package org.apache.thundercat.util.buf;
 
 import java.io.IOException;
 
@@ -24,7 +24,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import org.apache.tomcat.util.buf.UEncoder.SafeCharsSet;
+import org.apache.thundercat.util.buf.UEncoder.SafeCharsSet;
 
 /**
  * Test cases for {@link UEncoder}.

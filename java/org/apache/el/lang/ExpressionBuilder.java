@@ -264,7 +264,7 @@ public final class ExpressionBuilder implements NodeVisitor {
     }
 
     /*
-     * Copied from org.apache.tomcat.util.collections.SynchronizedStack since
+     * Copied from org.apache.thundercat.util.collections.SynchronizedStack since
      * we don't want the EL implementation to depend on the JAR where that
      * class resides.
      */

@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 /**
  * Someone, please change the enum name.

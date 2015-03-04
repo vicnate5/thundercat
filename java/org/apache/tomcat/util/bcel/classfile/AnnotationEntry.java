@@ -15,14 +15,14 @@
  *  limitations under the License.
  *
  */
-package org.apache.tomcat.util.bcel.classfile;
+package org.apache.thundercat.util.bcel.classfile;
 
 import java.io.DataInput;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.tomcat.util.bcel.Constants;
+import org.apache.thundercat.util.bcel.Constants;
 
 /**
  * represents one annotation in the annotation table

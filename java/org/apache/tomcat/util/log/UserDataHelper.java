@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.log;
+package org.apache.thundercat.util.log;
 
 import org.apache.juli.logging.Log;
 

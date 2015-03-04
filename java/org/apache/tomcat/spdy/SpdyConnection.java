@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.spdy;
+package org.apache.thundercat.spdy;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,7 +34,7 @@ import java.util.logging.Logger;
  * Because SPDY is multiplexing, a blocking socket needs a second thread to
  * handle writes ( the read thread may be blocked while a servlet is writing ).
  * The intended use of SPDY with blocking sockets is for frontend(load-balancer)
- * to tomcat, where each tomcat will have a few spdy connections.
+ * to thundercat, where each thundercat will have a few spdy connections.
  *
  */
 public abstract class SpdyConnection { // implements Runnable {
@@ -670,7 +670,7 @@ public abstract class SpdyConnection { // implements Runnable {
 
     /**
      * Abstract compression support. When using spdy on intranet ( between load
-     * balancer and tomcat) there is no need for the compression overhead. There
+     * balancer and thundercat) there is no need for the compression overhead. There
      * are also multiple possible implementations.
      */
     static interface CompressSupport {

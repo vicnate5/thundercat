@@ -18,7 +18,7 @@
 !ifdef UNINSTALLONLY
   OutFile "tempinstaller.exe"
 !else
-  OutFile tomcat-installer.exe
+  OutFile thundercat-installer.exe
 !endif
 
   ;Compression options
@@ -34,8 +34,8 @@
   VIAddVersionKey FileDescription "Apache Tomcat Installer"
   VIAddVersionKey FileVersion "2.0"
   VIAddVersionKey ProductVersion "@VERSION@"
-  VIAddVersionKey Comments "tomcat.apache.org"
-  VIAddVersionKey InternalName "apache-tomcat-@VERSION@.exe"
+  VIAddVersionKey Comments "thundercat.apache.org"
+  VIAddVersionKey InternalName "apache-thundercat-@VERSION@.exe"
   VIProductVersion @VERSION_NUMBER@
 
 !include "MUI2.nsh"
@@ -93,8 +93,8 @@ Var ServiceInstallLog
 
   !define MUI_ABORTWARNING
 
-  !define MUI_ICON tomcat.ico
-  !define MUI_UNICON tomcat.ico
+  !define MUI_ICON thundercat.ico
+  !define MUI_UNICON thundercat.ico
 
   ;Install Options pages
   LangString TEXT_JVM_TITLE ${LANG_ENGLISH} "Java Virtual Machine"
@@ -160,8 +160,8 @@ Var ServiceInstallLog
 
   ReserveFile "${NSISDIR}\Plugins\System.dll"
   ReserveFile "${NSISDIR}\Plugins\nsDialogs.dll"
-  ReserveFile confinstall\tomcat-users_1.xml
-  ReserveFile confinstall\tomcat-users_2.xml
+  ReserveFile confinstall\thundercat-users_1.xml
+  ReserveFile confinstall\thundercat-users_2.xml
 
 ;--------------------------------
 ;Installer Sections
@@ -177,7 +177,7 @@ Section "Core" SecTomcatCore
   ${EndIf}
 
   SetOutPath $INSTDIR
-  File tomcat.ico
+  File thundercat.ico
   File LICENSE
   File NOTICE
   SetOutPath $INSTDIR\lib
@@ -188,7 +188,7 @@ Section "Core" SecTomcatCore
   SetOutPath $INSTDIR\temp
   SetOutPath $INSTDIR\bin
   File bin\bootstrap.jar
-  File bin\tomcat-juli.jar
+  File bin\thundercat-juli.jar
   File bin\*.bat
   SetOutPath $INSTDIR\conf
   File conf\*.*
@@ -204,26 +204,26 @@ Section "Core" SecTomcatCore
   StrCpy $TomcatServiceManagerFileName $R0w.exe
 
   SetOutPath $INSTDIR\bin
-  File /oname=$TomcatServiceManagerFileName bin\tomcat@VERSION_MAJOR@w.exe
+  File /oname=$TomcatServiceManagerFileName bin\thundercat@VERSION_MAJOR@w.exe
 
   ; Get the current platform x86 / AMD64 / IA64
   ${If} $Arch == "x86"
-    File /oname=$TomcatServiceFileName bin\tomcat@VERSION_MAJOR@.exe
+    File /oname=$TomcatServiceFileName bin\thundercat@VERSION_MAJOR@.exe
   ${ElseIf} $Arch == "x64"
-    File /oname=$TomcatServiceFileName bin\x64\tomcat@VERSION_MAJOR@.exe
+    File /oname=$TomcatServiceFileName bin\x64\thundercat@VERSION_MAJOR@.exe
   ${ElseIf} $Arch == "i64"
-    File /oname=$TomcatServiceFileName bin\i64\tomcat@VERSION_MAJOR@.exe
+    File /oname=$TomcatServiceFileName bin\i64\thundercat@VERSION_MAJOR@.exe
   ${EndIf}
 
   FileOpen $ServiceInstallLog "$INSTDIR\logs\service-install.log" a
   FileSeek $ServiceInstallLog 0 END
 
   InstallRetry:
-  FileWrite $ServiceInstallLog '"$INSTDIR\bin\$TomcatServiceFileName" //IS//$TomcatServiceName --DisplayName "Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName" --Description "Apache Tomcat @VERSION@ Server - http://tomcat.apache.org/" --LogPath "$INSTDIR\logs" --Install "$INSTDIR\bin\$TomcatServiceFileName" --Jvm "$JvmDll" --StartPath "$INSTDIR" --StopPath "$INSTDIR"'
+  FileWrite $ServiceInstallLog '"$INSTDIR\bin\$TomcatServiceFileName" //IS//$TomcatServiceName --DisplayName "Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName" --Description "Apache Tomcat @VERSION@ Server - http://thundercat.apache.org/" --LogPath "$INSTDIR\logs" --Install "$INSTDIR\bin\$TomcatServiceFileName" --Jvm "$JvmDll" --StartPath "$INSTDIR" --StopPath "$INSTDIR"'
   FileWrite $ServiceInstallLog "$\r$\n"
   ClearErrors
   DetailPrint "Installing $TomcatServiceName service"
-  nsExec::ExecToStack '"$INSTDIR\bin\$TomcatServiceFileName" //IS//$TomcatServiceName --DisplayName "Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName" --Description "Apache Tomcat @VERSION@ Server - http://tomcat.apache.org/" --LogPath "$INSTDIR\logs" --Install "$INSTDIR\bin\$TomcatServiceFileName" --Jvm "$JvmDll" --StartPath "$INSTDIR" --StopPath "$INSTDIR"'
+  nsExec::ExecToStack '"$INSTDIR\bin\$TomcatServiceFileName" //IS//$TomcatServiceName --DisplayName "Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName" --Description "Apache Tomcat @VERSION@ Server - http://thundercat.apache.org/" --LogPath "$INSTDIR\logs" --Install "$INSTDIR\bin\$TomcatServiceFileName" --Jvm "$JvmDll" --StartPath "$INSTDIR" --StopPath "$INSTDIR"'
   Pop $0
   Pop $1
   StrCmp $0 "0" InstallOk
@@ -320,7 +320,7 @@ SectionEnd
 
 Section -post
   ${If} $ServiceInstallLog != ""
-    FileWrite $ServiceInstallLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --Classpath "$INSTDIR\bin\bootstrap.jar;$INSTDIR\bin\tomcat-juli.jar" --StartClass org.apache.catalina.startup.Bootstrap --StopClass org.apache.catalina.startup.Bootstrap --StartParams start --StopParams stop  --StartMode jvm --StopMode jvm'
+    FileWrite $ServiceInstallLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --Classpath "$INSTDIR\bin\bootstrap.jar;$INSTDIR\bin\thundercat-juli.jar" --StartClass org.apache.catalina.startup.Bootstrap --StopClass org.apache.catalina.startup.Bootstrap --StartParams start --StopParams stop  --StartMode jvm --StopMode jvm'
     FileWrite $ServiceInstallLog "$\r$\n"
     FileWrite $ServiceInstallLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --JvmOptions "-Dcatalina.home=$INSTDIR#-Dcatalina.base=$INSTDIR#-Djava.io.tmpdir=$INSTDIR\temp#-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager#-Djava.util.logging.config.file=$INSTDIR\conf\logging.properties"'
     FileWrite $ServiceInstallLog "$\r$\n"
@@ -330,7 +330,7 @@ Section -post
   ${EndIf}
 
   DetailPrint "Configuring $TomcatServiceName service"
-  nsExec::ExecToLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --Classpath "$INSTDIR\bin\bootstrap.jar;$INSTDIR\bin\tomcat-juli.jar" --StartClass org.apache.catalina.startup.Bootstrap --StopClass org.apache.catalina.startup.Bootstrap --StartParams start --StopParams stop  --StartMode jvm --StopMode jvm'
+  nsExec::ExecToLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --Classpath "$INSTDIR\bin\bootstrap.jar;$INSTDIR\bin\thundercat-juli.jar" --StartClass org.apache.catalina.startup.Bootstrap --StopClass org.apache.catalina.startup.Bootstrap --StartParams start --StopParams stop  --StartMode jvm --StopMode jvm'
   nsExec::ExecToLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --JvmOptions "-Dcatalina.home=$INSTDIR#-Dcatalina.base=$INSTDIR#-Djava.io.tmpdir=$INSTDIR\temp#-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager#-Djava.util.logging.config.file=$INSTDIR\conf\logging.properties"'
   nsExec::ExecToLog '"$INSTDIR\bin\$TomcatServiceFileName" //US//$TomcatServiceName --StdOutput auto --StdError auto --JvmMs 128 --JvmMx 256'
 
@@ -357,7 +357,7 @@ Section -post
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName" \
                    "DisplayVersion" @VERSION@
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName" \
-                   "DisplayIcon" "$\"$INSTDIR\tomcat.ico$\""
+                   "DisplayIcon" "$\"$INSTDIR\thundercat.ico$\""
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName" \
                    "UninstallString" "$\"$INSTDIR\Uninstall.exe$\" -ServiceName=$\"$TomcatServiceName$\""
 
@@ -905,7 +905,7 @@ FunctionEnd
 ; Configure Function
 ; ==================
 ;
-; Writes server.xml and tomcat-users.xml
+; Writes server.xml and thundercat-users.xml
 ;
 Function configure
   ; Build final server.xml
@@ -965,13 +965,13 @@ Function configure
   ; that is automatically deleted when the installer exits.
   InitPluginsDir
   SetOutPath $PLUGINSDIR
-  File confinstall\tomcat-users_1.xml
-  File confinstall\tomcat-users_2.xml
+  File confinstall\thundercat-users_1.xml
+  File confinstall\thundercat-users_2.xml
 
-  ; Build final tomcat-users.xml
-  Delete "$INSTDIR\conf\tomcat-users.xml"
-  DetailPrint "Writing tomcat-users.xml"
-  FileOpen $R9 "$INSTDIR\conf\tomcat-users.xml" w
+  ; Build final thundercat-users.xml
+  Delete "$INSTDIR\conf\thundercat-users.xml"
+  DetailPrint "Writing thundercat-users.xml"
+  FileOpen $R9 "$INSTDIR\conf\thundercat-users.xml" w
   ; File will be written using current windows codepage
   System::Call 'Kernel32::GetACP() i .r18'
   ${If} $R8 == "932"
@@ -980,17 +980,17 @@ Function configure
   ${Else}
     FileWrite $R9 "<?xml version='1.0' encoding='cp$R8'?>$\r$\n"
   ${EndIf}
-  Push "$PLUGINSDIR\tomcat-users_1.xml"
+  Push "$PLUGINSDIR\thundercat-users_1.xml"
   Call copyFile
   FileWrite $R9 $R5
-  Push "$PLUGINSDIR\tomcat-users_2.xml"
+  Push "$PLUGINSDIR\thundercat-users_2.xml"
   Call copyFile
 
   FileClose $R9
-  DetailPrint "tomcat-users.xml written"
+  DetailPrint "thundercat-users.xml written"
 
-  Delete "$PLUGINSDIR\tomcat-users_1.xml"
-  Delete "$PLUGINSDIR\tomcat-users_2.xml"
+  Delete "$PLUGINSDIR\thundercat-users_1.xml"
+  Delete "$PLUGINSDIR\thundercat-users_2.xml"
 FunctionEnd
 
 
@@ -1047,7 +1047,7 @@ Function createShortcuts
   SetOutPath "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName"
 
   CreateShortCut "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName\Tomcat Home Page.lnk" \
-                 "http://tomcat.apache.org/"
+                 "http://thundercat.apache.org/"
 
   CreateShortCut "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName\Welcome.lnk" \
                  "http://127.0.0.1:$TomcatPortHttp/"
@@ -1076,12 +1076,12 @@ Function createShortcuts
   CreateShortCut "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName\Monitor Tomcat.lnk" \
                  "$INSTDIR\bin\$TomcatServiceManagerFileName" \
                  '//MS//$TomcatServiceName' \
-                 "$INSTDIR\tomcat.ico" 0 SW_SHOWNORMAL
+                 "$INSTDIR\thundercat.ico" 0 SW_SHOWNORMAL
 
   CreateShortCut "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName\Configure Tomcat.lnk" \
                  "$INSTDIR\bin\$TomcatServiceManagerFileName" \
                  '//ES//$TomcatServiceName' \
-                 "$INSTDIR\tomcat.ico" 0 SW_SHOWNORMAL
+                 "$INSTDIR\thundercat.ico" 0 SW_SHOWNORMAL
 
   ${If} $TomcatShortcutAllUsers == ${BST_CHECKED}
     SetShellVarContext current
@@ -1141,7 +1141,7 @@ FunctionEnd
     SetShellVarContext current
     RMDir /r "$SMPROGRAMS\Apache Tomcat @VERSION_MAJOR_MINOR@ $TomcatServiceName"
 
-    Delete "$INSTDIR\tomcat.ico"
+    Delete "$INSTDIR\thundercat.ico"
     Delete "$INSTDIR\LICENSE"
     Delete "$INSTDIR\NOTICE"
     RMDir /r "$INSTDIR\bin"

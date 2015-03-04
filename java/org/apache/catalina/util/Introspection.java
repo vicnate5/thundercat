@@ -26,8 +26,8 @@ import java.security.PrivilegedAction;
 import org.apache.catalina.Context;
 import org.apache.catalina.Globals;
 import org.apache.juli.logging.Log;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Provides introspection utilities that either require knowledge of Tomcat

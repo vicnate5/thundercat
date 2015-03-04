@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 import java.io.File;
 import java.net.InetAddress;
@@ -32,12 +32,12 @@ import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.jni.Address;
-import org.apache.tomcat.jni.Error;
-import org.apache.tomcat.jni.Library;
-import org.apache.tomcat.jni.OS;
-import org.apache.tomcat.jni.Pool;
-import org.apache.tomcat.jni.Socket;
+import org.apache.thundercat.jni.Address;
+import org.apache.thundercat.jni.Error;
+import org.apache.thundercat.jni.Library;
+import org.apache.thundercat.jni.OS;
+import org.apache.thundercat.jni.Pool;
+import org.apache.thundercat.jni.Socket;
 
 /**
  * Test case for the Endpoint implementations. The testing framework will ensure
@@ -116,20 +116,20 @@ public class TestXxxEndpoint extends TomcatBaseTest {
 
     @Test
     public void testStartStopBindOnInit() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         File appDir = new File(getBuildDirectory(), "webapps/examples");
-        tomcat.addWebapp(null, "/examples", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/examples", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         int port = getPort();
 
-        tomcat.getConnector().stop();
+        thundercat.getConnector().stop();
         Exception e = null;
         ServerSocket s = null;
         long pool = 0;
         long nativeSocket = 0;
-        boolean isApr = tomcat.getConnector().getProtocolHandlerClassName().contains("Apr");
+        boolean isApr = thundercat.getConnector().getProtocolHandlerClassName().contains("Apr");
         try {
             // This should throw an Exception
             if (isApr) {
@@ -156,28 +156,28 @@ public class TestXxxEndpoint extends TomcatBaseTest {
             log.info("Exception was", e);
         }
         assertNotNull(e);
-        tomcat.getConnector().start();
+        thundercat.getConnector().start();
     }
 
     @Test
     public void testStartStopBindOnStart() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        Connector c = tomcat.getConnector();
+        Tomcat thundercat = getTomcatInstance();
+        Connector c = thundercat.getConnector();
         c.setProperty("bindOnInit", "false");
 
         File appDir = new File(getBuildDirectory(), "webapps/examples");
-        tomcat.addWebapp(null, "/examples", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/examples", appDir.getAbsolutePath());
 
 
-        tomcat.start();
+        thundercat.start();
         int port = getPort();
 
-        tomcat.getConnector().stop();
+        thundercat.getConnector().stop();
         Exception e = null;
         ServerSocket s = null;
         long pool = 0;
         long nativeSocket = 0;
-        boolean isApr = tomcat.getConnector().getProtocolHandlerClassName().contains("Apr");
+        boolean isApr = thundercat.getConnector().getProtocolHandlerClassName().contains("Apr");
         try {
             // This should not throw an Exception
             if (isApr) {
@@ -201,6 +201,6 @@ public class TestXxxEndpoint extends TomcatBaseTest {
             } catch (Exception e2) { /* Ignore */ }
         }
         assertNull(e);
-        tomcat.getConnector().start();
+        thundercat.getConnector().start();
     }
 }

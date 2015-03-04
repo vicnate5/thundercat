@@ -31,8 +31,8 @@ import org.apache.jasper.runtime.JspFactoryImpl;
 import org.apache.jasper.security.SecurityClassLoad;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.InstanceManager;
-import org.apache.tomcat.SimpleInstanceManager;
+import org.apache.thundercat.InstanceManager;
+import org.apache.thundercat.SimpleInstanceManager;
 import org.xml.sax.SAXException;
 
 /**

@@ -44,7 +44,7 @@ import org.apache.catalina.ha.session.DeltaSession;
 import org.apache.catalina.valves.ValveBase;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * <p>Implementation of a Valve that logs interesting contents from the

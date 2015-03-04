@@ -392,7 +392,7 @@ import org.apache.juli.logging.LogFactory;
  *
  * <code>
  * Mar 26, 2010 2:09:47 PM org.apache.catalina.filters.ExpiresFilter onBeforeWriteResponseBody
- * FINE: Request "/tomcat.gif" with response status "200" content-type "image/gif", set expiration date 3/26/10 2:19 PM
+ * FINE: Request "/thundercat.gif" with response status "200" content-type "image/gif", set expiration date 3/26/10 2:19 PM
  * </code>
  * <p>
  * Sample of per-request log message where <tt>ExpiresFilter</tt> does not add

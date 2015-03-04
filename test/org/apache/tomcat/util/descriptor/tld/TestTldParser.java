@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.descriptor.tld;
+package org.apache.thundercat.util.descriptor.tld;
 
 import java.io.File;
 import java.io.IOException;
@@ -45,7 +45,7 @@ public class TestTldParser {
         Assert.assertEquals("1.0", xml.getTlibVersion());
         Assert.assertEquals("2.1", xml.getJspVersion());
         Assert.assertEquals("test", xml.getShortName());
-        Assert.assertEquals("http://tomcat.apache.org/TldTests", xml.getUri());
+        Assert.assertEquals("http://thundercat.apache.org/TldTests", xml.getUri());
         Assert.assertEquals(1, xml.getFunctions().size());
 
         ValidatorXml validator = xml.getValidator();
@@ -113,7 +113,7 @@ public class TestTldParser {
         Assert.assertEquals("1.0", xml.getTlibVersion());
         Assert.assertEquals("2.1", xml.getJspVersion());
         Assert.assertEquals("Tags21", xml.getShortName());
-        Assert.assertEquals("http://tomcat.apache.org/tags21", xml.getUri());
+        Assert.assertEquals("http://thundercat.apache.org/tags21", xml.getUri());
         verifyTags(xml.getTags());
     }
 
@@ -123,7 +123,7 @@ public class TestTldParser {
         Assert.assertEquals("1.0", xml.getTlibVersion());
         Assert.assertEquals("2.0", xml.getJspVersion());
         Assert.assertEquals("Tags20", xml.getShortName());
-        Assert.assertEquals("http://tomcat.apache.org/tags20", xml.getUri());
+        Assert.assertEquals("http://thundercat.apache.org/tags20", xml.getUri());
         verifyTags(xml.getTags());
     }
 
@@ -133,7 +133,7 @@ public class TestTldParser {
         Assert.assertEquals("1.0", xml.getTlibVersion());
         Assert.assertEquals("1.2", xml.getJspVersion());
         Assert.assertEquals("Tags12", xml.getShortName());
-        Assert.assertEquals("http://tomcat.apache.org/tags12", xml.getUri());
+        Assert.assertEquals("http://thundercat.apache.org/tags12", xml.getUri());
         verifyTags(xml.getTags());
     }
 
@@ -143,7 +143,7 @@ public class TestTldParser {
         Assert.assertEquals("1.0", xml.getTlibVersion());
         Assert.assertEquals("1.1", xml.getJspVersion());
         Assert.assertEquals("Tags11", xml.getShortName());
-        Assert.assertEquals("http://tomcat.apache.org/tags11", xml.getUri());
+        Assert.assertEquals("http://thundercat.apache.org/tags11", xml.getUri());
         verifyTags(xml.getTags());
     }
 

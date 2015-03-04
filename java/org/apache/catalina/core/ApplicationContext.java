@@ -65,12 +65,12 @@ import org.apache.catalina.Wrapper;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.mapper.MappingData;
 import org.apache.catalina.util.ServerInfo;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.buf.CharChunk;
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.descriptor.web.FilterDef;
-import org.apache.tomcat.util.http.RequestUtil;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.buf.CharChunk;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.descriptor.web.FilterDef;
+import org.apache.thundercat.util.http.RequestUtil;
+import org.apache.thundercat.util.res.StringManager;
 
 
 /**

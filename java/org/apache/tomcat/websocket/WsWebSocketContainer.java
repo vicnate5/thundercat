@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket;
+package org.apache.thundercat.websocket;
 
 import java.io.EOFException;
 import java.io.File;
@@ -64,9 +64,9 @@ import javax.websocket.WebSocketContainer;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.codec.binary.Base64;
-import org.apache.tomcat.util.res.StringManager;
-import org.apache.tomcat.websocket.pojo.PojoEndpointClient;
+import org.apache.thundercat.util.codec.binary.Base64;
+import org.apache.thundercat.util.res.StringManager;
+import org.apache.thundercat.websocket.pojo.PojoEndpointClient;
 
 public class WsWebSocketContainer
         implements WebSocketContainer, BackgroundProcess {
@@ -77,11 +77,11 @@ public class WsWebSocketContainer
      * comma separated string.
      */
     public static final String SSL_PROTOCOLS_PROPERTY =
-            "org.apache.tomcat.websocket.SSL_PROTOCOLS";
+            "org.apache.thundercat.websocket.SSL_PROTOCOLS";
     public static final String SSL_TRUSTSTORE_PROPERTY =
-            "org.apache.tomcat.websocket.SSL_TRUSTSTORE";
+            "org.apache.thundercat.websocket.SSL_TRUSTSTORE";
     public static final String SSL_TRUSTSTORE_PWD_PROPERTY =
-            "org.apache.tomcat.websocket.SSL_TRUSTSTORE_PWD";
+            "org.apache.thundercat.websocket.SSL_TRUSTSTORE_PWD";
     public static final String SSL_TRUSTSTORE_PWD_DEFAULT = "changeit";
     /**
      * Property name to set to configure used SSLContext. The value should be an
@@ -89,7 +89,7 @@ public class WsWebSocketContainer
      * properties are ignored.
      */
     public static final String SSL_CONTEXT_PROPERTY =
-            "org.apache.tomcat.websocket.SSL_CONTEXT";
+            "org.apache.thundercat.websocket.SSL_CONTEXT";
 
     /**
      * Property name to set to configure the timeout (in milliseconds) when
@@ -97,7 +97,7 @@ public class WsWebSocketContainer
      * {@link #IO_TIMEOUT_MS_DEFAULT}.
      */
     public static final String IO_TIMEOUT_MS_PROPERTY =
-            "org.apache.tomcat.websocket.IO_TIMEOUT_MS";
+            "org.apache.thundercat.websocket.IO_TIMEOUT_MS";
 
     public static final long IO_TIMEOUT_MS_DEFAULT = 5000;
 

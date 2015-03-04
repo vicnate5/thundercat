@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
@@ -25,7 +25,7 @@ import java.util.logging.LogManager;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-import org.apache.tomcat.util.buf.B2CConverter;
+import org.apache.thundercat.util.buf.B2CConverter;
 
 public class TesterParametersPerformance {
 

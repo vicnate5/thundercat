@@ -22,7 +22,7 @@ import java.io.PrintWriter;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * StoreFactory saves spezial elements.
@@ -155,7 +155,7 @@ public class StoreFactoryBase implements IStoreFactory {
      *
      * @param aWriter current output writer
      * @param indent indentation level
-     * @param aTagElement current tomcat element
+     * @param aTagElement current thundercat element
      * @throws Exception
      */
     protected void storeElement(PrintWriter aWriter, int indent,

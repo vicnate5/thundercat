@@ -21,7 +21,7 @@
       version="2.1">
   <tlib-version>1.0</tlib-version>
   <short-name>listener</short-name>
-  <uri>http://tomcat.apache.org/listener</uri>
+  <uri>http://thundercat.apache.org/listener</uri>
 
   <listener>
     <listener-class>org.apache.catalina.core.TesterTldListener</listener-class>

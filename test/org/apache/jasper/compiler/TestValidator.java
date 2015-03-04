@@ -31,7 +31,7 @@ import org.junit.Test;
 
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestValidator extends TomcatBaseTest {
 
@@ -47,14 +47,14 @@ public class TestValidator extends TomcatBaseTest {
 
     @Test
     public void testTldVersions22() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir =
             new File("test/webapp-2.2");
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/tld-versions.jsp");
@@ -72,14 +72,14 @@ public class TestValidator extends TomcatBaseTest {
 
     @Test
     public void testTldVersions23() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir =
             new File("test/webapp-2.3");
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/tld-versions.jsp");
@@ -97,14 +97,14 @@ public class TestValidator extends TomcatBaseTest {
 
     @Test
     public void testTldVersions24() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir =
             new File("test/webapp-2.4");
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/tld-versions.jsp");
@@ -122,14 +122,14 @@ public class TestValidator extends TomcatBaseTest {
 
     @Test
     public void testTldVersions25() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir =
             new File("test/webapp-2.5");
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/tld-versions.jsp");
@@ -147,14 +147,14 @@ public class TestValidator extends TomcatBaseTest {
 
     @Test
     public void testTldVersions30() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir =
             new File("test/webapp-3.0");
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/tld-versions.jsp");
@@ -172,14 +172,14 @@ public class TestValidator extends TomcatBaseTest {
 
     @Test
     public void testTldVersions31() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir =
             new File("test/webapp-3.1");
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/tld-versions.jsp");

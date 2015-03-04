@@ -38,7 +38,7 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.http.fileupload.FileUtils;
+import org.apache.thundercat.util.http.fileupload.FileUtils;
 
 public class TestWebappClassLoaderWeaving extends TomcatBaseTest {
 
@@ -67,7 +67,7 @@ public class TestWebappClassLoaderWeaving extends TomcatBaseTest {
 
     }
 
-    private Tomcat tomcat;
+    private Tomcat thundercat;
     private Context context;
     private WebappClassLoader loader;
 
@@ -77,9 +77,9 @@ public class TestWebappClassLoaderWeaving extends TomcatBaseTest {
 
         super.setUp();
 
-        this.tomcat = getTomcatInstance();
-        this.context = this.tomcat.addContext("/weaving", WEBAPP_DOC_BASE);
-        this.tomcat.start();
+        this.thundercat = getTomcatInstance();
+        this.context = this.thundercat.addContext("/weaving", WEBAPP_DOC_BASE);
+        this.thundercat.start();
 
         ClassLoader loader = this.context.getLoader().getClassLoader();
         assertNotNull("The class loader should not be null.", loader);
@@ -97,7 +97,7 @@ public class TestWebappClassLoaderWeaving extends TomcatBaseTest {
             this.loader = null;
 
             this.context.stop();
-            this.tomcat.getHost().removeChild(this.context);
+            this.thundercat.getHost().removeChild(this.context);
             this.context = null;
         } finally {
             super.tearDown();

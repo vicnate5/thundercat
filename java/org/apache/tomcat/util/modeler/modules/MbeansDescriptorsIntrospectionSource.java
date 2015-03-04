@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.util.modeler.modules;
+package org.apache.thundercat.util.modeler.modules;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -31,11 +31,11 @@ import javax.management.ObjectName;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.modeler.AttributeInfo;
-import org.apache.tomcat.util.modeler.ManagedBean;
-import org.apache.tomcat.util.modeler.OperationInfo;
-import org.apache.tomcat.util.modeler.ParameterInfo;
-import org.apache.tomcat.util.modeler.Registry;
+import org.apache.thundercat.util.modeler.AttributeInfo;
+import org.apache.thundercat.util.modeler.ManagedBean;
+import org.apache.thundercat.util.modeler.OperationInfo;
+import org.apache.thundercat.util.modeler.ParameterInfo;
+import org.apache.thundercat.util.modeler.Registry;
 
 public class MbeansDescriptorsIntrospectionSource extends ModelerSource
 {

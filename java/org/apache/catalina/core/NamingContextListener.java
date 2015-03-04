@@ -58,17 +58,17 @@ import org.apache.naming.ResourceLinkRef;
 import org.apache.naming.ResourceRef;
 import org.apache.naming.ServiceRef;
 import org.apache.naming.TransactionRef;
-import org.apache.tomcat.util.descriptor.web.ContextEjb;
-import org.apache.tomcat.util.descriptor.web.ContextEnvironment;
-import org.apache.tomcat.util.descriptor.web.ContextHandler;
-import org.apache.tomcat.util.descriptor.web.ContextLocalEjb;
-import org.apache.tomcat.util.descriptor.web.ContextResource;
-import org.apache.tomcat.util.descriptor.web.ContextResourceEnvRef;
-import org.apache.tomcat.util.descriptor.web.ContextResourceLink;
-import org.apache.tomcat.util.descriptor.web.ContextService;
-import org.apache.tomcat.util.descriptor.web.ContextTransaction;
-import org.apache.tomcat.util.modeler.Registry;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.descriptor.web.ContextEjb;
+import org.apache.thundercat.util.descriptor.web.ContextEnvironment;
+import org.apache.thundercat.util.descriptor.web.ContextHandler;
+import org.apache.thundercat.util.descriptor.web.ContextLocalEjb;
+import org.apache.thundercat.util.descriptor.web.ContextResource;
+import org.apache.thundercat.util.descriptor.web.ContextResourceEnvRef;
+import org.apache.thundercat.util.descriptor.web.ContextResourceLink;
+import org.apache.thundercat.util.descriptor.web.ContextService;
+import org.apache.thundercat.util.descriptor.web.ContextTransaction;
+import org.apache.thundercat.util.modeler.Registry;
+import org.apache.thundercat.util.res.StringManager;
 
 
 /**

@@ -14,15 +14,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.descriptor.tld;
+package org.apache.thundercat.util.descriptor.tld;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Objects;
 
-import org.apache.tomcat.util.scan.Jar;
-import org.apache.tomcat.util.scan.JarFactory;
+import org.apache.thundercat.util.scan.Jar;
+import org.apache.thundercat.util.scan.JarFactory;
 
 /**
  * A TLD Resource Path as defined in JSP 7.3.2.

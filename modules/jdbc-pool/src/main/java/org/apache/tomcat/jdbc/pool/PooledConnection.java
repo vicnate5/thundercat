@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool;
+package org.apache.thundercat.jdbc.pool;
 
 
 import java.sql.DriverManager;
@@ -27,7 +27,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;
+import org.apache.thundercat.jdbc.pool.interceptor.ConnectionState;
 
 /**
  * Represents a pooled connection
@@ -148,7 +148,7 @@ public class PooledConnection {
      * Returns false if {@link PoolConfiguration#isAlternateUsernameAllowed()} method returns false.
      * Returns false if the username/password has not changed since this connection was connected
      * @param username the username you wish to connect with, pass in null to accept the default username from {@link PoolConfiguration#getUsername()}
-     * @param password the password you wish to connect with, pass in null to accept the default username from {@link org.apache.tomcat.jdbc.pool.PoolConfiguration#getPassword()}
+     * @param password the password you wish to connect with, pass in null to accept the default username from {@link org.apache.thundercat.jdbc.pool.PoolConfiguration#getPassword()}
      * @return true is the pool must reconnect
      */
     public boolean shouldForceReconnect(String username, String password) {
@@ -311,7 +311,7 @@ public class PooledConnection {
                 log.debug("Unable to connect to database.", x);
             }
             if (parent.jmxPool!=null) {
-                parent.jmxPool.notify(org.apache.tomcat.jdbc.pool.jmx.ConnectionPool.NOTIFY_CONNECT,
+                parent.jmxPool.notify(org.apache.thundercat.jdbc.pool.jmx.ConnectionPool.NOTIFY_CONNECT,
                         ConnectionPool.getStackTrace(x));
             }
             if (x instanceof SQLException) {
@@ -613,7 +613,7 @@ public class PooledConnection {
     /**
      * Return the timestamps of last pool action. Timestamps are typically set when connections
      * are borrowed from the pool. It is used to keep track of {@link PoolConfiguration#setRemoveAbandonedTimeout(int) abandon-timeouts}.
-     * This timestamp can also be reset by the {@link org.apache.tomcat.jdbc.pool.interceptor.ResetAbandonedTimer#invoke(Object, java.lang.reflect.Method, Object[])}
+     * This timestamp can also be reset by the {@link org.apache.thundercat.jdbc.pool.interceptor.ResetAbandonedTimer#invoke(Object, java.lang.reflect.Method, Object[])}
      * @return the timestamp of the last pool action as defined by {@link System#currentTimeMillis()}
      */
     public long getTimestamp() {

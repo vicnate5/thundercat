@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket.server;
+package org.apache.thundercat.websocket.server;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -51,11 +51,11 @@ import javax.websocket.server.ServerEndpointConfig.Configurator;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
-import org.apache.tomcat.websocket.WsSession;
-import org.apache.tomcat.websocket.WsWebSocketContainer;
-import org.apache.tomcat.websocket.pojo.PojoEndpointServer;
-import org.apache.tomcat.websocket.pojo.PojoMethodMapping;
+import org.apache.thundercat.util.res.StringManager;
+import org.apache.thundercat.websocket.WsSession;
+import org.apache.thundercat.websocket.WsWebSocketContainer;
+import org.apache.thundercat.websocket.pojo.PojoEndpointServer;
+import org.apache.thundercat.websocket.pojo.PojoMethodMapping;
 
 /**
  * Provides a per class loader (i.e. per web application) instance of a
@@ -87,7 +87,7 @@ public class WsServerContainer extends WsWebSocketContainer
     private final ConcurrentHashMap<Integer,SortedSet<TemplatePathMatch>>
             configTemplateMatchMap = new ConcurrentHashMap<>();
     private volatile boolean enforceNoAddAfterHandshake =
-            org.apache.tomcat.websocket.Constants.STRICT_SPEC_COMPLIANCE;
+            org.apache.thundercat.websocket.Constants.STRICT_SPEC_COMPLIANCE;
     private volatile boolean addAllowed = true;
     private final ConcurrentHashMap<String,Set<WsSession>> authenticatedSessions =
             new ConcurrentHashMap<>();

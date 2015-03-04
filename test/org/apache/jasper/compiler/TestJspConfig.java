@@ -25,20 +25,20 @@ import org.junit.Test;
 
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestJspConfig extends TomcatBaseTest {
 
     @Test
     public void testServlet22NoEL() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir =
             new File("test/webapp-2.2");
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/el-as-literal.jsp");
@@ -51,14 +51,14 @@ public class TestJspConfig extends TomcatBaseTest {
 
     @Test
     public void testServlet23NoEL() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir =
             new File("test/webapp-2.3");
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/el-as-literal.jsp");
@@ -71,14 +71,14 @@ public class TestJspConfig extends TomcatBaseTest {
 
     @Test
     public void testServlet24NoEL() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir =
             new File("test/webapp-2.4");
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/el-as-literal.jsp");
@@ -91,14 +91,14 @@ public class TestJspConfig extends TomcatBaseTest {
 
     @Test
     public void testServlet25NoEL() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir =
             new File("test/webapp-2.5");
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/el-as-literal.jsp");
@@ -110,14 +110,14 @@ public class TestJspConfig extends TomcatBaseTest {
 
     @Test
     public void testServlet30NoEL() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir =
             new File("test/webapp-3.0");
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/el-as-literal.jsp");
@@ -129,14 +129,14 @@ public class TestJspConfig extends TomcatBaseTest {
 
     @Test
     public void testServlet31NoEL() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir =
             new File("test/webapp-3.1");
         // app dir is relative to server home
-        tomcat.addWebapp(null, "/test", appDir.getAbsolutePath());
+        thundercat.addWebapp(null, "/test", appDir.getAbsolutePath());
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() +
                 "/test/el-as-literal.jsp");

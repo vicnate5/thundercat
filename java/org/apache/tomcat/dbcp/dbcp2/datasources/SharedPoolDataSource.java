@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.dbcp.dbcp2.datasources;
+package org.apache.thundercat.dbcp.dbcp2.datasources;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -27,9 +27,9 @@ import javax.naming.Reference;
 import javax.naming.StringRefAddr;
 import javax.sql.ConnectionPoolDataSource;
 
-import org.apache.tomcat.dbcp.pool2.KeyedObjectPool;
-import org.apache.tomcat.dbcp.pool2.impl.GenericKeyedObjectPool;
-import org.apache.tomcat.dbcp.pool2.impl.GenericKeyedObjectPoolConfig;
+import org.apache.thundercat.dbcp.pool2.KeyedObjectPool;
+import org.apache.thundercat.dbcp.pool2.impl.GenericKeyedObjectPool;
+import org.apache.thundercat.dbcp.pool2.impl.GenericKeyedObjectPoolConfig;
 
 /**
  * <p>A pooling <code>DataSource</code> appropriate for deployment within

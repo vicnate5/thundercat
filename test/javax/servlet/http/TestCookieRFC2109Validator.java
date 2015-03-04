@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class TestCookieRFC2109Validator {
     static {
-        System.setProperty("org.apache.tomcat.util.http.ServerCookie.FWD_SLASH_IS_SEPARATOR", "true");
+        System.setProperty("org.apache.thundercat.util.http.ServerCookie.FWD_SLASH_IS_SEPARATOR", "true");
     }
 
     private RFC2109Validator validator = new RFC2109Validator();

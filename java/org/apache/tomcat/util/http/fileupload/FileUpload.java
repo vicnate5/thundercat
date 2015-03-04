@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.http.fileupload;
+package org.apache.thundercat.util.http.fileupload;
 
 /**
  * <p>High level API for processing file uploads.</p>
@@ -23,7 +23,7 @@ package org.apache.tomcat.util.http.fileupload;
  * <code>multipart/mixed</code> encoding type, as specified by
  * <a href="http://www.ietf.org/rfc/rfc1867.txt">RFC 1867</a>.  Use {@link
  * #parseRequest(RequestContext)} to acquire a list
- * of {@link org.apache.tomcat.util.http.fileupload.FileItem FileItems} associated
+ * of {@link org.apache.thundercat.util.http.fileupload.FileItem FileItems} associated
  * with a given HTML widget.</p>
  *
  * <p>How the data for individual parts is stored is determined by the factory

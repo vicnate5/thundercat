@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.spdy;
+package org.apache.thundercat.spdy;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -211,7 +211,7 @@ public class SpdyStream implements Runnable {
         // 3. copy the data, blocking drain -> like 1, trade one copy to
         // avoid
         // 1 tcp packet. That's the current choice, seems closer to rest of
-        // tomcat
+        // thundercat
 
         if (close)
             oframe.halfClose();

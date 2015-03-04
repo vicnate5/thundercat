@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket.server;
+package org.apache.thundercat.websocket.server;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -36,15 +36,15 @@ import javax.websocket.Extension;
 import javax.websocket.HandshakeResponse;
 import javax.websocket.server.ServerEndpointConfig;
 
-import org.apache.tomcat.util.codec.binary.Base64;
-import org.apache.tomcat.util.res.StringManager;
-import org.apache.tomcat.util.security.ConcurrentMessageDigest;
-import org.apache.tomcat.websocket.Constants;
-import org.apache.tomcat.websocket.Transformation;
-import org.apache.tomcat.websocket.TransformationFactory;
-import org.apache.tomcat.websocket.Util;
-import org.apache.tomcat.websocket.WsHandshakeResponse;
-import org.apache.tomcat.websocket.pojo.PojoEndpointServer;
+import org.apache.thundercat.util.codec.binary.Base64;
+import org.apache.thundercat.util.res.StringManager;
+import org.apache.thundercat.util.security.ConcurrentMessageDigest;
+import org.apache.thundercat.websocket.Constants;
+import org.apache.thundercat.websocket.Transformation;
+import org.apache.thundercat.websocket.TransformationFactory;
+import org.apache.thundercat.websocket.Util;
+import org.apache.thundercat.websocket.WsHandshakeResponse;
+import org.apache.thundercat.websocket.pojo.PojoEndpointServer;
 
 public class UpgradeUtil {
 

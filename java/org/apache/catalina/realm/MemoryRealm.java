@@ -25,7 +25,7 @@ import java.util.Map;
 import org.apache.catalina.LifecycleException;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.digester.Digester;
+import org.apache.thundercat.util.digester.Digester;
 
 
 /**
@@ -63,7 +63,7 @@ public class MemoryRealm  extends RealmBase {
      * The pathname (absolute or relative to Catalina's current working
      * directory) of the XML file containing our database information.
      */
-    private String pathname = "conf/tomcat-users.xml";
+    private String pathname = "conf/thundercat-users.xml";
 
 
     /**

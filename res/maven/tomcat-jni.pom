@@ -17,11 +17,11 @@
 -->
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.apache.tomcat</groupId>
-  <artifactId>tomcat-jni</artifactId>
+  <groupId>org.apache.thundercat</groupId>
+  <artifactId>thundercat-jni</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
   <description>Interface code to the native connector</description>
-  <url>http://tomcat.apache.org/</url>
+  <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool;
+package org.apache.thundercat.jdbc.pool;
 
 
 import java.sql.Connection;
@@ -218,7 +218,7 @@ public class DataSourceFactory implements ObjectFactory {
             ok = true;
             XA = true;
         }
-        if (org.apache.tomcat.jdbc.pool.DataSource.class.getName().equals(ref.getClassName())) {
+        if (org.apache.thundercat.jdbc.pool.DataSource.class.getName().equals(ref.getClassName())) {
             ok = true;
         }
 
@@ -546,9 +546,9 @@ public class DataSourceFactory implements ObjectFactory {
         if (poolProperties.getDataSourceJNDI()!=null && poolProperties.getDataSource()==null) {
             performJNDILookup(context, poolProperties);
         }
-        org.apache.tomcat.jdbc.pool.DataSource dataSource = XA?
-                new org.apache.tomcat.jdbc.pool.XADataSource(poolProperties) :
-                new org.apache.tomcat.jdbc.pool.DataSource(poolProperties);
+        org.apache.thundercat.jdbc.pool.DataSource dataSource = XA?
+                new org.apache.thundercat.jdbc.pool.XADataSource(poolProperties) :
+                new org.apache.thundercat.jdbc.pool.DataSource(poolProperties);
         //initialise the pool itself
         dataSource.createPool();
         // Return the configured DataSource instance

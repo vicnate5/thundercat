@@ -16,7 +16,7 @@
  */
 
 
-package org.apache.tomcat.util.modeler;
+package org.apache.thundercat.util.modeler;
 
 
 import java.lang.reflect.Method;
@@ -49,7 +49,7 @@ public class ManagedBean implements java.io.Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private static final String BASE_MBEAN = "org.apache.tomcat.util.modeler.BaseModelMBean";
+    private static final String BASE_MBEAN = "org.apache.thundercat.util.modeler.BaseModelMBean";
     // ----------------------------------------------------- Instance Variables
     static final Class<?>[] NO_ARGS_PARAM_SIG = new Class[0];
 

@@ -18,7 +18,7 @@ package org.apache.jasper.runtime;
 
 import javax.servlet.ServletConfig;
 
-import org.apache.tomcat.InstanceManager;
+import org.apache.thundercat.InstanceManager;
 
 public class InstanceManagerFactory {
 
@@ -29,7 +29,7 @@ public class InstanceManagerFactory {
         InstanceManager instanceManager =
                 (InstanceManager) config.getServletContext().getAttribute(InstanceManager.class.getName());
         if (instanceManager == null) {
-            throw new IllegalStateException("No org.apache.tomcat.InstanceManager set in ServletContext");
+            throw new IllegalStateException("No org.apache.thundercat.InstanceManager set in ServletContext");
         }
         return instanceManager;
     }

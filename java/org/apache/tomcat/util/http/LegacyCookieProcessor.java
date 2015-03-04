@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -30,10 +30,10 @@ import javax.servlet.http.Cookie;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.log.UserDataHelper;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.log.UserDataHelper;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * The legacy (up to early Tomcat 8 releases) cookie parser based on RFC6265,
@@ -51,7 +51,7 @@ public final class LegacyCookieProcessor implements CookieProcessor {
     private static final UserDataHelper userDataLog = new UserDataHelper(log);
 
     private static final StringManager sm =
-            StringManager.getManager("org.apache.tomcat.util.http");
+            StringManager.getManager("org.apache.thundercat.util.http");
 
     private static final char[] V0_SEPARATORS = {',', ';', ' ', '\t'};
     private static final BitSet V0_SEPARATOR_FLAGS = new BitSet(128);

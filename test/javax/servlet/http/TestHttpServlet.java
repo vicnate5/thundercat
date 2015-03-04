@@ -29,23 +29,23 @@ import org.junit.Test;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestHttpServlet extends TomcatBaseTest {
 
     @Test
     public void testBug53454() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        StandardContext ctx = (StandardContext) tomcat.addContext("", null);
+        StandardContext ctx = (StandardContext) thundercat.addContext("", null);
 
         // Map the test Servlet
         LargeBodyServlet largeBodyServlet = new LargeBodyServlet();
         Tomcat.addServlet(ctx, "largeBodyServlet", largeBodyServlet);
         ctx.addServletMapping("/", "largeBodyServlet");
 
-        tomcat.start();
+        thundercat.start();
 
         Map<String,List<String>> resHeaders= new HashMap<>();
         int rc = headUrl("http://localhost:" + getPort() + "/", new ByteChunk(),

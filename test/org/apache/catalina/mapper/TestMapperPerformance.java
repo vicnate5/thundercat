@@ -20,7 +20,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import org.apache.tomcat.util.buf.MessageBytes;
+import org.apache.thundercat.util.buf.MessageBytes;
 
 public class TestMapperPerformance extends TestMapper {
 

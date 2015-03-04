@@ -61,12 +61,12 @@ import org.apache.catalina.security.SecurityUtil;
 import org.apache.catalina.util.InstanceSupport;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.InstanceManager;
-import org.apache.tomcat.PeriodicEventListener;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.log.SystemLogHandler;
-import org.apache.tomcat.util.modeler.Registry;
-import org.apache.tomcat.util.modeler.Util;
+import org.apache.thundercat.InstanceManager;
+import org.apache.thundercat.PeriodicEventListener;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.log.SystemLogHandler;
+import org.apache.thundercat.util.modeler.Registry;
+import org.apache.thundercat.util.modeler.Util;
 
 /**
  * Standard implementation of the <b>Wrapper</b> interface that represents

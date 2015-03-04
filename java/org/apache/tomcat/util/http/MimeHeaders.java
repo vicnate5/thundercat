@@ -14,14 +14,14 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Enumeration;
 
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.res.StringManager;
 
 /* XXX XXX XXX Need a major rewrite  !!!!
  */
@@ -75,8 +75,8 @@ import org.apache.tomcat.util.res.StringManager;
  *
  *  The only garbage is generated when using the String for header names/values -
  *  this can't be avoided when the servlet calls header methods, but is easy
- *  to avoid inside tomcat. The goal is to use _only_ MessageByte-based Fields,
- *  and reduce to 0 the memory overhead of tomcat.
+ *  to avoid inside thundercat. The goal is to use _only_ MessageByte-based Fields,
+ *  and reduce to 0 the memory overhead of thundercat.
  *
  *  TODO:
  *  XXX one-buffer parsing - for http ( other protocols don't need that )
@@ -97,7 +97,7 @@ public class MimeHeaders {
     public static final int DEFAULT_HEADER_SIZE=8;
 
     private static final StringManager sm =
-            StringManager.getManager("org.apache.tomcat.util.http");
+            StringManager.getManager("org.apache.thundercat.util.http");
 
     /**
      * The header fields.

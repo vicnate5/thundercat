@@ -31,7 +31,7 @@ import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.mbeans.MBeanUtils;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Store Server/Service/Host/Context at file or PrintWriter. Default server.xml

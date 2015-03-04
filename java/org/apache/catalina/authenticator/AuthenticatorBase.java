@@ -46,10 +46,10 @@ import org.apache.catalina.valves.ValveBase;
 import org.apache.coyote.ActionCode;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.descriptor.web.LoginConfig;
-import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
-import org.apache.tomcat.util.http.FastHttpDateFormat;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.descriptor.web.LoginConfig;
+import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
+import org.apache.thundercat.util.http.FastHttpDateFormat;
+import org.apache.thundercat.util.res.StringManager;
 
 
 /**

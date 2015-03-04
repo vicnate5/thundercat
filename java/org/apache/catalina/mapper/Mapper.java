@@ -32,10 +32,10 @@ import org.apache.catalina.WebResourceRoot;
 import org.apache.catalina.Wrapper;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.buf.Ascii;
-import org.apache.tomcat.util.buf.CharChunk;
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.buf.Ascii;
+import org.apache.thundercat.util.buf.CharChunk;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Mapper, which implements the servlet API mapping rules (which are derived

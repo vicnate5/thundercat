@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket.server;
+package org.apache.thundercat.websocket.server;
 
 import javax.servlet.ServletContextEvent;
 import javax.websocket.DeploymentException;
@@ -30,21 +30,21 @@ import org.apache.catalina.filters.TesterServletContext;
 import org.apache.catalina.servlets.DefaultServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.websocket.TesterEchoServer;
+import org.apache.thundercat.websocket.TesterEchoServer;
 
 
 public class TestWsServerContainer extends TomcatBaseTest {
 
     @Test
     public void testBug54807() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addApplicationListener(Bug54807Config.class.getName());
         Tomcat.addServlet(ctx, "default", new DefaultServlet());
         ctx.addServletMapping("/", "default");
 
-        tomcat.start();
+        thundercat.start();
 
         Assert.assertEquals(LifecycleState.STARTED, ctx.getState());
     }

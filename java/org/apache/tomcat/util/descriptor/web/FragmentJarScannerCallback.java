@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.descriptor.web;
+package org.apache.thundercat.util.descriptor.web;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,9 +25,9 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.tomcat.JarScannerCallback;
-import org.apache.tomcat.util.scan.Jar;
-import org.apache.tomcat.util.scan.JarFactory;
+import org.apache.thundercat.JarScannerCallback;
+import org.apache.thundercat.util.scan.Jar;
+import org.apache.thundercat.util.scan.JarFactory;
 import org.xml.sax.InputSource;
 
 /**

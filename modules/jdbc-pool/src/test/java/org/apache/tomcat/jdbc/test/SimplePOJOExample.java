@@ -14,15 +14,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import org.apache.tomcat.jdbc.pool.DataSource;
-import org.apache.tomcat.jdbc.pool.PoolConfiguration;
-import org.apache.tomcat.jdbc.pool.PoolProperties;
+import org.apache.thundercat.jdbc.pool.DataSource;
+import org.apache.thundercat.jdbc.pool.PoolConfiguration;
+import org.apache.thundercat.jdbc.pool.PoolProperties;
 
 public class SimplePOJOExample {
 
@@ -45,7 +45,7 @@ public class SimplePOJOExample {
         p.setRemoveAbandonedTimeout(60);
         p.setMinEvictableIdleTimeMillis(30000);
         p.setMinIdle(10);
-        p.setJdbcInterceptors("org.apache.tomcat.jdbc.pool.interceptor.ConnectionState;org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer");
+        p.setJdbcInterceptors("org.apache.thundercat.jdbc.pool.interceptor.ConnectionState;org.apache.thundercat.jdbc.pool.interceptor.StatementFinalizer");
         p.setLogAbandoned(true);
         p.setRemoveAbandoned(true);
         DataSource datasource = new DataSource();

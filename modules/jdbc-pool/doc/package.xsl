@@ -18,7 +18,7 @@
 <!--
   Stylesheet that generates "package.html" for Javadoc tool
   from jdbc-pool.xml documentation file.
-  It is based on "tomcat-docs" stylesheet, but it needs to avoid
+  It is based on "thundercat-docs" stylesheet, but it needs to avoid
   generating complicated headers and footers, as those cannot be
   digested by Javadoc tool and break layout of javadoc pages.
 -->

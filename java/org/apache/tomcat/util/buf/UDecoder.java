@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.buf;
+package org.apache.thundercat.util.buf;
 
 import java.io.CharConversionException;
 import java.io.IOException;
@@ -23,7 +23,7 @@ import java.nio.charset.StandardCharsets;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  *  All URL decoding happens here. This way we can reuse, review, optimize
@@ -41,7 +41,7 @@ public final class UDecoder {
     private static final Log log = LogFactory.getLog(UDecoder.class);
 
     public static final boolean ALLOW_ENCODED_SLASH =
-        Boolean.valueOf(System.getProperty("org.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH", "false")).booleanValue();
+        Boolean.valueOf(System.getProperty("org.apache.thundercat.util.buf.UDecoder.ALLOW_ENCODED_SLASH", "false")).booleanValue();
 
     private static class DecodeException extends CharConversionException {
         private static final long serialVersionUID = 1L;

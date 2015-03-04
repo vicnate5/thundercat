@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -32,10 +32,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.collections.SynchronizedQueue;
-import org.apache.tomcat.util.collections.SynchronizedStack;
-import org.apache.tomcat.util.net.NioEndpoint.NioSocketWrapper;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.collections.SynchronizedQueue;
+import org.apache.thundercat.util.collections.SynchronizedStack;
+import org.apache.thundercat.util.net.NioEndpoint.NioSocketWrapper;
 
 public class NioBlockingSelector {
 

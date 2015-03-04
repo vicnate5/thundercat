@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool;
+package org.apache.thundercat.jdbc.pool;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Constructor;
@@ -57,7 +57,7 @@ public class ConnectionPool {
     /**
      * Default domain for objects registering with an mbean server
      */
-    public static final String POOL_JMX_DOMAIN = "tomcat.jdbc";
+    public static final String POOL_JMX_DOMAIN = "thundercat.jdbc";
     /**
      * Prefix type for JMX registration
      */
@@ -118,7 +118,7 @@ public class ConnectionPool {
     /**
      * reference to the JMX mbean
      */
-    protected org.apache.tomcat.jdbc.pool.jmx.ConnectionPool jmxPool = null;
+    protected org.apache.thundercat.jdbc.pool.jmx.ConnectionPool jmxPool = null;
 
     /**
      * counter to track how many threads are waiting for a connection
@@ -469,7 +469,7 @@ public class ConnectionPool {
                 interceptor.poolStarted(this);
             }catch (Exception x) {
                 log.error("Unable to inform interceptor of pool start.",x);
-                if (jmxPool!=null) jmxPool.notify(org.apache.tomcat.jdbc.pool.jmx.ConnectionPool.NOTIFY_INIT, getStackTrace(x));
+                if (jmxPool!=null) jmxPool.notify(org.apache.thundercat.jdbc.pool.jmx.ConnectionPool.NOTIFY_INIT, getStackTrace(x));
                 close(true);
                 SQLException ex = new SQLException();
                 ex.initCause(x);
@@ -487,7 +487,7 @@ public class ConnectionPool {
         } catch (SQLException x) {
             log.error("Unable to create initial connections of pool.", x);
             if (!poolProperties.isIgnoreExceptionOnPreLoad()) {
-                if (jmxPool!=null) jmxPool.notify(org.apache.tomcat.jdbc.pool.jmx.ConnectionPool.NOTIFY_INIT, getStackTrace(x));
+                if (jmxPool!=null) jmxPool.notify(org.apache.thundercat.jdbc.pool.jmx.ConnectionPool.NOTIFY_INIT, getStackTrace(x));
                 close(true);
                 throw x;
             }
@@ -533,7 +533,7 @@ public class ConnectionPool {
                 log.warn("Connection has been abandoned " + con + ":" + trace);
             }
             if (jmxPool!=null) {
-                jmxPool.notify(org.apache.tomcat.jdbc.pool.jmx.ConnectionPool.NOTIFY_ABANDON, trace);
+                jmxPool.notify(org.apache.thundercat.jdbc.pool.jmx.ConnectionPool.NOTIFY_ABANDON, trace);
             }
             //release the connection
             release(con);
@@ -560,7 +560,7 @@ public class ConnectionPool {
                 log.warn("Connection has been marked suspect, possibly abandoned " + con + "["+(System.currentTimeMillis()-con.getTimestamp())+" ms.]:" + trace);
             }
             if (jmxPool!=null) {
-                jmxPool.notify(org.apache.tomcat.jdbc.pool.jmx.ConnectionPool.SUSPECT_ABANDONED_NOTIFICATION, trace);
+                jmxPool.notify(org.apache.thundercat.jdbc.pool.jmx.ConnectionPool.SUSPECT_ABANDONED_NOTIFICATION, trace);
             }
             con.setSuspect(true);
         } finally {
@@ -658,7 +658,7 @@ public class ConnectionPool {
             }
             if (maxWait==0 && con == null) { //no wait, return one if we have one
                 if (jmxPool!=null) {
-                    jmxPool.notify(org.apache.tomcat.jdbc.pool.jmx.ConnectionPool.POOL_EMPTY, "Pool empty - no wait.");
+                    jmxPool.notify(org.apache.thundercat.jdbc.pool.jmx.ConnectionPool.POOL_EMPTY, "Pool empty - no wait.");
                 }
                 throw new PoolExhaustedException("[" + Thread.currentThread().getName()+"] " +
                         "NoWait: Pool empty. Unable to fetch a connection, none available["+busy.size()+" in use].");
@@ -667,7 +667,7 @@ public class ConnectionPool {
             if (con == null) {
                 if ((System.currentTimeMillis() - now) >= maxWait) {
                     if (jmxPool!=null) {
-                        jmxPool.notify(org.apache.tomcat.jdbc.pool.jmx.ConnectionPool.POOL_EMPTY, "Pool empty - timeout.");
+                        jmxPool.notify(org.apache.thundercat.jdbc.pool.jmx.ConnectionPool.POOL_EMPTY, "Pool empty - timeout.");
                     }
                     throw new PoolExhaustedException("[" + Thread.currentThread().getName()+"] " +
                         "Timeout: Pool empty. Unable to fetch a connection in " + (maxWait / 1000) +
@@ -1128,9 +1128,9 @@ public class ConnectionPool {
 
     /**
      * Return the object that is potentially registered in JMX for notifications
-     * @return the object implementing the {@link org.apache.tomcat.jdbc.pool.jmx.ConnectionPoolMBean} interface
+     * @return the object implementing the {@link org.apache.thundercat.jdbc.pool.jmx.ConnectionPoolMBean} interface
      */
-    public org.apache.tomcat.jdbc.pool.jmx.ConnectionPool getJmxPool() {
+    public org.apache.thundercat.jdbc.pool.jmx.ConnectionPool getJmxPool() {
         return jmxPool;
     }
 
@@ -1139,7 +1139,7 @@ public class ConnectionPool {
      */
     protected void createMBean() {
         try {
-            jmxPool = new org.apache.tomcat.jdbc.pool.jmx.ConnectionPool(this);
+            jmxPool = new org.apache.thundercat.jdbc.pool.jmx.ConnectionPool(this);
         } catch (Exception x) {
             log.warn("Unable to start JMX integration for connection pool. Instance["+getName()+"] can't be monitored.",x);
         }

@@ -121,15 +121,15 @@ my %TOMCAT_KEEP = qw(
 # Mime type definitions from httpd
 my %httpd;
 # Mime type definitions from Tomcat
-my %tomcat;
+my %thundercat;
 # Comments found when parsing mime type definitions
-my %tomcat_comments;
+my %thundercat_comments;
 # Is the whole mime type commented out?
-my %tomcat_commented;
+my %thundercat_commented;
 # List of extensions found in the original order
-my @tomcat_extensions;
+my @thundercat_extensions;
 # Text in web.xml before and after the mime-type definitions
-my $tomcat_pre; my $tomcat_post;
+my $thundercat_pre; my $thundercat_post;
 
 
 # Helper variables
@@ -210,7 +210,7 @@ open($webxml_fh, '<', $opt_i) or die "Could not open file '$opt_i' for read - Ab
 $line = '';
 while (<$webxml_fh>) {
     if ($_ !~ /<mime-mapping>/) {
-        $tomcat_pre .= $line;
+        $thundercat_pre .= $line;
     } else {
         last;
     }
@@ -223,7 +223,7 @@ $commented = 0;
 if ($line =~ /^\s*<!--[^>]*$/) {
     $commented = 1;
 } else {
-    $tomcat_pre .= $line;
+    $thundercat_pre .= $line;
 }
 
 # Now we parse blocks of the form:
@@ -259,19 +259,19 @@ while ($_ =~ /^\s*<mime-mapping>\s*$/) {
         $type = $1;
         $type =~ s/^\s+//;
         $type =~ s/\s+$//;
-        if (exists($tomcat{$extension}) && $tomcat{$extension} ne $type) {
+        if (exists($thundercat{$extension}) && $thundercat{$extension} ne $type) {
             print STDERR "WARN MIME mapping redefinition detected!\n";
-            print STDERR "WARN Kept '$extension' -> '$tomcat{$extension}'\n";
+            print STDERR "WARN Kept '$extension' -> '$thundercat{$extension}'\n";
             print STDERR "WARN Ignored '$extension' -> '$type'\n";
         } else {
-            $tomcat{$extension} = $type;
+            $thundercat{$extension} = $type;
             if ($comment ne '') {
-                $tomcat_comments{$extension} = $comment;
+                $thundercat_comments{$extension} = $comment;
             }
             if ($commented) {
-                $tomcat_commented{$extension} = 1;
+                $thundercat_commented{$extension} = 1;
             }
-            push(@tomcat_extensions, $extension);
+            push(@thundercat_extensions, $extension);
         }
     } else {
         print STDERR "ERROR Parse error in Tomcat mime-mapping line $.\n";
@@ -303,11 +303,11 @@ while ($_ =~ /^\s*<mime-mapping>\s*$/) {
 
 # Add back the last comment line already digested
 if ($commented) {
-    $tomcat_post = $line;
+    $thundercat_post = $line;
 }
 
 # Read and record the remaining lines
-$tomcat_post .= $_;
+$thundercat_post .= $_;
 while (<$webxml_fh>) {
     if ($_ =~ /<mime-mapping>/) {
         print STDERR "ERROR mime-mapping blocks are not consecutive\n";
@@ -315,7 +315,7 @@ while (<$webxml_fh>) {
         close($webxml_fh);
         exit 5;
     }
-    $tomcat_post .= $_;
+    $thundercat_post .= $_;
 }
 
 close($webxml_fh);
@@ -323,14 +323,14 @@ close($webxml_fh);
 
 # Look for extensions existing for Tomcat but not for httpd.
 # Log them if they are not in TOMCAT_ONLY
-for $extension (@tomcat_extensions) {
+for $extension (@thundercat_extensions) {
     if (!exists($httpd{$extension})) {
         if (!exists($TOMCAT_ONLY{$extension})) {
             print STDERR "WARN Extension '$extension' found in web.xml but not in mime.types is missing from TOMCAT_ONLY list.\n";
-            print STDERR "WARN Definition '$extension' -> '$tomcat{$extension}' will be removed from generated web.xml.\n";
-        } elsif ($tomcat{$extension} ne $TOMCAT_ONLY{$extension}) {
+            print STDERR "WARN Definition '$extension' -> '$thundercat{$extension}' will be removed from generated web.xml.\n";
+        } elsif ($thundercat{$extension} ne $TOMCAT_ONLY{$extension}) {
             print STDERR "WARN Additional extension '$extension' allowed by TOMCAT_ONLY list, but has new definition.\n";
-            print STDERR "WARN Definition '$extension' -> '$tomcat{$extension}' will be replaced" .
+            print STDERR "WARN Definition '$extension' -> '$thundercat{$extension}' will be replaced" .
                          " by '$extension' -> '$TOMCAT_ONLY{$extension}' in generated web.xml.\n";
         }
     }
@@ -339,15 +339,15 @@ for $extension (@tomcat_extensions) {
 
 # Look for extensions with inconsistent mime types for Tomcat and httpd.
 # Log them if they are not in TOMCAT_KEEP
-for $extension (@tomcat_extensions) {
-    if (exists($httpd{$extension}) && $tomcat{$extension} ne $httpd{$extension}) {
+for $extension (@thundercat_extensions) {
+    if (exists($httpd{$extension}) && $thundercat{$extension} ne $httpd{$extension}) {
         if (!exists($TOMCAT_KEEP{$extension})) {
             print STDERR "WARN Mapping '$extension' inconsistency is missing from TOMCAT_KEEP list.\n";
-            print STDERR "WARN Definition '$extension' -> '$tomcat{$extension}' will be replaced" .
+            print STDERR "WARN Definition '$extension' -> '$thundercat{$extension}' will be replaced" .
                          " by '$extension' -> '$httpd{$extension}' in generated web.xml.\n";
-        } elsif ($tomcat{$extension} ne $TOMCAT_KEEP{$extension}) {
+        } elsif ($thundercat{$extension} ne $TOMCAT_KEEP{$extension}) {
             print STDERR "WARN Extension '$extension' inconsistency allowed by TOMCAT_KEEP list, but has new definition.\n";
-            print STDERR "WARN Definition '$extension' -> '$tomcat{$extension}' will be replaced" .
+            print STDERR "WARN Definition '$extension' -> '$thundercat{$extension}' will be replaced" .
                          " by '$extension' -> '$TOMCAT_KEEP{$extension}' in generated web.xml.\n";
         }
     }
@@ -357,7 +357,7 @@ for $extension (@tomcat_extensions) {
 # Log if extensions in web.xml are not sorted alphabetically.
 $msg = '';
 $previous = '';
-for $current (@tomcat_extensions) {
+for $current (@thundercat_extensions) {
     if ($previous ge $current) {
       $msg .= "WARN Extension '$previous' defined before '$current'\n";
     }
@@ -373,7 +373,7 @@ if ($msg ne '') {
 
 # Log all extensions defined for httpd but not for Tomcat
 for $extension (sort keys %httpd) {
-    if (!exists($tomcat{$extension})) {
+    if (!exists($thundercat{$extension})) {
         print STDERR "INFO Extension '$extension' found for httpd, but not for Tomcat.\n";
         print STDERR "INFO Definition '$extension' -> '$httpd{$extension}' will be added" .
                          " to the generated web.xml.\n";
@@ -385,7 +385,7 @@ for $extension (sort keys %httpd) {
 #   - Use definitions from httpd
 #   - Add TOMCAT_ONLY
 #   - Fix TOMCAT_KEEP
-#   - output tomcat_pre, sorted mime-mappings, tomcat_post.
+#   - output thundercat_pre, sorted mime-mappings, thundercat_post.
 while (($extension, $mimetype) = each %TOMCAT_ONLY) {
     $httpd{$extension} = $mimetype;
 }
@@ -393,23 +393,23 @@ while (($extension, $mimetype) = each %TOMCAT_KEEP) {
     $httpd{$extension} = $mimetype;
 }
 open ($output_fh, '>', $opt_o) or die "Could not open file '$opt_o' for write - Aborting!";
-print $output_fh $tomcat_pre;
+print $output_fh $thundercat_pre;
 for $extension (sort keys %httpd) {
-    if (exists($tomcat_commented{$extension})) {
+    if (exists($thundercat_commented{$extension})) {
         print $output_fh "    <!--\n";
     }
     print $output_fh "    <mime-mapping>\n";
-    if (exists($tomcat_comments{$extension})) {
-        print $output_fh "        <!--$tomcat_comments{$extension}-->\n";
+    if (exists($thundercat_comments{$extension})) {
+        print $output_fh "        <!--$thundercat_comments{$extension}-->\n";
     }
     print $output_fh "        <extension>$extension</extension>\n";
     print $output_fh "        <mime-type>$httpd{$extension}</mime-type>\n";
     print $output_fh "    </mime-mapping>\n";
-    if (exists($tomcat_commented{$extension})) {
+    if (exists($thundercat_commented{$extension})) {
         print $output_fh "    -->\n";
     }
 }
-print $output_fh $tomcat_post;
+print $output_fh $thundercat_post;
 close($output_fh);
 print "New file '$opt_o' has been written.\n";
 

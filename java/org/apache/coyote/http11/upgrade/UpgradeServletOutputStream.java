@@ -23,9 +23,9 @@ import javax.servlet.WriteListener;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.net.SocketWrapperBase;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.net.SocketWrapperBase;
+import org.apache.thundercat.util.res.StringManager;
 
 public class UpgradeServletOutputStream extends ServletOutputStream {
 

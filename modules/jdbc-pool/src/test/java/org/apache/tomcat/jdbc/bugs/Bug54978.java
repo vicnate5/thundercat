@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.bugs;
+package org.apache.thundercat.jdbc.bugs;
 
 import java.sql.SQLException;
 
@@ -22,9 +22,9 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.pool.DataSource;
-import org.apache.tomcat.jdbc.pool.PoolProperties;
-import org.apache.tomcat.jdbc.test.DefaultProperties;
+import org.apache.thundercat.jdbc.pool.DataSource;
+import org.apache.thundercat.jdbc.pool.PoolProperties;
+import org.apache.thundercat.jdbc.test.DefaultProperties;
 
 public class Bug54978 {
 

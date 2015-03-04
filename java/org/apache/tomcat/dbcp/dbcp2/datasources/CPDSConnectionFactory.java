@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.dbcp2.datasources;
+package org.apache.thundercat.dbcp.dbcp2.datasources;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -30,15 +30,15 @@ import javax.sql.ConnectionEventListener;
 import javax.sql.ConnectionPoolDataSource;
 import javax.sql.PooledConnection;
 
-import org.apache.tomcat.dbcp.dbcp2.Utils;
-import org.apache.tomcat.dbcp.pool2.ObjectPool;
-import org.apache.tomcat.dbcp.pool2.PooledObject;
-import org.apache.tomcat.dbcp.pool2.PooledObjectFactory;
-import org.apache.tomcat.dbcp.pool2.impl.DefaultPooledObject;
+import org.apache.thundercat.dbcp.dbcp2.Utils;
+import org.apache.thundercat.dbcp.pool2.ObjectPool;
+import org.apache.thundercat.dbcp.pool2.PooledObject;
+import org.apache.thundercat.dbcp.pool2.PooledObjectFactory;
+import org.apache.thundercat.dbcp.pool2.impl.DefaultPooledObject;
 
 /**
  * A {@link PooledObjectFactory} that creates
- * {@link org.apache.tomcat.dbcp.dbcp2.PoolableConnection PoolableConnection}s.
+ * {@link org.apache.thundercat.dbcp.dbcp2.PoolableConnection PoolableConnection}s.
  *
  * @author John D. McNally
  * @since 2.0

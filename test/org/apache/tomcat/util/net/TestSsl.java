@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,8 +40,8 @@ import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.TesterServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.websocket.server.WsContextListener;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.websocket.server.WsContextListener;
 
 /**
  * The keys and certificates used in this file are all available in svn and were
@@ -54,16 +54,16 @@ public class TestSsl extends TomcatBaseTest {
     public void testSimpleSsl() throws Exception {
         TesterSupport.configureClientSsl();
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File(getBuildDirectory(), "webapps/examples");
-        org.apache.catalina.Context ctxt  = tomcat.addWebapp(
+        org.apache.catalina.Context ctxt  = thundercat.addWebapp(
                 null, "/examples", appDir.getAbsolutePath());
         ctxt.addApplicationListener(WsContextListener.class.getName());
 
-        TesterSupport.initSsl(tomcat);
+        TesterSupport.initSsl(thundercat);
 
-        tomcat.start();
+        thundercat.start();
         ByteChunk res = getUrl("https://localhost:" + getPort() +
             "/examples/servlets/servlet/HelloWorldExample");
         assertTrue(res.toString().indexOf("<h1>Hello World!</h1>") > 0);
@@ -73,17 +73,17 @@ public class TestSsl extends TomcatBaseTest {
     public void testKeyPass() throws Exception {
         TesterSupport.configureClientSsl();
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File(getBuildDirectory(), "webapps/examples");
-        org.apache.catalina.Context ctxt  = tomcat.addWebapp(
+        org.apache.catalina.Context ctxt  = thundercat.addWebapp(
                 null, "/examples", appDir.getAbsolutePath());
         ctxt.addApplicationListener(WsContextListener.class.getName());
 
-        TesterSupport.initSsl(tomcat, "localhost-copy1.jks", "changeit",
-                "tomcatpass");
+        TesterSupport.initSsl(thundercat, "localhost-copy1.jks", "changeit",
+                "thundercatpass");
 
-        tomcat.start();
+        thundercat.start();
         ByteChunk res = getUrl("https://localhost:" + getPort() +
             "/examples/servlets/servlet/HelloWorldExample");
         assertTrue(res.toString().indexOf("<h1>Hello World!</h1>") > 0);
@@ -92,20 +92,20 @@ public class TestSsl extends TomcatBaseTest {
 
     @Test
     public void testRenegotiateWorks() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         Assume.assumeTrue("SSL renegotiation has to be supported for this test",
                 TesterSupport.isRenegotiationSupported(getTomcatInstance()));
 
-        Context root = tomcat.addContext("", TEMP_DIR);
+        Context root = thundercat.addContext("", TEMP_DIR);
         Wrapper w =
             Tomcat.addServlet(root, "tester", new TesterServlet());
         w.setAsyncSupported(true);
         root.addServletMapping("/", "tester");
 
-        TesterSupport.initSsl(tomcat);
+        TesterSupport.initSsl(thundercat);
 
-        tomcat.start();
+        thundercat.start();
 
         SSLContext sslCtx = SSLContext.getInstance("TLS");
         sslCtx.init(null, TesterSupport.getTrustManagers(), null);

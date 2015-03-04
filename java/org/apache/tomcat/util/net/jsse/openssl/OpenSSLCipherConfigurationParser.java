@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.util.net.jsse.openssl;
+package org.apache.thundercat.util.net.jsse.openssl;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,7 +30,7 @@ import java.util.Set;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Class in charge with parsing openSSL expressions to define a list of ciphers.
@@ -39,7 +39,7 @@ public class OpenSSLCipherConfigurationParser {
 
     private static final Log log = LogFactory.getLog(OpenSSLCipherConfigurationParser.class);
     private static final StringManager sm =
-            StringManager.getManager("org.apache.tomcat.util.net.jsse.res");
+            StringManager.getManager("org.apache.thundercat.util.net.jsse.res");
 
     private static boolean initialized = false;
 

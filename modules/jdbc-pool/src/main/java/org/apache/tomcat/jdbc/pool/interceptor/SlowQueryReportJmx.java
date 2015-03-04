@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.pool.interceptor;
+package org.apache.thundercat.jdbc.pool.interceptor;
 
 import java.lang.management.ManagementFactory;
 import java.util.Iterator;
@@ -45,9 +45,9 @@ import javax.management.openmbean.OpenDataException;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.jdbc.pool.ConnectionPool;
-import org.apache.tomcat.jdbc.pool.PoolProperties.InterceptorProperty;
-import org.apache.tomcat.jdbc.pool.PooledConnection;
+import org.apache.thundercat.jdbc.pool.ConnectionPool;
+import org.apache.thundercat.jdbc.pool.PoolProperties.InterceptorProperty;
+import org.apache.thundercat.jdbc.pool.PooledConnection;
 /**
  * Publishes data to JMX and provides notifications
  * when failures happen.

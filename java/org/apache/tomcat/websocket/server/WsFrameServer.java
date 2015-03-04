@@ -14,15 +14,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket.server;
+package org.apache.thundercat.websocket.server;
 
 import java.io.IOException;
 
 import javax.servlet.ServletInputStream;
 
-import org.apache.tomcat.websocket.Transformation;
-import org.apache.tomcat.websocket.WsFrameBase;
-import org.apache.tomcat.websocket.WsSession;
+import org.apache.thundercat.websocket.Transformation;
+import org.apache.thundercat.websocket.WsFrameBase;
+import org.apache.thundercat.websocket.WsSession;
 
 public class WsFrameServer extends WsFrameBase {
 

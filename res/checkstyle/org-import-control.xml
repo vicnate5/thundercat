@@ -46,10 +46,10 @@
     <allow pkg="org.apache.coyote"/>
     <allow pkg="org.apache.juli"/>
     <allow pkg="org.apache.naming"/>
-    <allow pkg="org.apache.tomcat"/>
+    <allow pkg="org.apache.thundercat"/>
     <subpackage name="ant">
       <allow pkg="org.apache.tools.ant"/>
-      <allow class="org.apache.tomcat.util.Base64"/>
+      <allow class="org.apache.thundercat.util.Base64"/>
       <disallow pkg="javax.annotation"/>
       <disallow pkg="javax.ejb"/>
       <disallow pkg="javax.persistence"/>
@@ -79,7 +79,7 @@
       <disallow pkg="org.apache.catalina"/>
       <disallow pkg="org.apache.coyote"/>
       <disallow pkg="org.apache.naming"/>
-      <disallow pkg="org.apache.tomcat"/>
+      <disallow pkg="org.apache.thundercat"/>
       <allow pkg="org.apache.catalina.tribes"/>
     </subpackage>
   </subpackage>
@@ -87,9 +87,9 @@
     <allow pkg="javax.servlet"/>
     <allow pkg="org.apache.coyote"/>
     <allow pkg="org.apache.juli"/>
-    <allow pkg="org.apache.tomcat.jni"/>
-    <allow pkg="org.apache.tomcat.spdy"/>
-    <allow pkg="org.apache.tomcat.util"/>
+    <allow pkg="org.apache.thundercat.jni"/>
+    <allow pkg="org.apache.thundercat.spdy"/>
+    <allow pkg="org.apache.thundercat.util"/>
   </subpackage>
   <subpackage name="el">
     <allow pkg="javax.el"/>
@@ -100,10 +100,10 @@
     <allow pkg="javax.servlet"/>
     <allow pkg="org.apache.jasper"/>
     <allow pkg="org.apache.juli"/>
-    <allow pkg="org.apache.tomcat" exact-match="true"/>
-    <allow pkg="org.apache.tomcat.util.descriptor"/>
-    <allow pkg="org.apache.tomcat.util.scan"/>
-    <allow pkg="org.apache.tomcat.util.security"/>
+    <allow pkg="org.apache.thundercat" exact-match="true"/>
+    <allow pkg="org.apache.thundercat.util.descriptor"/>
+    <allow pkg="org.apache.thundercat.util.scan"/>
+    <allow pkg="org.apache.thundercat.util.security"/>
     <allow pkg="org.apache.tools.ant"/>
     <allow pkg="org.eclipse.jdt"/>
   </subpackage>
@@ -115,67 +115,67 @@
     <allow pkg="javax.wsdl"/>
     <allow pkg="org.apache.juli"/>
     <allow pkg="org.apache.naming"/>
-    <allow class="org.apache.tomcat.util.buf.UDecoder"/>
-    <allow class="org.apache.tomcat.util.buf.UEncoder"/>
-    <allow class="org.apache.tomcat.util.http.FastHttpDateFormat"/>
-    <allow class="org.apache.tomcat.util.http.RequestUtil"/>
+    <allow class="org.apache.thundercat.util.buf.UDecoder"/>
+    <allow class="org.apache.thundercat.util.buf.UEncoder"/>
+    <allow class="org.apache.thundercat.util.http.FastHttpDateFormat"/>
+    <allow class="org.apache.thundercat.util.http.RequestUtil"/>
     <subpackage name="factory.webservices">
     </subpackage>
   </subpackage>
-  <subpackage name="tomcat">
+  <subpackage name="thundercat">
     <allow pkg="javax.servlet"/>
     <subpackage name="buildutil">
       <allow pkg="org.apache.tools.ant"/>
-      <allow pkg="org.apache.tomcat.util"/>
+      <allow pkg="org.apache.thundercat.util"/>
     </subpackage>
     <subpackage name="dbcp">
       <allow pkg="org.apache.juli"/>
       <subpackage name="dbcp2">
-        <allow pkg="org.apache.tomcat.dbcp.dbcp2"/>
-        <allow pkg="org.apache.tomcat.dbcp.pool2"/>
+        <allow pkg="org.apache.thundercat.dbcp.dbcp2"/>
+        <allow pkg="org.apache.thundercat.dbcp.pool2"/>
       </subpackage>
       <subpackage name="pool2">
         <subpackage name="impl">
-          <allow pkg="org.apache.tomcat.dbcp.pool2"/>
+          <allow pkg="org.apache.thundercat.dbcp.pool2"/>
         </subpackage>
       </subpackage>
     </subpackage>
     <subpackage name="jni">
       <subpackage name="socket">
-        <allow pkg="org.apache.tomcat.jni"/>
+        <allow pkg="org.apache.thundercat.jni"/>
       </subpackage>
     </subpackage>
     <subpackage name="spdy">
-      <allow pkg="org.apache.tomcat.jni"/>
-      <allow pkg="org.apache.tomcat.spdy"/>
+      <allow pkg="org.apache.thundercat.jni"/>
+      <allow pkg="org.apache.thundercat.spdy"/>
     </subpackage>
     <subpackage name="util">
       <allow pkg="org.apache.juli"/>
-      <allow pkg="org.apache.tomcat.jni"/>
-      <allow pkg="org.apache.tomcat.util"/>
-      <disallow pkg="org.apache.tomcat.util.scan"/>
+      <allow pkg="org.apache.thundercat.jni"/>
+      <allow pkg="org.apache.thundercat.util"/>
+      <disallow pkg="org.apache.thundercat.util.scan"/>
       <subpackage name="descriptor">
-        <allow pkg="org.apache.tomcat.util.scan"/>
-        <allow pkg="org.apache.tomcat" exact-match="true"/>
+        <allow pkg="org.apache.thundercat.util.scan"/>
+        <allow pkg="org.apache.thundercat" exact-match="true"/>
       </subpackage>
       <subpackage name="scan">
-        <allow pkg="org.apache.tomcat" exact-match="true"/>
+        <allow pkg="org.apache.thundercat" exact-match="true"/>
       </subpackage>
     </subpackage>
     <subpackage name="websocket">
       <allow pkg="javax.websocket"/>
       <allow pkg="org.apache.juli"/>
-      <allow pkg="org.apache.tomcat.util"/>
+      <allow pkg="org.apache.thundercat.util"/>
       <!-- Ideally want to remove this -->
-      <allow pkg="org.apache.tomcat.websocket.pojo"/>
+      <allow pkg="org.apache.thundercat.websocket.pojo"/>
       <disallow pkg="javax.servlet"/>
       <subpackage name="pojo">
-        <allow pkg="org.apache.tomcat.websocket"/>
+        <allow pkg="org.apache.thundercat.websocket"/>
       </subpackage>
       <subpackage name="server">
         <allow pkg="javax.servlet"/>
         <allow pkg="org.apache.coyote.http11.upgrade"/>
-        <allow pkg="org.apache.tomcat.websocket"/>
+        <allow pkg="org.apache.thundercat.websocket"/>
       </subpackage>
     </subpackage>
   </subpackage>

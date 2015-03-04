@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -50,13 +50,13 @@ import javax.net.ssl.X509KeyManager;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.IntrospectionUtils;
-import org.apache.tomcat.util.collections.SynchronizedQueue;
-import org.apache.tomcat.util.collections.SynchronizedStack;
-import org.apache.tomcat.util.net.AbstractEndpoint.Handler.SocketState;
-import org.apache.tomcat.util.net.jsse.JSSESupport;
-import org.apache.tomcat.util.net.jsse.NioX509KeyManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.IntrospectionUtils;
+import org.apache.thundercat.util.collections.SynchronizedQueue;
+import org.apache.thundercat.util.collections.SynchronizedStack;
+import org.apache.thundercat.util.net.AbstractEndpoint.Handler.SocketState;
+import org.apache.thundercat.util.net.jsse.JSSESupport;
+import org.apache.thundercat.util.net.jsse.NioX509KeyManager;
 
 /**
  * NIO tailored thread pool, providing the following services:

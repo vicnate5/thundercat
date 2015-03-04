@@ -102,10 +102,10 @@ public class TestPersistentManager extends TomcatBaseTest {
     public void noSessionCreate_57637() throws IOException, LifecycleException {
 
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        StandardContext ctx = (StandardContext) tomcat.addContext("", null);
+        StandardContext ctx = (StandardContext) thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "DummyServlet", new DummyServlet());
         ctx.addServletMapping("/dummy", "DummyServlet");
@@ -118,7 +118,7 @@ public class TestPersistentManager extends TomcatBaseTest {
         manager.setDistributable(true);
         ctx.setManager(manager);
         ctx.addValve(new PersistentValve());
-        tomcat.start();
+        thundercat.start();
         Assert.assertEquals(manager.getActiveSessions(), 0);
         Assert.assertTrue("No sessions managed", manager.getSessionIdsFull().isEmpty());
         Assert.assertEquals(
@@ -134,10 +134,10 @@ public class TestPersistentManager extends TomcatBaseTest {
     public void testCreateSessionAndPassivate() throws IOException, LifecycleException, ClassNotFoundException {
 
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        StandardContext ctx = (StandardContext) tomcat.addContext("", null);
+        StandardContext ctx = (StandardContext) thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "DummyServlet", new DummyServlet());
         ctx.addServletMapping("/dummy", "DummyServlet");
@@ -150,7 +150,7 @@ public class TestPersistentManager extends TomcatBaseTest {
         manager.setDistributable(true);
         ctx.setManager(manager);
         ctx.addValve(new PersistentValve());
-        tomcat.start();
+        thundercat.start();
         Assert.assertEquals("No active sessions", manager.getActiveSessions(), 0);
         Assert.assertTrue("No sessions managed", manager.getSessionIdsFull().isEmpty());
         String sessionId = getUrl(
@@ -166,10 +166,10 @@ public class TestPersistentManager extends TomcatBaseTest {
             InterruptedException {
 
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "DummyServlet", new DummyServlet());
         ctx.addServletMapping("/dummy", "DummyServlet");
@@ -181,7 +181,7 @@ public class TestPersistentManager extends TomcatBaseTest {
         manager.setMaxIdleBackup(0);
         manager.setDistributable(true);
         ctx.setManager(manager);
-        tomcat.start();
+        thundercat.start();
         String sessionId = getUrl("http://localhost:" + getPort() + "/dummy")
                 .toString();
 

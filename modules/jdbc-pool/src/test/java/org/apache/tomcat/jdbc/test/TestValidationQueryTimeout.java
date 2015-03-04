@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -33,7 +33,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.pool.interceptor.QueryTimeoutInterceptor;
+import org.apache.thundercat.jdbc.pool.interceptor.QueryTimeoutInterceptor;
 
 public class TestValidationQueryTimeout extends DefaultTestCase {
 
@@ -193,7 +193,7 @@ public class TestValidationQueryTimeout extends DefaultTestCase {
      * Mock Driver, Connection and Statement implementations use to verify setQueryTimeout was called.
      */
     public static class MockDriver implements java.sql.Driver {
-        public static final String url = "jdbc:tomcat:mock";
+        public static final String url = "jdbc:thundercat:mock";
 
         public MockDriver() {
         }
@@ -234,7 +234,7 @@ public class TestValidationQueryTimeout extends DefaultTestCase {
         }
     }
 
-    public static class MockConnection extends org.apache.tomcat.jdbc.test.driver.Connection {
+    public static class MockConnection extends org.apache.thundercat.jdbc.test.driver.Connection {
         public MockConnection(Properties info) {
             super(info);
         }
@@ -245,7 +245,7 @@ public class TestValidationQueryTimeout extends DefaultTestCase {
         }
     }
 
-    public static class MockStatement extends org.apache.tomcat.jdbc.test.driver.Statement {
+    public static class MockStatement extends org.apache.thundercat.jdbc.test.driver.Statement {
         @Override
         public void setQueryTimeout(int seconds) throws SQLException {
             super.setQueryTimeout(seconds);

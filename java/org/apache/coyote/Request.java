@@ -22,13 +22,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.servlet.ReadListener;
 
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.buf.UDecoder;
-import org.apache.tomcat.util.http.MimeHeaders;
-import org.apache.tomcat.util.http.Parameters;
-import org.apache.tomcat.util.http.ServerCookies;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.buf.UDecoder;
+import org.apache.thundercat.util.http.MimeHeaders;
+import org.apache.thundercat.util.http.Parameters;
+import org.apache.thundercat.util.http.ServerCookies;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * This is a low-level, efficient representation of a server request. Most
@@ -37,14 +37,14 @@ import org.apache.tomcat.util.res.StringManager;
  *
  * Processing is delegated to modules, using a hook mechanism.
  *
- * This class is not intended for user code - it is used internally by tomcat
+ * This class is not intended for user code - it is used internally by thundercat
  * for processing the request in the most efficient way. Users ( servlets ) can
  * access the information using a facade, which provides the high-level view
  * of the request.
  *
  * Tomcat defines a number of attributes:
  * <ul>
- *   <li>"org.apache.tomcat.request" - allows access to the low-level
+ *   <li>"org.apache.thundercat.request" - allows access to the low-level
  *       request object in trusted applications
  * </ul>
  *
@@ -181,7 +181,7 @@ public final class Request {
     /**
      * Get the instance id (or JVM route). Currently Ajp is sending it with each
      * request. In future this should be fixed, and sent only once ( or
-     * 'negotiated' at config time so both tomcat and apache share the same name.
+     * 'negotiated' at config time so both thundercat and apache share the same name.
      *
      * @return the instance id
      */

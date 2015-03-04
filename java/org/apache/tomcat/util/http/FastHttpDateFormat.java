@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -36,7 +36,7 @@ public final class FastHttpDateFormat {
 
 
     private static final int CACHE_SIZE =
-        Integer.parseInt(System.getProperty("org.apache.tomcat.util.http.FastHttpDateFormat.CACHE_SIZE", "1000"));
+        Integer.parseInt(System.getProperty("org.apache.thundercat.util.http.FastHttpDateFormat.CACHE_SIZE", "1000"));
 
 
     /**

@@ -22,9 +22,9 @@ import javax.servlet.http.HttpUpgradeHandler;
 
 import org.apache.coyote.AbstractProtocol;
 import org.apache.coyote.Processor;
-import org.apache.tomcat.util.net.AbstractEndpoint;
-import org.apache.tomcat.util.net.SocketWrapperBase;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.net.AbstractEndpoint;
+import org.apache.thundercat.util.net.SocketWrapperBase;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * The is the base implementation for the AJP protocol handlers. Implementations
@@ -74,10 +74,10 @@ public abstract class AbstractAjpProtocol<S> extends AbstractProtocol<S> {
      * Should authentication be done in the native webserver layer,
      * or in the Servlet container ?
      */
-    private boolean tomcatAuthentication = true;
-    public boolean getTomcatAuthentication() { return tomcatAuthentication; }
-    public void setTomcatAuthentication(boolean tomcatAuthentication) {
-        this.tomcatAuthentication = tomcatAuthentication;
+    private boolean thundercatAuthentication = true;
+    public boolean getTomcatAuthentication() { return thundercatAuthentication; }
+    public void setTomcatAuthentication(boolean thundercatAuthentication) {
+        this.thundercatAuthentication = thundercatAuthentication;
     }
 
 

@@ -31,7 +31,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import org.apache.jasper.el.ELContextImpl;
-import org.apache.tomcat.util.collections.SynchronizedStack;
+import org.apache.thundercat.util.collections.SynchronizedStack;
 
 public class TestELParser {
 

@@ -39,13 +39,13 @@ import org.apache.catalina.Globals;
 import org.apache.catalina.security.SecurityUtil;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.InstanceManager;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.descriptor.web.FilterDef;
-import org.apache.tomcat.util.log.SystemLogHandler;
-import org.apache.tomcat.util.modeler.Registry;
-import org.apache.tomcat.util.modeler.Util;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.InstanceManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.descriptor.web.FilterDef;
+import org.apache.thundercat.util.log.SystemLogHandler;
+import org.apache.thundercat.util.modeler.Registry;
+import org.apache.thundercat.util.modeler.Util;
+import org.apache.thundercat.util.res.StringManager;
 
 
 /**

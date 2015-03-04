@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket;
+package org.apache.thundercat.websocket;
 
 import java.io.InputStream;
 import java.io.Reader;
@@ -48,14 +48,14 @@ import javax.websocket.MessageHandler;
 import javax.websocket.PongMessage;
 import javax.websocket.Session;
 
-import org.apache.tomcat.util.res.StringManager;
-import org.apache.tomcat.websocket.pojo.PojoMessageHandlerPartialBinary;
-import org.apache.tomcat.websocket.pojo.PojoMessageHandlerWholeBinary;
-import org.apache.tomcat.websocket.pojo.PojoMessageHandlerWholeText;
+import org.apache.thundercat.util.res.StringManager;
+import org.apache.thundercat.websocket.pojo.PojoMessageHandlerPartialBinary;
+import org.apache.thundercat.websocket.pojo.PojoMessageHandlerWholeBinary;
+import org.apache.thundercat.websocket.pojo.PojoMessageHandlerWholeText;
 
 /**
  * Utility class for internal use only within the
- * {@link org.apache.tomcat.websocket} package.
+ * {@link org.apache.thundercat.websocket} package.
  */
 public class Util {
 

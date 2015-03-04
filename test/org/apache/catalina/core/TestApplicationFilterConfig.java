@@ -28,17 +28,17 @@ import org.apache.catalina.Context;
 import org.apache.catalina.filters.AddDefaultCharsetFilter;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.descriptor.web.FilterDef;
-import org.apache.tomcat.util.modeler.Registry;
+import org.apache.thundercat.util.descriptor.web.FilterDef;
+import org.apache.thundercat.util.modeler.Registry;
 
 public class TestApplicationFilterConfig extends TomcatBaseTest {
 
     @Test
     public void testBug54170() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "HelloWorld", new HelloWorldServlet());
         ctx.addServletMapping("/", "HelloWorld");
@@ -50,7 +50,7 @@ public class TestApplicationFilterConfig extends TomcatBaseTest {
         filterDef.setFilterName("bug54170*");
         ctx.addFilterDef(filterDef);
 
-        tomcat.start();
+        thundercat.start();
 
         final MBeanServer mbeanServer =
                 Registry.getRegistry(null, null).getMBeanServer();

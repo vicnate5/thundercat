@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.util.buf;
+package org.apache.thundercat.util.buf;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

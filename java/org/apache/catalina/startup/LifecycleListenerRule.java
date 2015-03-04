@@ -21,8 +21,8 @@ package org.apache.catalina.startup;
 
 import org.apache.catalina.Container;
 import org.apache.catalina.LifecycleListener;
-import org.apache.tomcat.util.IntrospectionUtils;
-import org.apache.tomcat.util.digester.Rule;
+import org.apache.thundercat.util.IntrospectionUtils;
+import org.apache.thundercat.util.digester.Rule;
 import org.xml.sax.Attributes;
 
 

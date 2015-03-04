@@ -36,12 +36,12 @@ import org.apache.catalina.connector.Response;
 import org.apache.coyote.ActionCode;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.buf.CharChunk;
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.descriptor.web.LoginConfig;
-import org.apache.tomcat.util.http.MimeHeaders;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.CharChunk;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.descriptor.web.LoginConfig;
+import org.apache.thundercat.util.http.MimeHeaders;
 
 /**
  * An <b>Authenticator</b> and <b>Valve</b> implementation of FORM BASED

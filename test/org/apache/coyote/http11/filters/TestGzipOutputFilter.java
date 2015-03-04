@@ -25,7 +25,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import org.apache.coyote.Response;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Test case to demonstrate the interaction between gzip and flushing in the
@@ -61,7 +61,7 @@ public class TestGzipOutputFilter {
 
         // write a chunk out
         ByteChunk chunk = new ByteChunk(1024);
-        byte[] d = "Hello there tomcat developers, there is a bug in JDK".getBytes();
+        byte[] d = "Hello there thundercat developers, there is a bug in JDK".getBytes();
         chunk.append(d, 0, d.length);
         tob.doWrite(chunk);
 

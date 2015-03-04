@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.jdbc.naming;
+package org.apache.thundercat.jdbc.naming;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -31,13 +31,13 @@ import javax.naming.spi.ObjectFactory;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.jdbc.pool.ClassLoaderUtil;
+import org.apache.thundercat.jdbc.pool.ClassLoaderUtil;
 
 /**
  * Simple way of configuring generic resources by using reflection.
  * Example usage:
  * <pre><code>
- * &lt;Resource factory=&quot;org.apache.tomcat.jdbc.naming.GenericNamingResourcesFactory&quot;
+ * &lt;Resource factory=&quot;org.apache.thundercat.jdbc.naming.GenericNamingResourcesFactory&quot;
  *              name=&quot;jdbc/test&quot;
  *              type=&quot;org.apache.derby.jdbc.ClientXADataSource&quot;
  *              databaseName=&quot;sample&quot;

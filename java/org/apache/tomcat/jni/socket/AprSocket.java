@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.jni.socket;
+package org.apache.thundercat.jni.socket;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -24,17 +24,17 @@ import java.security.cert.X509Certificate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.apache.tomcat.jni.Address;
-import org.apache.tomcat.jni.Error;
-import org.apache.tomcat.jni.Poll;
-import org.apache.tomcat.jni.SSL;
-import org.apache.tomcat.jni.SSLExt;
-import org.apache.tomcat.jni.SSLSocket;
-import org.apache.tomcat.jni.Sockaddr;
-import org.apache.tomcat.jni.Socket;
-import org.apache.tomcat.jni.Status;
-import org.apache.tomcat.jni.socket.AprSocketContext.AprPoller;
-import org.apache.tomcat.jni.socket.AprSocketContext.BlockingPollHandler;
+import org.apache.thundercat.jni.Address;
+import org.apache.thundercat.jni.Error;
+import org.apache.thundercat.jni.Poll;
+import org.apache.thundercat.jni.SSL;
+import org.apache.thundercat.jni.SSLExt;
+import org.apache.thundercat.jni.SSLSocket;
+import org.apache.thundercat.jni.Sockaddr;
+import org.apache.thundercat.jni.Socket;
+import org.apache.thundercat.jni.Status;
+import org.apache.thundercat.jni.socket.AprSocketContext.AprPoller;
+import org.apache.thundercat.jni.socket.AprSocketContext.BlockingPollHandler;
 
 /**
  * Native socket, using JNI + APR + openssl.
@@ -57,7 +57,7 @@ import org.apache.tomcat.jni.socket.AprSocketContext.BlockingPollHandler;
 public class AprSocket implements Runnable {
 
     private static final Logger log =
-            Logger.getLogger("org.apache.tomcat.jni.socket.AprSocket");
+            Logger.getLogger("org.apache.thundercat.jni.socket.AprSocket");
 
     private static final byte[][] NO_CERTS = new byte[0][];
 

@@ -66,12 +66,12 @@ public class TestDefaultInstanceManager extends TomcatBaseTest {
     }
 
     private DefaultInstanceManager doClassUnloadingPrep() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // Create the context (don't use addWebapp as we want to modify the
         // JSP Servlet settings).
         File appDir = new File("test/webapp");
-        StandardContext ctxt = (StandardContext) tomcat.addContext(
+        StandardContext ctxt = (StandardContext) thundercat.addContext(
                 null, "/test", appDir.getAbsolutePath());
 
         ctxt.addServletContainerInitializer(new JasperInitializer(), null);
@@ -82,7 +82,7 @@ public class TestDefaultInstanceManager extends TomcatBaseTest {
         Wrapper w = (Wrapper) ctxt.findChild("jsp");
         w.addInitParameter("maxLoadedJsps", "2");
 
-        tomcat.start();
+        thundercat.start();
 
         return (DefaultInstanceManager) ctxt.getInstanceManager();
     }

@@ -16,7 +16,7 @@
  */
 
 
-package org.apache.tomcat.util.modeler.modules;
+package org.apache.thundercat.util.modeler.modules;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -28,9 +28,9 @@ import javax.management.ObjectName;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.digester.Digester;
-import org.apache.tomcat.util.modeler.ManagedBean;
-import org.apache.tomcat.util.modeler.Registry;
+import org.apache.thundercat.util.digester.Digester;
+import org.apache.thundercat.util.modeler.ManagedBean;
+import org.apache.thundercat.util.modeler.Registry;
 
 public class MbeansDescriptorsDigesterSource extends ModelerSource
 {
@@ -48,7 +48,7 @@ public class MbeansDescriptorsDigesterSource extends ModelerSource
         digester.setNamespaceAware(false);
         digester.setValidating(false);
         URL url = Registry.getRegistry(null, null).getClass().getResource
-            ("/org/apache/tomcat/util/modeler/mbeans-descriptors.dtd");
+            ("/org/apache/thundercat/util/modeler/mbeans-descriptors.dtd");
         digester.register
             ("-//Apache Software Foundation//DTD Model MBeans Configuration File",
                 url.toString());
@@ -56,7 +56,7 @@ public class MbeansDescriptorsDigesterSource extends ModelerSource
         // Configure the parsing rules
         digester.addObjectCreate
             ("mbeans-descriptors/mbean",
-            "org.apache.tomcat.util.modeler.ManagedBean");
+            "org.apache.thundercat.util.modeler.ManagedBean");
         digester.addSetProperties
             ("mbeans-descriptors/mbean");
         digester.addSetNext
@@ -66,33 +66,33 @@ public class MbeansDescriptorsDigesterSource extends ModelerSource
 
         digester.addObjectCreate
             ("mbeans-descriptors/mbean/attribute",
-            "org.apache.tomcat.util.modeler.AttributeInfo");
+            "org.apache.thundercat.util.modeler.AttributeInfo");
         digester.addSetProperties
             ("mbeans-descriptors/mbean/attribute");
         digester.addSetNext
             ("mbeans-descriptors/mbean/attribute",
                 "addAttribute",
-            "org.apache.tomcat.util.modeler.AttributeInfo");
+            "org.apache.thundercat.util.modeler.AttributeInfo");
 
         digester.addObjectCreate
             ("mbeans-descriptors/mbean/notification",
-            "org.apache.tomcat.util.modeler.NotificationInfo");
+            "org.apache.thundercat.util.modeler.NotificationInfo");
         digester.addSetProperties
             ("mbeans-descriptors/mbean/notification");
         digester.addSetNext
             ("mbeans-descriptors/mbean/notification",
                 "addNotification",
-            "org.apache.tomcat.util.modeler.NotificationInfo");
+            "org.apache.thundercat.util.modeler.NotificationInfo");
 
         digester.addObjectCreate
             ("mbeans-descriptors/mbean/notification/descriptor/field",
-            "org.apache.tomcat.util.modeler.FieldInfo");
+            "org.apache.thundercat.util.modeler.FieldInfo");
         digester.addSetProperties
             ("mbeans-descriptors/mbean/notification/descriptor/field");
         digester.addSetNext
             ("mbeans-descriptors/mbean/notification/descriptor/field",
                 "addField",
-            "org.apache.tomcat.util.modeler.FieldInfo");
+            "org.apache.thundercat.util.modeler.FieldInfo");
 
         digester.addCallMethod
             ("mbeans-descriptors/mbean/notification/notification-type",
@@ -100,33 +100,33 @@ public class MbeansDescriptorsDigesterSource extends ModelerSource
 
         digester.addObjectCreate
             ("mbeans-descriptors/mbean/operation",
-            "org.apache.tomcat.util.modeler.OperationInfo");
+            "org.apache.thundercat.util.modeler.OperationInfo");
         digester.addSetProperties
             ("mbeans-descriptors/mbean/operation");
         digester.addSetNext
             ("mbeans-descriptors/mbean/operation",
                 "addOperation",
-            "org.apache.tomcat.util.modeler.OperationInfo");
+            "org.apache.thundercat.util.modeler.OperationInfo");
 
         digester.addObjectCreate
             ("mbeans-descriptors/mbean/operation/descriptor/field",
-            "org.apache.tomcat.util.modeler.FieldInfo");
+            "org.apache.thundercat.util.modeler.FieldInfo");
         digester.addSetProperties
             ("mbeans-descriptors/mbean/operation/descriptor/field");
         digester.addSetNext
             ("mbeans-descriptors/mbean/operation/descriptor/field",
                 "addField",
-            "org.apache.tomcat.util.modeler.FieldInfo");
+            "org.apache.thundercat.util.modeler.FieldInfo");
 
         digester.addObjectCreate
             ("mbeans-descriptors/mbean/operation/parameter",
-            "org.apache.tomcat.util.modeler.ParameterInfo");
+            "org.apache.thundercat.util.modeler.ParameterInfo");
         digester.addSetProperties
             ("mbeans-descriptors/mbean/operation/parameter");
         digester.addSetNext
             ("mbeans-descriptors/mbean/operation/parameter",
                 "addParameter",
-            "org.apache.tomcat.util.modeler.ParameterInfo");
+            "org.apache.thundercat.util.modeler.ParameterInfo");
 
         return digester;
 

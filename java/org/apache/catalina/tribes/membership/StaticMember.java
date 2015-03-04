@@ -35,7 +35,7 @@ public class StaticMember extends MemberImpl {
 
     /**
      * @param host String, either in byte array string format, like {214,116,1,3}
-     * or as a regular hostname, 127.0.0.1 or tomcat01.mydomain.com
+     * or as a regular hostname, 127.0.0.1 or thundercat01.mydomain.com
      */
     public void setHost(String host) {
         if ( host == null ) return;

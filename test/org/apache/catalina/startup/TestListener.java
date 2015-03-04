@@ -40,13 +40,13 @@ public class TestListener extends TomcatBaseTest {
      */
     @Test
     public void testServletContainerInitializer() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
-        Context context = tomcat.addContext("",
+        Context context = thundercat.addContext("",
                 System.getProperty("java.io.tmpdir"));
 
         context.addServletContainerInitializer(new SCI(), null);
-        tomcat.start();
+        thundercat.start();
         assertTrue(SCL.initialized);
     }
 
@@ -57,15 +57,15 @@ public class TestListener extends TomcatBaseTest {
      */
     @Test
     public void testServletContextListener() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
-        Context context = tomcat.addContext("",
+        Context context = thundercat.addContext("",
                 System.getProperty("java.io.tmpdir"));
 
         // SCL2 pretends to be in web.xml, and tries to install a
         // ServletContextInitializer.
         context.addApplicationListener(SCL2.class.getName());
-        tomcat.start();
+        thundercat.start();
 
         //check that the ServletContextInitializer wasn't initialized.
         assertFalse(SCL3.initialized);

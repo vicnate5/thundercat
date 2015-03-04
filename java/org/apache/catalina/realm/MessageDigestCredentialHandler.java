@@ -24,10 +24,10 @@ import java.util.Arrays;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.buf.B2CConverter;
-import org.apache.tomcat.util.buf.HexUtils;
-import org.apache.tomcat.util.codec.binary.Base64;
-import org.apache.tomcat.util.security.ConcurrentMessageDigest;
+import org.apache.thundercat.util.buf.B2CConverter;
+import org.apache.thundercat.util.buf.HexUtils;
+import org.apache.thundercat.util.codec.binary.Base64;
+import org.apache.thundercat.util.security.ConcurrentMessageDigest;
 
 /**
  * This credential handler supports the following forms of stored passwords:

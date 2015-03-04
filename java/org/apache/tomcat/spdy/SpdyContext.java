@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.spdy;
+package org.apache.thundercat.spdy;
 
 import java.io.IOException;
 import java.util.concurrent.Executor;
@@ -125,7 +125,7 @@ public final class SpdyContext {
     public NetSupport getNetSupport() {
         if (netSupport == null) {
             try {
-                Class<?> c0 = Class.forName("org.apache.tomcat.spdy.NetSupportOpenSSL");
+                Class<?> c0 = Class.forName("org.apache.thundercat.spdy.NetSupportOpenSSL");
                 netSupport = (NetSupport) c0.newInstance();
                 netSupport.setSpdyContext(this);
                 return netSupport;
@@ -133,7 +133,7 @@ public final class SpdyContext {
                 // ignore, openssl not supported
             }
             try {
-                Class<?> c1 = Class.forName("org.apache.tomcat.spdy.NetSupportJava7");
+                Class<?> c1 = Class.forName("org.apache.thundercat.spdy.NetSupportJava7");
                 netSupport = (NetSupport) c1.newInstance();
                 netSupport.setSpdyContext(this);
                 return netSupport;

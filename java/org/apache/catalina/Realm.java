@@ -23,7 +23,7 @@ import java.security.cert.X509Certificate;
 
 import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.Response;
-import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
+import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
 import org.ietf.jgss.GSSContext;
 
 /**

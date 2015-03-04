@@ -14,16 +14,16 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.spdy;
+package org.apache.thundercat.spdy;
 
 import java.io.IOException;
 
-import org.apache.tomcat.jni.SSLExt;
-import org.apache.tomcat.jni.Status;
-import org.apache.tomcat.jni.socket.AprSocket;
-import org.apache.tomcat.jni.socket.AprSocketContext;
-import org.apache.tomcat.jni.socket.AprSocketContext.NonBlockingPollHandler;
-import org.apache.tomcat.jni.socket.AprSocketContext.TlsCertVerifier;
+import org.apache.thundercat.jni.SSLExt;
+import org.apache.thundercat.jni.Status;
+import org.apache.thundercat.jni.socket.AprSocket;
+import org.apache.thundercat.jni.socket.AprSocketContext;
+import org.apache.thundercat.jni.socket.AprSocketContext.NonBlockingPollHandler;
+import org.apache.thundercat.jni.socket.AprSocketContext.TlsCertVerifier;
 
 
 public class NetSupportOpenSSL extends SpdyContext.NetSupport {
@@ -190,7 +190,7 @@ public class NetSupportOpenSSL extends SpdyContext.NetSupport {
                 return -1;
             }
             int rd = socket.read(data, off, len);
-            // org.apache.tomcat.jni.Socket.recv(socket, data, off, len);
+            // org.apache.thundercat.jni.Socket.recv(socket, data, off, len);
             if (rd == -Status.APR_EOF) {
                 return -1;
             }

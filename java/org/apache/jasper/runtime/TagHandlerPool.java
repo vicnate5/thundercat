@@ -25,7 +25,7 @@ import org.apache.jasper.Constants;
 import org.apache.jasper.util.ExceptionUtils;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.InstanceManager;
+import org.apache.thundercat.InstanceManager;
 
 /**
  * Pool of tag handlers that can be reused.

@@ -48,10 +48,10 @@ import org.apache.catalina.connector.Response;
 import org.apache.catalina.util.LifecycleSupport;
 import org.apache.catalina.util.URLEncoder;
 import org.apache.catalina.valves.ValveBase;
-import org.apache.tomcat.util.buf.CharChunk;
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.http.RequestUtil;
-import org.apache.tomcat.util.net.URL;
+import org.apache.thundercat.util.buf.CharChunk;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.http.RequestUtil;
+import org.apache.thundercat.util.net.URL;
 
 public class RewriteValve extends ValveBase {
 

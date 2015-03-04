@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 import java.util.Arrays;
 
@@ -26,7 +26,7 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * The keys and certificates used in this file are all available in svn and were
@@ -50,9 +50,9 @@ public class TestClientCert extends TomcatBaseTest {
                 TesterSupport.isRenegotiationSupported(getTomcatInstance()));
 
         if (preemtive) {
-            Tomcat tomcat = getTomcatInstance();
+            Tomcat thundercat = getTomcatInstance();
             // Only one context deployed
-            Context c = (Context) tomcat.getHost().findChildren()[0];
+            Context c = (Context) thundercat.getHost().findChildren()[0];
             // Enable pre-emptive auth
             c.setPreemptiveAuthentication(true);
         }
@@ -75,22 +75,22 @@ public class TestClientCert extends TomcatBaseTest {
 
     @Test
     public void testClientCertPostSmaller() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        int bodySize = tomcat.getConnector().getMaxSavePostSize() / 2;
+        Tomcat thundercat = getTomcatInstance();
+        int bodySize = thundercat.getConnector().getMaxSavePostSize() / 2;
         doTestClientCertPost(bodySize, false);
     }
 
     @Test
     public void testClientCertPostSame() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        int bodySize = tomcat.getConnector().getMaxSavePostSize();
+        Tomcat thundercat = getTomcatInstance();
+        int bodySize = thundercat.getConnector().getMaxSavePostSize();
         doTestClientCertPost(bodySize, false);
     }
 
     @Test
     public void testClientCertPostLarger() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        int bodySize = tomcat.getConnector().getMaxSavePostSize() * 2;
+        Tomcat thundercat = getTomcatInstance();
+        int bodySize = thundercat.getConnector().getMaxSavePostSize() * 2;
         doTestClientCertPost(bodySize, true);
     }
 
@@ -124,9 +124,9 @@ public class TestClientCert extends TomcatBaseTest {
     public void setUp() throws Exception {
         super.setUp();
 
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
-        TesterSupport.configureClientCertContext(tomcat);
+        TesterSupport.configureClientCertContext(thundercat);
 
         TesterSupport.configureClientSsl();
     }

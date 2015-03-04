@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.websocket;
+package org.apache.thundercat.websocket;
 
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -30,8 +30,8 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerContainer;
 import javax.websocket.server.ServerEndpoint;
 
-import org.apache.tomcat.websocket.server.Constants;
-import org.apache.tomcat.websocket.server.WsContextListener;
+import org.apache.thundercat.websocket.server.Constants;
+import org.apache.thundercat.websocket.server.WsContextListener;
 
 /**
  * Sends {@link #MESSAGE_COUNT} messages of size {@link #MESSAGE_SIZE} bytes as

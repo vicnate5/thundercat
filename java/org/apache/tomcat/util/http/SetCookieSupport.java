@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import javax.servlet.http.Cookie;
 
@@ -33,7 +33,7 @@ public class SetCookieSupport {
     static final boolean ALWAYS_ADD_EXPIRES;
     static {
         String alwaysAddExpires = System.getProperty(
-                "org.apache.tomcat.util.http.ServerCookie.ALWAYS_ADD_EXPIRES");
+                "org.apache.thundercat.util.http.ServerCookie.ALWAYS_ADD_EXPIRES");
         if (alwaysAddExpires != null) {
             ALWAYS_ADD_EXPIRES = Boolean.valueOf(alwaysAddExpires).booleanValue();
         } else {

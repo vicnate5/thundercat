@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.sql.Connection;
 
@@ -25,8 +25,8 @@ public class TwoDataSources extends DefaultTestCase {
 
     @Test
     public void testTwoDataSources() throws Exception {
-        org.apache.tomcat.jdbc.pool.DataSource d1 = this.createDefaultDataSource();
-        org.apache.tomcat.jdbc.pool.DataSource d2 = this.createDefaultDataSource();
+        org.apache.thundercat.jdbc.pool.DataSource d1 = this.createDefaultDataSource();
+        org.apache.thundercat.jdbc.pool.DataSource d2 = this.createDefaultDataSource();
         d1.setRemoveAbandoned(true);
         d1.setRemoveAbandonedTimeout(2);
         d1.setTimeBetweenEvictionRunsMillis(1000);

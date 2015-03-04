@@ -14,9 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.pool2.impl;
+package org.apache.thundercat.dbcp.pool2.impl;
 
-import org.apache.tomcat.dbcp.pool2.PooledObject;
+import org.apache.thundercat.dbcp.pool2.PooledObject;
 
 /**
  * To provide a custom eviction policy (i.e. something other than {@link

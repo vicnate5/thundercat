@@ -14,17 +14,17 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.spdy;
+package org.apache.thundercat.spdy;
 
 import java.io.IOException;
 import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
-import org.apache.tomcat.spdy.SpdyConnection.CompressSupport;
+import org.apache.thundercat.spdy.SpdyConnection.CompressSupport;
 
 /**
- * Java6 Deflater with the workaround from tomcat http filters.
+ * Java6 Deflater with the workaround from thundercat http filters.
  */
 class CompressDeflater6 implements CompressSupport {
     public static final long DICT_ID = 3751956914L;

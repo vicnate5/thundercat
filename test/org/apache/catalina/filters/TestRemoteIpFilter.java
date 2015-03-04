@@ -52,8 +52,8 @@ import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.Response;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.descriptor.web.FilterDef;
-import org.apache.tomcat.util.descriptor.web.FilterMap;
+import org.apache.thundercat.util.descriptor.web.FilterDef;
+import org.apache.thundercat.util.descriptor.web.FilterMap;
 
 public class TestRemoteIpFilter extends TomcatBaseTest {
 
@@ -485,8 +485,8 @@ public class TestRemoteIpFilter extends TomcatBaseTest {
 
     private HttpServletRequest testRemoteIpFilter(FilterDef filterDef, Request request) throws LifecycleException, IOException,
             ServletException {
-        Tomcat tomcat = getTomcatInstance();
-        Context root = tomcat.addContext("", TEMP_DIR);
+        Tomcat thundercat = getTomcatInstance();
+        Context root = thundercat.addContext("", TEMP_DIR);
 
         RemoteIpFilter remoteIpFilter = new RemoteIpFilter();
         filterDef.setFilterClass(RemoteIpFilter.class.getName());
@@ -550,8 +550,8 @@ public class TestRemoteIpFilter extends TomcatBaseTest {
         remoteIpFilterParameter.put("protocolHeader", "x-forwarded-proto");
 
         // SETUP
-        Tomcat tomcat = getTomcatInstance();
-        Context root = tomcat.addContext("", TEMP_DIR);
+        Tomcat thundercat = getTomcatInstance();
+        Context root = thundercat.addContext("", TEMP_DIR);
 
         FilterDef filterDef = new FilterDef();
         filterDef.getParameterMap().putAll(remoteIpFilterParameter);
@@ -574,7 +574,7 @@ public class TestRemoteIpFilter extends TomcatBaseTest {
 
         // TEST
         HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(
-                "http://localhost:" + tomcat.getConnector().getLocalPort() +
+                "http://localhost:" + thundercat.getConnector().getLocalPort() +
                 "/test").openConnection();
         String expectedRemoteAddr = "my-remote-addr";
         httpURLConnection.addRequestProperty("x-forwarded-for", expectedRemoteAddr);

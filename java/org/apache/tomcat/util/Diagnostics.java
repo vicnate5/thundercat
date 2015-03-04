@@ -32,7 +32,7 @@
 //                 setUsageThreshold(),
 //                 setCollectionUsageThreshold()
 
-package org.apache.tomcat.util;
+package org.apache.thundercat.util;
 
 import java.lang.management.ClassLoadingMXBean;
 import java.lang.management.CompilationMXBean;
@@ -62,11 +62,11 @@ import java.util.logging.LoggingMXBean;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 public class Diagnostics {
 
-    private static final String PACKAGE = "org.apache.tomcat.util";
+    private static final String PACKAGE = "org.apache.thundercat.util";
     private static final StringManager sm = StringManager.getManager(PACKAGE);
 
     private static final String INDENT1 = "  ";

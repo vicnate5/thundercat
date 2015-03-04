@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.dbcp2.datasources;
+package org.apache.thundercat.dbcp.dbcp2.datasources;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -31,9 +31,9 @@ import javax.sql.ConnectionPoolDataSource;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.dbcp.dbcp2.SwallowedExceptionLogger;
-import org.apache.tomcat.dbcp.pool2.ObjectPool;
-import org.apache.tomcat.dbcp.pool2.impl.GenericObjectPool;
+import org.apache.thundercat.dbcp.dbcp2.SwallowedExceptionLogger;
+import org.apache.thundercat.dbcp.pool2.ObjectPool;
+import org.apache.thundercat.dbcp.pool2.impl.GenericObjectPool;
 
 /**
  * <p>A pooling <code>DataSource</code> appropriate for deployment within

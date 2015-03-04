@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.buf;
+package org.apache.thundercat.util.buf;
 
 /**
  * String constants for the file package.
  */
 public final class Constants {
 
-    public static final String Package = "org.apache.tomcat.util.buf";
+    public static final String Package = "org.apache.thundercat.util.buf";
 
 }

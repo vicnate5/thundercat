@@ -39,10 +39,10 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.Loader;
 import org.apache.catalina.core.StandardContext;
-import org.apache.tomcat.util.descriptor.web.FilterDef;
-import org.apache.tomcat.util.descriptor.web.FilterMap;
-import org.apache.tomcat.util.descriptor.web.ServletDef;
-import org.apache.tomcat.util.descriptor.web.WebXml;
+import org.apache.thundercat.util.descriptor.web.FilterDef;
+import org.apache.thundercat.util.descriptor.web.FilterMap;
+import org.apache.thundercat.util.descriptor.web.ServletDef;
+import org.apache.thundercat.util.descriptor.web.WebXml;
 
 /**
  * Check Servlet 3.0 Spec 8.2.3.3: Override annotation parameter from web.xml or
@@ -84,7 +84,7 @@ public class TestContextConfigAnnotation {
         ServletDef servletDef = new ServletDef();
         servletDef.setServletName("param");
         servletDef.setServletClass("org.apache.catalina.startup.ParamServlet");
-        servletDef.addInitParameter("foo", "tomcat");
+        servletDef.addInitParameter("foo", "thundercat");
         servletDef.setDescription("Description");
         servletDef.setDisplayName("DisplayName");
         servletDef.setLargeIcon("LargeIcon");
@@ -102,7 +102,7 @@ public class TestContextConfigAnnotation {
 
         assertEquals(servletDef, webxml.getServlets().get("param"));
 
-        assertEquals("tomcat", servletDef.getParameterMap().get("foo"));
+        assertEquals("thundercat", servletDef.getParameterMap().get("foo"));
         assertEquals("param", webxml.getServletMappings().get("/param"));
         // annotation mapping not added s. Servlet Spec 3.0 (Nov 2009)
         // 8.2.3.3.iv page 81
@@ -143,7 +143,7 @@ public class TestContextConfigAnnotation {
         servletDef.setServletName("param1");
         servletDef.setServletClass(
                 "org.apache.catalina.startup.NoMappingParamServlet");
-        servletDef.addInitParameter("foo", "tomcat");
+        servletDef.addInitParameter("foo", "thundercat");
 
         webxml.addServlet(servletDef);
         webxml.addServletMapping("/param", "param1");
@@ -152,7 +152,7 @@ public class TestContextConfigAnnotation {
                 "org/apache/catalina/startup/NoMappingParamServlet");
         assertTrue(pFile.exists());
         config.processAnnotationsFile(pFile, webxml, false);
-        assertEquals("tomcat", servletDef.getParameterMap().get("foo"));
+        assertEquals("thundercat", servletDef.getParameterMap().get("foo"));
         assertEquals("World!", servletDef.getParameterMap().get("bar"));
         ServletDef servletDef1 = webxml.getServlets().get("param1");
         assertNotNull(servletDef1);
@@ -197,7 +197,7 @@ public class TestContextConfigAnnotation {
         FilterDef filterDef = new FilterDef();
         filterDef.setFilterName("paramFilter");
         filterDef.setFilterClass("org.apache.catalina.startup.ParamFilter");
-        filterDef.addInitParameter("message", "tomcat");
+        filterDef.addInitParameter("message", "thundercat");
         filterDef.setDescription("Description");
         filterDef.setDisplayName("DisplayName");
         filterDef.setLargeIcon("LargeIcon");
@@ -221,7 +221,7 @@ public class TestContextConfigAnnotation {
         FilterDef fdef = webxml.getFilters().get("paramFilter");
         assertNotNull(fdef);
         assertEquals(filterDef,fdef);
-        assertEquals("tomcat",fdef.getParameterMap().get("message"));
+        assertEquals("thundercat",fdef.getParameterMap().get("message"));
         Set<FilterMap> filterMappings = webxml.getFilterMappings();
         assertTrue(filterMappings.contains(filterMap));
         // annotation mapping not added s. Servlet Spec 3.0 (Nov 2009)

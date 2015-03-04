@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket.server;
+package org.apache.thundercat.websocket.server;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -37,10 +37,10 @@ import javax.websocket.Extension;
 import org.apache.coyote.http11.upgrade.InternalHttpUpgradeHandler;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.res.StringManager;
-import org.apache.tomcat.websocket.Transformation;
-import org.apache.tomcat.websocket.WsIOException;
-import org.apache.tomcat.websocket.WsSession;
+import org.apache.thundercat.util.res.StringManager;
+import org.apache.thundercat.websocket.Transformation;
+import org.apache.thundercat.websocket.WsIOException;
+import org.apache.thundercat.websocket.WsSession;
 
 /**
  * Servlet 3.1 HTTP upgrade handler for WebSocket connections.

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.descriptor.web;
+package org.apache.thundercat.util.descriptor.web;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import java.util.Locale;
 
 import javax.servlet.DispatcherType;
 
-import org.apache.tomcat.util.buf.UDecoder;
+import org.apache.thundercat.util.buf.UDecoder;
 
 /**
  * Representation of a filter mapping for a web application, as represented

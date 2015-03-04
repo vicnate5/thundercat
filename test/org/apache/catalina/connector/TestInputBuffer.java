@@ -33,21 +33,21 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.buf.TestUtf8;
-import org.apache.tomcat.util.buf.TestUtf8.Utf8TestCase;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.TestUtf8;
+import org.apache.thundercat.util.buf.TestUtf8.Utf8TestCase;
 
 public class TestInputBuffer extends TomcatBaseTest {
 
     @Test
     public void testUtf8Body() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        Context root = tomcat.addContext("", TEMP_DIR);
+        Tomcat thundercat = getTomcatInstance();
+        Context root = thundercat.addContext("", TEMP_DIR);
         Tomcat.addServlet(root, "Echo", new Utf8Echo());
         root.addServletMapping("/test", "Echo");
 
-        tomcat.getConnector().setProperty("soTimeout", "300000");
-        tomcat.start();
+        thundercat.getConnector().setProperty("soTimeout", "300000");
+        thundercat.start();
 
         for (Utf8TestCase testCase : TestUtf8.TEST_CASES) {
             String expected = null;

@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.unittest;
+package org.apache.thundercat.unittest;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;

@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.sql.Connection;
 
@@ -22,13 +22,13 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.test.driver.Driver;
+import org.apache.thundercat.jdbc.test.driver.Driver;
 
 public class MultipleCloseTest extends DefaultTestCase {
 
     @Override
-    public org.apache.tomcat.jdbc.pool.DataSource createDefaultDataSource() {
-        org.apache.tomcat.jdbc.pool.DataSource ds = super.createDefaultDataSource();
+    public org.apache.thundercat.jdbc.pool.DataSource createDefaultDataSource() {
+        org.apache.thundercat.jdbc.pool.DataSource ds = super.createDefaultDataSource();
         ds.getPoolProperties().setDriverClassName(Driver.class.getName());
         ds.getPoolProperties().setUrl(Driver.url);
         ds.getPoolProperties().setInitialSize(0);

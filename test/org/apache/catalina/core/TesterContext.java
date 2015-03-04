@@ -54,15 +54,15 @@ import org.apache.catalina.connector.Response;
 import org.apache.catalina.deploy.NamingResourcesImpl;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.InstanceManager;
-import org.apache.tomcat.JarScanner;
-import org.apache.tomcat.util.descriptor.web.ApplicationParameter;
-import org.apache.tomcat.util.descriptor.web.ErrorPage;
-import org.apache.tomcat.util.descriptor.web.FilterDef;
-import org.apache.tomcat.util.descriptor.web.FilterMap;
-import org.apache.tomcat.util.descriptor.web.LoginConfig;
-import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
-import org.apache.tomcat.util.http.CookieProcessor;
+import org.apache.thundercat.InstanceManager;
+import org.apache.thundercat.JarScanner;
+import org.apache.thundercat.util.descriptor.web.ApplicationParameter;
+import org.apache.thundercat.util.descriptor.web.ErrorPage;
+import org.apache.thundercat.util.descriptor.web.FilterDef;
+import org.apache.thundercat.util.descriptor.web.FilterMap;
+import org.apache.thundercat.util.descriptor.web.LoginConfig;
+import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
+import org.apache.thundercat.util.http.CookieProcessor;
 
 /**
  * Minimal implementation for use in unit tests.

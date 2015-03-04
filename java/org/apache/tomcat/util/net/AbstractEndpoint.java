@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 import java.io.File;
 import java.io.OutputStreamWriter;
@@ -33,14 +33,14 @@ import java.util.concurrent.TimeUnit;
 import javax.net.ssl.KeyManagerFactory;
 
 import org.apache.juli.logging.Log;
-import org.apache.tomcat.util.IntrospectionUtils;
-import org.apache.tomcat.util.net.AbstractEndpoint.Acceptor.AcceptorState;
-import org.apache.tomcat.util.res.StringManager;
-import org.apache.tomcat.util.threads.LimitLatch;
-import org.apache.tomcat.util.threads.ResizableExecutor;
-import org.apache.tomcat.util.threads.TaskQueue;
-import org.apache.tomcat.util.threads.TaskThreadFactory;
-import org.apache.tomcat.util.threads.ThreadPoolExecutor;
+import org.apache.thundercat.util.IntrospectionUtils;
+import org.apache.thundercat.util.net.AbstractEndpoint.Acceptor.AcceptorState;
+import org.apache.thundercat.util.res.StringManager;
+import org.apache.thundercat.util.threads.LimitLatch;
+import org.apache.thundercat.util.threads.ResizableExecutor;
+import org.apache.thundercat.util.threads.TaskQueue;
+import org.apache.thundercat.util.threads.TaskThreadFactory;
+import org.apache.thundercat.util.threads.ThreadPoolExecutor;
 /**
  *
  * @author Mladen Turk
@@ -499,7 +499,7 @@ public abstract class AbstractEndpoint<S> {
      * without the {@link org.apache.coyote.ProtocolHandler} being aware of the
      * properties available on those sub-components. One example of such a
      * sub-component is the
-     * {@link org.apache.tomcat.util.net.ServerSocketFactory}.
+     * {@link org.apache.thundercat.util.net.ServerSocketFactory}.
      */
     protected HashMap<String, Object> attributes = new HashMap<>();
 

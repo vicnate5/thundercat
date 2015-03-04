@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 
 /**
@@ -86,15 +86,15 @@ public final class CookieSupport {
                 "false")).booleanValue();
 
         ALLOW_EQUALS_IN_VALUE = Boolean.valueOf(System.getProperty(
-                "org.apache.tomcat.util.http.ServerCookie.ALLOW_EQUALS_IN_VALUE",
+                "org.apache.thundercat.util.http.ServerCookie.ALLOW_EQUALS_IN_VALUE",
                 "false")).booleanValue();
 
         ALLOW_HTTP_SEPARATORS_IN_V0 = Boolean.valueOf(System.getProperty(
-                "org.apache.tomcat.util.http.ServerCookie.ALLOW_HTTP_SEPARATORS_IN_V0",
+                "org.apache.thundercat.util.http.ServerCookie.ALLOW_HTTP_SEPARATORS_IN_V0",
                 "false")).booleanValue();
 
         String preserveCookieHeader = System.getProperty(
-                "org.apache.tomcat.util.http.ServerCookie.PRESERVE_COOKIE_HEADER");
+                "org.apache.thundercat.util.http.ServerCookie.PRESERVE_COOKIE_HEADER");
         if (preserveCookieHeader == null) {
             PRESERVE_COOKIE_HEADER = STRICT_SERVLET_COMPLIANCE;
         } else {
@@ -103,7 +103,7 @@ public final class CookieSupport {
         }
 
         String  fwdSlashIsSeparator = System.getProperty(
-                "org.apache.tomcat.util.http.ServerCookie.FWD_SLASH_IS_SEPARATOR");
+                "org.apache.thundercat.util.http.ServerCookie.FWD_SLASH_IS_SEPARATOR");
         if (fwdSlashIsSeparator == null) {
             FWD_SLASH_IS_SEPARATOR = STRICT_SERVLET_COMPLIANCE;
         } else {
@@ -112,7 +112,7 @@ public final class CookieSupport {
         }
 
         ALLOW_NAME_ONLY = Boolean.valueOf(System.getProperty(
-                "org.apache.tomcat.util.http.ServerCookie.ALLOW_NAME_ONLY",
+                "org.apache.thundercat.util.http.ServerCookie.ALLOW_NAME_ONLY",
                 "false")).booleanValue();
 
 

@@ -67,43 +67,43 @@ import org.apache.catalina.util.ContextName;
 import org.apache.catalina.util.Introspection;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.JarScanType;
-import org.apache.tomcat.JarScanner;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.bcel.classfile.AnnotationElementValue;
-import org.apache.tomcat.util.bcel.classfile.AnnotationEntry;
-import org.apache.tomcat.util.bcel.classfile.ArrayElementValue;
-import org.apache.tomcat.util.bcel.classfile.ClassFormatException;
-import org.apache.tomcat.util.bcel.classfile.ClassParser;
-import org.apache.tomcat.util.bcel.classfile.ElementValue;
-import org.apache.tomcat.util.bcel.classfile.ElementValuePair;
-import org.apache.tomcat.util.bcel.classfile.JavaClass;
-import org.apache.tomcat.util.descriptor.XmlErrorHandler;
-import org.apache.tomcat.util.descriptor.web.ContextEjb;
-import org.apache.tomcat.util.descriptor.web.ContextEnvironment;
-import org.apache.tomcat.util.descriptor.web.ContextLocalEjb;
-import org.apache.tomcat.util.descriptor.web.ContextResource;
-import org.apache.tomcat.util.descriptor.web.ContextResourceEnvRef;
-import org.apache.tomcat.util.descriptor.web.ContextService;
-import org.apache.tomcat.util.descriptor.web.ErrorPage;
-import org.apache.tomcat.util.descriptor.web.FilterDef;
-import org.apache.tomcat.util.descriptor.web.FilterMap;
-import org.apache.tomcat.util.descriptor.web.FragmentJarScannerCallback;
-import org.apache.tomcat.util.descriptor.web.JspPropertyGroup;
-import org.apache.tomcat.util.descriptor.web.LoginConfig;
-import org.apache.tomcat.util.descriptor.web.MessageDestinationRef;
-import org.apache.tomcat.util.descriptor.web.MultipartDef;
-import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
-import org.apache.tomcat.util.descriptor.web.SecurityRoleRef;
-import org.apache.tomcat.util.descriptor.web.ServletDef;
-import org.apache.tomcat.util.descriptor.web.SessionConfig;
-import org.apache.tomcat.util.descriptor.web.WebXml;
-import org.apache.tomcat.util.descriptor.web.WebXmlParser;
-import org.apache.tomcat.util.digester.Digester;
-import org.apache.tomcat.util.digester.RuleSet;
-import org.apache.tomcat.util.res.StringManager;
-import org.apache.tomcat.util.scan.Jar;
-import org.apache.tomcat.util.scan.JarFactory;
+import org.apache.thundercat.JarScanType;
+import org.apache.thundercat.JarScanner;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.bcel.classfile.AnnotationElementValue;
+import org.apache.thundercat.util.bcel.classfile.AnnotationEntry;
+import org.apache.thundercat.util.bcel.classfile.ArrayElementValue;
+import org.apache.thundercat.util.bcel.classfile.ClassFormatException;
+import org.apache.thundercat.util.bcel.classfile.ClassParser;
+import org.apache.thundercat.util.bcel.classfile.ElementValue;
+import org.apache.thundercat.util.bcel.classfile.ElementValuePair;
+import org.apache.thundercat.util.bcel.classfile.JavaClass;
+import org.apache.thundercat.util.descriptor.XmlErrorHandler;
+import org.apache.thundercat.util.descriptor.web.ContextEjb;
+import org.apache.thundercat.util.descriptor.web.ContextEnvironment;
+import org.apache.thundercat.util.descriptor.web.ContextLocalEjb;
+import org.apache.thundercat.util.descriptor.web.ContextResource;
+import org.apache.thundercat.util.descriptor.web.ContextResourceEnvRef;
+import org.apache.thundercat.util.descriptor.web.ContextService;
+import org.apache.thundercat.util.descriptor.web.ErrorPage;
+import org.apache.thundercat.util.descriptor.web.FilterDef;
+import org.apache.thundercat.util.descriptor.web.FilterMap;
+import org.apache.thundercat.util.descriptor.web.FragmentJarScannerCallback;
+import org.apache.thundercat.util.descriptor.web.JspPropertyGroup;
+import org.apache.thundercat.util.descriptor.web.LoginConfig;
+import org.apache.thundercat.util.descriptor.web.MessageDestinationRef;
+import org.apache.thundercat.util.descriptor.web.MultipartDef;
+import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
+import org.apache.thundercat.util.descriptor.web.SecurityRoleRef;
+import org.apache.thundercat.util.descriptor.web.ServletDef;
+import org.apache.thundercat.util.descriptor.web.SessionConfig;
+import org.apache.thundercat.util.descriptor.web.WebXml;
+import org.apache.thundercat.util.descriptor.web.WebXmlParser;
+import org.apache.thundercat.util.digester.Digester;
+import org.apache.thundercat.util.digester.RuleSet;
+import org.apache.thundercat.util.res.StringManager;
+import org.apache.thundercat.util.scan.Jar;
+import org.apache.thundercat.util.scan.JarFactory;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXParseException;
 
@@ -1187,7 +1187,7 @@ public class ContextConfig implements LifecycleListener {
         // TODO Use a ServletContainerInitializer for Jasper
         String mergedWebXml = webXml.toXml();
         sContext.setAttribute(
-               org.apache.tomcat.util.scan.Constants.MERGED_WEB_XML,
+               org.apache.thundercat.util.scan.Constants.MERGED_WEB_XML,
                mergedWebXml);
         if (context.getLogEffectiveWebXml()) {
             log.info("web.xml:\n" + mergedWebXml);
@@ -2048,7 +2048,7 @@ public class ContextConfig implements LifecycleListener {
         }
 
         if ((javaClass.getAccessFlags() &
-                org.apache.tomcat.util.bcel.Constants.ACC_ANNOTATION) > 0) {
+                org.apache.thundercat.util.bcel.Constants.ACC_ANNOTATION) > 0) {
             // Skip annotations.
             return;
         }

@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.modeler.modules;
+package org.apache.thundercat.util.modeler.modules;
 
 import java.util.List;
 
 import javax.management.ObjectName;
 
-import org.apache.tomcat.util.modeler.Registry;
+import org.apache.thundercat.util.modeler.Registry;
 
 /**
  * Source for descriptor data. More sources can be added.

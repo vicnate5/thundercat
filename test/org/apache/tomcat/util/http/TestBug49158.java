@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -34,7 +34,7 @@ import org.junit.Test;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Test case for {@link LegacyCookieProcessor}. <b>Note</b> because of the use of <code>final
@@ -48,9 +48,9 @@ public class TestBug49158 extends CookiesBaseTest {
     @Override
     @Test
     public void testCookiesInstance() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
-        addServlets(tomcat);
-        tomcat.start();
+        Tomcat thundercat = getTomcatInstance();
+        addServlets(thundercat);
+        thundercat.start();
         Map<String,List<String>> headers = new HashMap<>();
         ByteChunk res = new ByteChunk();
         getUrl("http://localhost:" + getPort() + "/"+path, res, headers);
@@ -59,9 +59,9 @@ public class TestBug49158 extends CookiesBaseTest {
                 1, cookieHeaders.size());
     }
 
-    public static void addServlets(Tomcat tomcat) {
+    public static void addServlets(Tomcat thundercat) {
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, path, new TestBug49158Servlet());
         ctx.addServletMapping("/"+path, path);

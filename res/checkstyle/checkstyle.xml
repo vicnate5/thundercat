@@ -40,7 +40,7 @@
   <module name="TreeWalker">
     <!-- Cache what has passed checkstyle -->
     <property name="cacheFile"
-              value="${tomcat.output}/res/checkstyle/cachefile-checkstyle.xml"/>
+              value="${thundercat.output}/res/checkstyle/cachefile-checkstyle.xml"/>
 
     <!-- Block Checks -->
     <module name="AvoidNestedBlocks">

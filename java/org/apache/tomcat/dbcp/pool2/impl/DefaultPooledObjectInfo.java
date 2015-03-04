@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.pool2.impl;
+package org.apache.thundercat.dbcp.pool2.impl;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 
-import org.apache.tomcat.dbcp.pool2.PooledObject;
+import org.apache.thundercat.dbcp.pool2.PooledObject;
 
 /**
  * Implementation of object that is used to provide information on pooled

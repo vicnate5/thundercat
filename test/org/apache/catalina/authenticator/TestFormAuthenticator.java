@@ -39,10 +39,10 @@ import org.apache.catalina.startup.TesterMapRealm;
 import org.apache.catalina.startup.TesterServlet;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.descriptor.web.LoginConfig;
-import org.apache.tomcat.util.descriptor.web.SecurityCollection;
-import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
-import org.apache.tomcat.websocket.server.WsContextListener;
+import org.apache.thundercat.util.descriptor.web.LoginConfig;
+import org.apache.thundercat.util.descriptor.web.SecurityCollection;
+import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
+import org.apache.thundercat.websocket.server.WsContextListener;
 
 /*
  * Test FORM authentication for sessions that do and do not use cookies.
@@ -417,7 +417,7 @@ public class TestFormAuthenticator extends TomcatBaseTest {
     }
 
     /*
-     * Encapsulate the logic needed to run a suitably-configured tomcat
+     * Encapsulate the logic needed to run a suitably-configured thundercat
      * instance, send it an HTTP request and process the server response
      */
     private abstract class FormAuthClientBase extends SimpleHttpClient {
@@ -425,7 +425,7 @@ public class TestFormAuthenticator extends TomcatBaseTest {
         protected static final String LOGIN_PARAM_TAG = "action=";
         protected static final String LOGIN_RESOURCE = "j_security_check";
         protected static final String LOGIN_REPLY =
-                "j_username=tomcat&j_password=tomcat";
+                "j_username=thundercat&j_password=thundercat";
 
         protected static final String PROTECTED_RELATIVE_PATH =
                 "/examples/jsp/security/protected/";
@@ -641,25 +641,25 @@ public class TestFormAuthenticator extends TomcatBaseTest {
 
             this.clientShouldUseHttp11 = clientShouldUseHttp11;
 
-            Tomcat tomcat = getTomcatInstance();
+            Tomcat thundercat = getTomcatInstance();
             File appDir = new File(getBuildDirectory(), "webapps/examples");
-            Context ctx = tomcat.addWebapp(null, "/examples",
+            Context ctx = thundercat.addWebapp(null, "/examples",
                     appDir.getAbsolutePath());
             setUseCookies(clientShouldUseCookies);
             ctx.setCookies(serverShouldUseCookies);
             ctx.addApplicationListener(WsContextListener.class.getName());
 
             TesterMapRealm realm = new TesterMapRealm();
-            realm.addUser("tomcat", "tomcat");
-            realm.addUserRole("tomcat", "tomcat");
+            realm.addUser("thundercat", "thundercat");
+            realm.addUserRole("thundercat", "thundercat");
             ctx.setRealm(realm);
 
-            tomcat.start();
+            thundercat.start();
 
-            // perhaps this does not work until tomcat has started?
+            // perhaps this does not work until thundercat has started?
             ctx.setSessionTimeout(TIMEOUT_MINS);
 
-            // Valve pipeline is only established after tomcat starts
+            // Valve pipeline is only established after thundercat starts
             Valve[] valves = ctx.getPipeline().getValves();
             for (Valve valve : valves) {
                 if (valve instanceof AuthenticatorBase) {
@@ -694,9 +694,9 @@ public class TestFormAuthenticator extends TomcatBaseTest {
 
             this.clientShouldUseHttp11 = clientShouldUseHttp11;
 
-            Tomcat tomcat = getTomcatInstance();
+            Tomcat thundercat = getTomcatInstance();
 
-            Context ctx = tomcat.addContext(
+            Context ctx = thundercat.addContext(
                     "", System.getProperty("java.io.tmpdir"));
             Tomcat.addServlet(ctx, "SelectedMethods",
                     new SelectedMethodsServlet());
@@ -714,7 +714,7 @@ public class TestFormAuthenticator extends TomcatBaseTest {
             collection.addMethod("PUT");
             collection.addPattern("/test");
             constraint.addCollection(collection);
-            constraint.addAuthRole("tomcat");
+            constraint.addAuthRole("thundercat");
             ctx.addConstraint(constraint);
 
             // Configure authentication
@@ -728,16 +728,16 @@ public class TestFormAuthenticator extends TomcatBaseTest {
             ctx.setCookies(serverShouldUseCookies);
 
             TesterMapRealm realm = new TesterMapRealm();
-            realm.addUser("tomcat", "tomcat");
-            realm.addUserRole("tomcat", "tomcat");
+            realm.addUser("thundercat", "thundercat");
+            realm.addUserRole("thundercat", "thundercat");
             ctx.setRealm(realm);
 
-            tomcat.start();
+            thundercat.start();
 
-            // perhaps this does not work until tomcat has started?
+            // perhaps this does not work until thundercat has started?
             ctx.setSessionTimeout(TIMEOUT_MINS);
 
-            // Valve pipeline is only established after tomcat starts
+            // Valve pipeline is only established after thundercat starts
             Valve[] valves = ctx.getPipeline().getValves();
             for (Valve valve : valves) {
                 if (valve instanceof AuthenticatorBase) {
@@ -776,7 +776,7 @@ public class TestFormAuthenticator extends TomcatBaseTest {
             resp.setContentType("text/plain;charset=UTF-8");
 
             if (VALUE.equals(req.getParameter(PARAM)) &&
-                    req.isUserInRole("tomcat")) {
+                    req.isUserInRole("thundercat")) {
                 resp.getWriter().print("OK");
             } else {
                 resp.getWriter().print("FAIL");

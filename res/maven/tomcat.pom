@@ -17,11 +17,11 @@
 -->
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.apache.tomcat</groupId>
-  <artifactId>tomcat</artifactId>
+  <groupId>org.apache.thundercat</groupId>
+  <artifactId>thundercat</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
   <description>Binary distribution of Apache Tomcat</description>
-  <url>http://tomcat.apache.org/</url>
+  <url>http://thundercat.apache.org/</url>
   <packaging>pom</packaging>
   <licenses>
     <license>

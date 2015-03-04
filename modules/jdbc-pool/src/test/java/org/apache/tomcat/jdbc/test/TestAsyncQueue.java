@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.jdbc.test;
+package org.apache.thundercat.jdbc.test;
 
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -26,7 +26,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import org.apache.tomcat.jdbc.pool.FairBlockingQueue;
+import org.apache.thundercat.jdbc.pool.FairBlockingQueue;
 
 public class TestAsyncQueue {
 

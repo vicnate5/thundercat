@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -34,19 +34,19 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestCookieProcessorGenerationHttp extends TomcatBaseTest {
 
     @Test
     public void testUtf8CookieValue() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.setCookieProcessor(new Rfc6265CookieProcessor());
         Tomcat.addServlet(ctx, "test", new CookieServlet("\u0120"));
         ctx.addServletMapping("/test", "test");
-        tomcat.start();
+        thundercat.start();
 
         Map<String,List<String>> headers = new HashMap<>();
         ByteChunk res = new ByteChunk();

@@ -60,10 +60,10 @@ grant codeBase "file:${catalina.home}/bin/commons-daemon.jar" {
 };
 
 // These permissions apply to the logging API
-// Note: If tomcat-juli.jar is in ${catalina.base} and not in ${catalina.home},
+// Note: If thundercat-juli.jar is in ${catalina.base} and not in ${catalina.home},
 // update this section accordingly.
-//  grant codeBase "file:${catalina.base}/bin/tomcat-juli.jar" {..}
-grant codeBase "file:${catalina.home}/bin/tomcat-juli.jar" {
+//  grant codeBase "file:${catalina.base}/bin/thundercat-juli.jar" {..}
+grant codeBase "file:${catalina.home}/bin/thundercat-juli.jar" {
         permission java.io.FilePermission
          "${java.home}${file.separator}lib${file.separator}logging.properties", "read";
 
@@ -164,7 +164,7 @@ grant {
     permission java.util.PropertyPermission "jaxp.debug", "read";
 
     // All JSPs need to be able to read this package
-    permission java.lang.RuntimePermission "accessClassInPackage.org.apache.tomcat";
+    permission java.lang.RuntimePermission "accessClassInPackage.org.apache.thundercat";
 
     // Precompiled JSPs need access to these packages.
     permission java.lang.RuntimePermission "accessClassInPackage.org.apache.jasper.el";
@@ -182,13 +182,13 @@ grant {
     permission java.util.PropertyPermission
      "org.apache.catalina.STRICT_SERVLET_COMPLIANCE", "read";
     permission java.util.PropertyPermission
-     "org.apache.tomcat.util.http.ServerCookie.STRICT_NAMING", "read";
+     "org.apache.thundercat.util.http.ServerCookie.STRICT_NAMING", "read";
     permission java.util.PropertyPermission
-     "org.apache.tomcat.util.http.ServerCookie.FWD_SLASH_IS_SEPARATOR", "read";
+     "org.apache.thundercat.util.http.ServerCookie.FWD_SLASH_IS_SEPARATOR", "read";
 
     // Applications using WebSocket need to be able to access these packages
-    permission java.lang.RuntimePermission "accessClassInPackage.org.apache.tomcat.websocket";
-    permission java.lang.RuntimePermission "accessClassInPackage.org.apache.tomcat.websocket.server";
+    permission java.lang.RuntimePermission "accessClassInPackage.org.apache.thundercat.websocket";
+    permission java.lang.RuntimePermission "accessClassInPackage.org.apache.thundercat.websocket.server";
 };
 
 

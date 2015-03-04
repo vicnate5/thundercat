@@ -34,7 +34,7 @@
   <!-- use the standard properties symbolic variables.                -->
   <!-- Note: inheritall==false will still pass all of these user      -->
   <!--       properties to the Ant build targets of Tomcat            -->
-  <property file="./nbproject/nb-tomcat-build.properties"/>
+  <property file="./nbproject/nb-thundercat-build.properties"/>
 
   <target name="deploy">
     <ant target="deploy" inheritall="false"/>
@@ -129,10 +129,10 @@
 
       <classpath path="${nb-test.classpath}" />
 
-      <sysproperty key="tomcat.test.temp" value="${test.temp}" />
-      <sysproperty key="tomcat.test.tomcatbuild" value="${tomcat.build}" />
-      <sysproperty key="tomcat.test.protocol" value="${nb-test.io-method}"/>
-      <sysproperty key="tomcat.test.accesslog" value="${test.accesslog}" />
+      <sysproperty key="thundercat.test.temp" value="${test.temp}" />
+      <sysproperty key="thundercat.test.thundercatbuild" value="${thundercat.build}" />
+      <sysproperty key="thundercat.test.protocol" value="${nb-test.io-method}"/>
+      <sysproperty key="thundercat.test.accesslog" value="${test.accesslog}" />
 
       <!-- define a non-file JUnit formatter for NetBeans to capture and display -->
       <formatter usefile="false" type="brief" />
@@ -142,7 +142,7 @@
                  extension="@NB-DBG${nb-junit.formatter.extension}"/>
 
       <!-- run the chosen JUnit test class under the debugger -->
-      <test todir="${tomcat.build}/logs" name="${test.entry}"/>
+      <test todir="${thundercat.build}/logs" name="${test.entry}"/>
     </junit>
   </target>
 </project>

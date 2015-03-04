@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.apache.tomcat.util.scan;
+package org.apache.thundercat.util.scan;
 
 import java.util.StringTokenizer;
 

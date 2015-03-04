@@ -38,14 +38,14 @@ maven.asf.release.repo.repositoryId=apache.releases
 maven.asf.release.deploy.version=8.0.16
 
 #Where do we load the libraries from
-tomcat.lib.path=../../output/build/lib
-tomcat.bin.path=../../output/build/bin
-tomcat.release.path=../../output/release
-tomcat.src.path=../../output/src-jars
-tomcat.embed.path=../../output/embed
-tomcat.embed.src.path=../../output/embed-src-jars
-tomcat.extras.path=../../output/extras
-tomcat.extras.src.path=../../output/extras-src-jars
+thundercat.lib.path=../../output/build/lib
+thundercat.bin.path=../../output/build/bin
+thundercat.release.path=../../output/release
+thundercat.src.path=../../output/src-jars
+thundercat.embed.path=../../output/embed
+thundercat.embed.src.path=../../output/embed-src-jars
+thundercat.extras.path=../../output/extras
+thundercat.extras.src.path=../../output/extras-src-jars
 
 #Where do we find the POM files
-tomcat.pom.path=../../res/maven
+thundercat.pom.path=../../res/maven

@@ -14,12 +14,12 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.http.parser;
+package org.apache.thundercat.util.http.parser;
 
 import java.io.IOException;
 import java.io.StringReader;
 
-import org.apache.tomcat.util.collections.ConcurrentCache;
+import org.apache.thundercat.util.collections.ConcurrentCache;
 
 /**
  * Caches the results of parsing content-type headers.

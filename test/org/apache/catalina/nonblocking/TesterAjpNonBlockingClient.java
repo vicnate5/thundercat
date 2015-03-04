@@ -32,7 +32,7 @@ import org.junit.Test;
 
 import org.apache.catalina.nonblocking.TestNonBlockingAPI.DataWriter;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * This is not a standard set of unit tests. This is a set of test clients for

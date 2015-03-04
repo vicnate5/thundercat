@@ -43,7 +43,7 @@ import org.apache.catalina.LifecycleException;
 import org.apache.catalina.Loader;
 import org.apache.catalina.Session;
 import org.apache.catalina.util.CustomObjectInputStream;
-import org.apache.tomcat.util.ExceptionUtils;
+import org.apache.thundercat.util.ExceptionUtils;
 
 /**
  * Implementation of the <code>Store</code> interface that stores
@@ -115,7 +115,7 @@ public class JDBCStore extends StoreBase {
     /**
      * Table to use.
      */
-    protected String sessionTable = "tomcat$sessions";
+    protected String sessionTable = "thundercat$sessions";
 
     /**
      * Column to use for /Engine/Host/Context name

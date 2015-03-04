@@ -32,18 +32,18 @@ import org.apache.catalina.Context;
 import org.apache.catalina.connector.Response;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.descriptor.web.ErrorPage;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.descriptor.web.ErrorPage;
 
 public class TestStandardContextValve extends TomcatBaseTest {
 
     @Test
     public void testBug51653a() throws Exception {
         // Set up a container
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         // Traces order of events across multiple components
         StringBuilder trace = new StringBuilder();
@@ -62,7 +62,7 @@ public class TestStandardContextValve extends TomcatBaseTest {
             new Bug51653RequestListener(trace);
         ((StandardContext) ctx).addApplicationEventListener(reqListener);
 
-        tomcat.start();
+        thundercat.start();
 
         // Request a page that does not exist
         int rc = getUrl("http://localhost:" + getPort() + "/invalid",
@@ -86,10 +86,10 @@ public class TestStandardContextValve extends TomcatBaseTest {
     @Test
     public void testBug51653b() throws Exception {
         // Set up a container
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         // Traces order of events across multiple components
         StringBuilder trace = new StringBuilder();
@@ -112,7 +112,7 @@ public class TestStandardContextValve extends TomcatBaseTest {
             new Bug51653RequestListener(trace);
         ((StandardContext) ctx).addApplicationEventListener(reqListener);
 
-        tomcat.start();
+        thundercat.start();
 
         // Request a page that does not exist
         int rc = getUrl("http://localhost:" + getPort() + "/test",

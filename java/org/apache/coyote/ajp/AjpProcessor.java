@@ -40,19 +40,19 @@ import org.apache.coyote.Request;
 import org.apache.coyote.RequestInfo;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.buf.HexUtils;
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.http.HttpMessages;
-import org.apache.tomcat.util.http.MimeHeaders;
-import org.apache.tomcat.util.net.AbstractEndpoint;
-import org.apache.tomcat.util.net.AbstractEndpoint.Handler.SocketState;
-import org.apache.tomcat.util.net.DispatchType;
-import org.apache.tomcat.util.net.SSLSupport;
-import org.apache.tomcat.util.net.SocketStatus;
-import org.apache.tomcat.util.net.SocketWrapperBase;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.HexUtils;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.http.HttpMessages;
+import org.apache.thundercat.util.http.MimeHeaders;
+import org.apache.thundercat.util.net.AbstractEndpoint;
+import org.apache.thundercat.util.net.AbstractEndpoint.Handler.SocketState;
+import org.apache.thundercat.util.net.DispatchType;
+import org.apache.thundercat.util.net.SSLSupport;
+import org.apache.thundercat.util.net.SocketStatus;
+import org.apache.thundercat.util.net.SocketWrapperBase;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * AJP Processor implementation.
@@ -294,10 +294,10 @@ public class AjpProcessor extends AbstractProcessor {
     /**
      * Use Tomcat authentication ?
      */
-    private boolean tomcatAuthentication = true;
-    public boolean getTomcatAuthentication() { return tomcatAuthentication; }
-    public void setTomcatAuthentication(boolean tomcatAuthentication) {
-        this.tomcatAuthentication = tomcatAuthentication;
+    private boolean thundercatAuthentication = true;
+    public boolean getTomcatAuthentication() { return thundercatAuthentication; }
+    public void setTomcatAuthentication(boolean thundercatAuthentication) {
+        this.thundercatAuthentication = thundercatAuthentication;
     }
 
 
@@ -1158,7 +1158,7 @@ public class AjpProcessor extends AbstractProcessor {
                 break;
 
             case Constants.SC_A_REMOTE_USER :
-                if (tomcatAuthentication) {
+                if (thundercatAuthentication) {
                     // ignore server
                     requestHeaderMessage.getBytes(tmpMB);
                 } else {
@@ -1167,7 +1167,7 @@ public class AjpProcessor extends AbstractProcessor {
                 break;
 
             case Constants.SC_A_AUTH_TYPE :
-                if (tomcatAuthentication) {
+                if (thundercatAuthentication) {
                     // ignore server
                     requestHeaderMessage.getBytes(tmpMB);
                 } else {

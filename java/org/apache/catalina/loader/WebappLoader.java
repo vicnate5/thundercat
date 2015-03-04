@@ -41,9 +41,9 @@ import org.apache.catalina.Loader;
 import org.apache.catalina.util.LifecycleMBeanBase;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.modeler.Registry;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.modeler.Registry;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Classloader implementation which is specialized for handling web

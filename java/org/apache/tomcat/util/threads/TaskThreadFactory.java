@@ -14,14 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.threads;
+package org.apache.thundercat.util.threads;
 
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.apache.tomcat.util.security.PrivilegedSetTccl;
+import org.apache.thundercat.util.security.PrivilegedSetTccl;
 
 /**
  * Simple task thread factory to use to create threads for an executor

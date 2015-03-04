@@ -17,11 +17,11 @@
 -->
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.apache.tomcat.embed</groupId>
-  <artifactId>tomcat-embed-core</artifactId>
+  <groupId>org.apache.thundercat.embed</groupId>
+  <artifactId>thundercat-embed-core</artifactId>
   <version>@MAVEN.DEPLOY.VERSION@</version>
   <description>Core Tomcat implementation</description>
-  <url>http://tomcat.apache.org/</url>
+  <url>http://thundercat.apache.org/</url>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -31,15 +31,15 @@
   </licenses>
   <dependencies>
     <dependency>
-      <groupId>org.apache.tomcat.embed</groupId>
-      <artifactId>tomcat-embed-logging-juli</artifactId>
+      <groupId>org.apache.thundercat.embed</groupId>
+      <artifactId>thundercat-embed-logging-juli</artifactId>
       <version>@MAVEN.DEPLOY.VERSION@</version>
       <scope>compile</scope>
       <optional>true</optional>
     </dependency>
     <dependency>
-      <groupId>org.apache.tomcat.embed</groupId>
-      <artifactId>tomcat-embed-logging-log4j</artifactId>
+      <groupId>org.apache.thundercat.embed</groupId>
+      <artifactId>thundercat-embed-logging-log4j</artifactId>
       <version>@MAVEN.DEPLOY.VERSION@</version>
       <scope>compile</scope>
       <optional>true</optional>

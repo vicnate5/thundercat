@@ -14,13 +14,13 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.util.http;
+package org.apache.thundercat.util.http;
 
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Handle (internationalized) HTTP messages.
@@ -37,7 +37,7 @@ public class HttpMessages {
             new ConcurrentHashMap<>();
 
     private static final HttpMessages DEFAULT = new HttpMessages(
-            StringManager.getManager("org.apache.tomcat.util.http.res",
+            StringManager.getManager("org.apache.thundercat.util.http.res",
                     Locale.getDefault()));
 
 
@@ -97,7 +97,7 @@ public class HttpMessages {
         HttpMessages result = instances.get(locale);
         if (result == null) {
             StringManager sm = StringManager.getManager(
-                    "org.apache.tomcat.util.http.res", locale);
+                    "org.apache.thundercat.util.http.res", locale);
             if (Locale.getDefault().equals(sm.getLocale())) {
                 result = DEFAULT;
             } else {

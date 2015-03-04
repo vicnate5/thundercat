@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.dbcp.pool2;
+package org.apache.thundercat.dbcp.pool2;
 
 import java.util.NoSuchElementException;
 
@@ -48,7 +48,7 @@ import java.util.NoSuchElementException;
  * for each key (essentially creating a {@link java.util.Map Map} of
  * {@link ObjectPool pools}).
  * <p>
- * See {@link org.apache.tomcat.dbcp.pool2.impl.GenericKeyedObjectPool
+ * See {@link org.apache.thundercat.dbcp.pool2.impl.GenericKeyedObjectPool
  * GenericKeyedObjectPool} for an implementation.
  *
  * @param <K> The type of keys maintained by this pool.
@@ -56,7 +56,7 @@ import java.util.NoSuchElementException;
  *
  * @see KeyedPooledObjectFactory
  * @see ObjectPool
- * @see org.apache.tomcat.dbcp.pool2.impl.GenericKeyedObjectPool GenericKeyedObjectPool
+ * @see org.apache.thundercat.dbcp.pool2.impl.GenericKeyedObjectPool GenericKeyedObjectPool
  *
  * @since 2.0
  */

@@ -173,13 +173,13 @@ if not "%CATALINA_TMPDIR%" == "" goto gotTmpdir
 set "CATALINA_TMPDIR=%CATALINA_BASE%\temp"
 :gotTmpdir
 
-rem Add tomcat-juli.jar to classpath
-rem tomcat-juli.jar can be over-ridden per instance
-if not exist "%CATALINA_BASE%\bin\tomcat-juli.jar" goto juliClasspathHome
-set "CLASSPATH=%CLASSPATH%;%CATALINA_BASE%\bin\tomcat-juli.jar"
+rem Add thundercat-juli.jar to classpath
+rem thundercat-juli.jar can be over-ridden per instance
+if not exist "%CATALINA_BASE%\bin\thundercat-juli.jar" goto juliClasspathHome
+set "CLASSPATH=%CLASSPATH%;%CATALINA_BASE%\bin\thundercat-juli.jar"
 goto juliClasspathDone
 :juliClasspathHome
-set "CLASSPATH=%CLASSPATH%;%CATALINA_HOME%\bin\tomcat-juli.jar"
+set "CLASSPATH=%CLASSPATH%;%CATALINA_HOME%\bin\thundercat-juli.jar"
 :juliClasspathDone
 
 if not "%LOGGING_CONFIG%" == "" goto noJuliConfig
@@ -249,7 +249,7 @@ echo   start             Start Catalina in a separate window
 echo   start -security   Start in a separate window with security manager
 echo   stop              Stop Catalina
 echo   configtest        Run a basic syntax check on server.xml
-echo   version           What version of tomcat are you running?
+echo   version           What version of thundercat are you running?
 goto end
 
 :doDebug

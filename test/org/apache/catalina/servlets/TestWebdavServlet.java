@@ -29,8 +29,8 @@ import org.junit.Test;
 
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.websocket.server.WsContextListener;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.websocket.server.WsContextListener;
 
 public class TestWebdavServlet extends TomcatBaseTest {
 
@@ -39,19 +39,19 @@ public class TestWebdavServlet extends TomcatBaseTest {
      */
     @Test
     public void testGetSpecials() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         String contextPath = "/examples";
 
         File appDir = new File(getBuildDirectory(), "webapps" + contextPath);
         // app dir is relative to server home
         org.apache.catalina.Context ctx =
-            tomcat.addWebapp(null, "/examples", appDir.getAbsolutePath());
+            thundercat.addWebapp(null, "/examples", appDir.getAbsolutePath());
 
         Tomcat.addServlet(ctx, "webdav", new WebdavServlet());
         ctx.addServletMapping("/*", "webdav");
 
-        tomcat.start();
+        thundercat.start();
 
         final ByteChunk res = new ByteChunk();
 
@@ -83,20 +83,20 @@ public class TestWebdavServlet extends TomcatBaseTest {
      */
     @Test
     public void testGetWithSubpathmount() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         String contextPath = "/examples";
 
         File appDir = new File(getBuildDirectory(), "webapps" + contextPath);
         // app dir is relative to server home
         org.apache.catalina.Context ctx =
-            tomcat.addWebapp(null, "/examples", appDir.getAbsolutePath());
+            thundercat.addWebapp(null, "/examples", appDir.getAbsolutePath());
 
         Tomcat.addServlet(ctx, "webdav", new WebdavServlet());
         ctx.addServletMapping("/webdav/*", "webdav");
         ctx.addApplicationListener(WsContextListener.class.getName());
 
-        tomcat.start();
+        thundercat.start();
 
         final ByteChunk res = new ByteChunk();
 

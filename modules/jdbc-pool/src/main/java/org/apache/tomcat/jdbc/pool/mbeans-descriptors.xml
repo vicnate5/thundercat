@@ -19,9 +19,9 @@
 
     <mbean        name="TomcatJDBCPool"
            description="Provides per diagnostic metrics and notifications for JDBC operations"
-                domain="tomcat"
+                domain="thundercat"
                  group="jdbc"
-                  type="org.apache.tomcat.jdbc.pool.DataSource">
+                  type="org.apache.thundercat.jdbc.pool.DataSource">
 
     <attribute    name="className"
            description="Fully qualified class name of the managed object"
@@ -309,7 +309,7 @@
              writeable="false"/>
 
     <attribute    name="validatorClassName"
-           description="The name of validator class which implements org.apache.tomcat.jdbc.pool.Validator interface"
+           description="The name of validator class which implements org.apache.thundercat.jdbc.pool.Validator interface"
                   type="java.lang.String"
              writeable="false"/>
 

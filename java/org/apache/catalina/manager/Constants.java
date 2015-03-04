@@ -122,9 +122,9 @@ public class Constants {
             "    <img border=\"0\" alt=\"The Apache Software Foundation\" align=\"left\"\n" +
             "         src=\"{0}/images/asf-logo.gif\">\n" +
             "   </a>\n" +
-            "   <a href=\"http://tomcat.apache.org/\">\n" +
+            "   <a href=\"http://thundercat.apache.org/\">\n" +
             "    <img border=\"0\" alt=\"The Tomcat Servlet/JSP Container\"\n" +
-            "         align=\"right\" src=\"{0}/images/tomcat.gif\">\n" +
+            "         align=\"right\" src=\"{0}/images/thundercat.gif\">\n" +
             "   </a>\n" +
             "  </td>\n" +
             " </tr>\n" +

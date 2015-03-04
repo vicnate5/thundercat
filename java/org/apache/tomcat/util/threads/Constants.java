@@ -14,14 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.threads;
+package org.apache.thundercat.util.threads;
 
 /**
  * Static constants for this package.
  */
 public final class Constants {
 
-    public static final String Package = "org.apache.tomcat.util.threads";
+    public static final String Package = "org.apache.thundercat.util.threads";
 
     public static final long DEFAULT_THREAD_RENEWAL_DELAY = 1000L;
 

@@ -19,8 +19,8 @@ package org.apache.coyote.ajp;
 import org.apache.coyote.Processor;
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.net.AprEndpoint;
-import org.apache.tomcat.util.net.SocketWrapperBase;
+import org.apache.thundercat.util.net.AprEndpoint;
+import org.apache.thundercat.util.net.SocketWrapperBase;
 
 
 /**

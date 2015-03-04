@@ -15,9 +15,9 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<tomcat-users xmlns="http://tomcat.apache.org/xml"
+<thundercat-users xmlns="http://thundercat.apache.org/xml"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd"
+              xsi:schemaLocation="http://thundercat.apache.org/xml thundercat-users.xsd"
               version="1.0">
 <!--
   NOTE:  By default, no user is included in the "manager-gui" role required
@@ -30,10 +30,10 @@
   <!.. ..> that surrounds them.
 -->
 <!--
-  <role rolename="tomcat"/>
+  <role rolename="thundercat"/>
   <role rolename="role1"/>
-  <user username="tomcat" password="tomcat" roles="tomcat"/>
-  <user username="both" password="tomcat" roles="tomcat,role1"/>
-  <user username="role1" password="tomcat" roles="role1"/>
+  <user username="thundercat" password="thundercat" roles="thundercat"/>
+  <user username="both" password="thundercat" roles="thundercat,role1"/>
+  <user username="role1" password="thundercat" roles="role1"/>
 -->
-</tomcat-users>
+</thundercat-users>

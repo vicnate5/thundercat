@@ -16,7 +16,7 @@
  *
  */
 
-package org.apache.tomcat.dbcp.dbcp2;
+package org.apache.thundercat.dbcp.dbcp2;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

@@ -41,7 +41,7 @@ import org.apache.catalina.LifecycleListener;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.Tomcat.FixContextListener;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 public class TestApplicationContext extends TomcatBaseTest {
 
@@ -101,32 +101,32 @@ public class TestApplicationContext extends TomcatBaseTest {
 
     @Test
     public void testGetJspConfigDescriptor() throws Exception {
-        Tomcat tomcat = getTomcatInstanceTestWebapp(false, false);
+        Tomcat thundercat = getTomcatInstanceTestWebapp(false, false);
 
         StandardContext standardContext =
-                (StandardContext) tomcat.getHost().findChildren()[0];
+                (StandardContext) thundercat.getHost().findChildren()[0];
 
         ServletContext servletContext = standardContext.getServletContext();
 
         Assert.assertNull(servletContext.getJspConfigDescriptor());
 
-        tomcat.start();
+        thundercat.start();
 
         Assert.assertNotNull(servletContext.getJspConfigDescriptor());
     }
 
     @Test
     public void testJspPropertyGroupsAreIsolated() throws Exception {
-        Tomcat tomcat = getTomcatInstanceTestWebapp(false, false);
+        Tomcat thundercat = getTomcatInstanceTestWebapp(false, false);
 
         StandardContext standardContext =
-                (StandardContext) tomcat.getHost().findChildren()[0];
+                (StandardContext) thundercat.getHost().findChildren()[0];
 
         ServletContext servletContext = standardContext.getServletContext();
 
         Assert.assertNull(servletContext.getJspConfigDescriptor());
 
-        tomcat.start();
+        thundercat.start();
 
         JspConfigDescriptor jspConfigDescriptor =
                 servletContext.getJspConfigDescriptor();
@@ -142,10 +142,10 @@ public class TestApplicationContext extends TomcatBaseTest {
 
 
     private ServletContext getServletContext() throws LifecycleException {
-        Tomcat tomcat = getTomcatInstanceTestWebapp(false, false);
+        Tomcat thundercat = getTomcatInstanceTestWebapp(false, false);
 
         StandardContext standardContext =
-                (StandardContext) tomcat.getHost().findChildren()[0];
+                (StandardContext) thundercat.getHost().findChildren()[0];
 
         return standardContext.getServletContext();
     }
@@ -163,7 +163,7 @@ public class TestApplicationContext extends TomcatBaseTest {
      */
     @Test
     public void testBug57190() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         Context foo1 = new StandardContext();
         foo1.setName("/foo##1");
@@ -171,7 +171,7 @@ public class TestApplicationContext extends TomcatBaseTest {
         foo1.setWebappVersion("1");
         foo1.addLifecycleListener(new FixContextListener());
         foo1.addLifecycleListener(new SetIdListener("foo1"));
-        tomcat.getHost().addChild(foo1);
+        thundercat.getHost().addChild(foo1);
 
         Context foo2 = new StandardContext();
         foo2.setName("/foo##2");
@@ -179,19 +179,19 @@ public class TestApplicationContext extends TomcatBaseTest {
         foo2.setWebappVersion("2");
         foo2.addLifecycleListener(new FixContextListener());
         foo2.addLifecycleListener(new SetIdListener("foo2"));
-        tomcat.getHost().addChild(foo2);
+        thundercat.getHost().addChild(foo2);
 
-        Context bar = tomcat.addContext("/bar", null);
+        Context bar = thundercat.addContext("/bar", null);
         bar.addLifecycleListener(new SetIdListener("bar"));
 
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
         ctx.addLifecycleListener(new SetIdListener("ROOT"));
         ctx.setCrossContext(true);
 
         Tomcat.addServlet(ctx, "Bug57190Servlet", new Bug57190Servlet());
         ctx.addServletMapping("/", "Bug57190Servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk res = getUrl("http://localhost:" + getPort() + "/");
         String body = res.toString();

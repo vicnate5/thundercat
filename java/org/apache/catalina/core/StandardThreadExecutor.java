@@ -24,10 +24,10 @@ import org.apache.catalina.Executor;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.LifecycleState;
 import org.apache.catalina.util.LifecycleMBeanBase;
-import org.apache.tomcat.util.threads.ResizableExecutor;
-import org.apache.tomcat.util.threads.TaskQueue;
-import org.apache.tomcat.util.threads.TaskThreadFactory;
-import org.apache.tomcat.util.threads.ThreadPoolExecutor;
+import org.apache.thundercat.util.threads.ResizableExecutor;
+import org.apache.thundercat.util.threads.TaskQueue;
+import org.apache.thundercat.util.threads.TaskThreadFactory;
+import org.apache.thundercat.util.threads.ThreadPoolExecutor;
 
 public class StandardThreadExecutor extends LifecycleMBeanBase
         implements Executor, ResizableExecutor {
@@ -46,7 +46,7 @@ public class StandardThreadExecutor extends LifecycleMBeanBase
     /**
      * Default name prefix for the thread name
      */
-    protected String namePrefix = "tomcat-exec-";
+    protected String namePrefix = "thundercat-exec-";
 
     /**
      * max number of threads
@@ -89,7 +89,7 @@ public class StandardThreadExecutor extends LifecycleMBeanBase
      * threads being renewed.
      */
     protected long threadRenewalDelay =
-        org.apache.tomcat.util.threads.Constants.DEFAULT_THREAD_RENEWAL_DELAY;
+        org.apache.thundercat.util.threads.Constants.DEFAULT_THREAD_RENEWAL_DELAY;
 
     private TaskQueue taskqueue = null;
     // ---------------------------------------------- Constructors

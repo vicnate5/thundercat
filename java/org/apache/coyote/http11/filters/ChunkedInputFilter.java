@@ -24,11 +24,11 @@ import org.apache.coyote.InputBuffer;
 import org.apache.coyote.Request;
 import org.apache.coyote.http11.Constants;
 import org.apache.coyote.http11.InputFilter;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.buf.HexUtils;
-import org.apache.tomcat.util.buf.MessageBytes;
-import org.apache.tomcat.util.http.MimeHeaders;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.HexUtils;
+import org.apache.thundercat.util.buf.MessageBytes;
+import org.apache.thundercat.util.http.MimeHeaders;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Chunked input filter. Parses chunked data according to

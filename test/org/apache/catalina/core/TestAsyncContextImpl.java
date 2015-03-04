@@ -55,8 +55,8 @@ import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
 import org.apache.catalina.valves.TesterAccessLogValve;
-import org.apache.tomcat.util.buf.ByteChunk;
-import org.apache.tomcat.util.descriptor.web.ErrorPage;
+import org.apache.thundercat.util.buf.ByteChunk;
+import org.apache.thundercat.util.descriptor.web.ErrorPage;
 
 public class TestAsyncContextImpl extends TomcatBaseTest {
 
@@ -84,10 +84,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testBug49528() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Bug49528Servlet servlet = new Bug49528Servlet();
 
@@ -98,7 +98,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
 
-        tomcat.start();
+        thundercat.start();
 
         // Call the servlet once
         ByteChunk bc = getUrl("http://localhost:" + getPort() + "/");
@@ -121,10 +121,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testBug49567() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Bug49567Servlet servlet = new Bug49567Servlet();
 
@@ -135,7 +135,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
 
-        tomcat.start();
+        thundercat.start();
 
         // Call the servlet once
         ByteChunk bc = getUrl("http://localhost:" + getPort() + "/");
@@ -159,14 +159,14 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     public void testAsyncStartNoComplete() throws Exception {
         resetTracker();
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // Minimise pauses during test
-        tomcat.getConnector().setAttribute(
+        thundercat.getConnector().setAttribute(
                 "connectionTimeout", Integer.valueOf(3000));
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         AsyncStartNoCompleteServlet servlet =
             new AsyncStartNoCompleteServlet();
@@ -178,7 +178,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
 
-        tomcat.start();
+        thundercat.start();
 
         // Call the servlet the first time
         getUrl("http://localhost:" + getPort() + "/?echo=run1");
@@ -202,10 +202,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testAsyncStartWithComplete() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         AsyncStartWithCompleteServlet servlet =
             new AsyncStartWithCompleteServlet();
@@ -217,7 +217,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
 
-        tomcat.start();
+        thundercat.start();
 
         // Call the servlet once
         ByteChunk bc = new ByteChunk();
@@ -459,10 +459,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         }
 
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         TimeoutServlet timeout = new TimeoutServlet(completeOnTimeout, dispatchUrl);
 
@@ -490,9 +490,9 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
         TesterAccessLogValve alvGlobal = new TesterAccessLogValve();
-        tomcat.getHost().getPipeline().addValve(alvGlobal);
+        thundercat.getHost().getPipeline().addValve(alvGlobal);
 
-        tomcat.start();
+        thundercat.start();
         try {
             getUrl("http://localhost:" + getPort() + "/start");
         } catch (IOException ioe) {
@@ -615,10 +615,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     private void doTestDispatch(int iter, boolean useThread) throws Exception {
         resetTracker();
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         DispatchingServlet dispatch = new DispatchingServlet(false, false);
         Wrapper wrapper = Tomcat.addServlet(ctx, "dispatch", dispatch);
@@ -635,7 +635,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
 
-        tomcat.start();
+        thundercat.start();
 
         StringBuilder url = new StringBuilder(48);
         url.append("http://localhost:");
@@ -734,10 +734,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     public void testListeners() throws Exception {
         resetTracker();
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         TrackingServlet tracking = new TrackingServlet();
         Wrapper wrapper = Tomcat.addServlet(ctx, "tracking", tracking);
@@ -752,7 +752,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
 
-        tomcat.start();
+        thundercat.start();
 
         StringBuilder url = new StringBuilder(48);
         url.append("http://localhost:");
@@ -956,10 +956,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
             throws Exception {
         resetTracker();
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         DispatchingServlet dispatch =
             new DispatchingServlet(true, completeOnError);
@@ -976,7 +976,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
 
-        tomcat.start();
+        thundercat.start();
 
         StringBuilder url = new StringBuilder(48);
         url.append("http://localhost:");
@@ -1035,10 +1035,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     public void testBug50352() throws Exception {
         resetTracker();
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         AsyncStartRunnable servlet = new AsyncStartRunnable();
         Wrapper wrapper = Tomcat.addServlet(ctx, "servlet", servlet);
@@ -1048,7 +1048,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
 
-        tomcat.start();
+        thundercat.start();
 
         getUrl("http://localhost:" + getPort() + "/");
 
@@ -1102,10 +1102,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testBug50753() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Bug50753Servlet servlet = new Bug50753Servlet();
 
@@ -1116,7 +1116,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
 
-        tomcat.start();
+        thundercat.start();
 
         // Call the servlet once
         Map<String,List<String>> headers = new LinkedHashMap<>();
@@ -1166,10 +1166,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testErrorHandling() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         ErrorServlet error = new ErrorServlet();
         Tomcat.addServlet(ctx, "error", error);
@@ -1178,7 +1178,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
 
-        tomcat.start();
+        thundercat.start();
 
         StringBuilder url = new StringBuilder(48);
         url.append("http://localhost:");
@@ -1200,10 +1200,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testCommitOnComplete() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         AsyncStatusServlet asyncStatusServlet =
             new AsyncStatusServlet(HttpServletResponse.SC_BAD_REQUEST);
@@ -1215,7 +1215,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
 
-        tomcat.start();
+        thundercat.start();
 
         StringBuilder url = new StringBuilder(48);
         url.append("http://localhost:");
@@ -1278,10 +1278,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
 
     private void doTestBug51197(boolean threaded, boolean customError) throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         AsyncErrorServlet asyncErrorServlet =
             new AsyncErrorServlet(HttpServletResponse.SC_BAD_REQUEST, threaded);
@@ -1304,7 +1304,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
 
-        tomcat.start();
+        thundercat.start();
 
         StringBuilder url = new StringBuilder(48);
         url.append("http://localhost:");
@@ -1395,10 +1395,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testBug53337() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Wrapper a = Tomcat.addServlet(ctx, "ServletA", new Bug53337ServletA());
         a.setAsyncSupported(true);
@@ -1409,7 +1409,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         ctx.addServletMapping("/ServletB", "ServletB");
         ctx.addServletMapping("/ServletC", "ServletC");
 
-        tomcat.start();
+        thundercat.start();
 
         StringBuilder url = new StringBuilder(48);
         url.append("http://localhost:");
@@ -1475,10 +1475,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testBug53843() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Bug53843ServletA servletA = new Bug53843ServletA();
         Wrapper a = Tomcat.addServlet(ctx, "ServletA", servletA);
@@ -1488,7 +1488,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         ctx.addServletMapping("/ServletA", "ServletA");
         ctx.addServletMapping("/ServletB", "ServletB");
 
-        tomcat.start();
+        thundercat.start();
 
         StringBuilder url = new StringBuilder(48);
         url.append("http://localhost:");
@@ -1588,10 +1588,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
             ErrorPageAsyncMode mode) throws Exception {
         resetTracker();
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         TimeoutServlet timeout = new TimeoutServlet(null, null);
         Wrapper w1 = Tomcat.addServlet(ctx, "time", timeout);
@@ -1625,9 +1625,9 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
         TesterAccessLogValve alvGlobal = new TesterAccessLogValve();
-        tomcat.getHost().getPipeline().addValve(alvGlobal);
+        thundercat.getHost().getPipeline().addValve(alvGlobal);
 
-        tomcat.start();
+        thundercat.start();
         ByteChunk res = new ByteChunk();
         try {
             getUrl("http://localhost:" + getPort() + "/async", res, null);
@@ -1717,10 +1717,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testBug54178() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Bug54178ServletA bug54178ServletA = new Bug54178ServletA();
         Wrapper wrapper =
@@ -1732,7 +1732,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         Tomcat.addServlet(ctx, "bug54178ServletB", bug54178ServletB);
         ctx.addServletMapping("/bug54178ServletB", "bug54178ServletB");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk body = new ByteChunk();
         int rc = -1;
@@ -1820,10 +1820,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     public void testForbiddenDispatching() throws Exception {
         resetTracker();
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         NonAsyncServlet nonAsyncServlet = new NonAsyncServlet();
         Wrapper wrapper = Tomcat.addServlet(ctx, "nonAsyncServlet",
@@ -1838,7 +1838,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         ctx.addServletMapping("/forbiddenDispatchingServlet",
                 "forbiddenDispatchingServlet");
 
-        tomcat.start();
+        thundercat.start();
 
         try {
             getUrl("http://localhost:" + getPort()
@@ -1910,10 +1910,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
 
     private void doTestAsyncISE(boolean useGetRequest) throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         AsyncISEServlet servlet = new AsyncISEServlet();
 
@@ -1921,7 +1921,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         w.setAsyncSupported(true);
         ctx.addServletMapping("/test", "AsyncISEServlet");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk response = new ByteChunk();
         int rc = getUrl("http://localhost:" + getPort() +"/test", response,
@@ -2047,10 +2047,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     private void prepareApplicationWithGenericServlet(String contextPath)
             throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext(contextPath, null);
+        Context ctx = thundercat.addContext(contextPath, null);
 
         DispatchingGenericServlet dispatch = new DispatchingGenericServlet();
         Wrapper wrapper = Tomcat.addServlet(ctx, "dispatch", dispatch);
@@ -2063,7 +2063,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         wrapper2.setAsyncSupported(true);
         ctx.addServletMapping("/target", "customGeneric");
 
-        tomcat.start();
+        thundercat.start();
     }
 
     private void requestApplicationWithGenericServlet(String path,
@@ -2089,10 +2089,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         resetTracker();
 
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Servlet stage1 = new DispatchingServletTracking("/stage2", true);
         Wrapper wrapper1 = Tomcat.addServlet(ctx, "stage1", stage1);
@@ -2111,7 +2111,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         TesterAccessLogValve alv = new TesterAccessLogValve();
         ctx.getPipeline().addValve(alv);
 
-        tomcat.start();
+        thundercat.start();
 
         getUrl("http://localhost:" + getPort()+ "/stage1");
 
@@ -2149,17 +2149,17 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     @Test
     public void testAsyncRequestURI() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Servlet servlet = new AsyncRequestUriServlet();
         Wrapper wrapper1 = Tomcat.addServlet(ctx, "bug57559", servlet);
         wrapper1.setAsyncSupported(true);
         ctx.addServletMapping("/", "bug57559");
 
-        tomcat.start();
+        thundercat.start();
 
         String uri = "/foo/%24/bar";
         String uriDecoded = "/foo/$/bar";
@@ -2191,10 +2191,10 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
     public void testDispatchFromOtherContainerThread() throws Exception {
         resetTracker();
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         NonAsyncServlet nonAsyncServlet = new NonAsyncServlet();
         Tomcat.addServlet(ctx, "nonAsyncServlet", nonAsyncServlet);
@@ -2210,7 +2210,7 @@ public class TestAsyncContextImpl extends TomcatBaseTest {
         w2.setAsyncSupported(true);
         ctx.addServletMapping("/asyncRetrieveServlet", "asyncRetrieveServlet");
 
-        tomcat.start();
+        thundercat.start();
 
         // First request in separate thread because the response won't be
         // written until after the second request has been made.

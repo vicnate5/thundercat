@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.apache.tomcat.websocket.pojo;
+package org.apache.thundercat.websocket.pojo;
 
 import java.util.Map;
 
@@ -22,7 +22,7 @@ import javax.websocket.EndpointConfig;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpointConfig;
 
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * Wrapper class for instances of POJOs annotated with
@@ -35,9 +35,9 @@ public class PojoEndpointServer extends PojoEndpointBase {
             StringManager.getManager(Constants.PACKAGE_NAME);
 
     public static final String POJO_PATH_PARAM_KEY =
-            "org.apache.tomcat.websocket.pojo.PojoEndpoint.pathParams";
+            "org.apache.thundercat.websocket.pojo.PojoEndpoint.pathParams";
     public static final String POJO_METHOD_MAPPING_KEY =
-            "org.apache.tomcat.websocket.pojo.PojoEndpoint.methodMapping";
+            "org.apache.thundercat.websocket.pojo.PojoEndpoint.methodMapping";
 
 
     @Override

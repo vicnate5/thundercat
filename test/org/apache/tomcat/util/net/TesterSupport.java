@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -40,31 +40,31 @@ import org.apache.catalina.authenticator.SSLAuthenticator;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.startup.TesterMapRealm;
 import org.apache.catalina.startup.Tomcat;
-import org.apache.tomcat.util.descriptor.web.LoginConfig;
-import org.apache.tomcat.util.descriptor.web.SecurityCollection;
-import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
+import org.apache.thundercat.util.descriptor.web.LoginConfig;
+import org.apache.thundercat.util.descriptor.web.SecurityCollection;
+import org.apache.thundercat.util.descriptor.web.SecurityConstraint;
 
 public final class TesterSupport {
 
     public static final String ROLE = "testrole";
 
-    public static void initSsl(Tomcat tomcat) {
-        initSsl(tomcat, "localhost.jks", null, null);
+    public static void initSsl(Tomcat thundercat) {
+        initSsl(thundercat, "localhost.jks", null, null);
     }
 
-    protected static void initSsl(Tomcat tomcat, String keystore,
+    protected static void initSsl(Tomcat thundercat, String keystore,
             String keystorePass, String keyPass) {
 
-        String protocol = tomcat.getConnector().getProtocolHandlerClassName();
+        String protocol = thundercat.getConnector().getProtocolHandlerClassName();
         if (protocol.indexOf("Apr") == -1) {
-            Connector connector = tomcat.getConnector();
+            Connector connector = thundercat.getConnector();
             connector.setProperty("sslProtocol", "tls");
             File keystoreFile =
-                new File("test/org/apache/tomcat/util/net/" + keystore);
+                new File("test/org/apache/thundercat/util/net/" + keystore);
             connector.setAttribute("keystoreFile",
                     keystoreFile.getAbsolutePath());
             File truststoreFile = new File(
-                    "test/org/apache/tomcat/util/net/ca.jks");
+                    "test/org/apache/thundercat/util/net/ca.jks");
             connector.setAttribute("truststoreFile",
                     truststoreFile.getAbsolutePath());
             if (keystorePass != null) {
@@ -75,22 +75,22 @@ public final class TesterSupport {
             }
         } else {
             File keystoreFile = new File(
-                    "test/org/apache/tomcat/util/net/localhost-cert.pem");
-            tomcat.getConnector().setAttribute("SSLCertificateFile",
+                    "test/org/apache/thundercat/util/net/localhost-cert.pem");
+            thundercat.getConnector().setAttribute("SSLCertificateFile",
                     keystoreFile.getAbsolutePath());
             keystoreFile = new File(
-                    "test/org/apache/tomcat/util/net/localhost-key.pem");
-            tomcat.getConnector().setAttribute("SSLCertificateKeyFile",
+                    "test/org/apache/thundercat/util/net/localhost-key.pem");
+            thundercat.getConnector().setAttribute("SSLCertificateKeyFile",
                     keystoreFile.getAbsolutePath());
         }
-        tomcat.getConnector().setSecure(true);
-        tomcat.getConnector().setProperty("SSLEnabled", "true");
+        thundercat.getConnector().setSecure(true);
+        thundercat.getConnector().setProperty("SSLEnabled", "true");
     }
 
     protected static KeyManager[] getUser1KeyManagers() throws Exception {
         KeyManagerFactory kmf = KeyManagerFactory.getInstance(
                 KeyManagerFactory.getDefaultAlgorithm());
-        kmf.init(getKeyStore("test/org/apache/tomcat/util/net/user1.jks"),
+        kmf.init(getKeyStore("test/org/apache/thundercat/util/net/user1.jks"),
                 "changeit".toCharArray());
         return kmf.getKeyManagers();
     }
@@ -98,7 +98,7 @@ public final class TesterSupport {
     protected static TrustManager[] getTrustManagers() throws Exception {
         TrustManagerFactory tmf = TrustManagerFactory.getInstance(
                 TrustManagerFactory.getDefaultAlgorithm());
-        tmf.init(getKeyStore("test/org/apache/tomcat/util/net/ca.jks"));
+        tmf.init(getKeyStore("test/org/apache/thundercat/util/net/ca.jks"));
         return tmf.getTrustManagers();
     }
 
@@ -128,8 +128,8 @@ public final class TesterSupport {
         return System.getProperty("os.name").toLowerCase(Locale.ENGLISH).startsWith("mac os x");
     }
 
-    protected static boolean isRenegotiationSupported(Tomcat tomcat) {
-        String protocol = tomcat.getConnector().getProtocolHandlerClassName();
+    protected static boolean isRenegotiationSupported(Tomcat thundercat) {
+        String protocol = thundercat.getConnector().getProtocolHandlerClassName();
         if (protocol.contains("Apr")) {
             // Disabled by default in 1.1.20 windows binary (2010-07-27)
             return false;
@@ -142,12 +142,12 @@ public final class TesterSupport {
         return true;
     }
 
-    protected static void configureClientCertContext(Tomcat tomcat) {
-        TesterSupport.initSsl(tomcat);
+    protected static void configureClientCertContext(Tomcat thundercat) {
+        TesterSupport.initSsl(thundercat);
 
         // Need a web application with a protected and unprotected URL
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "simple", new SimpleServlet());
         ctx.addServletMapping("/unprotected", "simple");

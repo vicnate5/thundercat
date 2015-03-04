@@ -41,10 +41,10 @@ public class TestVirtualWebappLoader extends TomcatBaseTest {
 
     @Test
     public void testStartInternal() throws Exception {
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         File appDir = new File("test/webapp");
-        StandardContext ctx = (StandardContext) tomcat.addContext("",
+        StandardContext ctx = (StandardContext) thundercat.addContext("",
                 appDir.getAbsolutePath());
 
 
@@ -77,6 +77,6 @@ public class TestVirtualWebappLoader extends TomcatBaseTest {
         // clear loader
         ctx.setLoader(null);
         // see tearDown()!
-        tomcat.start();
+        thundercat.start();
     }
 }

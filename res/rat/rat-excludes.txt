@@ -111,9 +111,9 @@ output/dist/src/webapps/docs/architecture/requestProcess/roseModel.mdl
 output/dist/webapps/docs/architecture/requestProcess/roseModel.mdl
 webapps/docs/architecture/requestProcess/roseModel.mdl
 
-output/dist/confinstall/tomcat-users_2.xml
-output/dist/src/res/confinstall/tomcat-users_2.xml
-res/confinstall/tomcat-users_2.xml
+output/dist/confinstall/thundercat-users_2.xml
+output/dist/src/res/confinstall/thundercat-users_2.xml
+res/confinstall/thundercat-users_2.xml
 
 java/javax/servlet/resources/javaee_5.xsd
 java/javax/servlet/resources/javaee_6.xsd

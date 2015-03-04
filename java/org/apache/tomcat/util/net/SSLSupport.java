@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.util.net;
+package org.apache.thundercat.util.net;
 
 import java.io.IOException;
 import java.security.cert.X509Certificate;
@@ -60,7 +60,7 @@ public interface SSLSupport {
      * that created the SSL socket is recorded - e.g. TLSv1 or TLSv1.2 etc.
      */
     public static final String PROTOCOL_VERSION_KEY =
-            "org.apache.tomcat.util.net.secure_protocol_version";
+            "org.apache.thundercat.util.net.secure_protocol_version";
 
     /**
      * The cipher suite being used on this connection.

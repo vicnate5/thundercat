@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat.util.descriptor.web;
+package org.apache.thundercat.util.descriptor.web;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,11 +22,11 @@ import java.net.URL;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.ExceptionUtils;
-import org.apache.tomcat.util.descriptor.DigesterFactory;
-import org.apache.tomcat.util.descriptor.XmlErrorHandler;
-import org.apache.tomcat.util.digester.Digester;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.ExceptionUtils;
+import org.apache.thundercat.util.descriptor.DigesterFactory;
+import org.apache.thundercat.util.descriptor.XmlErrorHandler;
+import org.apache.thundercat.util.digester.Digester;
+import org.apache.thundercat.util.res.StringManager;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXParseException;
 

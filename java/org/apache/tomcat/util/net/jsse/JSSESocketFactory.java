@@ -15,7 +15,7 @@
  *  limitations under the License.
  */
 
-package org.apache.tomcat.util.net.jsse;
+package org.apache.thundercat.util.net.jsse;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -56,16 +56,16 @@ import javax.net.ssl.X509KeyManager;
 
 import org.apache.juli.logging.Log;
 import org.apache.juli.logging.LogFactory;
-import org.apache.tomcat.util.net.AbstractEndpoint;
-import org.apache.tomcat.util.net.Constants;
-import org.apache.tomcat.util.net.SSLUtil;
-import org.apache.tomcat.util.net.jsse.openssl.OpenSSLCipherConfigurationParser;
-import org.apache.tomcat.util.res.StringManager;
+import org.apache.thundercat.util.net.AbstractEndpoint;
+import org.apache.thundercat.util.net.Constants;
+import org.apache.thundercat.util.net.SSLUtil;
+import org.apache.thundercat.util.net.jsse.openssl.OpenSSLCipherConfigurationParser;
+import org.apache.thundercat.util.res.StringManager;
 
 /**
  * SSL server socket factory. It <b>requires</b> a valid RSA key and
  * JSSE.<br>
- * keytool -genkey -alias tomcat -keyalg RSA<br>
+ * keytool -genkey -alias thundercat -keyalg RSA<br>
  * Use "changeit" as password (this is the default we use).
  *
  * @author Harish Prabandham
@@ -78,7 +78,7 @@ public class JSSESocketFactory implements SSLUtil {
 
     private static final Log log = LogFactory.getLog(JSSESocketFactory.class);
     private static final StringManager sm =
-        StringManager.getManager("org.apache.tomcat.util.net.jsse.res");
+        StringManager.getManager("org.apache.thundercat.util.net.jsse.res");
 
     // Defaults - made public where re-used
     private static final String defaultProtocol = "TLS";

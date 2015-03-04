@@ -37,18 +37,18 @@ public class TestTagPluginManager extends TomcatBaseTest {
 
     @Test
     public void testBug54240() throws Exception {
-        Tomcat tomcat = getTomcatInstanceTestWebapp(false, true);
+        Tomcat thundercat = getTomcatInstanceTestWebapp(false, true);
 
 
 
-        ServletContext context = ((Context) tomcat.getHost().findChildren()[0]).getServletContext();
+        ServletContext context = ((Context) thundercat.getHost().findChildren()[0]).getServletContext();
 
         TagPluginManager manager = new TagPluginManager(context);
 
         Node.Nodes nodes = new Node.Nodes();
         Node.CustomTag c = new Node.CustomTag("test:ATag", "test", "ATag",
-                "http://tomcat.apache.org/jasper", null, null, null, null, null,
-                new TagFileInfo("ATag", "http://tomcat.apache.org/jasper",
+                "http://thundercat.apache.org/jasper", null, null, null, null, null,
+                new TagFileInfo("ATag", "http://thundercat.apache.org/jasper",
                         tagInfo));
         c.setTagHandlerClass(TesterTag.class);
         nodes.add(c);

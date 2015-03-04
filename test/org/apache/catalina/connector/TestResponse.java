@@ -38,7 +38,7 @@ import org.junit.Test;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.startup.TomcatBaseTest;
-import org.apache.tomcat.util.buf.ByteChunk;
+import org.apache.thundercat.util.buf.ByteChunk;
 
 /**
  * Test case for {@link Request}.
@@ -48,15 +48,15 @@ public class TestResponse extends TomcatBaseTest {
     @Test
     public void testBug49598() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "servlet", new Bug49598Servlet());
         ctx.addServletMapping("/", "servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         Map<String,List<String>> headers = new HashMap<>();
         getUrl("http://localhost:" + getPort() + "/", new ByteChunk(), headers);
@@ -104,15 +104,15 @@ public class TestResponse extends TomcatBaseTest {
     @Test
     public void testCharset() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "servlet", new CharsetServlet());
         ctx.addServletMapping("/", "servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk bc = getUrl("http://localhost:" + getPort() + "/");
 
@@ -143,15 +143,15 @@ public class TestResponse extends TomcatBaseTest {
     @Test
     public void testBug52811() throws Exception {
         // Setup Tomcat instance
-        Tomcat tomcat = getTomcatInstance();
+        Tomcat thundercat = getTomcatInstance();
 
         // No file system docBase required
-        Context ctx = tomcat.addContext("", null);
+        Context ctx = thundercat.addContext("", null);
 
         Tomcat.addServlet(ctx, "servlet", new Bug52811Servlet());
         ctx.addServletMapping("/", "servlet");
 
-        tomcat.start();
+        thundercat.start();
 
         ByteChunk bc = getUrl("http://localhost:" + getPort() + "/");
 

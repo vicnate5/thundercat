@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.tomcat;
+package org.apache.thundercat;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -23,7 +23,7 @@ import javax.naming.NamingException;
 /**
  * SimpleInstanceManager
  *
- * Implement the org.apache.tomcat.InstanceManager interface.
+ * Implement the org.apache.thundercat.InstanceManager interface.
  */
 public class SimpleInstanceManager implements InstanceManager {
 
